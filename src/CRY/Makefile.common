@@ -1,0 +1,4 @@
+SHELL = /bin/bash   #....default in Ubuntu is dash which can cause problems
+CXX = g++
+CXXFLAGS += -I.
+#CXXFLAGS += -g  #....Turn on debug flag

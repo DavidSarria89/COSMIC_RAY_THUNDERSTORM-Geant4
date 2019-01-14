@@ -25,18 +25,14 @@
 // ********************************************************************
 
 #include "RegionInformation.hh"
-#include "G4ios.hh"
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-RegionInformation::RegionInformation()
-    : G4VUserRegionInformation()
+RegionInformation::RegionInformation() : G4VUserRegionInformation()
 {}
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-RegionInformation::~RegionInformation()
-{}
+RegionInformation::~RegionInformation() = default;
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-void
-RegionInformation::Print() const
+void RegionInformation::Print() const
 {}

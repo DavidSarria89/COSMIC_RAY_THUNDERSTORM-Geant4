@@ -1,0 +1,565 @@
+
+*************************************************************
+ Geant4 version Name: geant4-09-03-patch-02-ref    (17-September-2010)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+CRY::CRYSetup: Setting returnNeutrons to 1
+CRY::CRYSetup: Setting returnProtons to 1
+CRY::CRYSetup: Setting returnGammas to 1
+CRY::CRYSetup: Setting returnPions to 1
+CRY::CRYSetup: Setting returnKaons to 1
+CRY::CRYSetup: Setting date to 7-1-2012 (month-day-year)
+CRY::CRYSetup: Setting latitude to 90
+CRY::CRYSetup: Setting altitude to 0
+CRY::CRYSetup: Setting subboxLength to 100
+
+phot:   for  gamma    SubType= 12
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       PhotoElectric :     Emin=          0 eV         Emax=   10 TeV
+
+compt:   for  gamma    SubType= 13
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina :     Emin=          0 eV         Emax=   10 TeV
+
+pol-compt:   for  gamma    SubType= 13
+      Lambda tables from 100 eV  to 100 GeV in 90 bins, spline: 1
+ Total cross sections has a good parametrisation from 10 KeV to (100/Z) GeV
+      Sampling according Polarized-Compton model
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   Polarized-Compton :     Emin=          0 eV         Emax=   100 GeV
+
+conv:   for  gamma    SubType= 14
+      Lambda tables from 1.022 MeV to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Bethe-Heitler :     Emin=          0 eV         Emax=   10 TeV
+
+msc:   for e-    SubType= 10
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      RangeFactor= 0.04, step limit type: 1, lateralDisplacement: 1, skin= 3, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          UrbanMsc92 :     Emin=          0 eV         Emax=   10 TeV
+
+eIoni:   for  e-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :     Emin=          0 eV         Emax=   10 TeV
+
+eBrem:   for  e-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      LPM flag: 1 for E > 1 GeV
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               eBrem :     Emin=          0 eV         Emax=   1 GeV
+            eBremRel :     Emin=          1 GeV        Emax=   10 TeV
+
+eIoni:   for  e+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :     Emin=          0 eV         Emax=   10 TeV
+
+eBrem:   for  e+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      LPM flag: 1 for E > 1 GeV
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               eBrem :     Emin=          0 eV         Emax=   1 GeV
+            eBremRel :     Emin=          1 GeV        Emax=   10 TeV
+
+annihil:   for  e+    SubType= 5
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg :     Emin=          0 eV         Emax=   10 TeV
+
+msc:   for proton    SubType= 10
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 1, skin= 3, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          UrbanMsc90 :     Emin=          0 eV         Emax=   10 TeV
+
+hIoni:   for  proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   2 MeV
+          BetheBloch :     Emin=          2 MeV        Emax=   10 TeV
+
+msc:   for GenericIon    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0, skin= 3, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          UrbanMsc90 :     Emin=          0 eV         Emax=   10 TeV
+
+hIoni:   for  anti_proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   2 MeV
+          BetheBloch :     Emin=          2 MeV        Emax=   10 TeV
+
+hIoni:   for  kaon+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   1.05231 MeV
+          BetheBloch :     Emin=    1.05231 MeV        Emax=   10 TeV
+
+hIoni:   for  kaon-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   1.05231 MeV
+          BetheBloch :     Emin=    1.05231 MeV        Emax=   10 TeV
+
+muMsc:   for mu+    SubType= 10
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 1, polarAngleLimit(deg)= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          UrbanMsc90 :     Emin=          0 eV         Emax=   10 TeV
+
+muIoni:   for  mu+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   200 keV
+          BetheBloch :     Emin=        200 keV        Emax=   1 GeV
+        MuBetheBloch :     Emin=          1 GeV        Emax=   10 TeV
+
+muBrems:   for  mu+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :     Emin=          0 eV         Emax=   10 TeV
+
+muPairProd:   for  mu+    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :     Emin=          0 eV         Emax=   10 TeV
+
+muIoni:   for  mu-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   200 keV
+          BetheBloch :     Emin=        200 keV        Emax=   1 GeV
+        MuBetheBloch :     Emin=          1 GeV        Emax=   10 TeV
+
+muBrems:   for  mu-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :     Emin=          0 eV         Emax=   10 TeV
+
+muPairProd:   for  mu-    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :     Emin=          0 eV         Emax=   10 TeV
+============================================================================================
+             HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+                     Hadronic Processes for <neutron>
+       HadronElastic  Models:                G4LElastic: Emin(GeV)=     0  Emax(GeV)= 1.79769e+305
+           inelastic  Models:      G4LENeutronInelastic: Emin(GeV)=     0  Emax(GeV)= 55
+            nCapture  Models:                G4LCapture: Emin(GeV)=     0  Emax(GeV)= 1.79769e+305
+            nFission  Models:                G4LFission: Emin(GeV)=     0  Emax(GeV)= 1.79769e+305
+============================================================================================
+
+hIoni:   for  pi+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   297.504 keV
+          BetheBloch :     Emin=    297.504 keV        Emax=   10 TeV
+
+msc:   for pi-    SubType= 10
+      Lambda tables from 100 eV  to 10 TeV in 77 bins, spline: 1
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 1, skin= 3, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          UrbanMsc90 :     Emin=          0 eV         Emax=   10 TeV
+
+hIoni:   for  pi-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 77 bins
+      Lambda tables from threshold to 10 TeV in 77 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   297.504 keV
+          BetheBloch :     Emin=    297.504 keV        Emax=   10 TeV
+
+========= Table of registered couples ==============================
+
+Index : 0     used in the geometry : Yes     recalculation needed : No 
+ Material : G4_AIR
+ Range cuts        :  gamma  1 mm     e-  1 mm     e+  1 mm  proton 1 mm 
+ Energy thresholds :  gamma  990 eV     e-  990 eV     e+  990 eV  proton 100 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes     recalculation needed : No 
+ Material : HEU
+ Range cuts        :  gamma  1 mm     e-  1 mm     e+  1 mm  proton 1 mm 
+ Energy thresholds :  gamma  125.853 keV    e-  2.18887 MeV    e+  2.01928 MeV proton 100 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 2     used in the geometry : Yes     recalculation needed : No 
+ Material : G4_POLYETHYLENE
+ Range cuts        :  gamma  1 mm     e-  1 mm     e+  1 mm  proton 1 mm 
+ Energy thresholds :  gamma  2.26261 keV    e-  351.877 keV    e+  342.545 keV proton 100 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 3     used in the geometry : Yes     recalculation needed : No 
+ Material : He3
+ Range cuts        :  gamma  1 mm     e-  1 mm     e+  1 mm  proton 1 mm 
+ Energy thresholds :  gamma  990 eV     e-  990 eV     e+  990 eV  proton 100 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+====================================================================
+
+
+Event=0 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.791 pos (m)(5.243,9.421,0) direction cosines (-0.5933,0.4539,-0.6648) 
+
+Event=1 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=4712 pos (m)(3.491,36.86,0) direction cosines (0.4706,0.3555,-0.8076) 
+
+Event=2 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=14.24 pos (m)(-31.3,41.76,0) direction cosines (0.4725,0.09618,-0.8761) 
+
+Event=3 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=8132 pos (m)(-22.99,42.85,0) direction cosines (0.4564,0.4096,-0.7899) 
+
+Event=4 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=22.68 pos (m)(-7.962,4.237,0) direction cosines (0.353,0.6023,-0.716) 
+
+Event=5 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=12.76 pos (m)(2.222,32.84,0) direction cosines (-0.2318,0.5559,-0.7983) 
+
+Event=6 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=1.68 pos (m)(31.88,-47.68,0) direction cosines (0.5585,0.02863,-0.829) 
+
+Event=7 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=4.985 pos (m)(-6.252,5.358,0) direction cosines (-0.2855,0.4958,-0.8201) 
+
+Event=8 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=3519 pos (m)(-31.48,-45.39,0) direction cosines (0.06546,-0.2737,-0.9596) 
+
+Event=9 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.634 pos (m)(-38.29,-46.85,0) direction cosines (-0.326,-0.3757,-0.8675) 
+
+Event=10 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1.071e+04 pos (m)(22.62,-34.81,0) direction cosines (0.7965,0.2601,-0.5459) 
+
+Event=11 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.556 pos (m)(-21.84,38.94,0) direction cosines (-0.1419,-0.8401,-0.5235) 
+
+Event=12 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=58.28 pos (m)(-4.939,48.18,0) direction cosines (-0.2313,-0.2887,-0.9291) 
+
+Event=13 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2314 pos (m)(-7.503,-31.07,0) direction cosines (0.1317,-0.4844,-0.8649) 
+
+Event=14 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=5120 pos (m)(-47.13,-42.57,0) direction cosines (-0.1254,0.1855,-0.9746) 
+
+Event=15 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.271 pos (m)(40.99,-44.86,0) direction cosines (-0.2917,0.3353,-0.8958) 
+
+Event=16 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=80.64 pos (m)(36.94,-0.4887,0) direction cosines (-0.6165,0.1565,-0.7717) 
+
+Event=17 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.017 pos (m)(24.34,-4.757,0) direction cosines (-0.4949,0.3752,-0.7838) 
+
+Event=18 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=8126 pos (m)(-14.16,-48.01,0) direction cosines (0.2137,-0.01218,-0.9768) 
+
+Event=19 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2590 pos (m)(-20.53,-46.58,0) direction cosines (0.4699,0.2177,-0.8555) 
+
+Event=20 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=511.2 pos (m)(-45.48,41.23,0) direction cosines (-0.2735,-0.4408,-0.8549) 
+
+Event=21 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=6568 pos (m)(6.39,-10.42,0) direction cosines (0.6903,0.4778,-0.5434) 
+
+Event=22 CRY generated nparticles=3
+  gamma charge=0 energy (MeV)=6.189 pos (m)(2.829,23.25,0) direction cosines (-0.5759,0.3271,-0.7493) 
+  gamma charge=0 energy (MeV)=35.22 pos (m)(-39.62,-11.19,0) direction cosines (-0.1183,-0.5471,-0.8286) 
+  gamma charge=0 energy (MeV)=3.198 pos (m)(30.77,-21.15,0) direction cosines (0.2901,-0.3917,-0.8732) 
+
+Event=23 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2806 pos (m)(-40.94,-24.34,0) direction cosines (0.6611,-0.4524,-0.5985) 
+
+Event=24 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=8936 pos (m)(-25.51,15.26,0) direction cosines (-0.009445,0.4004,-0.9163) 
+
+Event=25 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1.581e+04 pos (m)(33.99,-27.95,0) direction cosines (-0.7232,0.1897,-0.664) 
+
+Event=26 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1.441e+04 pos (m)(-5.275,-37.43,0) direction cosines (0.8196,-0.04529,-0.5711) 
+
+Event=27 CRY generated nparticles=2
+  muon charge=1 energy (MeV)=2199 pos (m)(-8.113,-35.51,0) direction cosines (0.5598,-0.04455,-0.8274) 
+  muon charge=1 energy (MeV)=948.6 pos (m)(37.87,-28.63,0) direction cosines (-0.2365,0.1692,-0.9568) 
+
+Event=28 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1483 pos (m)(-16.48,-37.35,0) direction cosines (-0.1126,0.1767,-0.9778) 
+
+Event=29 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=41.57 pos (m)(9.842,-30.51,0) direction cosines (-0.4441,0.2729,-0.8534) 
+
+Event=30 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=325.8 pos (m)(46.18,-25.94,0) direction cosines (-0.2217,-0.1183,-0.9679) 
+
+Event=31 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1962 pos (m)(43.52,37.39,0) direction cosines (-0.2658,-0.1923,-0.9446) 
+
+Event=32 CRY generated nparticles=2
+  muon charge=-1 energy (MeV)=2.423e+04 pos (m)(4.306,31.07,0) direction cosines (0.4441,0.417,-0.7931) 
+  electron charge=1 energy (MeV)=380.7 pos (m)(-21.05,-26.63,0) direction cosines (0.2414,0.4058,-0.8815) 
+
+Event=33 CRY generated nparticles=4
+  gamma charge=0 energy (MeV)=18.04 pos (m)(-1.308,32.91,0) direction cosines (-0.4378,-0.152,-0.8861) 
+  muon charge=-1 energy (MeV)=696.6 pos (m)(-15.06,14.25,0) direction cosines (0.1192,0.6228,-0.7733) 
+  gamma charge=0 energy (MeV)=18.62 pos (m)(-24.77,40.08,0) direction cosines (-0.4158,0.1773,-0.892) 
+  gamma charge=0 energy (MeV)=2.489 pos (m)(-17.51,-40.57,0) direction cosines (-0.2147,0.004948,-0.9767) 
+
+Event=34 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=142.6 pos (m)(-43.82,-3.089,0) direction cosines (-0.1147,-0.4668,-0.8769) 
+
+Event=35 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=7.19 pos (m)(-47.26,8.387,0) direction cosines (-0.5859,0.2228,-0.7792) 
+
+Event=36 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=400.3 pos (m)(49.63,-29.24,0) direction cosines (0.3716,-0.5412,-0.7543) 
+
+Event=37 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=8.74 pos (m)(24.3,-50,0) direction cosines (-0.002027,-0.1973,-0.9803) 
+
+Event=38 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.026 pos (m)(35.91,-12.89,0) direction cosines (-0.6727,0.09755,-0.7335) 
+
+Event=39 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=6.041 pos (m)(30.01,11.1,0) direction cosines (0.6779,-0.0906,-0.7296) 
+
+Event=40 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=2.235 pos (m)(41.77,13.56,0) direction cosines (0.2851,-0.9152,-0.2849) 
+
+Event=41 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=3.566 pos (m)(29.9,-42.73,0) direction cosines (-0.3756,0.5188,-0.768) 
+
+Event=42 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=539 pos (m)(7.127,4.728,0) direction cosines (0.6828,-0.1917,-0.705) 
+
+Event=43 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=9.066 pos (m)(-25.98,15.67,0) direction cosines (-0.8674,0.04536,-0.4955) 
+
+Event=44 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.545 pos (m)(-43.05,11.19,0) direction cosines (0.395,-0.6918,-0.6044) 
+
+Event=45 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=3.476 pos (m)(-14.71,21.53,0) direction cosines (-0.5491,0.3961,-0.7359) 
+
+Event=46 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2425 pos (m)(43.45,2.907,0) direction cosines (-0.1036,-0.3786,-0.9197) 
+
+Event=47 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=30.19 pos (m)(49.1,21.78,0) direction cosines (-0.5157,-0.01984,-0.8565) 
+
+Event=48 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1483 pos (m)(43.06,-10.79,0) direction cosines (-0.06326,-0.5332,-0.8436) 
+
+Event=49 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=112.3 pos (m)(-30.4,11.06,0) direction cosines (-0.2189,0.4998,-0.838) 
+
+Event=50 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=58.38 pos (m)(-45.35,32.43,0) direction cosines (0.3519,0.04297,-0.9351) 
+
+Event=51 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=1.903e-05 pos (m)(9.75,37.43,0) direction cosines (-0.05577,0.0576,-0.9968) 
+
+Event=52 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.825 pos (m)(26.26,13.71,0) direction cosines (0.4769,-0.06558,-0.8765) 
+
+Event=53 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2108 pos (m)(-18.51,-22.04,0) direction cosines (-0.2317,0.5858,-0.7766) 
+
+Event=54 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=196.1 pos (m)(-46.67,23.98,0) direction cosines (-0.7946,-0.2266,-0.5633) 
+
+Event=55 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1.035e+04 pos (m)(37.66,-18.26,0) direction cosines (0.1367,-0.1851,-0.9732) 
+
+Event=56 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.458 pos (m)(14.69,42.31,0) direction cosines (-0.144,0.5239,-0.8395) 
+
+Event=57 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.294 pos (m)(8.178,-15.98,0) direction cosines (-0.746,0.03038,-0.6652) 
+
+Event=58 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=5789 pos (m)(8.852,-44.54,0) direction cosines (0.3497,0.3757,-0.8582) 
+
+Event=59 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=1.822 pos (m)(8.331,39.3,0) direction cosines (-0.2637,0.08329,-0.961) 
+
+Event=60 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=5.193 pos (m)(-35.93,49.42,0) direction cosines (0.3178,0.07201,-0.9454) 
+
+Event=61 CRY generated nparticles=3
+  neutron charge=0 energy (MeV)=7.944 pos (m)(-38.01,30.71,0) direction cosines (-0.4852,-0.3787,-0.7881) 
+  electron charge=-1 energy (MeV)=1.254 pos (m)(-47.84,-11.49,0) direction cosines (0.2076,0.8187,-0.5353) 
+  neutron charge=0 energy (MeV)=71.08 pos (m)(-23.11,4.153,0) direction cosines (-0.2062,0.2204,-0.9534) 
+
+Event=62 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=31.13 pos (m)(12.95,5.055,0) direction cosines (-0.2496,0.4455,-0.8598) 
+
+Event=63 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=8.981 pos (m)(-5.681,23.67,0) direction cosines (0.1154,0.8784,-0.4638) 
+
+Event=64 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=208.1 pos (m)(10.32,28.27,0) direction cosines (-0.2897,-0.1094,-0.9508) 
+
+Event=65 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=3.208 pos (m)(21.94,7.817,0) direction cosines (0.5899,0.3526,-0.7264) 
+
+Event=66 CRY generated nparticles=10
+  gamma charge=0 energy (MeV)=16.9 pos (m)(-49.35,-26.02,0) direction cosines (0.7962,-0.06172,-0.6019) 
+  gamma charge=0 energy (MeV)=4.776 pos (m)(12.32,-3.719,0) direction cosines (0.1752,0.442,-0.8798) 
+  gamma charge=0 energy (MeV)=44.84 pos (m)(32.85,-13.81,0) direction cosines (-0.3068,0.2464,-0.9193) 
+  gamma charge=0 energy (MeV)=4.683 pos (m)(12.87,14.11,0) direction cosines (-0.2836,-0.4256,-0.8593) 
+  gamma charge=0 energy (MeV)=11.75 pos (m)(22.12,10.09,0) direction cosines (-0.1694,0.2042,-0.9642) 
+  gamma charge=0 energy (MeV)=20.49 pos (m)(-9.327,-37.79,0) direction cosines (0.399,-0.1716,-0.9007) 
+  gamma charge=0 energy (MeV)=6.214 pos (m)(-19.72,17.11,0) direction cosines (-0.1826,0.07609,-0.9802) 
+  muon charge=-1 energy (MeV)=8527 pos (m)(-6.883,-35.46,0) direction cosines (-0.1962,0.1482,-0.9693) 
+  muon charge=-1 energy (MeV)=5091 pos (m)(14.57,-13.7,0) direction cosines (0.4103,0.04187,-0.911) 
+  gamma charge=0 energy (MeV)=18.55 pos (m)(-35.56,24.64,0) direction cosines (0.2304,0.2941,-0.9276) 
+
+Event=67 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=169.5 pos (m)(-38.37,-31.91,0) direction cosines (-0.2529,0.1119,-0.961) 
+
+Event=68 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.84 pos (m)(-36.24,-49.48,0) direction cosines (0.4385,0.198,-0.8766) 
+
+Event=69 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.755 pos (m)(-8.604,-15.53,0) direction cosines (-0.4535,-0.1719,-0.8745) 
+
+Event=70 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=3579 pos (m)(-31.43,-44.74,0) direction cosines (-0.5677,-0.1351,-0.8121) 
+
+Event=71 CRY generated nparticles=6
+  gamma charge=0 energy (MeV)=3.021 pos (m)(-40.09,-39.17,0) direction cosines (-0.1047,-0.609,-0.7862) 
+  muon charge=1 energy (MeV)=1963 pos (m)(-37.5,30.45,0) direction cosines (-0.02522,0.5632,-0.8259) 
+  muon charge=-1 energy (MeV)=3840 pos (m)(17.12,45.67,0) direction cosines (-0.2441,0.06574,-0.9675) 
+  proton charge=1 energy (MeV)=78.53 pos (m)(2.361,-14.38,0) direction cosines (-0.4498,-0.157,-0.8792) 
+  muon charge=-1 energy (MeV)=551 pos (m)(-35.16,-9.444,0) direction cosines (0.2411,0.6252,-0.7423) 
+  gamma charge=0 energy (MeV)=200.7 pos (m)(45.37,17.58,0) direction cosines (0.3393,0.04107,-0.9398) 
+
+Event=72 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=777.1 pos (m)(28.98,-43.43,0) direction cosines (0.06089,0.6012,-0.7967) 
+
+Event=73 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2038 pos (m)(-48.62,8.123,0) direction cosines (0.4379,0.02079,-0.8988) 
+
+Event=74 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=4.961 pos (m)(-25.76,23.64,0) direction cosines (0.3051,-0.7615,-0.5719) 
+
+Event=75 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=160.2 pos (m)(29.66,-0.9408,0) direction cosines (0.3605,0.3058,-0.8812) 
+
+Event=76 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=777.2 pos (m)(36.5,41.62,0) direction cosines (-0.05702,0.2054,-0.977) 
+
+Event=77 CRY generated nparticles=2
+  electron charge=-1 energy (MeV)=74.14 pos (m)(29.59,46.59,0) direction cosines (-0.1351,0.6746,-0.7257) 
+  electron charge=1 energy (MeV)=16.14 pos (m)(-12.39,46.53,0) direction cosines (0.3039,-0.01835,-0.9525) 
+
+Event=78 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=23.7 pos (m)(41.31,17.16,0) direction cosines (-0.2359,-0.07429,-0.9689) 
+
+Event=79 CRY generated nparticles=2
+  neutron charge=0 energy (MeV)=264.2 pos (m)(37.72,19.89,0) direction cosines (0.008153,0.2636,-0.9646) 
+  muon charge=-1 energy (MeV)=422.2 pos (m)(-15.72,-3.577,0) direction cosines (-0.08437,-0.5769,-0.8124) 
+
+Event=80 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1643 pos (m)(24.87,-2.997,0) direction cosines (-0.6371,-0.1672,-0.7524) 
+
+Event=81 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.09 pos (m)(-1.985,24.46,0) direction cosines (-0.7314,0.112,-0.6726) 
+
+Event=82 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=14.22 pos (m)(46.9,26.33,0) direction cosines (0.1432,0.03159,-0.9892) 
+
+Event=83 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=2.422 pos (m)(6.18,49.7,0) direction cosines (-0.1841,0.6676,-0.7214) 
+
+Event=84 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=3.839e+04 pos (m)(-17.48,42.7,0) direction cosines (0.0523,-0.5794,-0.8133) 
+
+Event=85 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.86 pos (m)(13.68,-24.68,0) direction cosines (0.286,-0.4446,-0.8488) 
+
+Event=86 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=24.58 pos (m)(-29.66,-8.056,0) direction cosines (0.7212,-0.2226,-0.656) 
+
+Event=87 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=42 pos (m)(-18.35,42.86,0) direction cosines (0.1756,-0.106,-0.9787) 
+
+Event=88 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=0.5448 pos (m)(31.31,20.62,0) direction cosines (-0.49,0.5438,-0.6813) 
+
+Event=89 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.282 pos (m)(5.395,-44.33,0) direction cosines (-0.05859,-0.6566,-0.752) 
+
+Event=90 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=760.8 pos (m)(-33.1,6.957,0) direction cosines (0.4631,0.5514,-0.6939) 
+
+Event=91 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.265 pos (m)(-43.92,-36.33,0) direction cosines (0.5446,-0.00917,-0.8386) 
+
+Event=92 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.578 pos (m)(16.82,44.15,0) direction cosines (-0.4292,-0.5284,-0.7325) 
+
+Event=93 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2473 pos (m)(-42.83,-42.24,0) direction cosines (0.3879,0.2534,-0.8862) 
+
+Event=94 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=5.174 pos (m)(16.13,18,0) direction cosines (-0.03244,-0.4868,-0.8729) 
+
+Event=95 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.335 pos (m)(24.52,0.07026,0) direction cosines (0.04257,0.4078,-0.9121) 
+
+Event=96 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2740 pos (m)(-11.76,34.77,0) direction cosines (0.04966,0.06218,-0.9968) 
+
+Event=97 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=17.99 pos (m)(-31.08,29.29,0) direction cosines (0.1269,-0.3299,-0.9354) 
+
+Event=98 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=5.735 pos (m)(41.03,13.03,0) direction cosines (-0.5052,-0.5514,-0.6639) 
+
+Event=99 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=46.02 pos (m)(15.09,10.81,0) direction cosines (0.2742,-0.06428,-0.9595) 

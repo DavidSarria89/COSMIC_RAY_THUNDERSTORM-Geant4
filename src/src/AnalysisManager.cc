@@ -1,4 +1,5 @@
 // ********************************************************************
+
 // * License and Disclaimer                                           *
 // *                                                                  *
 // * The  Geant4 software  is  copyright of the Copyright Holders  of *
@@ -23,26 +24,18 @@
 // ********************************************************************
 
 #include "AnalysisManager.hh"
-#include <fstream>
-#include <iomanip>
-#include "globals.hh"
-#include "G4SystemOfUnits.hh"
-#include "G4Track.hh"
-#include "G4ios.hh"
-#include "G4SteppingManager.hh"
-#include "G4ThreeVector.hh"
-#include "G4PhysicalConstants.hh"
-#include "Settings.hh"
 
 // class following singleton pattern
 
-AnalysisManager *AnalysisManager::instance = 0;
+AnalysisManager *AnalysisManager::instance = nullptr;
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-AnalysisManager *AnalysisManager::getInstance()  // singleton lazy initialization
+AnalysisManager *AnalysisManager::getInstance() // singleton lazy initialization
 {
-    if (instance == 0) instance = new AnalysisManager;
+    if (instance == nullptr) {
+        instance = new AnalysisManager;
+    }
 
     return instance;
 }
@@ -50,773 +43,640 @@ AnalysisManager *AnalysisManager::getInstance()  // singleton lazy initializatio
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 AnalysisManager::AnalysisManager() // constructor
 {
+    // initialization of spectrums in energy and momentum direction
+    memset(PART_SPEC, 0, sizeof(PART_SPEC));
+    memset(PART_MOM_X, 0, sizeof(PART_MOM_X));
+    memset(PART_MOM_Y, 0, sizeof(PART_MOM_Y));
+    memset(PART_MOM_Z, 0, sizeof(PART_MOM_Z));
+
+    memset(counter_up, 0, sizeof(counter_up));
+    memset(counter_down, 0, sizeof(counter_down));
+
+    memset(counter_total, 0, sizeof(counter_total));
+
+    // sanity checks
+
+
+    if (ENER_GRID.size() != size_grid_ener) {
+        G4cout << "Error in AnalysisManager.hh/cc : energy grid vector does not have 256 elements." << G4endl;
+        std::abort();
+    }
+
+    if (MOM_GRID.size() != size_grid_mom) {
+        G4cout << "Error in AnalysisManager.hh/cc : momentum-direction grid vector does not have 128 elements." << G4endl;
+        std::abort();
+    }
+
+    //////
 
     RECORDED_OUTPUT_STRINGS.clear();
 
-    G4String first_part = "./output/Part_ener_mom_dists_" ;
-    G4String potential_str = "_" + std::to_string(int(Settings::POTENTIAL_VALUE));
-    G4String efield_alt_str = "_" + std::to_string(int(Settings::EFIELD_REGION_ALT_CENTER * 10.));
-    G4String efield_length_str = "_" + std::to_string(int(Settings::EFIELD_REGION_LEN * 100.));
-    G4String rec_alt_part = "_" + std::to_string(int(Settings::RECORD_ALTITUDES[0] * 10.)) + "km";
+    G4String first_part = "./output/photon_ener_mom_dists_";
+    G4String potential_str = "_" + std::to_string(int(settings->POTENTIAL_VALUE));
+    G4String efield_alt_str = "_" + std::to_string(int(settings->EFIELD_REGION_Y_CENTER * 10.));
+    G4String efield_length_str = "_" + std::to_string(int(settings->EFIELD_REGION_Y_LEN * 100.));
+    G4String rec_alt_part = "_" + std::to_string(int(settings->RECORD_ALTITUDE * 10.));
+    asciiFileName_phot = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    asciiFileName1 = first_part + std::to_string(Settings::RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    first_part = "./output/electron_ener_mom_dists_";
+    asciiFileName_elec = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    G4cout << "Creating output file : " << asciiFileName1 << G4endl;
+    first_part = "./output/positron_ener_mom_dists_";
+    asciiFileName_posi = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    // open / close with trunc to clean the file (if it does exist) or to create it
+    first_part = "./output/muonp_ener_mom_dists_";
+    asciiFileName_mup = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    asciiFile_analysis.open(asciiFileName1, std::ios::trunc);
+    first_part = "./output/muonn_ener_mom_dists_";
+    asciiFileName_mun = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    if (asciiFile_analysis.is_open())
-        {
-            asciiFile_analysis.close();
-        }
-    else
-        {
-            G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
-            std::abort();
-        }
+    G4cout << "Reserving output file : " << asciiFileName_phot << G4endl;
+    G4cout << "Reserving output file : " << asciiFileName_elec << G4endl;
+    G4cout << "Reserving output file : " << asciiFileName_posi << G4endl;
+    G4cout << "Reserving output file : " << asciiFileName_mup << G4endl;
+    G4cout << "Reserving output file : " << asciiFileName_mun << G4endl;
 
-    ENER_GRID = get_ener_grid();
-    MOM_GRID = get_MOM_grid();
-
-    // initializing counters
-
-    for (uint i_alt = 0; i_alt < photon_counter_up.size(); ++i_alt)
-        {
-            photon_counter_up[i_alt] = 0;
-            electron_counter_up[i_alt] = 0;
-            positron_counter_up[i_alt] = 0;
-
-            photon_counter_down[i_alt] = 0;
-            electron_counter_down[i_alt] = 0;
-            positron_counter_down[i_alt] = 0;
-        }
-
-    // initilization of spectrums
-
-    for (uint i_alt = 0; i_alt < 3; ++i_alt) // loop over altitudes
-        {
-            for (uint i_part = 0; i_part < 3; ++i_part) // loop over photon electrons and positrons
-                {
-                    for (uint ii = 0; ii < ENER_GRID.size(); ++ii)
-                        {
-                            SPEC_PART[i_part][i_alt].push_back(0);
-                        }
-
-                    for (uint ii = 0; ii < MOM_GRID.size(); ++ii)
-                        {
-                            PART_MOM_X[i_part][i_alt].push_back(0);
-                            PART_MOM_Y[i_part][i_alt].push_back(0);
-                            PART_MOM_Z[i_part][i_alt].push_back(0);
-                        }
-                }
-        }
 
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-AnalysisManager::~AnalysisManager()
-{
-
-}
+AnalysisManager::~AnalysisManager() = default;
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-G4int AnalysisManager::NB_OUTPUT() const
-{
-    return NB_OUTPUT_;
+void AnalysisManager::add_NB_OUTPUT() {
+
+    NB_OUTPUT++;
+
+#ifndef NDEBUG // debug mode
+    G4cout << "Number of outputs : " << NB_OUTPUT << G4endl;
+#endif // ifndef NDEBUG
+//    if (NB_OUTPUT % 100 == 0) {
+//        G4cout << "Number of outputs : " << NB_OUTPUT << G4endl;
+//    }
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
+void AnalysisManager::write_output_files() {
 
-void AnalysisManager::add_NB_OUTPUT()
-{
-    NB_OUTPUT_++;
-}
+    clean_output_files();
 
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
-void AnalysisManager::write_output_file_endOf_program()
-{
-    asciiFile_analysis.open(asciiFileName1, std::ios::out | std::ios::app);
+    // Photons
+    asciiFile_analysis_phot.open(asciiFileName_phot, std::ios::out | std::ios::app);
 
-    if (asciiFile_analysis.is_open())
-        {
-            asciiFile_analysis  << std::scientific << std::setprecision(6)
-                                << Settings::RANDOM_SEED
-                                << " " << Settings::NB_EVENT
-                                << " " << Settings::EFIELD_REGION_ALT_CENTER
-                                << " " << Settings::EFIELD_REGION_LEN
-                                << " " << Settings::POTENTIAL_VALUE
-                                << " " << Settings::TILT
-                                << " " << Settings::RREA_PART_NB_LIMIT_HAS_BEEN_REACHED;
+    uint i_p = 0;
 
-            for (uint i_alt = 0; i_alt < Settings::RECORD_ALTITUDES.size(); ++i_alt)
-                {
-                    asciiFile_analysis  << " " << Settings::RECORD_ALTITUDES[i_alt]
-                                        << " " << photon_counter_up[i_alt]
-                                        << " " << electron_counter_up[i_alt]
-                                        << " " << positron_counter_up[i_alt]
-                                        << " " << photon_counter_down[i_alt]
-                                        << " " << electron_counter_down[i_alt]
-                                        << " " << positron_counter_down[i_alt];
+    if (asciiFile_analysis_phot.is_open()) {
+        asciiFile_analysis_phot << std::scientific << std::setprecision(5)
+                                << settings->RANDOM_SEED
+                                << " " << settings->PDG_LIST[i_p]
+                                << " " << settings->NB_EVENT
+                                << " " << settings->EFIELD_REGION_Y_CENTER
+                                << " " << settings->EFIELD_REGION_Y_LEN
+                                << " " << settings->POTENTIAL_VALUE
+                                << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_p]
+                                << " " << settings->NB_LONG_CPU_TIME;
+
+        asciiFile_analysis_phot << G4endl << G4endl;
 
 
-                    for (uint i_part = 0; i_part < 3; ++i_part)
-                        {
-                            for (uint ii = 0; ii < ENER_GRID.size(); ++ii)
-                                {
-                                    asciiFile_analysis << " " << SPEC_PART[i_part][i_alt][ii];
-                                }
+        asciiFile_analysis_phot << counter_total[i_p] << " ";
 
-                            for (uint ii = 0; ii < MOM_GRID.size(); ++ii)
-                                {
-                                    asciiFile_analysis << " " << PART_MOM_X[i_part][i_alt][ii];
-                                }
+        asciiFile_analysis_phot << G4endl << G4endl;
 
-                            for (uint ii = 0; ii < MOM_GRID.size(); ++ii)
-                                {
-                                    asciiFile_analysis << " " << PART_MOM_Y[i_part][i_alt][ii];
-                                }
-
-                            for (uint ii = 0; ii < MOM_GRID.size(); ++ii)
-                                {
-                                    asciiFile_analysis << " " << PART_MOM_Z[i_part][i_alt][ii];
-                                }
-                        }
-                }
-
-            asciiFile_analysis << G4endl;
-        }
-    else
-        {
-            G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
-            std::abort();
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_phot << PART_SPEC[i_p][ii] << " ";
         }
 
-    asciiFile_analysis.close();
+        asciiFile_analysis_phot << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_phot << PART_MOM_X[i_p][ii] << " ";
+        }
+
+        asciiFile_analysis_phot << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_phot << PART_MOM_Y[i_p][ii] << " ";
+        }
+
+        asciiFile_analysis_phot << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_phot << PART_MOM_Z[i_p][ii] << " ";
+        }
+
+        asciiFile_analysis_phot << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_phot.close();
+
+    // Electrons
+    asciiFile_analysis_elec.open(asciiFileName_elec, std::ios::out | std::ios::app);
+
+    uint i_e = 1;
+
+    if (asciiFile_analysis_elec.is_open()) {
+        asciiFile_analysis_elec << std::scientific << std::setprecision(5)
+                                << settings->RANDOM_SEED
+                                << " " << settings->PDG_LIST[i_e]
+                                << " " << settings->NB_EVENT
+                                << " " << settings->EFIELD_REGION_Y_CENTER
+                                << " " << settings->EFIELD_REGION_Y_LEN
+                                << " " << settings->POTENTIAL_VALUE
+                                << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_e]
+                                << " " << settings->NB_LONG_CPU_TIME;
+
+        asciiFile_analysis_elec << G4endl << G4endl;
+
+        asciiFile_analysis_elec << counter_total[i_e] << " ";
+
+        asciiFile_analysis_elec << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_elec << PART_SPEC[i_e][ii] << " ";
+        }
+
+        asciiFile_analysis_elec << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_elec << PART_MOM_X[i_e][ii] << " ";
+        }
+
+        asciiFile_analysis_elec << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_elec << PART_MOM_Y[i_e][ii] << " ";
+        }
+
+        asciiFile_analysis_elec << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_elec << PART_MOM_Z[i_e][ii] << " ";
+        }
+
+        asciiFile_analysis_elec << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_elec.close();
+
+    // Positrons
+    asciiFile_analysis_posi.open(asciiFileName_posi, std::ios::out | std::ios::app);
+    uint i_ep = 2;
+
+    if (asciiFile_analysis_posi.is_open()) {
+        asciiFile_analysis_posi << std::scientific << std::setprecision(5)
+                                << settings->RANDOM_SEED
+                                << " " << settings->PDG_LIST[i_ep]
+                                << " " << settings->NB_EVENT
+                                << " " << settings->EFIELD_REGION_Y_CENTER
+                                << " " << settings->EFIELD_REGION_Y_LEN
+                                << " " << settings->POTENTIAL_VALUE
+                                << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_ep]
+                                << " " << settings->NB_LONG_CPU_TIME;
+
+        asciiFile_analysis_posi << G4endl << G4endl;
+
+        asciiFile_analysis_posi << counter_total[i_ep] << " ";
+
+        asciiFile_analysis_posi << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_posi << PART_SPEC[i_ep][ii] << " ";
+        }
+
+        asciiFile_analysis_posi << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_posi << PART_MOM_X[i_ep][ii] << " ";
+        }
+
+        asciiFile_analysis_posi << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_posi << PART_MOM_Y[i_ep][ii] << " ";
+        }
+
+        asciiFile_analysis_posi << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_posi << PART_MOM_Z[i_ep][ii] << " ";
+        }
+
+        asciiFile_analysis_posi << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_posi.close();
+
+    // muons +
+    asciiFile_analysis_mup.open(asciiFileName_mup, std::ios::out | std::ios::app);
+    uint i_mp = 3;
+
+    if (asciiFile_analysis_mup.is_open()) {
+        asciiFile_analysis_mup << std::scientific << std::setprecision(5)
+                               << settings->RANDOM_SEED
+                               << " " << settings->PDG_LIST[i_mp]
+                               << " " << settings->NB_EVENT
+                               << " " << settings->EFIELD_REGION_Y_CENTER
+                               << " " << settings->EFIELD_REGION_Y_LEN
+                               << " " << settings->POTENTIAL_VALUE
+                               << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                               << " " << settings->NB_EVENTS_WITH_DETECTION[i_mp]
+                               << " " << settings->NB_LONG_CPU_TIME;
+
+        asciiFile_analysis_mup << G4endl << G4endl;
+
+        asciiFile_analysis_mup << counter_total[i_mp] << " ";
+
+        asciiFile_analysis_mup << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_mup << PART_SPEC[i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mup << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mup << PART_MOM_X[i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mup << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mup << PART_MOM_Y[i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mup << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mup << PART_MOM_Z[i_mp][ii] << " ";
+        }
+
+
+        asciiFile_analysis_mup << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_mup.close();
+
+
+    // muons -
+    asciiFile_analysis_mun.open(asciiFileName_mun, std::ios::out | std::ios::app);
+    uint i_mn = 4;
+
+    if (asciiFile_analysis_mun.is_open()) {
+        asciiFile_analysis_mun << std::scientific << std::setprecision(5)
+                               << settings->RANDOM_SEED
+                               << " " << settings->PDG_LIST[i_mn]
+                               << " " << settings->NB_EVENT
+                               << " " << settings->EFIELD_REGION_Y_CENTER
+                               << " " << settings->EFIELD_REGION_Y_LEN
+                               << " " << settings->POTENTIAL_VALUE
+                               << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                               << " " << settings->NB_EVENTS_WITH_DETECTION[i_mn]
+                               << " " << settings->NB_LONG_CPU_TIME;
+
+        asciiFile_analysis_mun << G4endl << G4endl;
+
+        asciiFile_analysis_mun << counter_total[i_mn] << " ";
+
+        asciiFile_analysis_mun << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_mun << PART_SPEC[i_mn][ii] << " ";
+        }
+
+        asciiFile_analysis_mun << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mun << PART_MOM_X[i_mn][ii] << " ";
+        }
+
+        asciiFile_analysis_mun << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mun << PART_MOM_Y[i_mn][ii] << " ";
+        }
+
+        asciiFile_analysis_mun << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mun << PART_MOM_Z[i_mn][ii] << " ";
+        }
+
+
+        asciiFile_analysis_mun << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_mun.close();
+
+    if (settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED) {
+        G4cout << G4endl << "Aborting run since the limit ram usage has been exceeded." << G4endl;
+        std::abort();
+    }
+
 }
 
-
-//======================================================================
+// ======================================================================
 // Returns interpolated value at x from parallel arrays ( xData, yData )
 //   Assumes that xData has at least two elements, is sorted and is strictly monotonic increasing
 //   boolean argument extrapolate determines behaviour beyond ends of array (if needed)
-G4double AnalysisManager::interpolate(std::vector<G4double> &xData, std::vector<G4double> &yData, G4double x, bool extrapolate)
-{
-    int size = xData.size();
+G4double AnalysisManager::interpolate(std::vector<G4double> &xData, std::vector<G4double> &yData, G4double x, bool extrapolate) {
+    int size = static_cast<int>(xData.size());
 
-    int i = 0;                                                                  // find left end of interval for interpolation
+    int i = 0;                // find left end of interval for interpolation
 
-    if (x >= xData[size - 2])                                                   // special case: beyond right end
-        {
-            i = size - 2;
-        }
-    else
-        {
-            while (x > xData[i + 1]) i++;
-        }
+    if (x >= xData[size - 2]) // special case: beyond right end
+    {
+        i = size - 2;
+    } else {
+        while (x > xData[i + 1]) i++;
+    }
 
-    double xL = xData[i], yL = yData[i], xR = xData[i + 1], yR = yData[i + 1];  // points on either side (unless beyond ends)
+    double xL = xData[i], yL = yData[i], xR = xData[i + 1], yR = yData[i + 1]; // points on either side (unless beyond ends)
 
-    if (!extrapolate)                                                           // if beyond ends of array and not extrapolating
-        {
-            if (x < xL) yR = yL;
-
-            if (x > xR) yL = yR;
+    if (!extrapolate)                                                          // if beyond ends of array and not extrapolating
+    {
+        if (x < xL) {
+            yR = yL;
         }
 
-    double dydx = (yR - yL) / (xR - xL);                                        // gradient
+        if (x > xR) {
+            yL = yR;
+        }
+    }
 
-    return yL + dydx * (x - xL);                                                // linear interpolation
+    double dydx = (yR - yL) / (xR - xL); // gradient
+
+    return yL + dydx * (x - xL);         // linear interpolation
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-
-G4double AnalysisManager::get_scale(G4double alt)
-{
+G4double AnalysisManager::get_scale(const G4double alt) {
     // returns the atmospheric relative scale compared to sea level (>1)
+    // input is altitude in km
     std::vector<G4double> alt_list =
-    {
-        0,
-        0.500000000000000,
-        1.000000000000000,
-        1.500000000000000,
-        2.000000000000000,
-        2.500000000000000,
-        3.000000000000000,
-        3.500000000000000,
-        4.000000000000000,
-        4.500000000000000,
-        5.000000000000000,
-        5.500000000000000,
-        6.000000000000000,
-        6.500000000000000,
-        7.000000000000000,
-        7.500000000000000,
-        8.000000000000000,
-        8.500000000000000,
-        9.000000000000000,
-        9.500000000000000,
-        10.000000000000000,
-        10.500000000000000,
-        11.000000000000000,
-        11.500000000000000,
-        12.000000000000000,
-        12.500000000000000,
-        13.000000000000000,
-        13.500000000000000,
-        14.000000000000000,
-        14.500000000000000,
-        15.000000000000000,
-        15.500000000000000,
-        16.000000000000000,
-        16.500000000000000,
-        17.000000000000000,
-        17.500000000000000,
-        18.000000000000000,
-        18.500000000000000,
-        19.000000000000000,
-        19.500000000000000,
-        20.000000000000000,
-    };
+            {0,
+             0.500000000000000,
+             1.000000000000000,
+             1.500000000000000,
+             2.000000000000000,
+             2.500000000000000,
+             3.000000000000000,
+             3.500000000000000,
+             4.000000000000000,
+             4.500000000000000,
+             5.000000000000000,
+             5.500000000000000,
+             6.000000000000000,
+             6.500000000000000,
+             7.000000000000000,
+             7.500000000000000,
+             8.000000000000000,
+             8.500000000000000,
+             9.000000000000000,
+             9.500000000000000,
+             10.000000000000000,
+             10.500000000000000,
+             11.000000000000000,
+             11.500000000000000,
+             12.000000000000000,
+             12.500000000000000,
+             13.000000000000000,
+             13.500000000000000,
+             14.000000000000000,
+             14.500000000000000,
+             15.000000000000000,
+             15.500000000000000,
+             16.000000000000000,
+             16.500000000000000,
+             17.000000000000000,
+             17.500000000000000,
+             18.000000000000000,
+             18.500000000000000,
+             19.000000000000000,
+             19.500000000000000,
+             20.000000000000000,};
 
     std::vector<G4double> scale_list =
-    {
-        1.000000000000000,
-        1.059301380991064,
-        1.121238177128117,
-        1.184377838328792,
-        1.249042145593870,
-        1.317304778260430,
-        1.388415672913118,
-        1.463688404983724,
-        1.543377914546100,
-        1.628371628371629,
-        1.719862833025587,
-        1.818435364663227,
-        1.925291598996014,
-        2.041647095663066,
-        2.168634624979211,
-        2.307556184746062,
-        2.460377358490566,
-        2.628502318081032,
-        2.813376483279396,
-        3.018518518518519,
-        3.245395719263315,
-        3.496916063287745,
-        3.774240231548481,
-        4.080100125156446,
-        4.414353419092755,
-        4.781811514484781,
-        5.180770758839889,
-        5.613430908308223,
-        6.082089552238807,
-        6.589186457806973,
-        7.133479212253830,
-        7.720544701006513,
-        8.348271446862997,
-        9.024221453287199,
-        9.753178758414361,
-        10.541632983023444,
-        11.398601398601400,
-        12.325141776937620,
-        13.334696799263730,
-        14.431164231961047,
-        15.627996164908916,
-    };
+            {1.000000000000000,
+             1.059301380991064,
+             1.121238177128117,
+             1.184377838328792,
+             1.249042145593870,
+             1.317304778260430,
+             1.388415672913118,
+             1.463688404983724,
+             1.543377914546100,
+             1.628371628371629,
+             1.719862833025587,
+             1.818435364663227,
+             1.925291598996014,
+             2.041647095663066,
+             2.168634624979211,
+             2.307556184746062,
+             2.460377358490566,
+             2.628502318081032,
+             2.813376483279396,
+             3.018518518518519,
+             3.245395719263315,
+             3.496916063287745,
+             3.774240231548481,
+             4.080100125156446,
+             4.414353419092755,
+             4.781811514484781,
+             5.180770758839889,
+             5.613430908308223,
+             6.082089552238807,
+             6.589186457806973,
+             7.133479212253830,
+             7.720544701006513,
+             8.348271446862997,
+             9.024221453287199,
+             9.753178758414361,
+             10.541632983023444,
+             11.398601398601400,
+             12.325141776937620,
+             13.334696799263730,
+             14.431164231961047,
+             15.627996164908916,};
 
-    if ((alt > 20.) || (alt < 0.))
-        {
-            G4cout << "ERROR in get_scale : altitude is not between 0 and 20. Aborting.";
-            std::abort();
-        }
+    if ((alt > 20.) || (alt < 0.)) {
+        G4cout << "ERROR in get_scale : altitude of E field is not between 0 and 20. Aborting.";
+        std::abort();
+    }
 
     return interpolate(alt_list, scale_list, alt, false);
-
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void AnalysisManager::fill_histogram(G4int idx_part, G4int idx_alt, const std::vector<double> &GRID, std::array<std::array<std::vector<uint>, 3>, 3> &COUNTS, const G4double value)
-{
-    for (uint ii = 0; ii < GRID.size() - 1; ++ii)
-        {
-            if (value >= GRID[ii] && value < GRID[ii + 1])
-                {
-                    COUNTS[idx_part][idx_alt][ii]++;
-                    return;
-                }
-        }
-}
-
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void AnalysisManager::fill_histogram_ener(G4int idx_part, G4int idx_alt, const G4double value)
-{
-    fill_histogram(idx_part, idx_alt, ENER_GRID, SPEC_PART, value);
-}
-
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void AnalysisManager::fill_histogram_momX(G4int idx_part, G4int idx_alt, const G4double value)
-{
-    fill_histogram(idx_part, idx_alt, MOM_GRID, PART_MOM_X, value);
-}
-
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void AnalysisManager::fill_histogram_momY(G4int idx_part, G4int idx_alt, const G4double value)
-{
-    fill_histogram(idx_part, idx_alt, MOM_GRID, PART_MOM_Y, value);
-}
-
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void AnalysisManager::fill_histogram_momZ(G4int idx_part, G4int idx_alt, const G4double value)
-{
-    fill_histogram(idx_part, idx_alt, MOM_GRID, PART_MOM_Z, value);
-}
-
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void AnalysisManager::check_if_should_use_stacking_action()
-{
-    // checks if E-field is above RREA, and if so, sets Settings::USE_STACKING_ACTION to true
-
-    G4double EFIELD_VAL = (Settings::POTENTIAL_VALUE * megavolt) / (Settings::EFIELD_REGION_LEN * km) ;
-
-    G4double margin_factor = 1.0;
-    G4double EFIELD_VAL_KV_PER_M = std::abs(EFIELD_VAL / (kilovolt / meter)) * margin_factor;
-
-    G4double atmos_scale = get_scale(Settings::EFIELD_REGION_ALT_CENTER); // should be > 1
-
-    Settings::DELTA_T = 27.3 / (EFIELD_VAL_KV_PER_M * atmos_scale - 277.0) * atmos_scale; // in micro second for the stacking action that set up the fake time oriented
-
-    Settings::DELTA_T = Settings::DELTA_T / 10.0 * microsecond;
-
-    double DELTA_T_tmp = Settings::DELTA_T ; // variable for debug mode check
-
-    if (atmos_scale < 1.0)
-        {
-            G4cout << "ERROR in create_thunderstorm_electric_fields : atmos_scale is <1. Aborting" << G4endl;
-            std::abort();
+void AnalysisManager::fill_histogram_E(const G4int idx_part, const G4double &value) {
+    for (uint ii = 0; ii < ngride - 1; ++ii) {
+        if ((value >= ENER_GRID[ii]) && (value < ENER_GRID[ii + 1])) {
+            PART_SPEC[idx_part][ii]++;
+            return;
         }
 
-    // if below RREA threshold, no need to have the stacking action for fake time oriented
-    // and the calculed time step (DELTA_T) should be negative
-    if (Settings::DELTA_T < 0.0)
-        {
-            Settings::USE_STACKING_ACTION = false;
+        if (value >= 100.0) {
+            PART_SPEC[idx_part][ngride - 1]++;
+            return;
         }
-    else
-        {
-            Settings::USE_STACKING_ACTION = true;
-        }
+    }
 }
 
-std::vector<double> AnalysisManager::get_ener_grid()
-{
-    // energy grid, it is already in the Geant4 unit system (50 keV to 100 MeV with 256 values)
-    std::vector<double> energy_grid
-    {
-        0.0500,
-        0.0515,
-        0.0531,
-        0.0547,
-        0.0563,
-        0.0580,
-        0.0598,
-        0.0616,
-        0.0635,
-        0.0654,
-        0.0674,
-        0.0694,
-        0.0715,
-        0.0737,
-        0.0759,
-        0.0782,
-        0.0806,
-        0.0830,
-        0.0855,
-        0.0881,
-        0.0908,
-        0.0935,
-        0.0963,
-        0.0992,
-        0.1022,
-        0.1053,
-        0.1085,
-        0.1118,
-        0.1152,
-        0.1187,
-        0.1223,
-        0.1260,
-        0.1298,
-        0.1337,
-        0.1378,
-        0.1419,
-        0.1462,
-        0.1506,
-        0.1552,
-        0.1599,
-        0.1647,
-        0.1697,
-        0.1749,
-        0.1801,
-        0.1856,
-        0.1912,
-        0.1970,
-        0.2030,
-        0.2091,
-        0.2154,
-        0.2219,
-        0.2287,
-        0.2356,
-        0.2427,
-        0.2500,
-        0.2576,
-        0.2654,
-        0.2734,
-        0.2817,
-        0.2902,
-        0.2990,
-        0.3081,
-        0.3174,
-        0.3270,
-        0.3369,
-        0.3471,
-        0.3576,
-        0.3684,
-        0.3795,
-        0.3910,
-        0.4028,
-        0.4150,
-        0.4276,
-        0.4405,
-        0.4539,
-        0.4676,
-        0.4817,
-        0.4963,
-        0.5113,
-        0.5268,
-        0.5427,
-        0.5592,
-        0.5761,
-        0.5935,
-        0.6115,
-        0.6300,
-        0.6490,
-        0.6687,
-        0.6889,
-        0.7097,
-        0.7312,
-        0.7533,
-        0.7761,
-        0.7996,
-        0.8238,
-        0.8487,
-        0.8744,
-        0.9009,
-        0.9281,
-        0.9562,
-        0.9851,
-        1.0149,
-        1.0456,
-        1.0773,
-        1.1099,
-        1.1435,
-        1.1780,
-        1.2137,
-        1.2504,
-        1.2882,
-        1.3272,
-        1.3674,
-        1.4088,
-        1.4514,
-        1.4953,
-        1.5405,
-        1.5871,
-        1.6352,
-        1.6846,
-        1.7356,
-        1.7881,
-        1.8422,
-        1.8980,
-        1.9554,
-        2.0145,
-        2.0755,
-        2.1383,
-        2.2030,
-        2.2696,
-        2.3383,
-        2.4091,
-        2.4820,
-        2.5570,
-        2.6344,
-        2.7141,
-        2.7962,
-        2.8808,
-        2.9680,
-        3.0578,
-        3.1503,
-        3.2456,
-        3.3438,
-        3.4450,
-        3.5492,
-        3.6566,
-        3.7673,
-        3.8812,
-        3.9987,
-        4.1197,
-        4.2443,
-        4.3727,
-        4.5050,
-        4.6413,
-        4.7818,
-        4.9264,
-        5.0755,
-        5.2291,
-        5.3873,
-        5.5503,
-        5.7182,
-        5.8912,
-        6.0695,
-        6.2531,
-        6.4423,
-        6.6372,
-        6.8380,
-        7.0449,
-        7.2581,
-        7.4777,
-        7.7039,
-        7.9370,
-        8.1771,
-        8.4246,
-        8.6795,
-        8.9421,
-        9.2126,
-        9.4913,
-        9.7785,
-        10.0744,
-        10.3792,
-        10.6932,
-        11.0168,
-        11.3501,
-        11.6935,
-        12.0473,
-        12.4118,
-        12.7873,
-        13.1742,
-        13.5728,
-        13.9835,
-        14.4066,
-        14.8425,
-        15.2915,
-        15.7542,
-        16.2309,
-        16.7220,
-        17.2279,
-        17.7491,
-        18.2862,
-        18.8394,
-        19.4094,
-        19.9967,
-        20.6017,
-        21.2251,
-        21.8672,
-        22.5289,
-        23.2105,
-        23.9128,
-        24.6363,
-        25.3817,
-        26.1496,
-        26.9408,
-        27.7559,
-        28.5957,
-        29.4609,
-        30.3523,
-        31.2706,
-        32.2168,
-        33.1915,
-        34.1958,
-        35.2304,
-        36.2963,
-        37.3945,
-        38.5259,
-        39.6916,
-        40.8925,
-        42.1297,
-        43.4044,
-        44.7177,
-        46.0707,
-        47.4646,
-        48.9007,
-        50.3802,
-        51.9045,
-        53.4750,
-        55.0929,
-        56.7598,
-        58.4771,
-        60.2464,
-        62.0693,
-        63.9472,
-        65.8820,
-        67.8754,
-        69.9290,
-        72.0448,
-        74.2246,
-        76.4703,
-        78.7840,
-        81.1677,
-        83.6236,
-        86.1537,
-        88.7604,
-        91.4459,
-        94.2127,
-        97.0632,
-        100.0000
-    };
-
-    return energy_grid;
+void AnalysisManager::fill_histogram_mX(const G4int idx_part, const G4double &value) {
+    for (uint ii = 0; ii < ngridm - 1; ++ii) {
+        if ((value >= MOM_GRID[ii]) && (value < MOM_GRID[ii + 1])) {
+            PART_MOM_X[idx_part][ii]++;
+            return;
+        }
+    }
 }
 
+void AnalysisManager::fill_histogram_mY(const G4int idx_part, const G4double &value) {
+    for (uint ii = 0; ii < ngridm - 1; ++ii) {
+        if ((value >= MOM_GRID[ii]) && (value < MOM_GRID[ii + 1])) {
+            PART_MOM_Y[idx_part][ii]++;
+            return;
+        }
+    }
+}
 
-std::vector<double> AnalysisManager::get_MOM_grid()
-{
-    std::vector<double> mom_grid
-    {
-        -1.0000,
-        -0.9843,
-        -0.9685,
-        -0.9528,
-        -0.9370,
-        -0.9213,
-        -0.9055,
-        -0.8898,
-        -0.8740,
-        -0.8583,
-        -0.8425,
-        -0.8268,
-        -0.8110,
-        -0.7953,
-        -0.7795,
-        -0.7638,
-        -0.7480,
-        -0.7323,
-        -0.7165,
-        -0.7008,
-        -0.6850,
-        -0.6693,
-        -0.6535,
-        -0.6378,
-        -0.6220,
-        -0.6063,
-        -0.5906,
-        -0.5748,
-        -0.5591,
-        -0.5433,
-        -0.5276,
-        -0.5118,
-        -0.4961,
-        -0.4803,
-        -0.4646,
-        -0.4488,
-        -0.4331,
-        -0.4173,
-        -0.4016,
-        -0.3858,
-        -0.3701,
-        -0.3543,
-        -0.3386,
-        -0.3228,
-        -0.3071,
-        -0.2913,
-        -0.2756,
-        -0.2598,
-        -0.2441,
-        -0.2283,
-        -0.2126,
-        -0.1969,
-        -0.1811,
-        -0.1654,
-        -0.1496,
-        -0.1339,
-        -0.1181,
-        -0.1024,
-        -0.0866,
-        -0.0709,
-        -0.0551,
-        -0.0394,
-        -0.0236,
-        -0.0079,
-        0.0079,
-        0.0236,
-        0.0394,
-        0.0551,
-        0.0709,
-        0.0866,
-        0.1024,
-        0.1181,
-        0.1339,
-        0.1496,
-        0.1654,
-        0.1811,
-        0.1969,
-        0.2126,
-        0.2283,
-        0.2441,
-        0.2598,
-        0.2756,
-        0.2913,
-        0.3071,
-        0.3228,
-        0.3386,
-        0.3543,
-        0.3701,
-        0.3858,
-        0.4016,
-        0.4173,
-        0.4331,
-        0.4488,
-        0.4646,
-        0.4803,
-        0.4961,
-        0.5118,
-        0.5276,
-        0.5433,
-        0.5591,
-        0.5748,
-        0.5906,
-        0.6063,
-        0.6220,
-        0.6378,
-        0.6535,
-        0.6693,
-        0.6850,
-        0.7008,
-        0.7165,
-        0.7323,
-        0.7480,
-        0.7638,
-        0.7795,
-        0.7953,
-        0.8110,
-        0.8268,
-        0.8425,
-        0.8583,
-        0.8740,
-        0.8898,
-        0.9055,
-        0.9213,
-        0.9370,
-        0.9528,
-        0.9685,
-        0.9843,
-        1.0000,
-    };
+void AnalysisManager::fill_histogram_mZ(const G4int idx_part, const G4double &value) {
+    for (uint ii = 0; ii < ngridm - 1; ++ii) {
+        if ((value >= MOM_GRID[ii]) && (value < MOM_GRID[ii + 1])) {
+            PART_MOM_Z[idx_part][ii]++;
+            return;
+        }
+    }
+}
 
-    return mom_grid;
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+// open / close with trunc to clean the files (if it does exist) or to create it
+void AnalysisManager::clean_output_files() {
+    asciiFile_analysis_phot.open(asciiFileName_phot, std::ios::trunc);
+    if (asciiFile_analysis_phot.is_open()) {
+        asciiFile_analysis_phot.close();
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_elec.open(asciiFileName_elec, std::ios::trunc);
+    if (asciiFile_analysis_elec.is_open()) {
+        asciiFile_analysis_elec.close();
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_posi.open(asciiFileName_posi, std::ios::trunc);
+    if (asciiFile_analysis_posi.is_open()) {
+        asciiFile_analysis_posi.close();
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_mup.open(asciiFileName_mup, std::ios::trunc);
+    if (asciiFile_analysis_mup.is_open()) {
+        asciiFile_analysis_mup.close();
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_mun.open(asciiFileName_mun, std::ios::trunc);
+    if (asciiFile_analysis_mun.is_open()) {
+        asciiFile_analysis_mun.close();
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
+        std::abort();
+    }
+}
+
+// ------------------------------------------------------------------------
+// check to make sure particle not recorded more than 2 times (one upward and one downward)
+// returns true if the particle can be recorded, false otherwise
+bool AnalysisManager::check_record(const uint &id, const double &momy) {
+
+    if (record_list.empty()) return true;
+
+    bool up = momy > 0.0;
+    bool down = !up;
+
+    bool found = false;
+
+    for (auto &a_record : record_list) {
+        if (id == a_record.ID) {
+            found = true;
+            if (a_record.downward && a_record.upward) {
+                G4cout << "SKIPPED" << G4endl;
+                return false;
+            } else if (!a_record.downward && down) {
+                a_record.downward = true;
+                return true;
+            } else if (!a_record.upward && up) {
+                a_record.upward = true;
+                return true;
+            }
+        }
+    }
+
+    if (!found) {
+        record_list.push_back({id, up, down});
+        return true;
+    }
+
+    return true;
+
+}
+
+// ------------------------------------------------------------------------
+
+double AnalysisManager::get_fraction_RREA_thres(const double potential_MV, const double center_alt_km, const double length_km) {
+
+    const double RREA_thes_see_level = 284.0; // MV/km
+    const double scale = get_scale(center_alt_km + length_km / 2.0);
+
+    const double RREA_thres = RREA_thes_see_level / scale;
+
+    const double fraction_RREA_thres = potential_MV / length_km / RREA_thres;
+
+    return fraction_RREA_thres;
+}
+
+// ------------------------------------------------------------------------
+
+double AnalysisManager::get_avalanchge_time(const double potential_MV, const double center_alt_km, const double length_km) {
+
+    const double RREA_thes_see_level = 284.0; // MV/km
+    const double scale = get_scale(center_alt_km + length_km / 2.0);
+
+    const double RREA_thres = RREA_thes_see_level / scale;
+
+    const double fraction_RREA_thres = potential_MV / length_km / RREA_thres;
+
+    return fraction_RREA_thres;
 }

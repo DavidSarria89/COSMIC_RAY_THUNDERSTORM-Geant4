@@ -1,0 +1,10 @@
+returnNeutrons 1
+returnElectrons 1
+returnGammas 1
+returnProtons 0
+returnPions 0
+returnMuons 0
+date 7-1-2012
+latitude 90.0
+altitude 0
+subboxLength 100

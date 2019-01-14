@@ -1,0 +1,10 @@
+CRY::CRYSetup: Setting returnNeutrons to 1
+CRY::CRYSetup: Setting returnProtons to 1
+CRY::CRYSetup: Setting returnGammas to 1
+CRY::CRYSetup: Setting date to 7-1-2012 (month-day-year)
+CRY::CRYSetup: Setting latitude to 90
+CRY::CRYSetup: Setting altitude to 0
+CRY::CRYSetup: Setting subboxLength to 100
+Output sent to shower.out
+Run completed.
+Total time simulated: 0.000384146 seconds

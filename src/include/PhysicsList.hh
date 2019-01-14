@@ -1,4 +1,5 @@
 //
+
 // ********************************************************************
 // * License and Disclaimer                                           *
 // *                                                                  *
@@ -25,30 +26,40 @@
 
 #pragma once
 
-#include "G4VModularPhysicsList.hh"
-#include "globals.hh"
+#include "G4HadronPhysicsFTFP_BERT.hh"
+#include "G4EmParameters.hh"
 #include "G4RegionStore.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4VModularPhysicsList.hh"
 #include "G4VUserPhysicsList.hh"
 #include "Settings.hh"
-#include "G4EmParameters.hh"
+#include "globals.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class PhysicsList: public G4VModularPhysicsList
-{
-    public:
-        PhysicsList(const bool em_only);
-        ~PhysicsList();
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-    public:
-        virtual void ConstructParticle();
-        virtual void SetCuts();
+class PhysicsList : public G4VModularPhysicsList {
+public:
 
-        //        void AddStepMax();
-        void Add_Step_Maxs();
+    explicit PhysicsList(const bool em_only);
+
+    ~PhysicsList() override;
+
+public:
+
+    void ConstructParticle() override;
+
+    void SetCuts() override;
+
+
 private:
-        void Add_global_StepMax(G4double stepMaxVal_elec, G4double stepMaxVal_gamma);
+
+    Settings *settings = Settings::getInstance();
+    const double GLOBAL_stepMaxVal = settings->GLOBAL_MAX_STEP;
+
+    void Add_global_StepMax();
+
+    void Add_StepMax_for_record_regions();
 };
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

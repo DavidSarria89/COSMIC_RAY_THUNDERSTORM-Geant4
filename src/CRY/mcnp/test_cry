@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# run mcnp test job
+#
+# mcnp   input file = balltest
+# cry    input file = setup.file
+#
+
+#....delete previous mcnpx output files
+/bin/rm outp runtpe ptrac 2> /dev/null
+
+#....location of mcnpx executable that contains RadSrc source.F
+mcnp=/usr/gapps/dmc/mcnp/140.cry_dev/Source/src/mcnp5
+
+#....location of mcnpx data files
+export DATAPATH=/usr/gapps/dmc/mcnpx/data 
+
+#....setup radsrc environment variables
+source ../setup
+
+#....run test job
+$mcnp inp=inp_cry
+
+#....compare to reference
+diff -s ptrac ptrac.ref
+

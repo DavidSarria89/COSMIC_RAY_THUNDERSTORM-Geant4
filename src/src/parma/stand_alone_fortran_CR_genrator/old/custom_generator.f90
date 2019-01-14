@@ -1,4 +1,4 @@
-subroutine gen_parma_cr(seed,nb,energies,cosangles,altitudes,types)
+subroutine gen_parma_cr(seed,nb,energies,cosangles,altitude_list,types)
 !  Generate cosmic-ray based on PARMA model
 USE parma, ONLY : getr,getd,getspecangfinal,getspec,gethp
 implicit none
@@ -25,7 +25,7 @@ integer,intent(in) :: nb
 integer,intent(in) :: seed
 real(8),intent(out) :: energies(nb)
 real(8),intent(out) :: cosangles(nb)
-real(8),intent(out) :: altitudes(nb)
+real(8),intent(out) :: altitude_list(nb)
 integer,intent(out) :: types(nb)
 
 integer :: ip,nevent,iyear,imonth,iday,i,i_alt,ia,ie,idummy
@@ -161,7 +161,7 @@ do i=1,nevent
  cosangles(i) = w;
 
 types(i) = 33
-altitudes(i) = Alti
+altitude_list(i) = Alti
 
 enddo
 

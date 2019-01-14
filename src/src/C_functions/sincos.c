@@ -23,9 +23,11 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 #define _GNU_SOURCE
+
 #include <math.h>
 
-void sincos_(double * x, double * sin, double * cos)
+void
+sincos_(const double *x, double *sin, double *cos)
 {
     sincos(*x, sin, cos);
 }

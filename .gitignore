@@ -6,3 +6,10 @@ build/CMakeCache.txt
 build/Makefile
 build/cmake_install.cmake
 src/CMakeLists.txt.user
+build/MOS_test.cbp
+src/cmake-build-debug/
+src/cmake-build-release/
+cmake-build-debug/
+.idea/workspace.xml
+.idea/
+CMakeLists.txt.user

@@ -4,23 +4,23 @@ integer,parameter :: nb = 30000000, seed=11
 real(8) :: resultat
 real(8):: energies(nb)
 real(8) :: cosangles(nb)
-real(8) :: altitudes(nb)
+real(8) :: altitude_list(nb)
 integer :: types(nb),ii
 
-call gen_parma_cr(seed,nb,energies,cosangles,altitudes,types)
+call gen_parma_cr(seed,nb,energies,cosangles,altitude_list,types)
 
 open (unit=22,file="sampled_particles.txt",action="write",status="replace")
 
 do ii=1,nb
 25 FORMAT(I3, 3E14.6)
-    write (22,25) types(ii),energies(ii),cosangles(ii),altitudes(ii)
+    write (22,25) types(ii),energies(ii),cosangles(ii),altitude_list(ii)
 enddo
 
 end program main
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-subroutine gen_parma_cr(seed,nb,energies,cosangles,altitudes,types)
+subroutine gen_parma_cr(seed,nb,energies,cosangles,altitude_list,types)
 !  Generate cosmic-ray based on PARMA model
 USE parma, ONLY : getr,getd,getspecangfinal,getspec,gethp
 implicit none
@@ -53,7 +53,7 @@ integer,intent(in) :: nb
 integer,intent(in) :: seed
 real(8),intent(out) :: energies(nb)
 real(8),intent(out) :: cosangles(nb)
-real(8),intent(out) :: altitudes(nb)
+real(8),intent(out) :: altitude_list(nb)
 integer,intent(out) :: types(nb)
 
 integer :: ip,nevent,iyear,imonth,iday,i,i_alt,ia,ie,idummy,i_type
@@ -190,7 +190,7 @@ do i=1,nevent
  
 !  write(*,*) index_type
 
- altitudes(i) = getGeneration(i_alt,naltbin,althigh,alt_table(index_type,:))
+ altitude_list(i) = getGeneration(i_alt,naltbin,althigh,alt_table(index_type,:))
  
  energies(i) = getGeneration(ie,nebin,ehigh,e_table(index_type,i_alt,:))    ! energy
 

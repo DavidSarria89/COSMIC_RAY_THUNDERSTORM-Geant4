@@ -1,56 +1,85 @@
 #pragma once
 
+#include "AnalysisManager.hh"
+#include "G4ThreeVector.hh"
 #include "G4UserSteppingAction.hh"
+#include "RegionInformation.hh"
 #include "globals.hh"
 #include <vector>
-#include "G4ThreeVector.hh"
-#include "AnalysisManager.hh"
-#include "RegionInformation.hh"
 
-#include <CLHEP/Units/SystemOfUnits.h>
-#include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
+#include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
+#include <CLHEP/Units/SystemOfUnits.h>
 
 #include "Settings.hh"
 
-#include <time.h>
 #include <sys/time.h>
+#include <time.h>
+#include <vector>
+#include <algorithm>
+#include "myUtils.hh"
 
 class DetectorConstruction;
+
 class EventAction;
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class SteppingAction: public G4UserSteppingAction
-{
-    public:
-        SteppingAction(DetectorConstruction *, EventAction *);
-        ~SteppingAction();
+struct index_found {
+    uint index;
+    bool found;
+};
 
-        virtual void
-        UserSteppingAction(const G4Step *aStep);
+class SteppingAction : public G4UserSteppingAction {
+public:
 
-    private:
-        AnalysisManager *analysis = AnalysisManager::getInstance();
-        DetectorConstruction *fDetector;
-        EventAction *fEventAction;
-        G4StepPoint *thePrePoint = 0;
+    SteppingAction(DetectorConstruction *, EventAction *);
 
-        const G4int PDG_phot = 22;
-        const G4int PDG_elec = 11;
-        const G4int PDG_posi = -11;
+    ~SteppingAction() override;
 
-        double get_wall_time();
+    void UserSteppingAction(const G4Step *aStep) override;
 
-        double computation_length_for_event_limit = 600.; // 10 minutes
+private:
 
-        G4int part_ID;
-        G4int previous_part_ID;
+    index_found find_particle_index(const int PDG_in);
 
-        bool is_inside_eField_region(const G4double &alt, const G4double &xx, const G4double &zz);
-        G4double alt_min = Settings::EFIELD_REGION_ALT_CENTER - Settings::EFIELD_REGION_LEN / 2.0; // km
-        G4double alt_max = Settings::EFIELD_REGION_ALT_CENTER + Settings::EFIELD_REGION_LEN / 2.0; // km
+
+
+    uint CHECK_COUNTER = 0;
+    const uint RAM_CHECK_COUNTER_MAX = 3 * 500000;
+    const double TIME_PRINT_SEC = 3.0 * 60.0;
+
+    double WT1 = 0;
+    double WT2 = 0;
+
+    double WT3 = 0;
+    double WT4 = 0;
+
+    double INITIAL_TIME = 0;
+
+    Settings *settings = Settings::getInstance();
+
+    AnalysisManager *analysis = AnalysisManager::getInstance();
+
+    DetectorConstruction *fDetector = nullptr;
+    EventAction *fEventAction = nullptr;
+
+    G4StepPoint *thePrePoint = nullptr;
+    G4Track *theTrack = nullptr;
+
+
+    bool is_inside_eField_region(const G4double &alt,
+                                 const G4double &xx,
+                                 const G4double &zz);
+
+    const double EFIELD_alt_min = settings->EFIELD_REGION_Y_CENTER - settings->EFIELD_REGION_Y_LEN / 2.0; // km
+    const double EFIELD_alt_max = settings->EFIELD_REGION_Y_CENTER + settings->EFIELD_REGION_Y_LEN / 2.0; // km
+
+    std::vector<int> PDG_LST = settings->PDG_LIST;
+
+    bool first_time = false;
+
 };
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

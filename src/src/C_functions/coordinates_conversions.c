@@ -32,7 +32,6 @@
 /* ------------------------------------------------------------------- */
 
 #include "coordinates_conversions.h"
-#include <math.h>
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ FUCNTIONS -------------------------- */
@@ -42,7 +41,8 @@
 // All angles are in degrees
 
 /* ------------------------------------------------------------------- */
-void geocentric_to_ecef(struct geocentric_coords *input, struct ecef_coords *output)
+void
+geocentric_to_ecef(struct geocentric_coords *input, struct ecef_coords *output)
 {
     static const double aa = 6378.137; // km,  WGS-84
     static const double pi = 3.14159265359;
@@ -51,7 +51,7 @@ void geocentric_to_ecef(struct geocentric_coords *input, struct ecef_coords *out
 
     double R = aa + input->alt;
 
-    double lat_rad  = (input->lat) * pi / 180.; // conversion to radians
+    double lat_rad = (input->lat) * pi / 180.; // conversion to radians
     double long_rad = (input->lon) * pi / 180.; // conversion to radians
 
     sinlat = sin(lat_rad);
@@ -69,7 +69,8 @@ void geocentric_to_ecef(struct geocentric_coords *input, struct ecef_coords *out
 }
 
 /* ------------------------------------------------------------------- */
-void geodetic_to_ecef(struct geodetic_coords *input, struct ecef_coords *output)
+void
+geodetic_to_ecef(struct geodetic_coords *input, struct ecef_coords *output)
 {
     static const double aa = 6378.137;          // km,  WGS-84
     static const double e2 = 0.006694379990141; //  WGS-84
@@ -78,7 +79,7 @@ void geodetic_to_ecef(struct geodetic_coords *input, struct ecef_coords *output)
     double sinlat, coslat, sinlong, coslong;
     double localVertical[3];
 
-    double lat_rad  = (input->lat) * pi / 180.;
+    double lat_rad = (input->lat) * pi / 180.;
     double long_rad = (input->lon) * pi / 180.;
 
     sinlat = sin(lat_rad);
@@ -102,7 +103,8 @@ void geodetic_to_ecef(struct geodetic_coords *input, struct ecef_coords *output)
 }
 
 /* ------------------------------------------------------------------- */
-void ecef_to_geocentric(struct ecef_coords *input, struct geocentric_coords *output)
+void
+ecef_to_geocentric(struct ecef_coords *input, struct geocentric_coords *output)
 {
     static const double aa = 6378.137; // km,  WGS-84
     static const double pi = 3.14159265359;
@@ -126,7 +128,8 @@ void ecef_to_geocentric(struct ecef_coords *input, struct geocentric_coords *out
 }
 
 /* ------------------------------------------------------------------- */
-void ecef_to_geodetic(struct ecef_coords *input, struct geodetic_coords *output)
+void
+ecef_to_geodetic(struct ecef_coords *input, struct geodetic_coords *output)
 {
     static const double aa = 6378.137;          // km,  WGS-84
     static const double e2 = 0.006694379990141; //  WGS-84
@@ -138,28 +141,28 @@ void ecef_to_geodetic(struct ecef_coords *input, struct geodetic_coords *output)
     y = input->y;
     z = input->z;
 
-    double Nphi, R, lat;
+    double Nphi = 0, R, lat;
     double coslon, sinlon, sinlat, coslat;
 
     // longitude is easy
-    R           = sqrt(x * x + y * y + z * z); // sqrt(x*x+y*y)
+    R = sqrt(x * x + y * y + z * z); // sqrt(x*x+y*y)
     output->lon = atan2(y, x) * 180. / pi;     // same as geocentric
 
     // first guess
-    lat = asin(z / R);                         // radians
+    lat = asin(z / R); // radians
 
-    double p = sqrt(x * x + y * y);            //
+    double p = sqrt(x * x + y * y); //
 
     // Compute latitude recursively
     int i;
 
-    for (i = 0; i < 6; i++)   // 6 iterations is enough to get
-        {
-            // a precision of better than a centimeter
-            sinlat = sin(lat);
-            Nphi   = aa / sqrt(1. - e2 * sinlat * sinlat);
-            lat    = atan((z + Nphi * e2 * sinlat) / p);
-        }
+    for (i = 0; i < 6; i++) // 6 iterations is enough to get
+    {
+        // a precision of better than a centimeter
+        sinlat = sin(lat);
+        Nphi = aa / sqrt(1. - e2 * sinlat * sinlat);
+        lat = atan((z + Nphi * e2 * sinlat) / p);
+    }
 
     sinlat = sin(lat);
     coslat = cos(lat);
@@ -172,9 +175,10 @@ void ecef_to_geodetic(struct ecef_coords *input, struct geodetic_coords *output)
 } /* ecef_to_geodetic */
 
 /* ------------------------------------------------------------------- */
-void ecef_to_geodetic_olson(struct ecef_coords *input, struct geodetic_coords *output)
+void
+ecef_to_geodetic_olson(struct ecef_coords *input, struct geodetic_coords *output)
 {
-    static double a = 6378137.0;              // WGS-84 semi-major axis
+    static double a = 6378137.0;             // WGS-84 semi-major axis
     static double e2 = 6.6943799901377997e-3; // WGS-84 first eccentricity squared
     static double a1 = 4.2697672707157535e+4; // a1 = a*e2
     static double a2 = 1.8230912546075455e+9; // a2 = a1*a1
@@ -192,47 +196,47 @@ void ecef_to_geodetic_olson(struct ecef_coords *input, struct geodetic_coords *o
     y = (input->y) * 1000.;
     z = (input->z) * 1000.;
 
-    zp     = abs(z);
-    w2     = x * x + y * y;
-    w      = sqrt(w2);
-    r2     = w2 + z * z;
-    r      = sqrt(r2);
+    zp = fabs(z);
+    w2 = x * x + y * y;
+    w = sqrt(w2);
+    r2 = w2 + z * z;
+    r = sqrt(r2);
     geo[1] = atan2(y, x); // Lon (final)
-    s2     = z * z / r2;
-    c2     = w2 / r2;
-    u      = a2 / r;
-    v      = a3 - a4 / r;
+    s2 = z * z / r2;
+    c2 = w2 / r2;
+    u = a2 / r;
+    v = a3 - a4 / r;
 
     if (c2 > 0.3)
-        {
-            s      = (zp / r) * (1.0 + c2 * (a1 + u + s2 * v) / r);
-            geo[0] = asin(s); // Lat
-            ss     = s * s;
-            c      = sqrt(1.0 - ss);
-        }
+    {
+        s = (zp / r) * (1.0 + c2 * (a1 + u + s2 * v) / r);
+        geo[0] = asin(s); // Lat
+        ss = s * s;
+        c = sqrt(1.0 - ss);
+    }
     else
-        {
-            c      = (w / r) * (1.0 - s2 * (a5 - u - c2 * v) / r);
-            geo[0] = acos(c); // Lat
-            ss     = 1.0 - c * c;
-            s      = sqrt(ss);
-        }
+    {
+        c = (w / r) * (1.0 - s2 * (a5 - u - c2 * v) / r);
+        geo[0] = acos(c); // Lat
+        ss = 1.0 - c * c;
+        s = sqrt(ss);
+    }
 
-    g      = 1.0 - e2 * ss;
-    rg     = a / sqrt(g);
-    rf     = a6 * rg;
-    u      = w - rg * c;
-    v      = zp - rf * s;
-    f      = c * u + s * v;
-    m      = c * v - s * u;
-    p      = m / (rf / g + f);
+    g = 1.0 - e2 * ss;
+    rg = a / sqrt(g);
+    rf = a6 * rg;
+    u = w - rg * c;
+    v = zp - rf * s;
+    f = c * u + s * v;
+    m = c * v - s * u;
+    p = m / (rf / g + f);
     geo[0] = geo[0] + p;      // Lat
     geo[2] = f + m * p / 2.0; // Altitude
 
     if (z < 0.0)
-        {
-            geo[0] *= -1.0;         // Lat
-        }
+    {
+        geo[0] *= -1.0; // Lat
+    }
 
     output->lat = geo[0] * 180. / pi;
     output->lon = geo[1] * 180. / pi;

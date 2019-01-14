@@ -1,0 +1,36 @@
+#
+# make copyright
+#
+# Add target to put copyright text at the beginning of 
+# all source code files
+#
+# Only works on non-SVN version. Will stop user from doing this
+# on SVN version.
+#
+# Doug Wright
+
+TEXT  := src/COPYRIGHT.TXT
+TEXTF := src/COPYRIGHT_FORTRAN.TXT  #....This will be generated from TEXT
+
+srcC := $(wildcard */*.h */*.c */*.cc)
+srcF := $(wildcard */*.inc */*.F)
+
+#....Add copyright text to all source code
+copyright: copyrightExport copyrightC copyrightF
+
+#....Only allow this to run on non-SVN directory
+copyrightExport:
+	@test ! -e .svn || echo Can not add copyright to SVN version, please do svn export first
+	@test ! -e .svn 
+
+#....C style comment
+copyrightC: $(srcC)
+	@for file in $?; do cat $(TEXT) $$file > tmp; mv tmp $$file; done
+
+#....Fortran style comment
+copyrightF: $(srcF)
+	@cat $(TEXT) | awk '{ print "C " $$0 }' > $(TEXTF)
+	@for file in $?; do cat $(TEXTF) $$file > tmp; mv tmp $$file; done
+	@rm $(TEXTF)
+
+.PHONY: copyrightExport copyrightC copyrightF

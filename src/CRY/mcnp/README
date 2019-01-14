@@ -1,0 +1,9 @@
+For MCNP follow the example in ../mcnpx. The only difference in source.F
+is to replace:
+
+! MCNPX
+        use global_data
+! MCNP
+        use mcnp_global
+        use mcnp_debug
+        use mcnp_random

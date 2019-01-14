@@ -1,4 +1,5 @@
-//*******************************************************************************
+// *******************************************************************************
+
 // GEANT4 code for propagation of gamma-rays, electron and positrons in Earth's atmosphere
 
 // ********************************************************************
@@ -25,39 +26,46 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 
-#include <math.h>          /* maths functions */
-#include <stdio.h>         /* for error messages. */
-#include <stdlib.h>        /* for malloc/free */
+#include <math.h>   /* maths functions */
+#include <stdio.h>  /* for error messages. */
+#include <stdlib.h> /* for malloc/free */
 
 // STRUCTURES
 
-struct ecef_coords {
-    double x; // km
-    double y; // km
-    double z; // km
+struct ecef_coords
+{
+  double x; // km
+  double y; // km
+  double z; // km
 };
 
-struct geocentric_coords {
-    double lat; //degree
-    double lon; //degree
-    double alt; //km
+struct geocentric_coords
+{
+  double lat; // degree
+  double lon; // degree
+  double alt; // km
 };
 
-struct geodetic_coords { // = geographic
-    double lat; //degree
-    double lon; //degree
-    double alt; //km
+struct geodetic_coords
+{             // = geographic
+  double lat; // degree
+  double lon; // degree
+  double alt; // km
 };
 
 // PROTOTYPES
 
-void geocentric_to_ecef(struct geocentric_coords *input, struct ecef_coords *output);
+void geocentric_to_ecef(struct geocentric_coords *input,
+                        struct ecef_coords       *output);
 
-void geodetic_to_ecef(struct geodetic_coords *input, struct ecef_coords *output);
+void geodetic_to_ecef(struct geodetic_coords *input,
+                      struct ecef_coords     *output);
 
-void ecef_to_geocentric(struct ecef_coords *input, struct geocentric_coords *output);
+void ecef_to_geocentric(struct ecef_coords       *input,
+                        struct geocentric_coords *output);
 
-void ecef_to_geodetic(struct ecef_coords *input, struct geodetic_coords *output);
+void ecef_to_geodetic(struct ecef_coords     *input,
+                      struct geodetic_coords *output);
 
-void ecef_to_geodetic_olson(struct ecef_coords *input, struct geodetic_coords *output);
-
+void ecef_to_geodetic_olson(struct ecef_coords     *input,
+                            struct geodetic_coords *output);

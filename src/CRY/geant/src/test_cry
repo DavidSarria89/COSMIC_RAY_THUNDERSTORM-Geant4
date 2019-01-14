@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# setup CRY library environment variables
+        source ../setup
+
+# setup GEANT4 environment variables
+	source /usr/gapps/cern/geant4.9.0/setup
+
+# run the example problem
+	bin/$G4SYSTEM/cosmic cmd.file | tee geant4.9.0.out
+
+echo
+diff -s geant4.9.0.out geant4.9.0.ref
+
+

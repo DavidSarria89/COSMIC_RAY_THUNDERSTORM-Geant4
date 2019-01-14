@@ -1,0 +1,610 @@
+
+*************************************************************
+ Geant4 version Name: geant4-09-00    (29-June-2007)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+CRY::CRYSetup: Setting returnNeutrons to 1
+CRY::CRYSetup: Setting returnProtons to 1
+CRY::CRYSetup: Setting returnGammas to 1
+CRY::CRYSetup: Setting returnPions to 1
+CRY::CRYSetup: Setting returnKaons to 1
+CRY::CRYSetup: Setting date to 7-1-2012 (month-day-year)
+CRY::CRYSetup: Setting latitude to 90
+CRY::CRYSetup: Setting altitude to 0
+CRY::CRYSetup: Setting subboxLength to 100
+
+phot:  Total cross sections from Sandia parametrisation. 
+      Sampling according PhotoElectric model
+
+compt:  Total cross sections has a good parametrisation from 10 KeV to (100/Z) GeV
+      Sampling according Klein-Nishina model
+      tables are built for  gamma
+      Lambda tables from 100 eV  to 100 GeV in 90 bins.
+
+polarCompt:  Total cross sections from a parametrisation. Good description from 10 KeV to (100/Z) GeV. 
+       Scattered gamma energy according Klein-Nishina.
+        PhysicsTables from 1 keV to 100 GeV in 80 bins. 
+        WARNING: This process is obsolete and will be soon removed
+
+conv:  Total cross sections has a good parametrisation from 1.5 MeV to 100 GeV for all Z;
+      sampling secondary e+e- according Bethe-Heitler model
+      tables are built for  gamma
+      Lambda tables from 1.022 MeV to 100 GeV in 100 bins.
+
+msc:  Model variant of multiple scattering for e-
+      Lambda tables from 100 eV  to 100 TeV in 120 bins.
+      LateralDisplacementFlag=  1   Skin= 0
+      Boundary/stepping algorithm is active with RangeFactor= 0.02  Step limit type 1
+
+eIoni:   tables are built for  e-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Delta cross sections and sampling from MollerBhabha model
+      Good description from 1 KeV to 100 GeV.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+eBrem:   tables are built for  e-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Total cross sections and sampling from StandBrem model (based on the EEDL data library) 
+      Good description from 1 KeV to 100 GeV, log scale extrapolation above 100 GeV. LPM flag 1
+
+eIoni:   tables are built for  e+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Delta cross sections and sampling from MollerBhabha model
+      Good description from 1 KeV to 100 GeV.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+eBrem:   tables are built for  e+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Total cross sections and sampling from StandBrem model (based on the EEDL data library) 
+      Good description from 1 KeV to 100 GeV, log scale extrapolation above 100 GeV. LPM flag 1
+
+annihil:       Sampling according eplus2gg model
+      tables are built for  e+
+      Lambda tables from 100 eV  to 100 TeV in 120 bins.
+
+msc:  Model variant of multiple scattering for proton
+      Lambda tables from 100 eV  to 100 TeV in 120 bins.
+      LateralDisplacementFlag=  1   Skin= 0
+      Boundary/stepping algorithm is active with RangeFactor= 0.02  Step limit type 1
+
+hIoni:   tables are built for  proton
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Scaling relation is used from proton dE/dx and range.
+      Delta cross sections and sampling from BetheBloch model for scaled energy > 2 MeV
+      Parametrisation from Bragg for protons below.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+msc:  Model variant of multiple scattering for GenericIon
+      LateralDisplacementFlag=  0   Skin= 0
+      Boundary/stepping algorithm is active with RangeFactor= 0.2  Step limit type 1
+
+hIoni:   tables are built for  anti_proton
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Scaling relation is used from proton dE/dx and range.
+      Delta cross sections and sampling from BetheBloch model for scaled energy > 2 MeV
+      Parametrisation from Bragg for protons below.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+msc:  Model variant of multiple scattering for mu+
+      Lambda tables from 100 eV  to 100 TeV in 120 bins.
+      LateralDisplacementFlag=  1   Skin= 0
+      Boundary/stepping algorithm is active with RangeFactor= 0.02  Step limit type 1
+
+muIoni:   tables are built for  mu+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Bether-Bloch model for E > 0.2 MeV, parametrisation of Bragg peak below, 
+      radiative corrections for E > 1 GeV
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+muBrems:   tables are built for  mu+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Parametrised model 
+
+muPairProd:   tables are built for  mu+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Parametrised model 
+
+muIoni:   tables are built for  mu-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Bether-Bloch model for E > 0.2 MeV, parametrisation of Bragg peak below, 
+      radiative corrections for E > 1 GeV
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+muBrems:   tables are built for  mu-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Parametrised model 
+
+muPairProd:   tables are built for  mu-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Parametrised model 
+
+hIoni:   tables are built for  pi+
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Scaling relation is used from proton dE/dx and range.
+      Delta cross sections and sampling from BetheBloch model for scaled energy > 0.297504 MeV
+      Parametrisation from Bragg for protons below.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+msc:  Model variant of multiple scattering for pi-
+      Lambda tables from 100 eV  to 100 TeV in 120 bins.
+      LateralDisplacementFlag=  1   Skin= 0
+      Boundary/stepping algorithm is active with RangeFactor= 0.02  Step limit type 1
+
+hIoni:   tables are built for  pi-
+      dE/dx and range tables from 100 eV  to 100 TeV in 120 bins.
+      Lambda tables from threshold to 100 TeV in 120 bins.
+      Scaling relation is used from proton dE/dx and range.
+      Delta cross sections and sampling from BetheBloch model for scaled energy > 0.297504 MeV
+      Parametrisation from Bragg for protons below.
+      Step function: finalRange(mm)= 1, dRoverRange= 0.2, integral: 1
+
+========= Table of registered couples ==============================
+
+Index : 0     used in the geometry : Yes     recalculation needed : No 
+ Material : G4_AIR
+ Range cuts        :  gamma 1 mm     e- 1 mm     e+ 1 mm 
+ Energy thresholds :  gamma 990 eV     e- 990 eV     e+ 990 eV 
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes     recalculation needed : No 
+ Material : HEU
+ Range cuts        :  gamma 1 mm     e- 1 mm     e+ 1 mm 
+ Energy thresholds :  gamma 126.206 keV    e- 2.14666 MeV    e+ 1.99382 MeV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 2     used in the geometry : Yes     recalculation needed : No 
+ Material : G4_POLYETHYLENE
+ Range cuts        :  gamma 1 mm     e- 1 mm     e+ 1 mm 
+ Energy thresholds :  gamma 2.23429 keV    e- 347.138 keV    e+ 338.695 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 3     used in the geometry : Yes     recalculation needed : No 
+ Material : He3
+ Range cuts        :  gamma 1 mm     e- 1 mm     e+ 1 mm 
+ Energy thresholds :  gamma 990 eV     e- 990 eV     e+ 990 eV 
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+====================================================================
+
+
+Event=0 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=5.134 pos (m)(-4.058,-41.72,0) direction cosines (-0.4832,-0.01909,-0.8753) 
+
+Event=1 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=5705 pos (m)(34.89,42.44,0) direction cosines (-0.02658,0.4557,-0.8897) 
+
+Event=2 CRY generated nparticles=16
+  electron charge=-1 energy (MeV)=8.391 pos (m)(-34.25,4.014,0) direction cosines (0.286,0.5506,-0.7842) 
+  muon charge=-1 energy (MeV)=5.393e+04 pos (m)(-10.5,-36.43,0) direction cosines (-0.2714,0.5968,-0.7551) 
+  gamma charge=0 energy (MeV)=1.169 pos (m)(3.191,-29.77,0) direction cosines (-0.1406,0.5998,-0.7877) 
+  electron charge=1 energy (MeV)=29.04 pos (m)(-33.35,-40.56,0) direction cosines (0.3841,-0.01939,-0.9231) 
+  gamma charge=0 energy (MeV)=2.692 pos (m)(27.58,-22.5,0) direction cosines (-0.752,-0.5417,-0.3756) 
+  gamma charge=0 energy (MeV)=49.71 pos (m)(14.93,-22.51,0) direction cosines (0.4411,0.6972,-0.5651) 
+  proton charge=1 energy (MeV)=14.94 pos (m)(30.73,-40.78,0) direction cosines (-0.6892,0.1118,-0.7159) 
+  muon charge=-1 energy (MeV)=1615 pos (m)(-23.48,-29.16,0) direction cosines (-0.4381,0.07869,-0.8955) 
+  neutron charge=0 energy (MeV)=0.09829 pos (m)(-29.54,8.42,0) direction cosines (0.597,0.06698,-0.7994) 
+  gamma charge=0 energy (MeV)=2.529 pos (m)(-31.69,-17.24,0) direction cosines (-0.4231,-0.4543,-0.784) 
+  neutron charge=0 energy (MeV)=191.5 pos (m)(-25.26,-24.93,0) direction cosines (-0.8726,-0.03387,-0.4872) 
+  muon charge=-1 energy (MeV)=4.02e+04 pos (m)(-14.84,-10.5,0) direction cosines (-0.6466,0.07502,-0.7591) 
+  muon charge=-1 energy (MeV)=4596 pos (m)(-49.23,6.508,0) direction cosines (0.7565,-0.3303,-0.5645) 
+  muon charge=-1 energy (MeV)=5308 pos (m)(-12.41,-24.85,0) direction cosines (0.3085,-0.3128,-0.8983) 
+  electron charge=-1 energy (MeV)=2.488 pos (m)(-42.08,-17.19,0) direction cosines (0.3867,-0.8651,-0.3196) 
+  muon charge=1 energy (MeV)=8115 pos (m)(-4.398,-22.89,0) direction cosines (-0.4911,-0.8218,-0.2891) 
+
+Event=3 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1226 pos (m)(49.58,-17.13,0) direction cosines (0.5076,-0.04167,-0.8606) 
+
+Event=4 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=3244 pos (m)(3.631,-24.24,0) direction cosines (0.05221,0.2256,-0.9728) 
+
+Event=5 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=4.531 pos (m)(-26.11,5.667,0) direction cosines (-0.3456,-0.4627,-0.8164) 
+
+Event=6 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=10.01 pos (m)(-21.17,9.161,0) direction cosines (-0.2169,0.7354,-0.642) 
+
+Event=7 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.258 pos (m)(26.12,-10.07,0) direction cosines (0.4723,-0.1235,-0.8728) 
+
+Event=8 CRY generated nparticles=5
+  muon charge=1 energy (MeV)=8175 pos (m)(-3.194,30.83,0) direction cosines (0.01,0.007567,-0.9999) 
+  muon charge=-1 energy (MeV)=1.128e+04 pos (m)(-41.52,0.7927,0) direction cosines (-0.2595,0.6254,-0.7359) 
+  muon charge=1 energy (MeV)=5295 pos (m)(14.12,-2.395,0) direction cosines (0.3271,0.6801,-0.6561) 
+  gamma charge=0 energy (MeV)=29.22 pos (m)(-19.04,16.14,0) direction cosines (-0.6734,0.0414,-0.7381) 
+  gamma charge=0 energy (MeV)=8.602 pos (m)(-6.963,4.833,0) direction cosines (-0.02898,-0.4552,-0.8899) 
+
+Event=9 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=8.635 pos (m)(-18.17,9.25,0) direction cosines (-0.493,-0.1436,-0.8581) 
+
+Event=10 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=6.238e+04 pos (m)(-5.068,-34.03,0) direction cosines (-0.3263,-0.159,-0.9318) 
+
+Event=11 CRY generated nparticles=82
+  muon charge=1 energy (MeV)=2427 pos (m)(10.78,-28.06,0) direction cosines (-0.6172,0.5294,-0.5821) 
+  muon charge=-1 energy (MeV)=8.082e+04 pos (m)(-35.36,-43.75,0) direction cosines (-0.7889,-0.4833,-0.3795) 
+  muon charge=-1 energy (MeV)=1.109e+04 pos (m)(-11.77,5.261,0) direction cosines (-0.1147,-0.9147,-0.3876) 
+  gamma charge=0 energy (MeV)=1.802 pos (m)(5.556,-44.49,0) direction cosines (-0.4384,0.4432,-0.7819) 
+  electron charge=-1 energy (MeV)=3.774 pos (m)(-17.46,36.96,0) direction cosines (-0.006235,-0.2447,-0.9696) 
+  electron charge=1 energy (MeV)=21.69 pos (m)(-4.276,46.57,0) direction cosines (-0.6473,0.5628,-0.5141) 
+  gamma charge=0 energy (MeV)=4.41 pos (m)(-4.179,-20.67,0) direction cosines (0.2864,0.3902,-0.875) 
+  gamma charge=0 energy (MeV)=2.959 pos (m)(9.908,-47.98,0) direction cosines (-0.03092,0.4854,-0.8738) 
+  gamma charge=0 energy (MeV)=23.22 pos (m)(-16.02,17.9,0) direction cosines (0.0607,-0.0391,-0.9974) 
+  gamma charge=0 energy (MeV)=1.044 pos (m)(-46.67,-8.969,0) direction cosines (-0.1306,-0.01572,-0.9913) 
+  muon charge=-1 energy (MeV)=8037 pos (m)(-26.41,36.37,0) direction cosines (0.4669,0.05586,-0.8826) 
+  electron charge=-1 energy (MeV)=14.06 pos (m)(13.23,-41.32,0) direction cosines (0.5826,0.4228,-0.6941) 
+  muon charge=-1 energy (MeV)=6894 pos (m)(-29.26,46.97,0) direction cosines (-0.5313,0.3682,-0.763) 
+  gamma charge=0 energy (MeV)=1.796 pos (m)(10.97,21.29,0) direction cosines (0.381,-0.2894,-0.8781) 
+  gamma charge=0 energy (MeV)=5.476 pos (m)(24.93,-6.33,0) direction cosines (-0.1442,0.6297,-0.7633) 
+  gamma charge=0 energy (MeV)=17.95 pos (m)(26.66,30.48,0) direction cosines (-0.07733,0.5921,-0.8022) 
+  gamma charge=0 energy (MeV)=82.9 pos (m)(-30.45,43.63,0) direction cosines (-0.4865,0.7493,-0.4493) 
+  gamma charge=0 energy (MeV)=72.46 pos (m)(-27.3,-9.517,0) direction cosines (0.08613,-0.1887,-0.9782) 
+  gamma charge=0 energy (MeV)=13.25 pos (m)(-39.8,-34.35,0) direction cosines (-0.05256,0.676,-0.735) 
+  gamma charge=0 energy (MeV)=2.071 pos (m)(-9.528,33.1,0) direction cosines (0.9368,-0.2799,-0.21) 
+  gamma charge=0 energy (MeV)=1.163 pos (m)(14.03,-39.76,0) direction cosines (-0.4537,-0.4083,-0.7921) 
+  neutron charge=0 energy (MeV)=17.77 pos (m)(-5.611,-25.9,0) direction cosines (0.2707,-0.08184,-0.9592) 
+  neutron charge=0 energy (MeV)=2.193 pos (m)(-36.71,2.11,0) direction cosines (-0.307,0.08336,-0.9481) 
+  gamma charge=0 energy (MeV)=5.235 pos (m)(-30.95,-24.47,0) direction cosines (0.9564,-0.1632,-0.2423) 
+  gamma charge=0 energy (MeV)=2.952 pos (m)(26.91,42.05,0) direction cosines (-0.05132,-0.6188,-0.7839) 
+  gamma charge=0 energy (MeV)=2.14 pos (m)(-23.06,-49.87,0) direction cosines (0.1733,0.3594,-0.9169) 
+  gamma charge=0 energy (MeV)=7.042 pos (m)(-22.51,-35.22,0) direction cosines (0.369,0.7091,-0.6008) 
+  gamma charge=0 energy (MeV)=16.18 pos (m)(13.52,9.425,0) direction cosines (0.5826,0.409,-0.7024) 
+  muon charge=1 energy (MeV)=989.4 pos (m)(-25.95,38.72,0) direction cosines (-0.2116,0.3387,-0.9168) 
+  gamma charge=0 energy (MeV)=11.55 pos (m)(-44.45,1.21,0) direction cosines (0.07288,-0.0894,-0.9933) 
+  electron charge=-1 energy (MeV)=270.4 pos (m)(11.78,12.87,0) direction cosines (-0.4075,0.5351,-0.74) 
+  gamma charge=0 energy (MeV)=1.037 pos (m)(11.11,-30.92,0) direction cosines (0.8497,0.358,-0.3872) 
+  gamma charge=0 energy (MeV)=3.289 pos (m)(4.865,37.16,0) direction cosines (0.7218,-0.3441,-0.6005) 
+  gamma charge=0 energy (MeV)=2.784 pos (m)(-23.58,-47.68,0) direction cosines (0.09775,-0.3951,-0.9134) 
+  muon charge=1 energy (MeV)=3014 pos (m)(-0.6812,16.79,0) direction cosines (-0.06544,0.1531,-0.986) 
+  gamma charge=0 energy (MeV)=2.296 pos (m)(-40.89,13.06,0) direction cosines (-0.244,0.2316,-0.9417) 
+  muon charge=1 energy (MeV)=1683 pos (m)(-28.11,44.78,0) direction cosines (-0.31,-0.5235,-0.7936) 
+  gamma charge=0 energy (MeV)=1.291 pos (m)(9.822,44.13,0) direction cosines (-0.4677,0.05573,-0.8821) 
+  electron charge=-1 energy (MeV)=9.023 pos (m)(8.653,26.28,0) direction cosines (-0.07523,-0.8623,-0.5008) 
+  gamma charge=0 energy (MeV)=5.408 pos (m)(16.64,39.41,0) direction cosines (0.08563,0.2948,-0.9517) 
+  muon charge=-1 energy (MeV)=3136 pos (m)(28.31,38.96,0) direction cosines (0.4685,0.06713,-0.8809) 
+  electron charge=-1 energy (MeV)=7.004 pos (m)(-47.65,28.2,0) direction cosines (0.04977,-0.1385,-0.9891) 
+  gamma charge=0 energy (MeV)=408.3 pos (m)(-9.523,34.21,0) direction cosines (-0.6634,0.3538,-0.6594) 
+  gamma charge=0 energy (MeV)=19.23 pos (m)(-25.17,-41.67,0) direction cosines (-0.1583,-0.111,-0.9811) 
+  gamma charge=0 energy (MeV)=1.539 pos (m)(-22.58,-28.38,0) direction cosines (-0.6066,-0.4353,-0.6653) 
+  gamma charge=0 energy (MeV)=1.141 pos (m)(-38.78,14.43,0) direction cosines (-0.4543,0.1405,-0.8797) 
+  gamma charge=0 energy (MeV)=4.631 pos (m)(27.31,-48.33,0) direction cosines (-0.573,-0.08835,-0.8148) 
+  gamma charge=0 energy (MeV)=36.53 pos (m)(26.86,2.464,0) direction cosines (0.5937,-0.4288,-0.6809) 
+  gamma charge=0 energy (MeV)=38.76 pos (m)(-22.58,26.68,0) direction cosines (0.142,-0.1657,-0.9759) 
+  muon charge=-1 energy (MeV)=4.33e+04 pos (m)(-29.62,16.59,0) direction cosines (-0.8718,0.04886,-0.4875) 
+  gamma charge=0 energy (MeV)=11.08 pos (m)(25.97,18,0) direction cosines (0.03665,-0.154,-0.9874) 
+  gamma charge=0 energy (MeV)=7.587 pos (m)(-13.35,34.55,0) direction cosines (-0.2998,0.4364,-0.8483) 
+  gamma charge=0 energy (MeV)=60.95 pos (m)(28.99,-1.535,0) direction cosines (-0.2665,0.3263,-0.9069) 
+  gamma charge=0 energy (MeV)=2.206 pos (m)(5.148,15.5,0) direction cosines (0.1917,-0.4395,-0.8776) 
+  gamma charge=0 energy (MeV)=1051 pos (m)(0.6025,-39.08,0) direction cosines (-0.1164,-0.2814,-0.9525) 
+  muon charge=-1 energy (MeV)=1249 pos (m)(-5.882,1.665,0) direction cosines (0.02812,-0.6577,-0.7528) 
+  gamma charge=0 energy (MeV)=4.156 pos (m)(-6.078,33.52,0) direction cosines (0.3106,-0.8166,-0.4865) 
+  gamma charge=0 energy (MeV)=5.84 pos (m)(-1.489,26.22,0) direction cosines (0.5454,-0.5478,-0.6344) 
+  muon charge=1 energy (MeV)=1071 pos (m)(9.015,26.38,0) direction cosines (0.2344,-0.5987,-0.7659) 
+  muon charge=-1 energy (MeV)=5.442e+04 pos (m)(-0.02504,21.52,0) direction cosines (0.5912,0.2388,-0.7704) 
+  muon charge=1 energy (MeV)=2.552e+04 pos (m)(-30.16,-15.9,0) direction cosines (-0.2633,0.4746,-0.8399) 
+  gamma charge=0 energy (MeV)=17.73 pos (m)(18.84,15.65,0) direction cosines (0.1409,0.09003,-0.9859) 
+  muon charge=-1 energy (MeV)=2.021e+04 pos (m)(22.61,-41.6,0) direction cosines (0.5184,-0.3032,-0.7996) 
+  muon charge=-1 energy (MeV)=1.011e+04 pos (m)(23.32,-29.85,0) direction cosines (0.2503,0.6157,-0.7471) 
+  gamma charge=0 energy (MeV)=1.865 pos (m)(-20.08,8.902,0) direction cosines (-0.1059,-0.7083,-0.6979) 
+  proton charge=1 energy (MeV)=742.1 pos (m)(28.87,32.26,0) direction cosines (-0.07642,0.6397,-0.7648) 
+  gamma charge=0 energy (MeV)=8.347 pos (m)(-18.52,-22.39,0) direction cosines (0.658,0.1109,-0.7448) 
+  electron charge=-1 energy (MeV)=25.92 pos (m)(-17.46,-7.215,0) direction cosines (0.1227,-0.2826,-0.9514) 
+  gamma charge=0 energy (MeV)=34.97 pos (m)(25.54,6.985,0) direction cosines (-0.4618,-0.02761,-0.8865) 
+  gamma charge=0 energy (MeV)=1.301 pos (m)(-6.142,-19.85,0) direction cosines (0.6173,0.318,-0.7196) 
+  muon charge=1 energy (MeV)=2.659e+04 pos (m)(17.49,-9.04,0) direction cosines (-0.03097,0.06243,-0.9976) 
+  electron charge=1 energy (MeV)=5.569 pos (m)(2.862,-41.23,0) direction cosines (-0.8215,0.4738,-0.3171) 
+  gamma charge=0 energy (MeV)=18.2 pos (m)(5.767,-48.61,0) direction cosines (0.04175,0.4183,-0.9074) 
+  electron charge=-1 energy (MeV)=2.487 pos (m)(0.8998,6.208,0) direction cosines (0.4792,0.3148,-0.8193) 
+  electron charge=1 energy (MeV)=38.68 pos (m)(-35.75,-19.9,0) direction cosines (-0.2498,0.333,-0.9092) 
+  muon charge=-1 energy (MeV)=1.449e+04 pos (m)(7.455,20.64,0) direction cosines (0.09718,-0.1164,-0.9884) 
+  neutron charge=0 energy (MeV)=0.6992 pos (m)(-22.67,46.69,0) direction cosines (0.2984,0.3727,-0.8786) 
+  muon charge=1 energy (MeV)=526.6 pos (m)(-46.83,5.689,0) direction cosines (-0.05151,0.4007,-0.9147) 
+  gamma charge=0 energy (MeV)=204 pos (m)(-21.03,17.09,0) direction cosines (0.4563,0.4524,-0.7662) 
+  gamma charge=0 energy (MeV)=6.328 pos (m)(-4.114,-42.55,0) direction cosines (0.2386,0.4617,-0.8543) 
+  muon charge=-1 energy (MeV)=1.437e+04 pos (m)(-4.511,29.99,0) direction cosines (0.2924,-0.3272,-0.8986) 
+  muon charge=-1 energy (MeV)=2513 pos (m)(-35.41,4.398,0) direction cosines (0.8185,0.1097,-0.564) 
+
+Event=12 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=17.01 pos (m)(-23,43.32,0) direction cosines (0.4298,-0.07585,-0.8997) 
+
+Event=13 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2483 pos (m)(-14.87,23.57,0) direction cosines (-0.03352,0.4352,-0.8997) 
+
+Event=14 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=117.8 pos (m)(-6.225,34.93,0) direction cosines (0.4082,0.2613,-0.8747) 
+
+Event=15 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=11.97 pos (m)(3.472,-25.74,0) direction cosines (0.6092,-0.4623,-0.6443) 
+
+Event=16 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=39.68 pos (m)(12.96,6.407,0) direction cosines (-0.5499,0.2306,-0.8028) 
+
+Event=17 CRY generated nparticles=4
+  electron charge=-1 energy (MeV)=420 pos (m)(5.011,-28.5,0) direction cosines (-0.4244,0.7577,-0.4958) 
+  gamma charge=0 energy (MeV)=3.237 pos (m)(-49.85,36.71,0) direction cosines (0.0717,-0.5339,-0.8425) 
+  gamma charge=0 energy (MeV)=1.627 pos (m)(8.451,27.89,0) direction cosines (-0.02913,-0.6128,-0.7897) 
+  gamma charge=0 energy (MeV)=2.406 pos (m)(2.255,-20.57,0) direction cosines (-0.07402,-0.8012,-0.5938) 
+
+Event=18 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=1.086 pos (m)(17.6,33.39,0) direction cosines (0.2172,-0.03213,-0.9756) 
+  gamma charge=0 energy (MeV)=21.81 pos (m)(22.79,-0.5323,0) direction cosines (0.3898,-0.02892,-0.9205) 
+
+Event=19 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=1.759 pos (m)(-18.82,39.23,0) direction cosines (-0.1902,0.6804,-0.7077) 
+  neutron charge=0 energy (MeV)=330.6 pos (m)(-49.43,-4.482,0) direction cosines (0.2235,-0.2835,-0.9326) 
+
+Event=20 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=51.6 pos (m)(-22.72,-5.86,0) direction cosines (-0.1737,-0.5984,-0.7821) 
+
+Event=21 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1952 pos (m)(-21.58,-3.151,0) direction cosines (0.551,-0.6282,-0.5494) 
+
+Event=22 CRY generated nparticles=4
+  gamma charge=0 energy (MeV)=1.963 pos (m)(17.07,43.44,0) direction cosines (-0.5524,-0.2441,-0.797) 
+  muon charge=1 energy (MeV)=115.1 pos (m)(23.5,41.34,0) direction cosines (0.4919,-0.1425,-0.8589) 
+  gamma charge=0 energy (MeV)=3.355 pos (m)(4.841,-15.56,0) direction cosines (0.8835,-0.3761,-0.2791) 
+  gamma charge=0 energy (MeV)=3.238 pos (m)(-23.55,19.71,0) direction cosines (-0.3604,-0.6914,-0.6262) 
+
+Event=23 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1277 pos (m)(46.67,1.262,0) direction cosines (0.2026,-0.2629,-0.9433) 
+
+Event=24 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=9.766 pos (m)(-40.48,8.847,0) direction cosines (0.7144,0.4932,-0.4964) 
+
+Event=25 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=24.43 pos (m)(-1.67,-11.6,0) direction cosines (0.4846,-0.5447,-0.6844) 
+
+Event=26 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.757 pos (m)(-9.367,22.59,0) direction cosines (-0.2879,-0.1971,-0.9372) 
+
+Event=27 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=16.13 pos (m)(15.77,-7.026,0) direction cosines (-0.409,0.421,-0.8096) 
+
+Event=28 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=9960 pos (m)(27.4,23.96,0) direction cosines (0.2619,0.1125,-0.9585) 
+
+Event=29 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=75.59 pos (m)(1.104,35.12,0) direction cosines (0.7438,0.6157,-0.2601) 
+
+Event=30 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=13.55 pos (m)(-25.94,-33.23,0) direction cosines (0.7003,0.09,-0.7082) 
+
+Event=31 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=107.3 pos (m)(32.35,47.85,0) direction cosines (-0.1287,0.3153,-0.9402) 
+
+Event=32 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.744 pos (m)(-35.22,12.08,0) direction cosines (0.6253,-0.4888,-0.6083) 
+
+Event=33 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=12.53 pos (m)(-20.11,2.23,0) direction cosines (-0.1951,0.7304,-0.6545) 
+
+Event=34 CRY generated nparticles=3
+  gamma charge=0 energy (MeV)=3.993 pos (m)(-47.61,20.25,0) direction cosines (-0.5925,-0.615,-0.5204) 
+  neutron charge=0 energy (MeV)=260.7 pos (m)(-39.1,-3.14,0) direction cosines (0.5101,0.06702,-0.8575) 
+  gamma charge=0 energy (MeV)=1.891 pos (m)(-4.119,-28.39,0) direction cosines (-0.4927,-0.5815,-0.6474) 
+
+Event=35 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.16 pos (m)(10.21,35.1,0) direction cosines (0.2521,-0.3027,-0.9191) 
+
+Event=36 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=24.6 pos (m)(23.03,17.13,0) direction cosines (-0.1803,-0.2825,-0.9422) 
+
+Event=37 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=1.163 pos (m)(-49.13,-30.23,0) direction cosines (-0.8051,-0.2785,-0.5237) 
+
+Event=38 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=93.16 pos (m)(13.53,-0.8394,0) direction cosines (-0.04878,-0.3763,-0.9252) 
+
+Event=39 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1181 pos (m)(-7.316,-30.82,0) direction cosines (-0.1844,0.6758,-0.7137) 
+
+Event=40 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.611 pos (m)(34.9,9.572,0) direction cosines (-0.2038,-0.2622,-0.9432) 
+
+Event=41 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=6.334 pos (m)(-46.95,-11.52,0) direction cosines (0.4185,0.5456,-0.7261) 
+
+Event=42 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=224.9 pos (m)(-5.446,10.28,0) direction cosines (0.02223,0.5069,-0.8617) 
+
+Event=43 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=0.02059 pos (m)(43.37,-14.94,0) direction cosines (-0.3247,0.7291,-0.6025) 
+
+Event=44 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=7.042 pos (m)(-2.256,29.71,0) direction cosines (0.6387,0.5335,-0.5545) 
+
+Event=45 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2486 pos (m)(-35.05,0.5702,0) direction cosines (-0.03716,-0.1928,-0.9805) 
+
+Event=46 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.263 pos (m)(23.24,-4.683,0) direction cosines (0.1987,-0.2598,-0.945) 
+
+Event=47 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=28.51 pos (m)(-38.41,0.3393,0) direction cosines (0.2013,-0.1266,-0.9713) 
+
+Event=48 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.208 pos (m)(17.25,16.78,0) direction cosines (-0.6387,0.5702,-0.5166) 
+
+Event=49 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1692 pos (m)(19.95,3.49,0) direction cosines (-0.0953,0.3094,-0.9462) 
+
+Event=50 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=362.7 pos (m)(15.8,-14.15,0) direction cosines (-0.04205,-0.08476,-0.9955) 
+
+Event=51 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=1.704 pos (m)(11,21.95,0) direction cosines (-0.551,-0.006653,-0.8345) 
+  muon charge=1 energy (MeV)=333.7 pos (m)(25.21,38.35,0) direction cosines (0.03025,-0.427,-0.9037) 
+
+Event=52 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=661.2 pos (m)(-3.391,23.13,0) direction cosines (0.7829,0.1307,-0.6083) 
+
+Event=53 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1014 pos (m)(-2.612,-1.345,0) direction cosines (-0.09402,0.2788,-0.9558) 
+
+Event=54 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=20.97 pos (m)(26.99,-23.94,0) direction cosines (0.1306,-0.3838,-0.9142) 
+
+Event=55 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2237 pos (m)(43.19,-40.27,0) direction cosines (-0.06039,-0.3706,-0.9268) 
+
+Event=56 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2810 pos (m)(-23.21,5.371,0) direction cosines (-0.2322,0.4599,-0.8571) 
+
+Event=57 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=77.08 pos (m)(-5.305,47.27,0) direction cosines (0.4603,-0.08358,-0.8838) 
+
+Event=58 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=7349 pos (m)(-11.12,-14.36,0) direction cosines (0.6506,-0.6856,-0.3266) 
+
+Event=59 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=1.334 pos (m)(9.27,-10.59,0) direction cosines (-0.1914,-0.1743,-0.9659) 
+
+Event=60 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=2.972 pos (m)(-8.626,-22.26,0) direction cosines (0.12,-0.8775,-0.4644) 
+
+Event=61 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=68.56 pos (m)(-3.051,24.05,0) direction cosines (-0.1012,-0.0007451,-0.9949) 
+
+Event=62 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=7.991 pos (m)(-33.22,-45.2,0) direction cosines (0.8083,0.3652,-0.4618) 
+
+Event=63 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=17.52 pos (m)(-44.05,44.88,0) direction cosines (-0.3503,-0.3678,-0.8614) 
+
+Event=64 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=6.656 pos (m)(-17.82,-1.042,0) direction cosines (-0.3872,-0.3858,-0.8374) 
+
+Event=65 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.743 pos (m)(-11.84,-42.82,0) direction cosines (-0.2297,-0.07212,-0.9706) 
+
+Event=66 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.078 pos (m)(-44.12,-40.31,0) direction cosines (0.3835,0.5386,-0.7502) 
+
+Event=67 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=946.7 pos (m)(-29.67,7.389,0) direction cosines (0.1165,0.5068,-0.8542) 
+
+Event=68 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=3.276 pos (m)(17.78,-2.816,0) direction cosines (0.8673,0.2887,-0.4055) 
+
+Event=69 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=85.99 pos (m)(-2.397,46.6,0) direction cosines (-0.3647,-0.266,-0.8923) 
+
+Event=70 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.427 pos (m)(-24.06,14.24,0) direction cosines (0.1546,-0.2461,-0.9568) 
+
+Event=71 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2142 pos (m)(25.54,41.53,0) direction cosines (-0.3233,-0.5112,-0.7963) 
+
+Event=72 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=109.9 pos (m)(-17.8,-5.068,0) direction cosines (-0.2903,-0.7654,-0.5744) 
+
+Event=73 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=12.06 pos (m)(30.27,-38.08,0) direction cosines (0.4197,-0.3475,-0.8385) 
+
+Event=74 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=2.636 pos (m)(-13.43,-40.28,0) direction cosines (-0.5777,0.3949,-0.7144) 
+  muon charge=1 energy (MeV)=3168 pos (m)(-29.71,-45.99,0) direction cosines (0.1319,-0.2002,-0.9708) 
+
+Event=75 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=2785 pos (m)(8.968,-25.17,0) direction cosines (0.5543,0.6651,-0.5004) 
+
+Event=76 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1.01e+04 pos (m)(-1.062,-10.46,0) direction cosines (-0.2266,0.3152,-0.9216) 
+
+Event=77 CRY generated nparticles=4
+  gamma charge=0 energy (MeV)=4.943 pos (m)(7.282,-7.764,0) direction cosines (-0.2363,0.2232,-0.9457) 
+  muon charge=1 energy (MeV)=1898 pos (m)(-6.928,-13.3,0) direction cosines (0.413,0.792,-0.4497) 
+  muon charge=1 energy (MeV)=3783 pos (m)(-33.44,-10.87,0) direction cosines (-0.04988,-0.2985,-0.9531) 
+  muon charge=-1 energy (MeV)=4791 pos (m)(14.42,13.2,0) direction cosines (-0.6647,-0.02748,-0.7466) 
+
+Event=78 CRY generated nparticles=3
+  gamma charge=0 energy (MeV)=38.54 pos (m)(-31.6,-5.411,0) direction cosines (-0.2491,-0.5526,-0.7953) 
+  muon charge=1 energy (MeV)=5589 pos (m)(-41.91,45.27,0) direction cosines (-0.7604,-0.3405,-0.553) 
+  gamma charge=0 energy (MeV)=11.82 pos (m)(-30.73,22.28,0) direction cosines (-0.4325,-0.5337,-0.7267) 
+
+Event=79 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=0.221 pos (m)(26.13,-11.32,0) direction cosines (0.8421,0.1815,-0.5078) 
+
+Event=80 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=112.9 pos (m)(-49.53,-8.92,0) direction cosines (-0.03104,-0.2849,-0.958) 
+
+Event=81 CRY generated nparticles=1
+  electron charge=1 energy (MeV)=9.699 pos (m)(-17.46,-15.88,0) direction cosines (-0.3689,0.1157,-0.9223) 
+
+Event=82 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=3699 pos (m)(46.85,16.77,0) direction cosines (0.2845,0.5502,-0.7851) 
+
+Event=83 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=9.199 pos (m)(-12.33,-10.84,0) direction cosines (0.2985,0.03644,-0.9537) 
+
+Event=84 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=1085 pos (m)(33.25,36.2,0) direction cosines (-0.2987,0.239,-0.9239) 
+
+Event=85 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=2.498 pos (m)(9.244,28.64,0) direction cosines (0.2781,-0.02149,-0.9603) 
+
+Event=86 CRY generated nparticles=1
+  neutron charge=0 energy (MeV)=115.6 pos (m)(28.62,47.65,0) direction cosines (-0.2762,-0.478,-0.8338) 
+
+Event=87 CRY generated nparticles=1
+  muon charge=1 energy (MeV)=1.569e+04 pos (m)(11.49,0.06603,0) direction cosines (0.448,-0.1071,-0.8876) 
+
+Event=88 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=21.95 pos (m)(-13.19,-6.367,0) direction cosines (-0.2035,-0.4422,-0.8735) 
+
+Event=89 CRY generated nparticles=1
+  proton charge=1 energy (MeV)=117.1 pos (m)(-42.53,-14.84,0) direction cosines (-0.4766,0.6242,-0.619) 
+
+Event=90 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=8.362 pos (m)(25.45,-34.38,0) direction cosines (-0.09437,-0.07462,-0.9927) 
+
+Event=91 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=6.081 pos (m)(32.41,-23.17,0) direction cosines (-0.1255,0.4997,-0.8571) 
+
+Event=92 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=4.329 pos (m)(-20.13,48.26,0) direction cosines (-0.511,0.495,-0.7028) 
+
+Event=93 CRY generated nparticles=1
+  electron charge=-1 energy (MeV)=36.21 pos (m)(43.47,23.78,0) direction cosines (-0.0454,-0.1102,-0.9929) 
+
+Event=94 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=2.256 pos (m)(17.95,4.354,0) direction cosines (0.402,0.6354,-0.6593) 
+  muon charge=1 energy (MeV)=562.5 pos (m)(-10.53,-43.79,0) direction cosines (-0.2296,0.6159,-0.7537) 
+
+Event=95 CRY generated nparticles=4
+  gamma charge=0 energy (MeV)=2.268 pos (m)(0.8951,1.357,0) direction cosines (0.4745,0.4843,-0.7351) 
+  neutron charge=0 energy (MeV)=154.5 pos (m)(-0.617,7.271,0) direction cosines (0.2875,-0.0606,-0.9559) 
+  gamma charge=0 energy (MeV)=11.89 pos (m)(-17.79,42.51,0) direction cosines (0.123,0.3282,-0.9366) 
+  gamma charge=0 energy (MeV)=6.995 pos (m)(27.4,15.78,0) direction cosines (-0.08095,0.3636,-0.928) 
+
+Event=96 CRY generated nparticles=1
+  gamma charge=0 energy (MeV)=24.43 pos (m)(35.04,38.88,0) direction cosines (-0.0862,-0.113,-0.9898) 
+
+Event=97 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=2870 pos (m)(-12.58,34.55,0) direction cosines (0.02913,0.0249,-0.9993) 
+
+Event=98 CRY generated nparticles=1
+  muon charge=-1 energy (MeV)=451.2 pos (m)(-4.413,27.42,0) direction cosines (-0.4076,0.5392,-0.737) 
+
+Event=99 CRY generated nparticles=2
+  gamma charge=0 energy (MeV)=7.559 pos (m)(-12.97,-8.228,0) direction cosines (0.216,-0.4063,-0.8878) 
+  muon charge=1 energy (MeV)=3564 pos (m)(46.63,-18.82,0) direction cosines (0.08834,0.2471,-0.965) 

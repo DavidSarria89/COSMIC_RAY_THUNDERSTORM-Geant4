@@ -1,4 +1,5 @@
 //
+
 // ********************************************************************
 // * License and Disclaimer                                           *
 // *                                                                  *
@@ -26,7 +27,7 @@
 //
 // $Id: G4EmStandardPhysics_option4.hh 98736 2016-08-09 10:55:12Z gcosmo $
 //
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 //
 // ClassName:   G4EmStandardPhysics_option4
 //
@@ -34,7 +35,7 @@
 //
 // Modified:
 //
-//----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //
 // This class provides construction of EM physics using the best models
 // of standard and low-energy packages and set of
@@ -45,32 +46,30 @@
 #pragma once
 
 #include "G4VPhysicsConstructor.hh"
-#include "globals.hh"
 #include "Settings.hh"
+#include "globals.hh"
 
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-class G4EmStandardPhysics_option4_dr : public G4VPhysicsConstructor
+class G4EmStandardPhysics_option4_dr: public G4VPhysicsConstructor
 {
-    public:
+public:
 
-        explicit G4EmStandardPhysics_option4_dr(G4int ver = 1, const G4String &name = "");
+  explicit G4EmStandardPhysics_option4_dr(G4int           ver = 1,
+                                          const G4String& name = "");
 
-        virtual ~G4EmStandardPhysics_option4_dr();
+  ~G4EmStandardPhysics_option4_dr() override;
 
-        virtual void ConstructParticle();
-        virtual void ConstructProcess();
+  void ConstructParticle() override;
 
-    private:
-        G4int  verbose;
-        const G4double DR_OVER_R = Settings::drOverR;
+  void ConstructProcess() override;
+
+private:
+
+  Settings *settings = Settings::getInstance();
+
+  G4int verbose;
+  const G4double DR_OVER_R = settings->drOverR;
 };
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-
-
-
-
-
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

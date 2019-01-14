@@ -1,0 +1,250 @@
+CRY::CRYSetup: Setting returnNeutrons to 1
+CRY::CRYSetup: Setting returnProtons to 1
+CRY::CRYSetup: Setting returnGammas to 1
+CRY::CRYSetup: Setting date to 7-1-2012 (month-day-year)
+CRY::CRYSetup: Setting latitude to 90
+CRY::CRYSetup: Setting altitude to 0
+CRY::CRYSetup: Setting subboxLength to 100
+Event: 0
+Secondary 0 muon ke=1413.5
+Event: 1000
+Secondary 0 gamma ke=4.86807
+Event: 2000
+Secondary 0 gamma ke=11.5651
+Event: 3000
+Secondary 0 gamma ke=7.45131
+Secondary 1 gamma ke=24.0264
+Event: 4000
+Secondary 0 muon ke=1036.11
+Event: 5000
+Secondary 0 gamma ke=3.75432
+Event: 6000
+Secondary 0 muon ke=3763.93
+Event: 7000
+Secondary 0 muon ke=2095.16
+Secondary 1 muon ke=1547.83
+Event: 8000
+Secondary 0 gamma ke=6.41544
+Event: 9000
+Secondary 0 muon ke=8450.38
+Secondary 1 proton ke=485.4
+Event: 10000
+Secondary 0 gamma ke=2.55217
+Event: 11000
+Secondary 0 gamma ke=4.26931
+Event: 12000
+Secondary 0 gamma ke=257.819
+Event: 13000
+Secondary 0 gamma ke=5.02277
+Event: 14000
+Secondary 0 gamma ke=2.21697
+Event: 15000
+Secondary 0 muon ke=1254.82
+Event: 16000
+Secondary 0 muon ke=187.303
+Event: 17000
+Secondary 0 gamma ke=3.80697
+Secondary 1 gamma ke=5.11221
+Event: 18000
+Secondary 0 gamma ke=2.71324
+Event: 19000
+Secondary 0 electron ke=8.48787
+Event: 20000
+Secondary 0 gamma ke=1.23035
+Secondary 1 gamma ke=1.47503
+Event: 21000
+Secondary 0 gamma ke=144.653
+Event: 22000
+Secondary 0 gamma ke=5.32232
+Secondary 1 electron ke=15.4333
+Secondary 2 gamma ke=1.12845
+Secondary 3 electron ke=25.1538
+Secondary 4 gamma ke=8.66869
+Event: 23000
+Secondary 0 gamma ke=1.11027
+Event: 24000
+Secondary 0 electron ke=3.75305
+Event: 25000
+Secondary 0 gamma ke=54.041
+Event: 26000
+Secondary 0 gamma ke=4.55359
+Event: 27000
+Secondary 0 gamma ke=10.3974
+Event: 28000
+Secondary 0 gamma ke=3.03362
+Event: 29000
+Secondary 0 muon ke=3499.32
+Event: 30000
+Secondary 0 neutron ke=204.864
+Event: 31000
+Secondary 0 gamma ke=51.3359
+Event: 32000
+Secondary 0 gamma ke=1.81749
+Event: 33000
+Secondary 0 neutron ke=1.71486
+Event: 34000
+Secondary 0 muon ke=2065.43
+Event: 35000
+Secondary 0 gamma ke=1.35825
+Event: 36000
+Secondary 0 muon ke=53421
+Event: 37000
+Secondary 0 gamma ke=19.4137
+Event: 38000
+Secondary 0 electron ke=304.161
+Secondary 1 neutron ke=25.0956
+Secondary 2 gamma ke=2.69307
+Secondary 3 gamma ke=32.6605
+Secondary 4 muon ke=1615.59
+Event: 39000
+Secondary 0 muon ke=4797.78
+Event: 40000
+Secondary 0 gamma ke=23.1276
+Event: 41000
+Secondary 0 electron ke=20.9231
+Event: 42000
+Secondary 0 muon ke=2427.21
+Event: 43000
+Secondary 0 muon ke=1176.15
+Event: 44000
+Secondary 0 muon ke=1956.6
+Event: 45000
+Secondary 0 muon ke=3139.63
+Event: 46000
+Secondary 0 gamma ke=10.7807
+Event: 47000
+Secondary 0 muon ke=2218.15
+Event: 48000
+Secondary 0 gamma ke=2.05978
+Event: 49000
+Secondary 0 neutron ke=344.109
+Event: 50000
+Secondary 0 gamma ke=3.79879
+Event: 51000
+Secondary 0 gamma ke=2.7999
+Event: 52000
+Secondary 0 electron ke=172.401
+Event: 53000
+Secondary 0 gamma ke=7.48911
+Event: 54000
+Secondary 0 gamma ke=12.2801
+Event: 55000
+Secondary 0 gamma ke=1.18496
+Event: 56000
+Secondary 0 gamma ke=6.29027
+Event: 57000
+Secondary 0 gamma ke=17.081
+Event: 58000
+Secondary 0 gamma ke=3.47804
+Event: 59000
+Secondary 0 muon ke=23609.7
+Event: 60000
+Secondary 0 gamma ke=6.77325
+Event: 61000
+Secondary 0 gamma ke=4.2894
+Event: 62000
+Secondary 0 gamma ke=2.02082
+Event: 63000
+Secondary 0 gamma ke=3.06219
+Secondary 1 gamma ke=14.6517
+Event: 64000
+Secondary 0 electron ke=71.1314
+Event: 65000
+Secondary 0 neutron ke=12.9553
+Event: 66000
+Secondary 0 muon ke=542.472
+Event: 67000
+Secondary 0 muon ke=716.37
+Secondary 1 muon ke=4997.35
+Secondary 2 gamma ke=21.5549
+Secondary 3 gamma ke=2.28825
+Secondary 4 muon ke=4720.26
+Secondary 5 muon ke=3725.57
+Secondary 6 gamma ke=1.75223
+Secondary 7 gamma ke=26.7903
+Secondary 8 gamma ke=1.74008
+Secondary 9 gamma ke=9.80049
+Secondary 10 gamma ke=22.4358
+Secondary 11 muon ke=5906.95
+Secondary 12 gamma ke=7.25876
+Secondary 13 muon ke=3154.93
+Secondary 14 muon ke=7974.1
+Secondary 15 muon ke=15363.2
+Secondary 16 muon ke=3008.95
+Event: 68000
+Secondary 0 gamma ke=4.76773
+Event: 69000
+Secondary 0 gamma ke=18.3251
+Event: 70000
+Secondary 0 gamma ke=1.7554
+Event: 71000
+Secondary 0 gamma ke=57.3138
+Event: 72000
+Secondary 0 muon ke=247.572
+Event: 73000
+Secondary 0 gamma ke=5.884
+Secondary 1 neutron ke=102.113
+Event: 74000
+Secondary 0 gamma ke=11.7334
+Secondary 1 gamma ke=1.04189
+Secondary 2 muon ke=3750.99
+Secondary 3 muon ke=3670.58
+Event: 75000
+Secondary 0 gamma ke=34.5005
+Event: 76000
+Secondary 0 muon ke=675.491
+Event: 77000
+Secondary 0 electron ke=1.02366
+Event: 78000
+Secondary 0 gamma ke=11.5281
+Secondary 1 muon ke=6622.37
+Secondary 2 muon ke=5778.13
+Event: 79000
+Secondary 0 muon ke=5704.94
+Event: 80000
+Secondary 0 gamma ke=26.2212
+Event: 81000
+Secondary 0 gamma ke=1.40039
+Event: 82000
+Secondary 0 gamma ke=7.09228
+Event: 83000
+Secondary 0 gamma ke=28.6349
+Secondary 1 neutron ke=167.019
+Event: 84000
+Secondary 0 electron ke=98.5408
+Event: 85000
+Secondary 0 gamma ke=3.08314
+Event: 86000
+Secondary 0 neutron ke=42.1328
+Event: 87000
+Secondary 0 neutron ke=14.7548
+Secondary 1 gamma ke=2.34329
+Secondary 2 neutron ke=332.113
+Secondary 3 neutron ke=40.6229
+Event: 88000
+Secondary 0 gamma ke=25.1026
+Event: 89000
+Secondary 0 neutron ke=83.3913
+Event: 90000
+Secondary 0 gamma ke=2.47384
+Event: 91000
+Secondary 0 gamma ke=8.30906
+Event: 92000
+Secondary 0 electron ke=47.6338
+Event: 93000
+Secondary 0 muon ke=6749.5
+Event: 94000
+Secondary 0 muon ke=1032.11
+Event: 95000
+Secondary 0 muon ke=6783.83
+Event: 96000
+Secondary 0 electron ke=2.92675
+Event: 97000
+Secondary 0 gamma ke=1.5519
+Event: 98000
+Secondary 0 muon ke=1208
+Event: 99000
+Secondary 0 muon ke=6093.8
+Run completed.
+Total time simulated: 0.0394176 seconds
+Muons per second per m2 12.6616

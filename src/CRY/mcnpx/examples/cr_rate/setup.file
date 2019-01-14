@@ -1,0 +1,13 @@
+returnNeutrons 1
+returnProtons 1
+returnGammas 1
+returnPions 1
+returnKaons 0
+returnElectrons 1
+returnMuons 1
+date 08-13-2008
+latitude 37.47
+subboxLength 10
+xoffset 0.
+yoffset 0.
+zoffset 1.

@@ -1,29 +1,32 @@
 #pragma once
 
+#include "EventAction.hh"
 #include "G4VUserActionInitialization.hh"
-#include "StackingAction.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
-#include "EventAction.hh"
+#include "StackingAction.hh"
 #include "SteppingAction.hh"
 
 class DetectorConstruction;
-class G4VSteppingVerbose;
 
 /// Action initialization class.
 ///
 
 class ActionInitialization: public G4VUserActionInitialization
 {
-    public:
+public:
 
-        ActionInitialization(DetectorConstruction *detector);
-        virtual ~ActionInitialization();
+  explicit ActionInitialization(DetectorConstruction *detector);
 
-        virtual void BuildForMaster() const;
-        virtual void Build() const;
+  ~ActionInitialization() override;
 
-    private:
+  void BuildForMaster() const override;
 
-        DetectorConstruction *fDetector;
+  void Build() const override;
+
+private:
+
+  Settings *settings = Settings::getInstance();
+
+  DetectorConstruction *fDetector;
 };

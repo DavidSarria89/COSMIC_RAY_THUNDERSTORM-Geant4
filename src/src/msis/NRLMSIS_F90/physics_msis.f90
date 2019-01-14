@@ -1924,7 +1924,7 @@ module physics_msis
 !     *Revised O2 (and O) in lower thermosphere
 !     *Additional nonlinear solar activity term
 !     *"ANOMALOUS OXYGEN" NUMBER DENSITY, OUTPUT D(9)
-!     At high altitudes (> 500 km), hot atomic oxygen or ionized
+!     At high altitude_list (> 500 km), hot atomic oxygen or ionized
 !     oxygen can become appreciable for some ranges of subroutine
 !     inputs, thereby affecting drag on satellites and debris. We
 !     group these species under the term "anomalous oxygen," since
@@ -1935,7 +1935,7 @@ module physics_msis
 !
 !     HIGH ALTITUDE DRAG: EFFECTIVE TOTAL MASS DENSITY
 !     (SUBROUTINE GTD7D, OUTPUT D(6))
-!     For atmospheric drag calculations at altitudes above 500 km,
+!     For atmospheric drag calculations at altitude_list above 500 km,
 !     call SUBROUTINE GTD7D to compute the "effective total mass
 !     density" by including contributions from "anomalous oxygen."
 !     See "NOTES ON OUTPUT VARIABLES" below on D(6).
@@ -2009,8 +2009,8 @@ module physics_msis
 !     O, H, and N are set to zero below 72.5 km
 !
 !     T(1), Exospheric temperature, is set to global average for
-!     altitudes below 120 km. The 120 km gradient is left at global
-!     average value for altitudes below 72 km.
+!     altitude_list below 120 km. The 120 km gradient is left at global
+!     average value for altitude_list below 72 km.
 !
 !     D(6), TOTAL MASS DENSITY, is NOT the same for subroutines GTD7
 !     and GTD7D

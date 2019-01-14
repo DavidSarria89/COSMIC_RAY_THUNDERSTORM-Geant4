@@ -11,7 +11,7 @@ C          *Extensive satellite drag database used in model generation
 C          *Revised O2 (and O) in lower thermosphere
 C          *Additional nonlinear solar activity term
 C          *"ANOMALOUS OXYGEN" NUMBER DENSITY, OUTPUT D(9)
-C           At high altitudes (> 500 km), hot atomic oxygen or ionized
+C           At high altitude_list (> 500 km), hot atomic oxygen or ionized
 C           oxygen can become appreciable for some ranges of subroutine
 C           inputs, thereby affecting drag on satellites and debris. We
 C           group these species under the term "anomalous oxygen," since
@@ -22,7 +22,7 @@ C        SUBROUTINES FOR SPECIAL OUTPUTS:
 C        
 C        HIGH ALTITUDE DRAG: EFFECTIVE TOTAL MASS DENSITY 
 C        (SUBROUTINE GTD7D, OUTPUT D(6))
-C           For atmospheric drag calculations at altitudes above 500 km,
+C           For atmospheric drag calculations at altitude_list above 500 km,
 C           call SUBROUTINE GTD7D to compute the "effective total mass
 C           density" by including contributions from "anomalous oxygen."
 C           See "NOTES ON OUTPUT VARIABLES" below on D(6).
@@ -96,8 +96,8 @@ C
 C        O, H, and N are set to zero below 72.5 km
 C
 C        T(1), Exospheric temperature, is set to global average for
-C        altitudes below 120 km. The 120 km gradient is left at global
-C        average value for altitudes below 72 km.
+C        altitude_list below 120 km. The 120 km gradient is left at global
+C        average value for altitude_list below 72 km.
 C
 C        D(6), TOTAL MASS DENSITY, is NOT the same for subroutines GTD7 
 C        and GTD7D
@@ -153,21 +153,21 @@ C
       DATA MN2/4/,ZN2/72.5,55.,45.,32.5/
       DATA ZMIX/62.5/,ALAST/99999./,MSSL/-999/
       DATA SV/25*1./
-      IF(ISW.NE.64999) CALL TSELEC(SV)
+      IF(ISW/=64999) CALL TSELEC(SV)
 C      Put identification data into common/datime/
-      DO 1 I=1,3
+      DO I=1,3
         ISDATE(I)=ISD(I)
-    1 CONTINUE
-      DO 2 I=1,2
+      end do
+      DO I=1,2
         ISTIME(I)=IST(I)
         NAME(I)=NAM(I)
-    2 CONTINUE
+      end do
 C
 C        Test for changed input
       V1=VTST7(IYD,SEC,GLAT,GLONG,STL,F107A,F107,AP,1)
 C       Latitude variation of gravity (none for SW(2)=0)
       XLAT=GLAT
-      IF(SW(2).EQ.0) XLAT=45.
+      IF(SW(2)==0) XLAT=45.
       CALL GLATF(XLAT,GSURF,RE)
 C
       XMM=PDM(5,3)
@@ -176,23 +176,23 @@ C       THERMOSPHERE/MESOSPHERE (above ZN2(1))
       ALTT=AMAX1(ALT,ZN2(1))
       MSS=MASS
 C       Only calculate N2 in thermosphere if alt in mixed region
-      IF(ALT.LT.ZMIX.AND.MASS.GT.0) MSS=28
+      IF(ALT<ZMIX.AND.MASS>0) MSS=28
 C       Only calculate thermosphere if input parameters changed
 C         or altitude above ZN2(1) in mesosphere
-      IF(V1.EQ.1..OR.ALT.GT.ZN2(1).OR.ALAST.GT.ZN2(1).OR.MSS.NE.MSSL)
+      IF(V1==1..OR.ALT>ZN2(1).OR.ALAST>ZN2(1).OR.MSS/=MSSL)
      $ THEN
         CALL GTS7(IYD,SEC,ALTT,GLAT,GLONG,STL,F107A,F107,AP,MSS,DS,TS)
         DM28M=DM28
 C         metric adjustment
-        IF(IMR.EQ.1) DM28M=DM28*1.E6
+        IF(IMR==1) DM28M=DM28*1.E6
         MSSL=MSS
       ENDIF
       T(1)=TS(1)
       T(2)=TS(2)
-      IF(ALT.GE.ZN2(1)) THEN
-        DO 5 J=1,9
+      IF(ALT>=ZN2(1)) THEN
+        DO J=1,9
           D(J)=DS(J)
-    5   CONTINUE
+      end do
         GOTO 10
       ENDIF
 C
@@ -200,7 +200,7 @@ C       LOWER MESOSPHERE/UPPER STRATOSPHERE [between ZN3(1) and ZN2(1)]
 C         Temperature at nodes and gradients at end nodes
 C         Inverse temperature a linear function of spherical harmonics
 C         Only calculate nodes if input changed
-       IF(V1.EQ.1..OR.ALAST.GE.ZN2(1)) THEN
+       IF(V1==1..OR.ALAST>=ZN2(1)) THEN
         TGN2(1)=TGN1(2)
         TN2(1)=TN1(5)
         TN2(2)=PMA(1,1)*PAVGM(1)/(1.-SW(20)*GLOB7S(PMA(1,1)))
@@ -210,13 +210,13 @@ C         Only calculate nodes if input changed
      $  *TN2(4)*TN2(4)/(PMA(1,3)*PAVGM(3))**2
         TN3(1)=TN2(4)
        ENDIF
-       IF(ALT.GE.ZN3(1)) GOTO 6
+       IF(ALT>=ZN3(1)) GOTO 6
 C
 C       LOWER STRATOSPHERE AND TROPOSPHERE [below ZN3(1)]
 C         Temperature at nodes and gradients at end nodes
 C         Inverse temperature a linear function of spherical harmonics
 C         Only calculate nodes if input changed
-        IF(V1.EQ.1..OR.ALAST.GE.ZN3(1)) THEN
+        IF(V1==1..OR.ALAST>=ZN3(1)) THEN
          TGN3(1)=TGN2(2)
          TN3(2)=PMA(1,4)*PAVGM(4)/(1.-SW(22)*GLOB7S(PMA(1,4)))
          TN3(3)=PMA(1,5)*PAVGM(5)/(1.-SW(22)*GLOB7S(PMA(1,5)))
@@ -226,10 +226,10 @@ C         Only calculate nodes if input changed
      $   *TN3(5)*TN3(5)/(PMA(1,7)*PAVGM(7))**2
         ENDIF
     6   CONTINUE
-        IF(MASS.EQ.0) GOTO 50
+        IF(MASS==0) GOTO 50
 C          LINEAR TRANSITION TO FULL MIXING BELOW ZN2(1)
         DMC=0
-        IF(ALT.GT.ZMIX) DMC=1.-(ZN2(1)-ALT)/(ZN2(1)-ZMIX)
+        IF(ALT>ZMIX) DMC=1.-(ZN2(1)-ALT)/(ZN2(1)-ZMIX)
         DZ28=DS(3)
 C      ***** N2 DENSITY ****
         DMR=DS(3)/DM28M-1.
@@ -237,7 +237,7 @@ C      ***** N2 DENSITY ****
         D(3)=D(3)*(1.+DMR*DMC)
 C      ***** HE DENSITY ****
         D(1)=0
-        IF(MASS.NE.4.AND.MASS.NE.48) GOTO 204
+        IF(MASS/=4.AND.MASS/=48) GOTO 204
           DMR=DS(1)/(DZ28*PDM(2,1))-1.
           D(1)=D(3)*PDM(2,1)*(1.+DMR*DMC)
   204   CONTINUE
@@ -247,13 +247,13 @@ C      **** O DENSITY ****
   216   CONTINUE
 C      ***** O2 DENSITY ****
         D(4)=0
-        IF(MASS.NE.32.AND.MASS.NE.48) GOTO 232
+        IF(MASS/=32.AND.MASS/=48) GOTO 232
           DMR=DS(4)/(DZ28*PDM(2,4))-1.
           D(4)=D(3)*PDM(2,4)*(1.+DMR*DMC)
   232   CONTINUE
 C      ***** AR DENSITY ****
         D(5)=0
-        IF(MASS.NE.40.AND.MASS.NE.48) GOTO 240
+        IF(MASS/=40.AND.MASS/=48) GOTO 240
           DMR=DS(5)/(DZ28*PDM(2,5))-1.
           D(5)=D(3)*PDM(2,5)*(1.+DMR*DMC)
   240   CONTINUE
@@ -264,16 +264,16 @@ C      ***** ATOMIC NITROGEN DENSITY ****
 C
 C       TOTAL MASS DENSITY
 C
-        IF(MASS.EQ.48) THEN
+        IF(MASS==48) THEN
          D(6) = 1.66E-24*(4.*D(1)+16.*D(2)+28.*D(3)+32.*D(4)+40.*D(5)+
      &       D(7)+14.*D(8))  
-         IF(IMR.EQ.1) D(6)=D(6)/1000.
+         IF(IMR==1) D(6)=D(6)/1000.
          ENDIF
          T(2)=TZ
    10 CONTINUE
       GOTO 90
    50 CONTINUE
-      DD=DENSM(ALT,1.,0,TZ,MN3,ZN3,TN3,TGN3,MN2,ZN2,TN2,TGN2)                
+      DD=DENSM(ALT,1.,0.,TZ,MN3,ZN3,TN3,TGN3,MN2,ZN2,TN2,TGN2)
       T(2)=TZ
    90 CONTINUE
       ALAST=ALT
@@ -348,10 +348,10 @@ C
       CALL GTD7(IYD,SEC,ALT,GLAT,GLONG,STL,F107A,F107,AP,MASS,D,T)
 C       TOTAL MASS DENSITY
 C
-        IF(MASS.EQ.48) THEN
+        IF(MASS==48) THEN
          D(6) = 1.66E-24*(4.*D(1)+16.*D(2)+28.*D(3)+32.*D(4)+40.*D(5)+
      &       D(7)+14.*D(8)+16.*D(9))  
-         IF(IMR.EQ.1) D(6)=D(6)/1000.
+         IF(IMR==1) D(6)=D(6)/1000.
          ENDIF
       RETURN
       END
@@ -401,25 +401,25 @@ C
       DATA TEST/.00043/,LTEST/12/
       PL=ALOG10(PRESS)
 C      Initial altitude estimate
-      IF(PL.GE.-5.) THEN
-         IF(PL.GT.2.5) ZI=18.06*(3.00-PL)
-         IF(PL.GT..75.AND.PL.LE.2.5) ZI=14.98*(3.08-PL)
-         IF(PL.GT.-1..AND.PL.LE..75) ZI=17.8*(2.72-PL)
-         IF(PL.GT.-2..AND.PL.LE.-1.) ZI=14.28*(3.64-PL)
-         IF(PL.GT.-4..AND.PL.LE.-2.) ZI=12.72*(4.32-PL)
-         IF(PL.LE.-4.) ZI=25.3*(.11-PL)
+      IF(PL>=-5.) THEN
+         IF(PL>2.5) ZI=18.06*(3.00-PL)
+         IF(PL>.75.AND.PL<=2.5) ZI=14.98*(3.08-PL)
+         IF(PL>-1..AND.PL<=.75) ZI=17.8*(2.72-PL)
+         IF(PL>-2..AND.PL<=-1.) ZI=14.28*(3.64-PL)
+         IF(PL>-4..AND.PL<=-2.) ZI=12.72*(4.32-PL)
+         IF(PL<=-4.) ZI=25.3*(.11-PL)
          IDAY=MOD(IYD,1000)
          CL=GLAT/90.
          CL2=CL*CL
-         IF(IDAY.LT.182) CD=1.-IDAY/91.25
-         IF(IDAY.GE.182) CD=IDAY/91.25-3.
+         IF(IDAY<182) CD=1.-IDAY/91.25
+         IF(IDAY>=182) CD=IDAY/91.25-3.
          CA=0
-         IF(PL.GT.-1.11.AND.PL.LE.-.23) CA=1.0
-         IF(PL.GT.-.23) CA=(2.79-PL)/(2.79+.23)
-         IF(PL.LE.-1.11.AND.PL.GT.-3.) CA=(-2.93-PL)/(-2.93+1.11)
+         IF(PL>-1.11.AND.PL<=-.23) CA=1.0
+         IF(PL>-.23) CA=(2.79-PL)/(2.79+.23)
+         IF(PL<=-1.11.AND.PL>-3.) CA=(-2.93-PL)/(-2.93+1.11)
          Z=ZI-4.87*CL*CD*CA-1.64*CL2*CA+.31*CA*CL
       ENDIF
-      IF(PL.LT.-5.) Z=22.*(PL+4.)**2+110
+      IF(PL<-5.) Z=22.*(PL+4.)**2+110
 C      ITERATION LOOP
       L=0
    10 CONTINUE
@@ -427,22 +427,22 @@ C      ITERATION LOOP
         CALL GTD7(IYD,SEC,Z,GLAT,GLONG,STL,F107A,F107,AP,48,D,T)
         XN=D(1)+D(2)+D(3)+D(4)+D(5)+D(7)+D(8)
         P=BM*XN*T(2)
-        IF(IMR.EQ.1) P=P*1.E-6
+        IF(IMR==1) P=P*1.E-6
         DIFF=PL-ALOG10(P)
-        IF(ABS(DIFF).LT.TEST .OR. L.EQ.LTEST) GOTO 20
+        IF(ABS(DIFF)<TEST .OR. L==LTEST) GOTO 20
         XM=D(6)/XN/1.66E-24
-        IF(IMR.EQ.1) XM = XM*1.E3
+        IF(IMR==1) XM = XM*1.E3
         G=GSURF/(1.+Z/RE)**2
         SH=RGAS*T(2)/(XM*G)
 C         New altitude estimate using scale height
-        IF(L.LT.6) THEN
+        IF(L<6) THEN
           Z=Z-SH*DIFF*2.302
         ELSE
           Z=Z-SH*DIFF
         ENDIF
         GOTO 10
    20 CONTINUE
-      IF(L.EQ.LTEST) WRITE(6,100) PRESS,DIFF
+      IF(L==LTEST) WRITE(6,100) PRESS,DIFF
   100 FORMAT(1X,29HGHP7 NOT CONVERGING FOR PRESS, 1PE12.2,E12.2)
       ALT=Z
       RETURN
@@ -471,20 +471,20 @@ C       Return 0 if unchanged and 1 if changed
       DATA STLL/2*-999./,FAL/2*-999./,FL/2*-999./,APL/14*-999./
       DATA SWL/50*-999./,SWCL/50*-999./
       VTST7=0
-      IF(IYD.NE.IYDL(IC)) GOTO 10
-      IF(SEC.NE.SECL(IC)) GOTO 10
-      IF(GLAT.NE.GLATL(IC)) GOTO 10
-      IF(GLONG.NE.GLL(IC)) GOTO 10
-      IF(STL.NE.STLL(IC)) GOTO 10
-      IF(F107A.NE.FAL(IC)) GOTO 10
-      IF(F107.NE.FL(IC)) GOTO 10
-      DO 5 I=1,7
-        IF(AP(I).NE.APL(I,IC)) GOTO 10
-    5 CONTINUE
-      DO 7 I=1,25
-        IF(SW(I).NE.SWL(I,IC)) GOTO 10
-        IF(SWC(I).NE.SWCL(I,IC)) GOTO 10
-    7 CONTINUE
+      IF(IYD/=IYDL(IC)) GOTO 10
+      IF(SEC/=SECL(IC)) GOTO 10
+      IF(GLAT/=GLATL(IC)) GOTO 10
+      IF(GLONG/=GLL(IC)) GOTO 10
+      IF(STL/=STLL(IC)) GOTO 10
+      IF(F107A/=FAL(IC)) GOTO 10
+      IF(F107/=FL(IC)) GOTO 10
+      DO I=1,7
+        IF(AP(I)/=APL(I,IC)) GOTO 10
+      end do
+      DO I=1,25
+        IF(SW(I)/=SWL(I,IC)) GOTO 10
+        IF(SWC(I)/=SWCL(I,IC)) GOTO 10
+      end do
       GOTO 20
    10 CONTINUE
       VTST7=1
@@ -495,13 +495,13 @@ C       Return 0 if unchanged and 1 if changed
       STLL(IC)=STL
       FAL(IC)=F107A
       FL(IC)=F107
-      DO 15 I=1,7
+      DO I=1,7
         APL(I,IC)=AP(I)
-   15 CONTINUE
-      DO 16 I=1,25
+      end do
+      DO I=1,25
         SWL(I,IC)=SW(I)
         SWCL(I,IC)=SWC(I)
-   16 CONTINUE
+      end do
    20 CONTINUE
       RETURN
       END
@@ -594,33 +594,33 @@ C
       YRD=IYD
       ZA=PDL(16,2)
       ZN1(1)=ZA
-      DO 2 J=1,9
+      DO J=1,9
         D(J)=0.
-    2 CONTINUE
+      end do
 C        TINF VARIATIONS NOT IMPORTANT BELOW ZA OR ZN1(1)
-      IF(ALT.GT.ZN1(1)) THEN
-        IF(V2.EQ.1..OR.ALAST.LE.ZN1(1)) TINF=PTM(1)*PT(1)
+      IF(ALT>ZN1(1)) THEN
+        IF(V2==1..OR.ALAST<=ZN1(1)) TINF=PTM(1)*PT(1)
      $  *(1.+SW(16)*GLOBE7(YRD,SEC,GLAT,GLONG,STL,F107A,F107,AP,PT))
       ELSE
         TINF=PTM(1)*PT(1)
       ENDIF
       T(1)=TINF
 C          GRADIENT VARIATIONS NOT IMPORTANT BELOW ZN1(5)
-      IF(ALT.GT.ZN1(5)) THEN
-        IF(V2.EQ.1.OR.ALAST.LE.ZN1(5)) G0=PTM(4)*PS(1)
+      IF(ALT>ZN1(5)) THEN
+        IF(V2==1.OR.ALAST<=ZN1(5)) G0=PTM(4)*PS(1)
      $   *(1.+SW(19)*GLOBE7(YRD,SEC,GLAT,GLONG,STL,F107A,F107,AP,PS))
       ELSE
         G0=PTM(4)*PS(1)
       ENDIF
 C      Calculate these temperatures only if input changed
-      IF(V2.EQ.1. .OR. ALT.LT.300.)
+      IF(V2==1. .OR. ALT<300.)
      $  TLB=PTM(2)*(1.+SW(17)*GLOBE7(YRD,SEC,GLAT,GLONG,STL,
      $  F107A,F107,AP,PD(1,4)))*PD(1,4)
        S=G0/(TINF-TLB)
 C       Lower thermosphere temp variations not significant for
 C        density above 300 km
-       IF(ALT.LT.300.) THEN
-        IF(V2.EQ.1..OR.ALAST.GE.300.) THEN
+       IF(ALT<300.) THEN
+        IF(V2==1..OR.ALAST>=300.) THEN
          TN1(2)=PTM(7)*PTL(1,1)/(1.-SW(18)*GLOB7S(PTL(1,1)))
          TN1(3)=PTM(3)*PTL(1,2)/(1.-SW(18)*GLOB7S(PTL(1,2)))
          TN1(4)=PTM(8)*PTL(1,3)/(1.-SW(18)*GLOB7S(PTL(1,3)))
@@ -641,7 +641,7 @@ C
       T0=TN1(4)
       TR12=1.
 C
-      IF(MASS.EQ.0) GO TO 50
+      IF(MASS==0) GO TO 50
 C       N2 variation factor at Zlb
       G28=SW(21)*GLOBE7(YRD,SEC,GLAT,GLONG,STL,F107A,F107, 
      & AP,PD(1,3))
@@ -654,12 +654,12 @@ C        VARIATION OF TURBOPAUSE HEIGHT
       XMM=PDM(5,3)
       Z=ALT
 C
-      DO 10 J = 1,11
-      IF(MASS.EQ.MT(J))   GO TO 15
-   10 CONTINUE
+      DO J = 1,11
+      IF(MASS==MT(J))   GO TO 15
+      end do
       WRITE(6,100) MASS
       GO TO 90
-   15 IF(Z.GT.ALTL(6).AND.MASS.NE.28.AND.MASS.NE.48) GO TO 17
+   15 IF(Z>ALTL(6).AND.MASS/=28.AND.MASS/=48) GO TO 17
 C
 C       **** N2 DENSITY ****
 C
@@ -676,7 +676,7 @@ C      Turbopause
 C      Mixed density at Zlb
       B28=DENSU(ZH28,DB28,TINF,TLB,XMD,ALPHA(3)-1.,TZ,PTM(6),S,MN1,
      & ZN1,TN1,TGN1)
-      IF(Z.GT.ALTL(3).OR.SW(15).EQ.0.) GO TO 17
+      IF(Z>ALTL(3).OR.SW(15)==0.) GO TO 17
 C      Mixed density at Alt
       DM28=DENSU(Z,B28,TINF,TLB,XMM,ALPHA(3),TZ,PTM(6),S,MN1,
      & ZN1,TN1,TGN1)
@@ -696,7 +696,7 @@ C      Diffusive density at Alt
       D(1)=DENSU(Z,DB04,TINF,TLB, 4.,ALPHA(1),T(2),PTM(6),S,MN1,ZN1,
      & TN1,TGN1)
       DD=D(1)
-      IF(Z.GT.ALTL(1).OR.SW(15).EQ.0.) GO TO 24
+      IF(Z>ALTL(1).OR.SW(15)==0.) GO TO 24
 C      Turbopause
       ZH04=PDM(3,1)
 C      Mixed density at Zlb
@@ -714,7 +714,7 @@ C      Correction to specified mixing ratio at ground
 C      Net density corrected at Alt
       D(1)=D(1)*CCOR(Z,RL,HC04,ZC04)
    24 CONTINUE
-      IF(MASS.NE.48)   GO TO 90
+      IF(MASS/=48)   GO TO 90
    25 CONTINUE
 C
 C      **** O DENSITY ****
@@ -727,7 +727,7 @@ C       Diffusive density at Alt
       D(2)=DENSU(Z,DB16,TINF,TLB, 16.,ALPHA(2),T(2),PTM(6),S,MN1,
      $ ZN1,TN1,TGN1)
       DD=D(2)
-      IF(Z.GT.ALTL(2).OR.SW(15).EQ.0.) GO TO 34
+      IF(Z>ALTL(2).OR.SW(15)==0.) GO TO 34
 C  Corrected from PDM(3,1) to PDM(3,2)  12/2/85
 C       Turbopause
       ZH16=PDM(3,2)
@@ -754,7 +754,7 @@ C       Chemistry correction
 C      Net density corrected at Alt
       D(2)=D(2)*CCOR(Z,RC16,HCC16,ZCC16)
    34 CONTINUE
-      IF(MASS.NE.48.AND.MASS.NE.49) GO TO 90
+      IF(MASS/=48.AND.MASS/=49) GO TO 90
    35 CONTINUE
 C
 C       **** O2 DENSITY ****
@@ -766,13 +766,13 @@ C      Diffusive density at Zlb
 C       Diffusive density at Alt
       D(4)=DENSU(Z,DB32,TINF,TLB, 32.,ALPHA(4),T(2),PTM(6),S,MN1,
      $ ZN1,TN1,TGN1)
-      IF(MASS.EQ.49) THEN
+      IF(MASS==49) THEN
          DD=DD+2.*D(4)
       ELSE
          DD=D(4)
       ENDIF
-      IF(SW(15).EQ.0.) GO TO 39
-      IF(Z.GT.ALTL(4)) GO TO 38
+      IF(SW(15)==0.) GO TO 39
+      IF(Z>ALTL(4)) GO TO 38
 C       Turbopause
       ZH32=PDM(3,4)
 C      Mixed density at Zlb
@@ -797,7 +797,7 @@ C      Correction for general departure from diffusive equilibrium above Zlb
 C      Net density corrected at Alt
       D(4)=D(4)*CCOR2(Z,RC32,HCC32,ZCC32,HCC232)
    39 CONTINUE
-      IF(MASS.NE.48)   GO TO 90
+      IF(MASS/=48)   GO TO 90
    40 CONTINUE
 C
 C       **** AR DENSITY ****
@@ -810,7 +810,7 @@ C       Diffusive density at Alt
       D(5)=DENSU(Z,DB40,TINF,TLB, 40.,ALPHA(5),T(2),PTM(6),S,MN1,
      $ ZN1,TN1,TGN1)
       DD=D(5)
-      IF(Z.GT.ALTL(5).OR.SW(15).EQ.0.) GO TO 44
+      IF(Z>ALTL(5).OR.SW(15)==0.) GO TO 44
 C       Turbopause
       ZH40=PDM(3,5)
 C      Mixed density at Zlb
@@ -828,7 +828,7 @@ C       Correction to specified mixing ratio at ground
 C      Net density corrected at Alt
       D(5)=D(5)*CCOR(Z,RL,HC40,ZC40)
    44 CONTINUE
-      IF(MASS.NE.48)   GO TO 90
+      IF(MASS/=48)   GO TO 90
    45 CONTINUE
 C
 C        **** HYDROGEN DENSITY ****
@@ -841,7 +841,7 @@ C       Diffusive density at Alt
       D(7)=DENSU(Z,DB01,TINF,TLB,1.,ALPHA(7),T(2),PTM(6),S,MN1,
      $ ZN1,TN1,TGN1)
       DD=D(7)
-      IF(Z.GT.ALTL(7).OR.SW(15).EQ.0.) GO TO 47
+      IF(Z>ALTL(7).OR.SW(15)==0.) GO TO 47
 C       Turbopause
       ZH01=PDM(3,6)
 C      Mixed density at Zlb
@@ -864,7 +864,7 @@ C       Chemistry correction
 C      Net density corrected at Alt
       D(7)=D(7)*CCOR(Z,RC01,HCC01,ZCC01)
    47 CONTINUE
-      IF(MASS.NE.48)   GO TO 90
+      IF(MASS/=48)   GO TO 90
    48 CONTINUE
 C
 C        **** ATOMIC NITROGEN DENSITY ****
@@ -877,7 +877,7 @@ C       Diffusive density at Alt
       D(8)=DENSU(Z,DB14,TINF,TLB,14.,ALPHA(8),T(2),PTM(6),S,MN1,
      $ ZN1,TN1,TGN1)
       DD=D(8)
-      IF(Z.GT.ALTL(8).OR.SW(15).EQ.0.) GO TO 49
+      IF(Z>ALTL(8).OR.SW(15)==0.) GO TO 49
 C       Turbopause
       ZH14=PDM(3,7)
 C      Mixed density at Zlb
@@ -900,7 +900,7 @@ C       Chemistry correction
 C      Net density corrected at Alt
       D(8)=D(8)*CCOR(Z,RC14,HCC14,ZCC14)
    49 CONTINUE
-      IF(MASS.NE.48) GO TO 90
+      IF(MASS/=48) GO TO 90
    46 CONTINUE
 C
 C        **** Anomalous OXYGEN DENSITY ****
@@ -914,7 +914,7 @@ C
       ZMHO=PDM(5,8)
       ZSHO=SCALH(ZMHO,16.,THO)
       D(9)=DD*EXP(-ZSHT/ZSHO*(EXP(-(Z-ZMHO)/ZSHT)-1.))
-      IF(MASS.NE.48) GO TO 90
+      IF(MASS/=48) GO TO 90
 C
 C       TOTAL MASS DENSITY
 C
@@ -929,10 +929,10 @@ C       TEMPERATURE AT ALTITUDE
       DDUM  = DENSU(Z,1., TINF,TLB,0.,0.,T(2),PTM(6),S,MN1,ZN1,TN1,TGN1)
    90 CONTINUE
 C       ADJUST DENSITIES FROM CGS TO KGM
-      IF(IMR.EQ.1) THEN
-        DO 95 I=1,9
+      IF(IMR==1) THEN
+        DO I=1,9
           D(I)=D(I)*1.E6
-   95   CONTINUE
+      end do
         D(6)=D(6)/1000.
       ENDIF
       ALAST=ALT
@@ -982,17 +982,17 @@ C       Eq. A24a
       SG0(EX)=(G0(AP(2))+(G0(AP(3))*EX+G0(AP(4))*EX*EX+G0(AP(5))*EX**3
      $ +(G0(AP(6))*EX**4+G0(AP(7))*EX**12)*(1.-EX**8)/(1.-EX))
      $ )/SUMEX(EX)
-      IF(ISW.NE.64999) CALL TSELEC(SV)
-      DO 10 J=1,14
+      IF(ISW/=64999) CALL TSELEC(SV)
+      DO J=1,14
        T(J)=0
-   10 CONTINUE
-      IF(SW(9).GT.0) SW9=1.
-      IF(SW(9).LT.0) SW9=-1.
+      end do
+      IF(SW(9)>0) SW9=1.
+      IF(SW(9)<0) SW9=-1.
       IYR = YRD/1000.
       DAY = YRD - IYR*1000.
       XLONG=LONG
 C      Eq. A22 (remainder of code)
-      IF(XL.EQ.LAT)   GO TO 15
+      IF(XL==LAT)   GO TO 15
 C          CALCULATE LEGENDRE POLYNOMIALS
       C = SIN(LAT*DGTR)
       S = COS(LAT*DGTR)
@@ -1026,8 +1026,8 @@ C     PLG(9,2) = (15.*C*PLG(8,2)-8.*PLG(7,2))/7.
       PLG(7,4)=(11.*C*PLG(6,4)-8.*PLG(5,4))/3.
       XL=LAT
    15 CONTINUE
-      IF(TLL.EQ.TLOC)   GO TO 16
-      IF(SW(7).EQ.0.AND.SW(8).EQ.0.AND.SW(14).EQ.0) GOTO 16
+      IF(TLL==TLOC)   GO TO 16
+      IF(SW(7)==0.AND.SW(8)==0.AND.SW(14)==0) GOTO 16
       STLOC = SIN(HR*TLOC)
       CTLOC = COS(HR*TLOC)
       S2TLOC = SIN(2.*HR*TLOC)
@@ -1036,10 +1036,10 @@ C     PLG(9,2) = (15.*C*PLG(8,2)-8.*PLG(7,2))/7.
       C3TLOC = COS(3.*HR*TLOC)
       TLL = TLOC
    16 CONTINUE
-      IF(DAY.NE.DAYL.OR.P(14).NE.P14) CD14=COS(DR*(DAY-P(14)))
-      IF(DAY.NE.DAYL.OR.P(18).NE.P18) CD18=COS(2.*DR*(DAY-P(18)))
-      IF(DAY.NE.DAYL.OR.P(32).NE.P32) CD32=COS(DR*(DAY-P(32)))
-      IF(DAY.NE.DAYL.OR.P(39).NE.P39) CD39=COS(2.*DR*(DAY-P(39)))
+      IF(DAY/=DAYL.OR.P(14)/=P14) CD14=COS(DR*(DAY-P(14)))
+      IF(DAY/=DAYL.OR.P(18)/=P18) CD18=COS(2.*DR*(DAY-P(18)))
+      IF(DAY/=DAYL.OR.P(32)/=P32) CD32=COS(DR*(DAY-P(32)))
+      IF(DAY/=DAYL.OR.P(39)/=P39) CD39=COS(2.*DR*(DAY-P(39)))
       DAYL = DAY
       P14 = P(14)
       P18 = P(18)
@@ -1069,7 +1069,7 @@ C        ASYMMETRICAL ANNUAL
 C         ASYMMETRICAL SEMIANNUAL
       T(6) =    P(38)*PLG(2,1)*CD39
 C        DIURNAL
-      IF(SW(7).EQ.0) GOTO 200
+      IF(SW(7)==0) GOTO 200
       T71 = (P(12)*PLG(3,2))*CD14*SWC(5)
       T72 = (P(13)*PLG(3,2))*CD14*SWC(5)
       T(7) = F2*
@@ -1079,7 +1079,7 @@ C        DIURNAL
      5 + T72)*STLOC)
   200 CONTINUE
 C        SEMIDIURNAL
-      IF(SW(8).EQ.0) GOTO 210
+      IF(SW(8)==0) GOTO 210
       T81 = (P(24)*PLG(4,3)+P(36)*PLG(6,3))*CD14*SWC(5) 
       T82 = (P(34)*PLG(4,3)+P(37)*PLG(6,3))*CD14*SWC(5)
       T(8) = F2*
@@ -1087,7 +1087,7 @@ C        SEMIDIURNAL
      3 +(P(9)*PLG(3,3) + P(43)*PLG(5,3) + T82)*S2TLOC)
   210 CONTINUE
 C        TERDIURNAL
-      IF(SW(14).EQ.0) GOTO 220
+      IF(SW(14)==0) GOTO 220
       T(14) = F2*
      1 ((P(40)*PLG(4,4)+(P(94)*PLG(5,4)+P(47)*PLG(7,4))*CD14*SWC(5))*
      $ S3TLOC
@@ -1096,36 +1096,36 @@ C        TERDIURNAL
   220 CONTINUE
 C          MAGNETIC ACTIVITY BASED ON DAILY AP
 
-      IF(SW9.EQ.-1.) GO TO 30
+      IF(SW9==-1.) GO TO 30
       APD=(AP(1)-4.)
       P44=P(44)
       P45=P(45)
-      IF(P44.LT.0) P44=1.E-5
+      IF(P44<0) P44=1.E-5
       APDF = APD+(P45-1.)*(APD+(EXP(-P44  *APD)-1.)/P44)
-      IF(SW(9).EQ.0) GOTO 40
+      IF(SW(9)==0) GOTO 40
       T(9)=APDF*(P(33)+P(46)*PLG(3,1)+P(35)*PLG(5,1)+
      $ (P(101)*PLG(2,1)+P(102)*PLG(4,1)+P(103)*PLG(6,1))*CD14*SWC(5)+
      $ (P(122)*PLG(2,2)+P(123)*PLG(4,2)+P(124)*PLG(6,2))*SWC(7)*
      $ COS(HR*(TLOC-P(125))))
       GO TO 40
    30 CONTINUE
-      IF(P(52).EQ.0) GO TO 40
+      IF(P(52)==0) GO TO 40
       EXP1 = EXP(-10800.*ABS(P(52))/(1.+P(139)*(45.-ABS(LAT))))
-      IF(EXP1.GT..99999) EXP1=.99999
-      IF(P(25).LT.1.E-4) P(25)=1.E-4
+      IF(EXP1>.99999) EXP1=.99999
+      IF(P(25)<1.E-4) P(25)=1.E-4
       APT(1)=SG0(EXP1)
 C      APT(2)=SG2(EXP1)
 c      APT(3)=SG0(EXP2)
 C      APT(4)=SG2(EXP2)
-      IF(SW(9).EQ.0) GOTO 40
+      IF(SW(9)==0) GOTO 40
       T(9) = APT(1)*(P(51)+P(97)*PLG(3,1)+P(55)*PLG(5,1)+
      $ (P(126)*PLG(2,1)+P(127)*PLG(4,1)+P(128)*PLG(6,1))*CD14*SWC(5)+
      $ (P(129)*PLG(2,2)+P(130)*PLG(4,2)+P(131)*PLG(6,2))*SWC(7)*
      $ COS(HR*(TLOC-P(132))))
   40  CONTINUE
-      IF(SW(10).EQ.0.OR.LONG.LE.-1000.) GO TO 49
+      IF(SW(10)==0.OR.LONG<=-1000.) GO TO 49
 C        LONGITUDINAL
-      IF(SW(11).EQ.0) GOTO 230
+      IF(SW(11)==0) GOTO 230
       T(11)= (1.+P(81)*DFA*SWC(1))*
      $((P(65)*PLG(3,2)+P(66)*PLG(5,2)+P(67)*PLG(7,2)
      $ +P(104)*PLG(2,2)+P(105)*PLG(4,2)+P(106)*PLG(6,2)
@@ -1137,7 +1137,7 @@ C        LONGITUDINAL
      $  SIN(DGTR*LONG))
   230 CONTINUE
 C        UT AND MIXED UT,LONGITUDE
-      IF(SW(12).EQ.0) GOTO 240
+      IF(SW(12)==0) GOTO 240
       T(12)=(1.+P(96)*PLG(2,1))*(1.+P(82)*DFA*SWC(1))*
      $(1.+P(120)*PLG(2,1)*SWC(5)*CD14)*
      $((P(69)*PLG(2,1)+P(70)*PLG(4,1)+P(71)*PLG(6,1))*
@@ -1147,8 +1147,8 @@ C        UT AND MIXED UT,LONGITUDE
      $     COS(SR*(SEC-P(80))+2.*DGTR*LONG)*(1.+P(138)*DFA*SWC(1))
   240 CONTINUE
 C        UT,LONGITUDE MAGNETIC ACTIVITY
-      IF(SW(13).EQ.0) GOTO 48
-      IF(SW9.EQ.-1.) GO TO 45
+      IF(SW(13)==0) GOTO 48
+      IF(SW9==-1.) GO TO 45
       T(13)= APDF*SWC(11)*(1.+P(121)*PLG(2,1))*
      $((P( 61)*PLG(3,2)+P( 62)*PLG(5,2)+P( 63)*PLG(7,2))*
      $     COS(DGTR*(LONG-P( 64))))
@@ -1160,7 +1160,7 @@ C        UT,LONGITUDE MAGNETIC ACTIVITY
      $     COS(SR*(SEC-P( 76)))
       GOTO 48
    45 CONTINUE
-      IF(P(52).EQ.0) GOTO 48
+      IF(P(52)==0) GOTO 48
       T(13)=APT(1)*SWC(11)*(1.+P(133)*PLG(2,1))*
      $((P(53)*PLG(3,2)+P(99)*PLG(5,2)+P(68)*PLG(7,2))*
      $     COS(DGTR*(LONG-P(98))))
@@ -1174,8 +1174,9 @@ C        UT,LONGITUDE MAGNETIC ACTIVITY
 C  PARMS NOT USED: 83, 90,100,140-150
    49 CONTINUE
       TINF=P(31)
-      DO 50 I = 1,NSW
-   50 TINF = TINF + ABS(SW(I))*T(I)
+      DO I = 1,NSW
+      TINF = TINF + ABS(SW(I))*T(I)
+      end do
       GLOBE7 = TINF
       RETURN
       END
@@ -1194,21 +1195,21 @@ C
       DIMENSION SV(1),SAV(25),SVV(1)
       COMMON/CSW/SW(25),ISW,SWC(25)
       SAVE
-      DO 100 I = 1,25
+      DO I = 1,25
         SAV(I)=SV(I)
         SW(I)=AMOD(SV(I),2.)
-        IF(ABS(SV(I)).EQ.1.OR.ABS(SV(I)).EQ.2.) THEN
+        IF(ABS(SV(I))==1.OR.ABS(SV(I))==2.) THEN
           SWC(I)=1.
         ELSE
           SWC(I)=0.
         ENDIF
-  100 CONTINUE
+      end do
       ISW=64999
       RETURN
       ENTRY TRETRV(SVV)
-      DO 200 I=1,25
+      DO I=1,25
         SVV(I)=SAV(I)
-  200 CONTINUE
+      end do
       END
 C-----------------------------------------------------------------------
       FUNCTION GLOB7S(P)
@@ -1222,19 +1223,19 @@ C      VERSION OF GLOBE FOR LOWER ATMOSPHERE 10/26/99
       DATA DR/1.72142E-2/,DGTR/1.74533E-2/,PSET/2./
       DATA DAYL/-1./,P32,P18,P14,P39/4*-1000./
 C       CONFIRM PARAMETER SET
-      IF(P(100).EQ.0) P(100)=PSET
-      IF(P(100).NE.PSET) THEN
+      IF(P(100)==0) P(100)=PSET
+      IF(P(100)/=PSET) THEN
         WRITE(6,900) PSET,P(100)
   900   FORMAT(1X,'WRONG PARAMETER SET FOR GLOB7S',3F10.1)
         STOP
       ENDIF
-      DO 10 J=1,14
+      DO J=1,14
         T(J)=0.
-   10 CONTINUE
-      IF(DAY.NE.DAYL.OR.P32.NE.P(32)) CD32=COS(DR*(DAY-P(32)))
-      IF(DAY.NE.DAYL.OR.P18.NE.P(18)) CD18=COS(2.*DR*(DAY-P(18)))       
-      IF(DAY.NE.DAYL.OR.P14.NE.P(14)) CD14=COS(DR*(DAY-P(14)))
-      IF(DAY.NE.DAYL.OR.P39.NE.P(39)) CD39=COS(2.*DR*(DAY-P(39)))
+      end do
+      IF(DAY/=DAYL.OR.P32/=P(32)) CD32=COS(DR*(DAY-P(32)))
+      IF(DAY/=DAYL.OR.P18/=P(18)) CD18=COS(2.*DR*(DAY-P(18)))
+      IF(DAY/=DAYL.OR.P14/=P(14)) CD14=COS(DR*(DAY-P(14)))
+      IF(DAY/=DAYL.OR.P39/=P(39)) CD39=COS(2.*DR*(DAY-P(39)))
       DAYL=DAY
       P32=P(32)
       P18=P(18)
@@ -1255,7 +1256,7 @@ C       ASYMMETRICAL ANNUAL
 C       ASYMMETRICAL SEMIANNUAL
       T(6)=(P(38)*PLG(2,1))*CD39
 C        DIURNAL
-      IF(SW(7).EQ.0) GOTO 200
+      IF(SW(7)==0) GOTO 200
       T71 = P(12)*PLG(3,2)*CD14*SWC(5)
       T72 = P(13)*PLG(3,2)*CD14*SWC(5)
       T(7) = 
@@ -1265,7 +1266,7 @@ C        DIURNAL
      5 + T72)*STLOC)
   200 CONTINUE
 C        SEMIDIURNAL
-      IF(SW(8).EQ.0) GOTO 210
+      IF(SW(8)==0) GOTO 210
       T81 = (P(24)*PLG(4,3)+P(36)*PLG(6,3))*CD14*SWC(5) 
       T82 = (P(34)*PLG(4,3)+P(37)*PLG(6,3))*CD14*SWC(5)
       T(8) = 
@@ -1273,18 +1274,18 @@ C        SEMIDIURNAL
      3 +(P(9)*PLG(3,3) + P(43)*PLG(5,3) + T82)*S2TLOC)
   210 CONTINUE
 C        TERDIURNAL
-      IF(SW(14).EQ.0) GOTO 220
+      IF(SW(14)==0) GOTO 220
       T(14) = P(40)*PLG(4,4)*S3TLOC
      $ +P(41)*PLG(4,4)*C3TLOC
   220 CONTINUE
 C       MAGNETIC ACTIVITY
-      IF(SW(9).EQ.0) GOTO 40
-      IF(SW(9).EQ.1)
+      IF(SW(9)==0) GOTO 40
+      IF(SW(9)==1)
      $ T(9)=APDF*(P(33)+P(46)*PLG(3,1)*SWC(2))
-      IF(SW(9).EQ.-1)
+      IF(SW(9)==-1)
      $ T(9)=(P(51)*APT(1)+P(97)*PLG(3,1)*APT(1)*SWC(2))
    40 CONTINUE
-      IF(SW(10).EQ.0.OR.SW(11).EQ.0.OR.LONG.LE.-1000.) GO TO 49
+      IF(SW(10)==0.OR.SW(11)==0.OR.LONG<=-1000.) GO TO 49
 C        LONGITUDINAL
       T(11)= (1.+PLG(2,1)*(P(81)*SWC(5)*COS(DR*(DAY-P(82)))
      $           +P(86)*SWC(6)*COS(2.*DR*(DAY-P(87))))
@@ -1298,8 +1299,9 @@ C        LONGITUDINAL
      $    )*SIN(DGTR*LONG))
    49 CONTINUE
       TT=0.
-      DO 50 I=1,14
-   50 TT=TT+ABS(SW(I))*T(I)
+      DO I=1,14
+      TT=TT+ABS(SW(I))*T(I)
+      end do
       GLOB7S=TT
       RETURN
       END
@@ -1326,7 +1328,7 @@ C      Bates temperature
       TA=TT
       TZ=TT
       DENSU=TZ
-      IF(ALT.GE.ZA) GO TO 10
+      IF(ALT>=ZA) GO TO 10
 C
 C       CALCULATE TEMPERATURE BELOW ZA
 C      Temperature gradient at ZA from Bates profile
@@ -1343,10 +1345,10 @@ C      Geopotental difference from Z1
       ZG=ZETA(Z,Z1)
       ZGDIF=ZETA(Z2,Z1)
 C       Set up spline nodes
-      DO 20 K=1,MN
+      DO K=1,MN
         XS(K)=ZETA(ZN1(K),Z1)/ZGDIF
         YS(K)=1./TN1(K)
-   20 CONTINUE
+      end do
 C        End node derivatives
       YD1=-TGN1(1)/(T1*T1)*ZGDIF
       YD2=-TGN1(2)/(T2*T2)*ZGDIF*((RE+Z2)/(RE+Z1))**2
@@ -1357,19 +1359,19 @@ C       Calculate spline coefficients
 C       temperature at altitude
       TZ=1./Y
       DENSU=TZ
-   10 IF(XM.EQ.0.) GO TO 50
+   10 IF(XM==0.) GO TO 50
 C
 C      CALCULATE DENSITY ABOVE ZA
       GLB=GSURF/(1.+ZLB/RE)**2
       GAMMA=XM*GLB/(S2*RGAS*TINF)
       EXPL=EXP(-S2*GAMMA*ZG2)
-      IF(EXPL.GT.50.OR.TT.LE.0.) THEN
+      IF(EXPL>50.OR.TT<=0.) THEN
         EXPL=50.
       ENDIF
 C       Density at altitude
       DENSA=DLB*(TLB/TT)**(1.+ALPHA+GAMMA)*EXPL
       DENSU=DENSA
-      IF(ALT.GE.ZA) GO TO 50
+      IF(ALT>=ZA) GO TO 50
 C
 C      CALCULATE DENSITY BELOW ZA
       GLB=GSURF/(1.+Z1/RE)**2
@@ -1377,7 +1379,7 @@ C      CALCULATE DENSITY BELOW ZA
 C       integrate spline temperatures
       CALL SPLINI(XS,YS,Y2OUT,MN,X,YI)
       EXPL=GAMM*YI
-      IF(EXPL.GT.50..OR.TZ.LE.0.) THEN
+      IF(EXPL>50..OR.TZ<=0.) THEN
         EXPL=50.
       ENDIF
 C       Density at altitude
@@ -1397,7 +1399,7 @@ C       Calculate Temperature and Density Profiles for lower atmos.
       DATA RGAS/831.4/
       ZETA(ZZ,ZL)=(ZZ-ZL)*(RE+ZL)/(RE+ZZ)
       DENSM=D0
-      IF(ALT.GT.ZN2(1)) GOTO 50
+      IF(ALT>ZN2(1)) GOTO 50
 C      STRATOSPHERE/MESOSPHERE TEMPERATURE
       Z=AMAX1(ALT,ZN2(MN2))
       MN=MN2
@@ -1408,10 +1410,10 @@ C      STRATOSPHERE/MESOSPHERE TEMPERATURE
       ZG=ZETA(Z,Z1)
       ZGDIF=ZETA(Z2,Z1)
 C       Set up spline nodes
-      DO 210 K=1,MN
+      DO K=1,MN
         XS(K)=ZETA(ZN2(K),Z1)/ZGDIF
         YS(K)=1./TN2(K)
-  210 CONTINUE
+      end do
       YD1=-TGN2(1)/(T1*T1)*ZGDIF
       YD2=-TGN2(2)/(T2*T2)*ZGDIF*((RE+Z2)/(RE+Z1))**2
 C       Calculate spline coefficients
@@ -1420,7 +1422,7 @@ C       Calculate spline coefficients
       CALL SPLINT(XS,YS,Y2OUT,MN,X,Y)
 C       Temperature at altitude
       TZ=1./Y
-      IF(XM.EQ.0.) GO TO 20
+      IF(XM==0.) GO TO 20
 C
 C      CALCULATE STRATOSPHERE/MESOSPHERE DENSITY 
       GLB=GSURF/(1.+Z1/RE)**2
@@ -1428,11 +1430,11 @@ C      CALCULATE STRATOSPHERE/MESOSPHERE DENSITY
 C       Integrate temperature profile
       CALL SPLINI(XS,YS,Y2OUT,MN,X,YI)
       EXPL=GAMM*YI
-      IF(EXPL.GT.50.) EXPL=50.
+      IF(EXPL>50.) EXPL=50.
 C       Density at altitude
       DENSM=DENSM*(T1/TZ)*EXP(-EXPL)
    20 CONTINUE
-      IF(ALT.GT.ZN3(1)) GOTO 50
+      IF(ALT>ZN3(1)) GOTO 50
 C
 C      TROPOSPHERE/STRATOSPHERE TEMPERATURE
       Z=ALT
@@ -1444,10 +1446,10 @@ C      TROPOSPHERE/STRATOSPHERE TEMPERATURE
       ZG=ZETA(Z,Z1)
       ZGDIF=ZETA(Z2,Z1)
 C       Set up spline nodes
-      DO 220 K=1,MN
+      DO K=1,MN
         XS(K)=ZETA(ZN3(K),Z1)/ZGDIF
         YS(K)=1./TN3(K)
-  220 CONTINUE
+      end do
       YD1=-TGN3(1)/(T1*T1)*ZGDIF
       YD2=-TGN3(2)/(T2*T2)*ZGDIF*((RE+Z2)/(RE+Z1))**2
 C       Calculate spline coefficients
@@ -1456,7 +1458,7 @@ C       Calculate spline coefficients
       CALL SPLINT(XS,YS,Y2OUT,MN,X,Y)
 C       temperature at altitude
       TZ=1./Y
-      IF(XM.EQ.0.) GO TO 30
+      IF(XM==0.) GO TO 30
 C
 C      CALCULATE TROPOSPHERIC/STRATOSPHERE DENSITY 
 C     
@@ -1465,12 +1467,12 @@ C
 C        Integrate temperature profile
       CALL SPLINI(XS,YS,Y2OUT,MN,X,YI)
       EXPL=GAMM*YI
-      IF(EXPL.GT.50.) EXPL=50.
+      IF(EXPL>50.) EXPL=50.
 C        Density at altitude
       DENSM=DENSM*(T1/TZ)*EXP(-EXPL)
    30 CONTINUE
    50 CONTINUE
-      IF(XM.EQ.0) DENSM=TZ
+      IF(XM==0) DENSM=TZ
       RETURN
       END
 C-----------------------------------------------------------------------
@@ -1485,21 +1487,21 @@ C        Y2: OUTPUT ARRAY OF SECOND DERIVATIVES
       PARAMETER (NMAX=100)
       DIMENSION X(N),Y(N),Y2(N),U(NMAX)
       SAVE
-      IF(YP1.GT..99E30) THEN
+      IF(YP1>.99E30) THEN
         Y2(1)=0
         U(1)=0
       ELSE
         Y2(1)=-.5
         U(1)=(3./(X(2)-X(1)))*((Y(2)-Y(1))/(X(2)-X(1))-YP1)
       ENDIF
-      DO 11 I=2,N-1
+      DO I=2,N-1
         SIG=(X(I)-X(I-1))/(X(I+1)-X(I-1))
         P=SIG*Y2(I-1)+2.
         Y2(I)=(SIG-1.)/P
         U(I)=(6.*((Y(I+1)-Y(I))/(X(I+1)-X(I))-(Y(I)-Y(I-1))
      $    /(X(I)-X(I-1)))/(X(I+1)-X(I-1))-SIG*U(I-1))/P
-   11 CONTINUE
-      IF(YPN.GT..99E30) THEN
+      end do
+      IF(YPN>.99E30) THEN
         QN=0
         UN=0
       ELSE
@@ -1507,9 +1509,9 @@ C        Y2: OUTPUT ARRAY OF SECOND DERIVATIVES
         UN=(3./(X(N)-X(N-1)))*(YPN-(Y(N)-Y(N-1))/(X(N)-X(N-1)))
       ENDIF
       Y2(N)=(UN-QN*U(N-1))/(QN*Y2(N-1)+1.)
-      DO 12 K=N-1,1,-1
+      DO K=N-1,1,-1
         Y2(K)=Y2(K)*Y2(K+1)+U(K)
-   12 CONTINUE
+      end do
       RETURN
       END
 C-----------------------------------------------------------------------
@@ -1526,9 +1528,9 @@ C        Y: OUTPUT VALUE
       KLO=1
       KHI=N
     1 CONTINUE
-      IF(KHI-KLO.GT.1) THEN
+      IF(KHI-KLO>1) THEN
         K=(KHI+KLO)/2
-        IF(XA(K).GT.X) THEN
+        IF(XA(K)>X) THEN
           KHI=K
         ELSE
           KLO=K
@@ -1536,7 +1538,7 @@ C        Y: OUTPUT VALUE
         GOTO 1
       ENDIF
       H=XA(KHI)-XA(KLO)
-      IF(H.EQ.0) WRITE(6,*) 'BAD XA INPUT TO SPLINT'
+      IF(H==0) WRITE(6,*) 'BAD XA INPUT TO SPLINT'
       A=(XA(KHI)-X)/H
       B=(X-XA(KLO))/H
       Y=A*YA(KLO)+B*YA(KHI)+
@@ -1557,9 +1559,9 @@ C        Y: OUTPUT VALUE
       KLO=1
       KHI=2
     1 CONTINUE
-      IF(X.GT.XA(KLO).AND.KHI.LE.N) THEN
+      IF(X>XA(KLO).AND.KHI<=N) THEN
         XX=X
-        IF(KHI.LT.N) XX=AMIN1(X,XA(KHI))
+        IF(KHI<N) XX=AMIN1(X,XA(KHI))
         H=XA(KHI)-XA(KLO)
         A=(XA(KHI)-XX)/H
         B=(XX-XA(KLO))/H
@@ -1587,15 +1589,15 @@ C          XM  - species molecular weight
 C          DNET - combined density
       SAVE
       A=ZHM/(XMM-XM)
-      IF(DM.GT.0.AND.DD.GT.0) GOTO 5
+      IF(DM>0.AND.DD>0) GOTO 5
         WRITE(6,*) 'DNET LOG ERROR',DM,DD,XM
-        IF(DD.EQ.0.AND.DM.EQ.0) DD=1.
-        IF(DM.EQ.0) GOTO 10
-        IF(DD.EQ.0) GOTO 20
+        IF(DD==0.AND.DM==0) DD=1.
+        IF(DM==0) GOTO 10
+        IF(DD==0) GOTO 20
     5 CONTINUE
       YLOG=A*ALOG(DM/DD)
-      IF(YLOG.LT.-10.) GO TO 10
-      IF(YLOG.GT.10.)  GO TO 20
+      IF(YLOG<-10.) GO TO 10
+      IF(YLOG>10.)  GO TO 20
         DNET=DD*(1.+EXP(YLOG))**(1/A)
         GO TO 50
    10 CONTINUE
@@ -1616,8 +1618,8 @@ C        H1 - transition scale length
 C        ZH - altitude of 1/2 R
       SAVE
       E=(ALT-ZH)/H1
-      IF(E.GT.70.) GO TO 20
-      IF(E.LT.-70.) GO TO 10
+      IF(E>70.) GO TO 20
+      IF(E<-70.) GO TO 10
         EX=EXP(E)
         CCOR=R/(1.+EX)
         GO TO 50
@@ -1634,8 +1636,8 @@ C-----------------------------------------------------------------------
 C       O&O2 CHEMISTRY/DISSOCIATION CORRECTION FOR MSIS MODELS
       E1=(ALT-ZH)/H1
       E2=(ALT-ZH)/H2
-      IF(E1.GT.70. .OR. E2.GT.70.) GO TO 20
-      IF(E1.LT.-70. .AND. E2.LT.-70) GO TO 10
+      IF(E1>70. .OR. E2>70.) GO TO 20
+      IF(E1<-70. .AND. E2<-70) GO TO 10
         EX1=EXP(E1)
         EX2=EXP(E2)
         CCOR2=R/(1.+.5*(EX1+EX2))

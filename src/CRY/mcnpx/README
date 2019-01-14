@@ -1,0 +1,38 @@
+Directions for MCNPX build with CRY library
+(tested with v2.5.0 and v2.6b)
+
+(0) Build mcnpx from source code
+
+(1) Download and install 'libCRY.a'
+
+(2) Copy source.F to /path_to_mcnpx/src/mcnpx/mcnpf
+
+(3) Append the following line to /path_to_mcnpx/src/mcnpx/Makefile.h
+
+    XLIBS := ${XLIBS} -L/path_to_CRY_library -lCRY  -lstdc++ 
+
+(4) Rebuild mcnpx with 'make install'
+
+---------------------------------------------------
+Directions for running MCNPX with CRY library :
+
+(1) Create 'setup.file' to specify CRY parameters.
+    At run time mcnpx will look for this file in the current directory. 
+    User can set environment variable CRYSETUPPATH to look for this
+    file in another directory
+
+(2) Set environment variable CRYDATAPATH to point to CRY input data
+
+(3) Add users data cards (IDUM and RDUM) to your input deck to specify the cell in which 
+    to start cosmic rays and the height (z position) within the cell. 
+    Note that cry produces cosmic rays coming through a square "patch" of sky.
+
+    IDUM n      $ cell=n in which to start cosmic rays
+    rdum z      $ height=z (cm) inside cell to start cosmic rays
+
+Example files:
+  inp_cry
+  setup.file
+
+mcnpx inp=inp_cry
+

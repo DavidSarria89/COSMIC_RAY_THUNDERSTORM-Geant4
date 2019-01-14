@@ -1,0 +1,45 @@
+test CRY 
+c
+c CELLS
+c
+c
+1  0  1 -2    imp:n,p,e=1
+2  0 -1 -2    imp:n,p,e=1
+3  0     2    imp:n,p,e=0
+ 
+c
+c SURFACES
+c
+c
+1  pz -100
+2  so   1.e9
+ 
+c
+c  tracking neutrons  = n,
+c           photons   = p,
+c           electrons = e
+c         
+mode n p e      
+c
+print 
+phys:n 20
+phys:p 100
+phys:e 100
+c
+c
+c
+c particle current tally across surface 1
+c
+f1:n   1
+f11:p  1
+f21:e  1
+c
+c
+nps  100     $ number of cosmic showers  
+c prdmp j j -1  $ write tallies to mctal
+ptrac file=asc
+c
+c CRY settings (see also setup.file)
+idum 1        $ cell in which to start cosmic rays
+rdum 100      $ height (cm) inside cell to start cosmic rays
+

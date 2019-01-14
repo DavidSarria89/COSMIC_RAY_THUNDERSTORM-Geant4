@@ -1,0 +1,10 @@
+returnNeutrons 1
+returnProtons 1
+returnGammas 1
+returnElectrons 1
+returnMuons 1
+returnPions 0
+date 5-20-2016
+latitude 20.2
+altitude 11300
+subboxLength 300

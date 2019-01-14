@@ -1,0 +1,46 @@
+Version 1.7
+- Changed scheme for generating makefile dependencies, no longer requires makedepend
+- Fixed a memory leak in cry_fort.cc
+- Revised the data file coefficient for the low-energy cutoff from 15400.0 to
+  14800.0 to match value in references: Cooke 1983 and Dorman 2009, see cry.pdf.
+- Modified a number of source files to assure there are no compiler warning
+  messages
+- Modified some make and source files (added includes) to provide compatibility
+  with Ubuntu Linux
+- Made Geant example program compatible with Geant4.9.5
+
+Version 1.6
+- Fixed error in CRYGenerator.cc that resulted in non-flat XY distribution
+- Changed latDist in data files to specify range (-1.,1.) to avoid confusion
+  since the range is automatically reset to match the box size inside the code
+- Updated geant4 build example to explicitly link static library 
+   (geant4.9.3 switched to dynamic library by default)
+- Fixed error in Source.F (mcnpx/mcnp only) which resulted in missing or duplicate 
+  cosmic-ray particles for shower multiplicity > 1 (about 7% of the time)
+
+Version 1.5
+ - Fixed SolarMin/Max calculation, min and max were swapped.
+
+Version 1.4
+ - Update of MCNP/MCNPX examples with common master source to generate both
+ - Reference output for Geant4
+
+Version 1.3
+ - Add MCNP and MCNPX explicit examples
+ - Changed date to use mo-day-year format
+ - Updated data tables to define correct charge for zero bins
+
+Version 1.2
+ - Add x,y,z offset to setup variables in Fortran interface
+ - Added reference output for tests
+ - Makefile reorganization
+ - Documentation update
+
+Version 1.1
+ - Improved geant example
+ - Added fortran interface
+ - Added subboxlength option
+ - Added cog example
+
+Version 1
+ - Initial release

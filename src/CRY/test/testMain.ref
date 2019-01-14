@@ -1,0 +1,2329 @@
+CRY::CRYSetup: Setting returnNeutrons to 1
+CRY::CRYSetup: Setting returnProtons to 1
+CRY::CRYSetup: Setting returnGammas to 1
+CRY::CRYSetup: Setting date to 7-1-2012 (month-day-year)
+CRY::CRYSetup: Setting latitude to 90
+CRY::CRYSetup: Setting altitude to 0
+CRY::CRYSetup: Setting subboxLength to 100
+Event: 0
+Secondary 0 muon ke=1413.5 (x,y,z)= 13.1664 -49.2707 0 (m)
+Event: 1
+Secondary 0 gamma ke=4.7737 (x,y,z)= -39.5969 -5.85462 0 (m)
+Event: 2
+Secondary 0 gamma ke=5.30097 (x,y,z)= -10.4138 44.0065 0 (m)
+Event: 3
+Secondary 0 gamma ke=21.2691 (x,y,z)= 35.2818 0.437914 0 (m)
+Event: 4
+Secondary 0 gamma ke=2.12709 (x,y,z)= -6.26659 -33.9727 0 (m)
+Event: 5
+Secondary 0 gamma ke=2.30727 (x,y,z)= -32.5536 -40.6924 0 (m)
+Event: 6
+Secondary 0 gamma ke=36.0666 (x,y,z)= 39.0171 -21.9277 0 (m)
+Event: 7
+Secondary 0 muon ke=2291.12 (x,y,z)= -6.37951 -37.4088 0 (m)
+Event: 8
+Secondary 0 electron ke=36.6836 (x,y,z)= -25.4799 26.7524 0 (m)
+Event: 9
+Secondary 0 gamma ke=1.02865 (x,y,z)= 49.8749 3.95953 0 (m)
+Event: 10
+Secondary 0 neutron ke=6.70723 (x,y,z)= 47.4854 6.49242 0 (m)
+Event: 11
+Secondary 0 electron ke=4.33662 (x,y,z)= -24.5339 -4.55766 0 (m)
+Event: 12
+Secondary 0 gamma ke=10.513 (x,y,z)= 33.7651 -39.6365 0 (m)
+Event: 13
+Secondary 0 gamma ke=44.3766 (x,y,z)= 42.0016 34.1558 0 (m)
+Event: 14
+Secondary 0 gamma ke=32.6876 (x,y,z)= 38.9865 -38.1351 0 (m)
+Event: 15
+Secondary 0 gamma ke=23.4909 (x,y,z)= 41.8368 -37.7384 0 (m)
+Event: 16
+Secondary 0 gamma ke=1.39746 (x,y,z)= 34.9522 -19.8892 0 (m)
+Event: 17
+Secondary 0 gamma ke=81.4123 (x,y,z)= -37.0121 -13.5662 0 (m)
+Secondary 1 gamma ke=1.65929 (x,y,z)= -22.6968 0.755287 0 (m)
+Secondary 2 gamma ke=10.8221 (x,y,z)= 49.1791 -37.8727 0 (m)
+Secondary 3 gamma ke=57.8886 (x,y,z)= 5.89429 38.3884 0 (m)
+Secondary 4 gamma ke=2.76533 (x,y,z)= -36.7649 -24.9092 0 (m)
+Event: 18
+Secondary 0 gamma ke=2.52544 (x,y,z)= -29.5172 38.2999 0 (m)
+Event: 19
+Secondary 0 muon ke=1128.51 (x,y,z)= -29.7644 -0.0167842 0 (m)
+Event: 20
+Secondary 0 gamma ke=2.00252 (x,y,z)= 47.1162 42.3525 0 (m)
+Event: 21
+Secondary 0 gamma ke=3.29611 (x,y,z)= 2.72361 0.868199 0 (m)
+Event: 22
+Secondary 0 gamma ke=2.72364 (x,y,z)= -21.0397 -13.4441 0 (m)
+Event: 23
+Secondary 0 gamma ke=145.874 (x,y,z)= -15.4582 -6.54429 0 (m)
+Event: 24
+Secondary 0 muon ke=2123.09 (x,y,z)= 39.7495 -22.7456 0 (m)
+Event: 25
+Secondary 0 muon ke=2595.72 (x,y,z)= 5.83326 16.7735 0 (m)
+Event: 26
+Secondary 0 neutron ke=6.84868 (x,y,z)= -33.6431 27.9304 0 (m)
+Secondary 1 neutron ke=41.362 (x,y,z)= 49.8474 -17.9087 0 (m)
+Secondary 2 gamma ke=38.8807 (x,y,z)= 16.7185 -42.9446 0 (m)
+Secondary 3 neutron ke=51.0697 (x,y,z)= 36.2248 35.7853 0 (m)
+Secondary 4 muon ke=2330.54 (x,y,z)= -13.0321 35.6907 0 (m)
+Event: 27
+Secondary 0 muon ke=923.928 (x,y,z)= -31.9067 5.97058 0 (m)
+Event: 28
+Secondary 0 gamma ke=4.20477 (x,y,z)= -41.1593 11.253 0 (m)
+Event: 29
+Secondary 0 gamma ke=1.40826 (x,y,z)= 13.3068 9.51662 0 (m)
+Event: 30
+Secondary 0 muon ke=2978.58 (x,y,z)= -16.1815 38.895 0 (m)
+Event: 31
+Secondary 0 gamma ke=1.06023 (x,y,z)= -11.076 24.2775 0 (m)
+Event: 32
+Secondary 0 gamma ke=34.4191 (x,y,z)= 14.7716 32.5994 0 (m)
+Event: 33
+Secondary 0 muon ke=9010.9 (x,y,z)= 3.40718 39.6549 0 (m)
+Event: 34
+Secondary 0 muon ke=2204.17 (x,y,z)= 27.2651 -22.1139 0 (m)
+Event: 35
+Secondary 0 gamma ke=20.3406 (x,y,z)= 33.936 -6.20251 0 (m)
+Event: 36
+Secondary 0 neutron ke=141.336 (x,y,z)= -13.3129 -11.8725 0 (m)
+Event: 37
+Secondary 0 electron ke=18.1496 (x,y,z)= 7.9328 36.3865 0 (m)
+Event: 38
+Secondary 0 muon ke=1253.48 (x,y,z)= 4.89334 10.5389 0 (m)
+Event: 39
+Secondary 0 gamma ke=1.27609 (x,y,z)= -12.5011 -21.5219 0 (m)
+Event: 40
+Secondary 0 gamma ke=205.132 (x,y,z)= 0.849889 34.348 0 (m)
+Event: 41
+Secondary 0 muon ke=335424 (x,y,z)= 34.229 45.5263 0 (m)
+Event: 42
+Secondary 0 muon ke=6608.34 (x,y,z)= 14.5915 24.543 0 (m)
+Event: 43
+Secondary 0 gamma ke=1.853 (x,y,z)= 29.9872 -34.5098 0 (m)
+Event: 44
+Secondary 0 muon ke=6030.76 (x,y,z)= -30.1398 23.9815 0 (m)
+Event: 45
+Secondary 0 muon ke=3721.9 (x,y,z)= 19.8068 18.6502 0 (m)
+Event: 46
+Secondary 0 muon ke=894.114 (x,y,z)= -25.0343 -28.1226 0 (m)
+Secondary 1 gamma ke=6.31747 (x,y,z)= -39.0872 -3.2607 0 (m)
+Secondary 2 gamma ke=2.11392 (x,y,z)= -20.1883 -32.4377 0 (m)
+Event: 47
+Secondary 0 gamma ke=2.00148 (x,y,z)= -48.3826 -22.3611 0 (m)
+Event: 48
+Secondary 0 gamma ke=1.70048 (x,y,z)= -12.1533 -29.206 0 (m)
+Event: 49
+Secondary 0 gamma ke=8.56443 (x,y,z)= 28.5102 -35.5595 0 (m)
+Event: 50
+Secondary 0 gamma ke=12.0499 (x,y,z)= 46.9148 -8.63163 0 (m)
+Event: 51
+Secondary 0 muon ke=905.088 (x,y,z)= -4.60649 -4.96964 0 (m)
+Event: 52
+Secondary 0 muon ke=3270.27 (x,y,z)= -6.63584 40.726 0 (m)
+Event: 53
+Secondary 0 gamma ke=57.367 (x,y,z)= -17.4876 28.9679 0 (m)
+Event: 54
+Secondary 0 gamma ke=1.88873 (x,y,z)= 7.23092 -16.5751 0 (m)
+Event: 55
+Secondary 0 gamma ke=3.44177 (x,y,z)= 36.3652 -38.9377 0 (m)
+Event: 56
+Secondary 0 gamma ke=2.84076 (x,y,z)= -42.4319 29.8499 0 (m)
+Event: 57
+Secondary 0 muon ke=141997 (x,y,z)= 27.1858 2.23229 0 (m)
+Event: 58
+Secondary 0 electron ke=29.0822 (x,y,z)= 9.97437 -27.3902 0 (m)
+Event: 59
+Secondary 0 muon ke=475.028 (x,y,z)= -48.1995 -27.1308 0 (m)
+Event: 60
+Secondary 0 muon ke=967.487 (x,y,z)= -14.8235 32.5079 0 (m)
+Event: 61
+Secondary 0 gamma ke=23.9492 (x,y,z)= 33.0022 6.42528 0 (m)
+Event: 62
+Secondary 0 gamma ke=8.11325 (x,y,z)= -43.4542 -22.3489 0 (m)
+Event: 63
+Secondary 0 gamma ke=23.7164 (x,y,z)= -2.47948 -28.3057 0 (m)
+Secondary 1 gamma ke=6.39554 (x,y,z)= 13.9507 10.1483 0 (m)
+Secondary 2 muon ke=2370.38 (x,y,z)= 48.1965 -26.9447 0 (m)
+Event: 64
+Secondary 0 gamma ke=55.245 (x,y,z)= 9.25112 5.69288 0 (m)
+Event: 65
+Secondary 0 gamma ke=1.62153 (x,y,z)= 7.24007 18.7052 0 (m)
+Event: 66
+Secondary 0 gamma ke=11.2928 (x,y,z)= -18.3451 -28.0219 0 (m)
+Event: 67
+Secondary 0 electron ke=2.59364 (x,y,z)= 19.5322 -30.8661 0 (m)
+Event: 68
+Secondary 0 muon ke=639.869 (x,y,z)= 24.0975 -19.8099 0 (m)
+Event: 69
+Secondary 0 muon ke=1337.13 (x,y,z)= -24.6925 -14.8631 0 (m)
+Event: 70
+Secondary 0 muon ke=3070.16 (x,y,z)= -27.6069 32.9931 0 (m)
+Secondary 1 muon ke=491.654 (x,y,z)= -33.8536 -10.4199 0 (m)
+Event: 71
+Secondary 0 gamma ke=70.4034 (x,y,z)= 13.3068 23.1606 0 (m)
+Event: 72
+Secondary 0 electron ke=17.1674 (x,y,z)= -42.557 -34.699 0 (m)
+Event: 73
+Secondary 0 gamma ke=2.00027 (x,y,z)= 32.3797 24.247 0 (m)
+Event: 74
+Secondary 0 gamma ke=3.48729 (x,y,z)= 32.2515 0.654582 0 (m)
+Event: 75
+Secondary 0 gamma ke=165.426 (x,y,z)= -31.6931 4.40508 0 (m)
+Event: 76
+Secondary 0 muon ke=319.895 (x,y,z)= -25.724 9.50441 0 (m)
+Event: 77
+Secondary 0 muon ke=3538.88 (x,y,z)= 29.4043 -40.018 0 (m)
+Event: 78
+Secondary 0 gamma ke=9.09218 (x,y,z)= 46.3319 -15.8305 0 (m)
+Event: 79
+Secondary 0 gamma ke=11.1119 (x,y,z)= -24.7017 -45.4713 0 (m)
+Event: 80
+Secondary 0 gamma ke=288.713 (x,y,z)= 19.4437 -21.8881 0 (m)
+Event: 81
+Secondary 0 gamma ke=12.1082 (x,y,z)= 8.95511 8.1098 0 (m)
+Event: 82
+Secondary 0 neutron ke=77.9187 (x,y,z)= -25.2205 47.5068 0 (m)
+Event: 83
+Secondary 0 gamma ke=2.83877 (x,y,z)= 15.1714 -30.9027 0 (m)
+Event: 84
+Secondary 0 neutron ke=34.4947 (x,y,z)= 14.1399 -20.646 0 (m)
+Event: 85
+Secondary 0 electron ke=426.368 (x,y,z)= -36.0569 -48.3674 0 (m)
+Event: 86
+Secondary 0 neutron ke=38.4466 (x,y,z)= 15.9465 -22.7425 0 (m)
+Event: 87
+Secondary 0 electron ke=106.117 (x,y,z)= -16.1692 6.93796 0 (m)
+Event: 88
+Secondary 0 muon ke=13328.7 (x,y,z)= -7.74055 24.3111 0 (m)
+Event: 89
+Secondary 0 muon ke=1989.7 (x,y,z)= -29.6576 -7.51472 0 (m)
+Event: 90
+Secondary 0 muon ke=3541.27 (x,y,z)= 25.6386 -17.0664 0 (m)
+Event: 91
+Secondary 0 muon ke=268.978 (x,y,z)= -34.8302 47.3786 0 (m)
+Event: 92
+Secondary 0 gamma ke=1.61643 (x,y,z)= -19.9381 11.5612 0 (m)
+Event: 93
+Secondary 0 muon ke=1545.2 (x,y,z)= -38.3518 12.6415 0 (m)
+Event: 94
+Secondary 0 neutron ke=0.039264 (x,y,z)= -24.8116 -34.464 0 (m)
+Event: 95
+Secondary 0 gamma ke=1.56654 (x,y,z)= -3.16305 -11.2683 0 (m)
+Event: 96
+Secondary 0 electron ke=10.9181 (x,y,z)= -24.3386 -8.64994 0 (m)
+Event: 97
+Secondary 0 neutron ke=213.409 (x,y,z)= 19.5444 37.3142 0 (m)
+Event: 98
+Secondary 0 muon ke=1615.29 (x,y,z)= -35.9593 7.76801 0 (m)
+Event: 99
+Secondary 0 muon ke=12057.4 (x,y,z)= 13.1481 47.3573 0 (m)
+Event: 100
+Secondary 0 neutron ke=443.423 (x,y,z)= 25.1747 -18.9249 0 (m)
+Event: 101
+Secondary 0 muon ke=8385.08 (x,y,z)= 40.1492 34.7081 0 (m)
+Event: 102
+Secondary 0 muon ke=7663.72 (x,y,z)= -41.2814 32.8008 0 (m)
+Event: 103
+Secondary 0 gamma ke=350.804 (x,y,z)= -0.483689 -33.3196 0 (m)
+Event: 104
+Secondary 0 muon ke=5981.04 (x,y,z)= 42.4502 -45.9321 0 (m)
+Event: 105
+Secondary 0 gamma ke=1.47664 (x,y,z)= -14.7899 36.6612 0 (m)
+Event: 106
+Secondary 0 gamma ke=47.8666 (x,y,z)= -19.996 28.501 0 (m)
+Event: 107
+Secondary 0 gamma ke=1.33732 (x,y,z)= 42.7737 -4.45696 0 (m)
+Event: 108
+Secondary 0 gamma ke=1.1232 (x,y,z)= -30.7959 -26.5358 0 (m)
+Secondary 1 electron ke=1.54344 (x,y,z)= -21.5982 -41.3089 0 (m)
+Secondary 2 gamma ke=31.9639 (x,y,z)= 22.9439 40.1828 0 (m)
+Secondary 3 gamma ke=2.58037 (x,y,z)= -49.9115 -37.2807 0 (m)
+Secondary 4 neutron ke=14.7696 (x,y,z)= 21.7996 -32.7734 0 (m)
+Event: 109
+Secondary 0 gamma ke=11.1876 (x,y,z)= 2.23229 -11.1889 0 (m)
+Event: 110
+Secondary 0 gamma ke=5.30865 (x,y,z)= -23.597 36.9724 0 (m)
+Secondary 1 neutron ke=0.729701 (x,y,z)= 15.6016 -43.3321 0 (m)
+Event: 111
+Secondary 0 muon ke=3542.12 (x,y,z)= 16.0289 -2.94028 0 (m)
+Event: 112
+Secondary 0 gamma ke=7.46316 (x,y,z)= 32.2973 -30.2222 0 (m)
+Event: 113
+Secondary 0 electron ke=10.7734 (x,y,z)= 11.9885 13.9995 0 (m)
+Event: 114
+Secondary 0 gamma ke=5.05037 (x,y,z)= -15.1744 20.3439 0 (m)
+Event: 115
+Secondary 0 gamma ke=71.0725 (x,y,z)= 48.3246 30.329 0 (m)
+Event: 116
+Secondary 0 gamma ke=1.0252 (x,y,z)= -24.1829 -13.0199 0 (m)
+Event: 117
+Secondary 0 gamma ke=1.68192 (x,y,z)= -38.834 12.0983 0 (m)
+Event: 118
+Secondary 0 gamma ke=144.422 (x,y,z)= 0.416552 2.98605 0 (m)
+Event: 119
+Secondary 0 muon ke=3197.15 (x,y,z)= 0.746132 15.9709 0 (m)
+Event: 120
+Secondary 0 gamma ke=38.2209 (x,y,z)= 0.404346 19.5169 0 (m)
+Event: 121
+Secondary 0 neutron ke=0.00394022 (x,y,z)= 43.8448 -39.4962 0 (m)
+Event: 122
+Secondary 0 gamma ke=2.61943 (x,y,z)= 46.8629 24.8146 0 (m)
+Event: 123
+Secondary 0 muon ke=18446.6 (x,y,z)= -1.96069 -19.4711 0 (m)
+Event: 124
+Secondary 0 neutron ke=101.256 (x,y,z)= -26.194 12.7849 0 (m)
+Event: 125
+Secondary 0 gamma ke=90.4783 (x,y,z)= 10.4993 -7.16073 0 (m)
+Event: 126
+Secondary 0 electron ke=58.1119 (x,y,z)= -22.0284 35.529 0 (m)
+Secondary 1 gamma ke=6.15949 (x,y,z)= 33.7896 22.4252 0 (m)
+Secondary 2 electron ke=94.5789 (x,y,z)= 17.2801 -41.9833 0 (m)
+Secondary 3 gamma ke=2.96171 (x,y,z)= -30.0452 -30.1672 0 (m)
+Secondary 4 muon ke=3610.47 (x,y,z)= 12.1624 -43.3291 0 (m)
+Secondary 5 gamma ke=1.88017 (x,y,z)= 39.2002 26.6578 0 (m)
+Secondary 6 electron ke=52.0727 (x,y,z)= 2.27196 -3.36751 0 (m)
+Secondary 7 gamma ke=34.9072 (x,y,z)= -46.6828 -45.5446 0 (m)
+Secondary 8 gamma ke=14.7517 (x,y,z)= 20.997 44.5436 0 (m)
+Secondary 9 muon ke=1040.73 (x,y,z)= 11.4819 22.7761 0 (m)
+Secondary 10 gamma ke=43.97 (x,y,z)= 9.2084 11.9763 0 (m)
+Secondary 11 gamma ke=31.7995 (x,y,z)= -49.8474 48.1507 0 (m)
+Secondary 12 muon ke=1943.74 (x,y,z)= -25.1808 -15.0737 0 (m)
+Event: 127
+Secondary 0 neutron ke=170.637 (x,y,z)= -37.3203 -16.3951 0 (m)
+Event: 128
+Secondary 0 muon ke=876.177 (x,y,z)= 43.1887 -12.7453 0 (m)
+Event: 129
+Secondary 0 muon ke=455.756 (x,y,z)= 16.8345 15.4552 0 (m)
+Event: 130
+Secondary 0 neutron ke=155.784 (x,y,z)= 35.2238 -32.4499 0 (m)
+Event: 131
+Secondary 0 neutron ke=211.555 (x,y,z)= 19.9197 2.8884 0 (m)
+Event: 132
+Secondary 0 gamma ke=48.1493 (x,y,z)= -2.35741 -20.6979 0 (m)
+Event: 133
+Secondary 0 neutron ke=86.9896 (x,y,z)= -4.58818 38.0344 0 (m)
+Event: 134
+Secondary 0 gamma ke=189.085 (x,y,z)= 7.85041 -21.1374 0 (m)
+Event: 135
+Secondary 0 electron ke=10.0076 (x,y,z)= -30.8355 -6.16894 0 (m)
+Event: 136
+Secondary 0 electron ke=503.683 (x,y,z)= 32.691 26.8684 0 (m)
+Event: 137
+Secondary 0 gamma ke=1.17038 (x,y,z)= 29.5477 0.733925 0 (m)
+Event: 138
+Secondary 0 muon ke=3113.62 (x,y,z)= -46.7195 13.3648 0 (m)
+Event: 139
+Secondary 0 gamma ke=17.9172 (x,y,z)= 12.9406 43.4755 0 (m)
+Event: 140
+Secondary 0 gamma ke=237.051 (x,y,z)= 14.677 14.3627 0 (m)
+Event: 141
+Secondary 0 gamma ke=2.18929 (x,y,z)= 11.9427 6.51683 0 (m)
+Secondary 1 neutron ke=0.00339307 (x,y,z)= -33.1334 49.2035 0 (m)
+Secondary 2 neutron ke=290.503 (x,y,z)= 41.1563 -12.373 0 (m)
+Secondary 3 neutron ke=1.42528 (x,y,z)= 6.49547 39.4229 0 (m)
+Secondary 4 neutron ke=144.944 (x,y,z)= 12.4096 5.58912 0 (m)
+Event: 142
+Secondary 0 neutron ke=128.067 (x,y,z)= 26.1573 -14.4969 0 (m)
+Secondary 1 gamma ke=129.36 (x,y,z)= -48.4437 -2.36962 0 (m)
+Event: 143
+Secondary 0 neutron ke=396.616 (x,y,z)= -20.8078 27.7991 0 (m)
+Event: 144
+Secondary 0 gamma ke=6.1454 (x,y,z)= -4.33794 -41.0617 0 (m)
+Event: 145
+Secondary 0 gamma ke=2.82619 (x,y,z)= 48.3613 30.4144 0 (m)
+Event: 146
+Secondary 0 gamma ke=18.891 (x,y,z)= -8.98563 -5.84241 0 (m)
+Event: 147
+Secondary 0 gamma ke=3.00186 (x,y,z)= -8.61332 12.2265 0 (m)
+Event: 148
+Secondary 0 gamma ke=7.93754 (x,y,z)= 10.9753 -40.2103 0 (m)
+Event: 149
+Secondary 0 muon ke=13004.2 (x,y,z)= -5.6288 -26.8623 0 (m)
+Event: 150
+Secondary 0 gamma ke=91.3689 (x,y,z)= 39.3039 -18.4458 0 (m)
+Event: 151
+Secondary 0 gamma ke=6.01391 (x,y,z)= 2.66258 16.3371 0 (m)
+Event: 152
+Secondary 0 gamma ke=4.70834 (x,y,z)= 15.4094 12.254 0 (m)
+Event: 153
+Secondary 0 electron ke=2.41945 (x,y,z)= -14.1612 37.7994 0 (m)
+Event: 154
+Secondary 0 gamma ke=1.56394 (x,y,z)= -11.5582 -12.9619 0 (m)
+Event: 155
+Secondary 0 gamma ke=1.86788 (x,y,z)= -10.7831 27.6466 0 (m)
+Event: 156
+Secondary 0 gamma ke=1.16531 (x,y,z)= -28.4675 48.4253 0 (m)
+Event: 157
+Secondary 0 electron ke=10.7834 (x,y,z)= -29.6423 -45.6544 0 (m)
+Event: 158
+Secondary 0 gamma ke=1.43968 (x,y,z)= 2.89756 33.5302 0 (m)
+Event: 159
+Secondary 0 gamma ke=5.45108 (x,y,z)= 38.2786 32.8344 0 (m)
+Event: 160
+Secondary 0 gamma ke=24.9752 (x,y,z)= 15.6352 3.22714 0 (m)
+Event: 161
+Secondary 0 neutron ke=20.1801 (x,y,z)= 18.4153 31.4581 0 (m)
+Event: 162
+Secondary 0 muon ke=12978.5 (x,y,z)= -19.6787 35.0652 0 (m)
+Event: 163
+Secondary 0 muon ke=842.062 (x,y,z)= -4.96048 -12.7819 0 (m)
+Event: 164
+Secondary 0 gamma ke=305.703 (x,y,z)= 1.59144 -14.1643 0 (m)
+Event: 165
+Secondary 0 gamma ke=1.56052 (x,y,z)= -27.4421 11.8969 0 (m)
+Event: 166
+Secondary 0 gamma ke=60.5947 (x,y,z)= 8.94596 43.5427 0 (m)
+Event: 167
+Secondary 0 muon ke=1639.28 (x,y,z)= -14.8784 20.7437 0 (m)
+Event: 168
+Secondary 0 muon ke=54676.5 (x,y,z)= -28.9618 19.7488 0 (m)
+Event: 169
+Secondary 0 gamma ke=65.9943 (x,y,z)= 8.05792 37.7323 0 (m)
+Event: 170
+Secondary 0 gamma ke=3.46419 (x,y,z)= -31.4367 -31.2536 0 (m)
+Event: 171
+Secondary 0 electron ke=109.098 (x,y,z)= 22.062 -35.114 0 (m)
+Secondary 1 gamma ke=2.03893 (x,y,z)= 34.7295 -12.1899 0 (m)
+Event: 172
+Secondary 0 gamma ke=10.8361 (x,y,z)= -48.1934 16.6423 0 (m)
+Event: 173
+Secondary 0 neutron ke=184.163 (x,y,z)= 26.0933 -28.7268 0 (m)
+Event: 174
+Secondary 0 neutron ke=0.120025 (x,y,z)= -38.0161 -21.2747 0 (m)
+Secondary 1 muon ke=1397.85 (x,y,z)= -47.9462 28.9038 0 (m)
+Event: 175
+Secondary 0 muon ke=236.698 (x,y,z)= -0.340261 -42.0413 0 (m)
+Event: 176
+Secondary 0 gamma ke=16.1153 (x,y,z)= 38.5929 -15.9404 0 (m)
+Secondary 1 muon ke=419.238 (x,y,z)= -25.6416 -16.4836 0 (m)
+Event: 177
+Secondary 0 muon ke=127.335 (x,y,z)= 19.6878 -5.60133 0 (m)
+Event: 178
+Secondary 0 muon ke=3481.56 (x,y,z)= 27.2102 -1.80201 0 (m)
+Event: 179
+Secondary 0 neutron ke=203.738 (x,y,z)= 32.4255 -24.3416 0 (m)
+Event: 180
+Secondary 0 electron ke=50.3818 (x,y,z)= 39.0934 -9.28164 0 (m)
+Event: 181
+Secondary 0 gamma ke=46.9169 (x,y,z)= -6.85862 -13.8897 0 (m)
+Event: 182
+Secondary 0 gamma ke=14.0534 (x,y,z)= 10.603 -30.2069 0 (m)
+Event: 183
+Secondary 0 gamma ke=2.68691 (x,y,z)= -21.232 29.7247 0 (m)
+Event: 184
+Secondary 0 electron ke=26.1571 (x,y,z)= -38.9316 -15.0829 0 (m)
+Event: 185
+Secondary 0 muon ke=2294.34 (x,y,z)= 23.5939 28.5102 0 (m)
+Event: 186
+Secondary 0 muon ke=4288.86 (x,y,z)= -48.5932 -1.19778 0 (m)
+Event: 187
+Secondary 0 gamma ke=35.7382 (x,y,z)= 32.3248 -46.3105 0 (m)
+Event: 188
+Secondary 0 gamma ke=15.4752 (x,y,z)= -48.5779 2.30858 0 (m)
+Event: 189
+Secondary 0 electron ke=97.346 (x,y,z)= -13.1969 -10.4352 0 (m)
+Event: 190
+Secondary 0 neutron ke=0.00075143 (x,y,z)= 35.1537 -15.8732 0 (m)
+Event: 191
+Secondary 0 gamma ke=87.8866 (x,y,z)= -14.9699 -14.0697 0 (m)
+Event: 192
+Secondary 0 gamma ke=2.01996 (x,y,z)= -36.5818 4.06329 0 (m)
+Event: 193
+Secondary 0 muon ke=2288.48 (x,y,z)= -22.3122 23.1667 0 (m)
+Event: 194
+Secondary 0 gamma ke=4.99307 (x,y,z)= 24.2073 28.6322 0 (m)
+Event: 195
+Secondary 0 gamma ke=3.27704 (x,y,z)= 10.7464 -12.2906 0 (m)
+Event: 196
+Secondary 0 gamma ke=6.08131 (x,y,z)= -13.3831 8.68351 0 (m)
+Event: 197
+Secondary 0 gamma ke=6.46304 (x,y,z)= 31.1316 20.7071 0 (m)
+Event: 198
+Secondary 0 muon ke=8549.76 (x,y,z)= 19.8038 47.989 0 (m)
+Event: 199
+Secondary 0 gamma ke=18.6538 (x,y,z)= -47.2413 48.1141 0 (m)
+Event: 200
+Secondary 0 muon ke=1447.86 (x,y,z)= -27.1156 -32.8588 0 (m)
+Event: 201
+Secondary 0 gamma ke=1.79795 (x,y,z)= 0.379932 12.4157 0 (m)
+Event: 202
+Secondary 0 muon ke=5098.72 (x,y,z)= 41.8734 45.6849 0 (m)
+Event: 203
+Secondary 0 gamma ke=1.60516 (x,y,z)= 36.06 -6.4619 0 (m)
+Event: 204
+Secondary 0 muon ke=1800.96 (x,y,z)= 3.60859 -34.8454 0 (m)
+Event: 205
+Secondary 0 gamma ke=6.76954 (x,y,z)= 14.9455 15.3911 0 (m)
+Event: 206
+Secondary 0 gamma ke=3.74257 (x,y,z)= 11.0211 13.6791 0 (m)
+Event: 207
+Secondary 0 neutron ke=2093.69 (x,y,z)= 1.34426 -26.4991 0 (m)
+Event: 208
+Secondary 0 gamma ke=1.24878 (x,y,z)= -42.4685 -13.0047 0 (m)
+Event: 209
+Secondary 0 muon ke=5491.91 (x,y,z)= -10.1361 -24.7871 0 (m)
+Event: 210
+Secondary 0 gamma ke=36.712 (x,y,z)= -32.9931 -32.0471 0 (m)
+Event: 211
+Secondary 0 muon ke=1227.52 (x,y,z)= 7.49641 44.7023 0 (m)
+Event: 212
+Secondary 0 gamma ke=11.6508 (x,y,z)= -11.5002 25.2022 0 (m)
+Secondary 1 muon ke=11090.5 (x,y,z)= 35.471 37.5797 0 (m)
+Event: 213
+Secondary 0 gamma ke=1.92236 (x,y,z)= 24.6437 -27.2559 0 (m)
+Event: 214
+Secondary 0 muon ke=4626.68 (x,y,z)= 42.1969 -42.673 0 (m)
+Event: 215
+Secondary 0 gamma ke=1.69759 (x,y,z)= 26.8104 -29.7522 0 (m)
+Event: 216
+Secondary 0 muon ke=3089.69 (x,y,z)= -41.5469 14.2223 0 (m)
+Event: 217
+Secondary 0 neutron ke=85.5878 (x,y,z)= -23.1789 -32.868 0 (m)
+Event: 218
+Secondary 0 gamma ke=15.8369 (x,y,z)= -3.68794 -31.2628 0 (m)
+Event: 219
+Secondary 0 gamma ke=142.918 (x,y,z)= 16.2822 42.8377 0 (m)
+Event: 220
+Secondary 0 electron ke=24.7958 (x,y,z)= -36.1576 36.1302 0 (m)
+Event: 221
+Secondary 0 neutron ke=46.4688 (x,y,z)= 1.39003 -28.9099 0 (m)
+Event: 222
+Secondary 0 muon ke=23375.9 (x,y,z)= 36.4445 -40.9274 0 (m)
+Event: 223
+Secondary 0 electron ke=817.436 (x,y,z)= -14.677 44.0401 0 (m)
+Event: 224
+Secondary 0 muon ke=26653.2 (x,y,z)= -38.7363 -44.4277 0 (m)
+Event: 225
+Secondary 0 gamma ke=51.7415 (x,y,z)= -45.9382 17.216 0 (m)
+Event: 226
+Secondary 0 gamma ke=2.43394 (x,y,z)= -13.5051 -23.9205 0 (m)
+Event: 227
+Secondary 0 muon ke=2856.01 (x,y,z)= -34.5738 39.6671 0 (m)
+Event: 228
+Secondary 0 muon ke=14076.1 (x,y,z)= -41.1013 -2.81821 0 (m)
+Secondary 1 muon ke=1909.71 (x,y,z)= -41.8521 18.9585 0 (m)
+Secondary 2 gamma ke=154.086 (x,y,z)= -19.7611 30.3473 0 (m)
+Secondary 3 gamma ke=2.78686 (x,y,z)= -27.1858 33.637 0 (m)
+Secondary 4 electron ke=25.3365 (x,y,z)= 24.1402 -21.4334 0 (m)
+Secondary 5 electron ke=31.8357 (x,y,z)= -31.4794 -42.7279 0 (m)
+Secondary 6 electron ke=1.01101 (x,y,z)= -40.5063 13.6425 0 (m)
+Secondary 7 gamma ke=17.923 (x,y,z)= 23.6336 -16.63 0 (m)
+Event: 229
+Secondary 0 muon ke=4562.49 (x,y,z)= 19.0164 -49.2584 0 (m)
+Event: 230
+Secondary 0 muon ke=392.91 (x,y,z)= 46.5089 25.8034 0 (m)
+Event: 231
+Secondary 0 gamma ke=1.65481 (x,y,z)= 37.6621 34.6837 0 (m)
+Event: 232
+Secondary 0 gamma ke=11.6639 (x,y,z)= 35.7274 -15.1836 0 (m)
+Secondary 1 gamma ke=6.90492 (x,y,z)= 46.8568 -33.8597 0 (m)
+Event: 233
+Secondary 0 muon ke=5023.26 (x,y,z)= -24.1799 30.9729 0 (m)
+Event: 234
+Secondary 0 muon ke=3576.93 (x,y,z)= 28.916 -0.410449 0 (m)
+Event: 235
+Secondary 0 muon ke=2396.5 (x,y,z)= -11.6345 -18.1528 0 (m)
+Secondary 1 gamma ke=58.1617 (x,y,z)= 16.2303 -34.3755 0 (m)
+Event: 236
+Secondary 0 gamma ke=1.06431 (x,y,z)= 25.8003 -5.88514 0 (m)
+Event: 237
+Secondary 0 gamma ke=1.28424 (x,y,z)= -37.2471 5.03677 0 (m)
+Event: 238
+Secondary 0 gamma ke=8.65725 (x,y,z)= 43.799 -30.8783 0 (m)
+Event: 239
+Secondary 0 neutron ke=2.55482 (x,y,z)= 48.88 38.2633 0 (m)
+Secondary 1 muon ke=572.897 (x,y,z)= 37.6713 42.38 0 (m)
+Secondary 2 gamma ke=33.5905 (x,y,z)= 26.7951 -8.11895 0 (m)
+Event: 240
+Secondary 0 muon ke=1963.34 (x,y,z)= -42.2732 36.3316 0 (m)
+Event: 241
+Secondary 0 muon ke=10307.2 (x,y,z)= 28.797 -15.1988 0 (m)
+Event: 242
+Secondary 0 gamma ke=23.965 (x,y,z)= 2.63816 -47.0826 0 (m)
+Event: 243
+Secondary 0 gamma ke=6.00437 (x,y,z)= 26.1177 -25.7087 0 (m)
+Event: 244
+Secondary 0 muon ke=4148.13 (x,y,z)= 21.6592 -33.2586 0 (m)
+Event: 245
+Secondary 0 neutron ke=67.1365 (x,y,z)= 38.7088 44.8579 0 (m)
+Event: 246
+Secondary 0 gamma ke=101.331 (x,y,z)= -8.96121 -36.9236 0 (m)
+Event: 247
+Secondary 0 gamma ke=72.9301 (x,y,z)= -22.2482 0.819372 0 (m)
+Event: 248
+Secondary 0 gamma ke=1.13898 (x,y,z)= -21.3418 15.7847 0 (m)
+Event: 249
+Secondary 0 neutron ke=11.8875 (x,y,z)= 15.6199 -42.7584 0 (m)
+Event: 250
+Secondary 0 electron ke=12.1621 (x,y,z)= -1.49074 23.2674 0 (m)
+Event: 251
+Secondary 0 gamma ke=24.7408 (x,y,z)= -21.4303 -45.7429 0 (m)
+Event: 252
+Secondary 0 muon ke=2140.67 (x,y,z)= -45.1662 -45.63 0 (m)
+Event: 253
+Secondary 0 gamma ke=10.3566 (x,y,z)= 34.2076 -42.737 0 (m)
+Event: 254
+Secondary 0 neutron ke=2.81216 (x,y,z)= -37.0457 -14.3993 0 (m)
+Secondary 1 gamma ke=19.511 (x,y,z)= -26.1787 32.0318 0 (m)
+Event: 255
+Secondary 0 muon ke=1559.9 (x,y,z)= -38.4983 45.9962 0 (m)
+Event: 256
+Secondary 0 muon ke=1611.08 (x,y,z)= -48.7793 21.9735 0 (m)
+Event: 257
+Secondary 0 electron ke=12.8427 (x,y,z)= -11.2683 -38.48 0 (m)
+Event: 258
+Secondary 0 gamma ke=3.42185 (x,y,z)= -38.187 30.1123 0 (m)
+Event: 259
+Secondary 0 gamma ke=26.3945 (x,y,z)= -9.24197 -11.8267 0 (m)
+Event: 260
+Secondary 0 gamma ke=37.6896 (x,y,z)= -23.9632 -13.7157 0 (m)
+Event: 261
+Secondary 0 muon ke=4328.76 (x,y,z)= -23.8533 6.4619 0 (m)
+Event: 262
+Secondary 0 electron ke=84.5584 (x,y,z)= -1.54872 48.703 0 (m)
+Event: 263
+Secondary 0 muon ke=7552.84 (x,y,z)= 31.6107 -23.1972 0 (m)
+Event: 264
+Secondary 0 gamma ke=12.2136 (x,y,z)= -40.6375 -17.5547 0 (m)
+Secondary 1 muon ke=296.284 (x,y,z)= -5.45485 -43.9638 0 (m)
+Secondary 2 muon ke=1386.72 (x,y,z)= 17.2068 47.8059 0 (m)
+Secondary 3 gamma ke=2.29808 (x,y,z)= 11.6223 -12.9955 0 (m)
+Secondary 4 electron ke=9.97656 (x,y,z)= -43.9028 47.3023 0 (m)
+Secondary 5 gamma ke=10.0324 (x,y,z)= -38.8736 -25.5653 0 (m)
+Secondary 6 gamma ke=143.596 (x,y,z)= -0.563032 -19.2453 0 (m)
+Secondary 7 muon ke=673.68 (x,y,z)= -38.4311 17.4632 0 (m)
+Secondary 8 muon ke=5208.88 (x,y,z)= -7.64289 -12.3852 0 (m)
+Secondary 9 gamma ke=9.73556 (x,y,z)= 29.8468 -48.2026 0 (m)
+Secondary 10 gamma ke=62.8736 (x,y,z)= -6.22692 -39.9234 0 (m)
+Secondary 11 muon ke=7888.27 (x,y,z)= -7.56965 20.2005 0 (m)
+Secondary 12 gamma ke=25.6435 (x,y,z)= -32.2302 48.6634 0 (m)
+Event: 265
+Secondary 0 neutron ke=71.5404 (x,y,z)= -15.208 4.73466 0 (m)
+Event: 266
+Secondary 0 neutron ke=4.13957 (x,y,z)= 39.725 -33.6065 0 (m)
+Event: 267
+Secondary 0 gamma ke=19.1831 (x,y,z)= -41.4492 -24.0792 0 (m)
+Event: 268
+Secondary 0 gamma ke=1.3647 (x,y,z)= 27.1186 8.9429 0 (m)
+Event: 269
+Secondary 0 muon ke=5257.49 (x,y,z)= -35.0316 -42.795 0 (m)
+Event: 270
+Secondary 0 gamma ke=9.00596 (x,y,z)= 28.6811 45.8619 0 (m)
+Event: 271
+Secondary 0 muon ke=2074.45 (x,y,z)= -1.53041 -7.52388 0 (m)
+Event: 272
+Secondary 0 gamma ke=15.2745 (x,y,z)= 0.0473008 44.3971 0 (m)
+Event: 273
+Secondary 0 gamma ke=543.257 (x,y,z)= -2.38182 0.660685 0 (m)
+Event: 274
+Secondary 0 gamma ke=7.38418 (x,y,z)= 42.7309 -40.8084 0 (m)
+Event: 275
+Secondary 0 gamma ke=6.84156 (x,y,z)= 20.228 -12.8399 0 (m)
+Event: 276
+Secondary 0 electron ke=163.712 (x,y,z)= 45.157 16.6941 0 (m)
+Event: 277
+Secondary 0 gamma ke=1.02092 (x,y,z)= 45.3828 17.1519 0 (m)
+Secondary 1 gamma ke=2.09679 (x,y,z)= 37.0976 -44.1988 0 (m)
+Event: 278
+Secondary 0 muon ke=1281.17 (x,y,z)= 46.6889 -23.774 0 (m)
+Event: 279
+Secondary 0 gamma ke=18.1608 (x,y,z)= -22.5899 -15.0218 0 (m)
+Event: 280
+Secondary 0 neutron ke=250.529 (x,y,z)= -8.52483 -41.5744 0 (m)
+Event: 281
+Secondary 0 muon ke=3438.29 (x,y,z)= -29.8468 -42.6577 0 (m)
+Event: 282
+Secondary 0 muon ke=7492.06 (x,y,z)= -0.447069 29.2761 0 (m)
+Event: 283
+Secondary 0 muon ke=2487.75 (x,y,z)= 15.4124 -41.9802 0 (m)
+Event: 284
+Secondary 0 electron ke=4.86999 (x,y,z)= -34.5464 41.9222 0 (m)
+Event: 285
+Secondary 0 neutron ke=0.0696056 (x,y,z)= -39.78 -3.03793 0 (m)
+Event: 286
+Secondary 0 electron ke=70.2591 (x,y,z)= -35.6175 16.6392 0 (m)
+Event: 287
+Secondary 0 gamma ke=1.11783 (x,y,z)= 19.462 28.6383 0 (m)
+Event: 288
+Secondary 0 gamma ke=9.74199 (x,y,z)= -41.5683 22.5167 0 (m)
+Event: 289
+Secondary 0 gamma ke=9.27545 (x,y,z)= 32.4834 -21.2838 0 (m)
+Event: 290
+Secondary 0 gamma ke=63.8827 (x,y,z)= -31.5649 -23.2735 0 (m)
+Event: 291
+Secondary 0 muon ke=11508.9 (x,y,z)= -45.6544 -29.6423 0 (m)
+Secondary 1 gamma ke=3.86139 (x,y,z)= -23.9479 27.9517 0 (m)
+Secondary 2 gamma ke=2.75025 (x,y,z)= 23.5604 1.152 0 (m)
+Secondary 3 neutron ke=2.7658 (x,y,z)= -28.3576 22.0559 0 (m)
+Secondary 4 electron ke=36.8801 (x,y,z)= 20.5026 -19.3064 0 (m)
+Secondary 5 gamma ke=1.95709 (x,y,z)= -31.8853 -41.8185 0 (m)
+Event: 292
+Secondary 0 gamma ke=18.2675 (x,y,z)= 21.3998 33.9086 0 (m)
+Secondary 1 gamma ke=118.15 (x,y,z)= 25.6996 13.0108 0 (m)
+Event: 293
+Secondary 0 gamma ke=1.32194 (x,y,z)= -6.90134 16.4927 0 (m)
+Event: 294
+Secondary 0 gamma ke=1.37503 (x,y,z)= -1.71046 34.6074 0 (m)
+Event: 295
+Secondary 0 muon ke=1069.68 (x,y,z)= 30.9485 19.05 0 (m)
+Secondary 1 gamma ke=2.03575 (x,y,z)= -22.3824 -37.3051 0 (m)
+Secondary 2 electron ke=394.886 (x,y,z)= 2.75108 6.43443 0 (m)
+Secondary 3 muon ke=1838.76 (x,y,z)= 29.7369 46.4906 0 (m)
+Event: 296
+Secondary 0 muon ke=768.183 (x,y,z)= 43.1002 7.12716 0 (m)
+Event: 297
+Secondary 0 electron ke=12.6196 (x,y,z)= -31.8945 -7.90229 0 (m)
+Event: 298
+Secondary 0 gamma ke=48.346 (x,y,z)= 2.41234 -27.4848 0 (m)
+Event: 299
+Secondary 0 gamma ke=18.7814 (x,y,z)= -10.0232 48.0469 0 (m)
+Event: 300
+Secondary 0 muon ke=5249.82 (x,y,z)= 39.7464 30.4022 0 (m)
+Event: 301
+Secondary 0 gamma ke=1.88369 (x,y,z)= -31.574 -10.4138 0 (m)
+Event: 302
+Secondary 0 gamma ke=9.89515 (x,y,z)= -32.5719 4.78959 0 (m)
+Event: 303
+Secondary 0 gamma ke=2.53084 (x,y,z)= 33.9147 -3.54146 0 (m)
+Secondary 1 gamma ke=4.12499 (x,y,z)= -19.0439 -25.4921 0 (m)
+Event: 304
+Secondary 0 gamma ke=2.86651 (x,y,z)= -44.6413 11.7138 0 (m)
+Event: 305
+Secondary 0 proton ke=1386.07 (x,y,z)= 38.3365 49.6979 0 (m)
+Event: 306
+Secondary 0 gamma ke=1.23978 (x,y,z)= 2.35741 -10.7464 0 (m)
+Event: 307
+Secondary 0 electron ke=54.3227 (x,y,z)= -13.8225 -27.6527 0 (m)
+Event: 308
+Secondary 0 neutron ke=5.48489 (x,y,z)= -42.5722 5.12527 0 (m)
+Event: 309
+Secondary 0 electron ke=66.6561 (x,y,z)= 24.6864 -45.1173 0 (m)
+Event: 310
+Secondary 0 gamma ke=163.788 (x,y,z)= 22.3458 -47.4061 0 (m)
+Event: 311
+Secondary 0 gamma ke=4.04576 (x,y,z)= 31.9555 -17.3319 0 (m)
+Event: 312
+Secondary 0 muon ke=10579.4 (x,y,z)= -38.126 30.5578 0 (m)
+Secondary 1 muon ke=8023.67 (x,y,z)= 26.3435 8.15557 0 (m)
+Event: 313
+Secondary 0 gamma ke=4.14021 (x,y,z)= -7.17904 -18.8272 0 (m)
+Event: 314
+Secondary 0 neutron ke=231.891 (x,y,z)= 10.9936 6.51683 0 (m)
+Event: 315
+Secondary 0 gamma ke=1.71031 (x,y,z)= 1.76844 35.2849 0 (m)
+Event: 316
+Secondary 0 gamma ke=67.5652 (x,y,z)= -24.6254 -1.17947 0 (m)
+Event: 317
+Secondary 0 muon ke=1772.78 (x,y,z)= 25.2388 -36.6551 0 (m)
+Secondary 1 muon ke=3352.87 (x,y,z)= -8.98257 -14.7197 0 (m)
+Secondary 2 electron ke=2.91387 (x,y,z)= -11.0119 -25.1228 0 (m)
+Secondary 3 electron ke=8.74246 (x,y,z)= 14.1307 -40.1523 0 (m)
+Secondary 4 gamma ke=3.29708 (x,y,z)= 29.917 21.8789 0 (m)
+Secondary 5 gamma ke=3.92276 (x,y,z)= -21.7324 37.6255 0 (m)
+Secondary 6 muon ke=12080.5 (x,y,z)= 23.1362 -11.1187 0 (m)
+Secondary 7 gamma ke=6.89959 (x,y,z)= -29.7644 29.3585 0 (m)
+Event: 318
+Secondary 0 electron ke=640.733 (x,y,z)= -27.0973 -38.1534 0 (m)
+Event: 319
+Secondary 0 gamma ke=7.79844 (x,y,z)= 21.5097 14.5458 0 (m)
+Event: 320
+Secondary 0 muon ke=9744.46 (x,y,z)= -34.7508 5.65931 0 (m)
+Secondary 1 gamma ke=1.27258 (x,y,z)= -17.7775 17.9728 0 (m)
+Secondary 2 muon ke=1889.84 (x,y,z)= 30.5701 14.0636 0 (m)
+Secondary 3 muon ke=253.394 (x,y,z)= -22.7853 34.5189 0 (m)
+Secondary 4 muon ke=9789.89 (x,y,z)= 2.32384 2.02173 0 (m)
+Secondary 5 muon ke=6704.78 (x,y,z)= -0.913974 -42.5448 0 (m)
+Secondary 6 muon ke=1924.36 (x,y,z)= 42.4776 -38.776 0 (m)
+Secondary 7 electron ke=80.2638 (x,y,z)= -49.7223 -21.1831 0 (m)
+Secondary 8 muon ke=5087.34 (x,y,z)= -9.26028 -20.6033 0 (m)
+Event: 321
+Secondary 0 electron ke=1429.01 (x,y,z)= -4.31048 -27.2987 0 (m)
+Event: 322
+Secondary 0 muon ke=546.243 (x,y,z)= -37.9337 37.183 0 (m)
+Event: 323
+Secondary 0 gamma ke=8.24068 (x,y,z)= 34.4365 -16.3462 0 (m)
+Event: 324
+Secondary 0 muon ke=2018.35 (x,y,z)= 40.253 -25.8278 0 (m)
+Event: 325
+Secondary 0 electron ke=111.053 (x,y,z)= 29.386 -27.436 0 (m)
+Event: 326
+Secondary 0 gamma ke=8.00025 (x,y,z)= -33.6095 24.7048 0 (m)
+Event: 327
+Secondary 0 gamma ke=42.0299 (x,y,z)= 3.66047 -47.3695 0 (m)
+Event: 328
+Secondary 0 muon ke=2645.84 (x,y,z)= -15.3026 -0.532515 0 (m)
+Event: 329
+Secondary 0 gamma ke=2.17246 (x,y,z)= 0.0747658 41.495 0 (m)
+Event: 330
+Secondary 0 gamma ke=2.61028 (x,y,z)= -37.479 4.20367 0 (m)
+Event: 331
+Secondary 0 gamma ke=6.1076 (x,y,z)= 0.599652 -32.3583 0 (m)
+Event: 332
+Secondary 0 muon ke=5569.4 (x,y,z)= 25.0435 -46.3441 0 (m)
+Event: 333
+Secondary 0 gamma ke=1744.31 (x,y,z)= -42.4929 -13.3983 0 (m)
+Event: 334
+Secondary 0 muon ke=2925.27 (x,y,z)= -35.5351 -9.0314 0 (m)
+Event: 335
+Secondary 0 neutron ke=394.432 (x,y,z)= -47.2871 24.9062 0 (m)
+Event: 336
+Secondary 0 muon ke=2119.51 (x,y,z)= 30.8508 6.35204 0 (m)
+Event: 337
+Secondary 0 gamma ke=1.26942 (x,y,z)= -37.4516 47.4366 0 (m)
+Event: 338
+Secondary 0 muon ke=4773.9 (x,y,z)= -29.7217 -19.4895 0 (m)
+Event: 339
+Secondary 0 muon ke=979.044 (x,y,z)= -41.9039 1.66163 0 (m)
+Event: 340
+Secondary 0 gamma ke=4.83066 (x,y,z)= -17.3411 -3.78864 0 (m)
+Event: 341
+Secondary 0 gamma ke=28.8141 (x,y,z)= 3.84662 16.9077 0 (m)
+Event: 342
+Secondary 0 muon ke=4371.56 (x,y,z)= -35.471 2.51305 0 (m)
+Event: 343
+Secondary 0 electron ke=107.51 (x,y,z)= 17.3075 16.3859 0 (m)
+Event: 344
+Secondary 0 muon ke=419.067 (x,y,z)= 18.1284 18.3664 0 (m)
+Event: 345
+Secondary 0 gamma ke=33.4586 (x,y,z)= 6.52598 21.3205 0 (m)
+Event: 346
+Secondary 0 gamma ke=5.92124 (x,y,z)= -14.558 -37.1403 0 (m)
+Event: 347
+Secondary 0 gamma ke=65.6668 (x,y,z)= -0.61491 -22.0712 0 (m)
+Event: 348
+Secondary 0 gamma ke=2.09343 (x,y,z)= 41.257 35.8952 0 (m)
+Event: 349
+Secondary 0 muon ke=1973.55 (x,y,z)= 4.71024 6.52293 0 (m)
+Event: 350
+Secondary 0 neutron ke=121.094 (x,y,z)= -8.97342 -16.8833 0 (m)
+Event: 351
+Secondary 0 muon ke=1197.45 (x,y,z)= -11.1187 45.3371 0 (m)
+Event: 352
+Secondary 0 gamma ke=238.689 (x,y,z)= 4.05108 -0.328054 0 (m)
+Event: 353
+Secondary 0 muon ke=5845.34 (x,y,z)= -0.160212 26.9355 0 (m)
+Event: 354
+Secondary 0 neutron ke=414.312 (x,y,z)= 8.64079 -3.12948 0 (m)
+Event: 355
+Secondary 0 muon ke=4872.59 (x,y,z)= 10.8685 -29.6332 0 (m)
+Event: 356
+Secondary 0 muon ke=1472.58 (x,y,z)= 20.0418 11.0028 0 (m)
+Event: 357
+Secondary 0 neutron ke=0.450889 (x,y,z)= -23.4444 -15.5803 0 (m)
+Event: 358
+Secondary 0 muon ke=8254.59 (x,y,z)= 2.31469 12.257 0 (m)
+Event: 359
+Secondary 0 muon ke=4384.11 (x,y,z)= -19.2728 44.3819 0 (m)
+Event: 360
+Secondary 0 muon ke=2439.28 (x,y,z)= 19.0164 11.4239 0 (m)
+Event: 361
+Secondary 0 muon ke=1297.94 (x,y,z)= -1.89356 13.8012 0 (m)
+Secondary 1 gamma ke=4.73555 (x,y,z)= 3.00131 6.88608 0 (m)
+Secondary 2 muon ke=6381.18 (x,y,z)= 13.5997 16.3798 0 (m)
+Secondary 3 gamma ke=20.86 (x,y,z)= -9.53187 -22.0315 0 (m)
+Event: 362
+Secondary 0 gamma ke=27.7818 (x,y,z)= 38.3518 -12.254 0 (m)
+Event: 363
+Secondary 0 electron ke=3.63966 (x,y,z)= -5.18325 43.2802 0 (m)
+Event: 364
+Secondary 0 gamma ke=14.0987 (x,y,z)= 18.0277 9.61732 0 (m)
+Event: 365
+Secondary 0 gamma ke=92.2333 (x,y,z)= -12.9345 35.4527 0 (m)
+Event: 366
+Secondary 0 gamma ke=8.70348 (x,y,z)= -4.22198 9.57155 0 (m)
+Event: 367
+Secondary 0 electron ke=2.32845 (x,y,z)= 34.94 -14.2223 0 (m)
+Event: 368
+Secondary 0 gamma ke=20.2841 (x,y,z)= 33.6522 -13.4136 0 (m)
+Event: 369
+Secondary 0 gamma ke=10.3905 (x,y,z)= 35.9593 27.3933 0 (m)
+Event: 370
+Secondary 0 muon ke=1291.48 (x,y,z)= -16.6026 -42.734 0 (m)
+Secondary 1 gamma ke=6.81862 (x,y,z)= -20.1303 5.58607 0 (m)
+Secondary 2 gamma ke=117.41 (x,y,z)= 11.7199 1.19473 0 (m)
+Event: 371
+Secondary 0 gamma ke=19.3848 (x,y,z)= -6.71214 -41.7361 0 (m)
+Event: 372
+Secondary 0 muon ke=4813.92 (x,y,z)= -45.7551 24.6712 0 (m)
+Event: 373
+Secondary 0 muon ke=3185.85 (x,y,z)= 36.5452 -47.3328 0 (m)
+Event: 374
+Secondary 0 muon ke=10251.9 (x,y,z)= -19.935 5.36635 0 (m)
+Event: 375
+Secondary 0 muon ke=152.848 (x,y,z)= 3.31563 -12.199 0 (m)
+Event: 376
+Secondary 0 gamma ke=5.00199 (x,y,z)= 28.3301 49.0296 0 (m)
+Secondary 1 gamma ke=6.20101 (x,y,z)= -13.1878 19.7916 0 (m)
+Secondary 2 gamma ke=22.2287 (x,y,z)= -26.5205 -30.8844 0 (m)
+Secondary 3 gamma ke=21.7051 (x,y,z)= 11.427 24.5308 0 (m)
+Secondary 4 electron ke=38.1768 (x,y,z)= 15.0249 27.4757 0 (m)
+Secondary 5 gamma ke=12.6724 (x,y,z)= 43.564 -42.0565 0 (m)
+Secondary 6 gamma ke=1.06515 (x,y,z)= -4.92691 1.0574 0 (m)
+Secondary 7 electron ke=1.85574 (x,y,z)= 19.8923 42.6638 0 (m)
+Secondary 8 gamma ke=3.73081 (x,y,z)= -24.1921 39.2429 0 (m)
+Secondary 9 muon ke=5109.12 (x,y,z)= -31.8731 42.676 0 (m)
+Secondary 10 gamma ke=100.878 (x,y,z)= -10.3772 -25.898 0 (m)
+Secondary 11 electron ke=15.5201 (x,y,z)= 35.2757 19.523 0 (m)
+Secondary 12 gamma ke=7.55911 (x,y,z)= 36.8107 18.7082 0 (m)
+Secondary 13 gamma ke=1.38432 (x,y,z)= 4.5363 -34.229 0 (m)
+Secondary 14 electron ke=81.6185 (x,y,z)= -4.70109 -43.9363 0 (m)
+Secondary 15 muon ke=887.916 (x,y,z)= 26.9782 -41.0403 0 (m)
+Secondary 16 gamma ke=1.95313 (x,y,z)= -19.9899 11.5368 0 (m)
+Secondary 17 gamma ke=2.7942 (x,y,z)= -19.0866 -35.7213 0 (m)
+Secondary 18 gamma ke=24.8164 (x,y,z)= 11.2957 -21.7813 0 (m)
+Secondary 19 muon ke=121.089 (x,y,z)= -37.1739 -8.77201 0 (m)
+Secondary 20 neutron ke=5.36965 (x,y,z)= 9.36403 14.1551 0 (m)
+Event: 377
+Secondary 0 electron ke=2.15319 (x,y,z)= 14.8784 -9.38234 0 (m)
+Event: 378
+Secondary 0 gamma ke=2.12673 (x,y,z)= 33.8445 -4.5363 0 (m)
+Event: 379
+Secondary 0 neutron ke=0.328335 (x,y,z)= -16.7948 27.3078 0 (m)
+Event: 380
+Secondary 0 muon ke=985.56 (x,y,z)= -25.1533 -13.6455 0 (m)
+Event: 381
+Secondary 0 gamma ke=21.1193 (x,y,z)= -18.9646 -47.7021 0 (m)
+Event: 382
+Secondary 0 neutron ke=19.335 (x,y,z)= 20.7498 13.5082 0 (m)
+Event: 383
+Secondary 0 muon ke=189.091 (x,y,z)= -19.4986 -24.0425 0 (m)
+Event: 384
+Secondary 0 electron ke=304.456 (x,y,z)= 28.8459 20.4751 0 (m)
+Event: 385
+Secondary 0 muon ke=3937.39 (x,y,z)= -20.9176 13.3983 0 (m)
+Event: 386
+Secondary 0 gamma ke=2.47979 (x,y,z)= 43.6373 22.4099 0 (m)
+Event: 387
+Secondary 0 muon ke=3001.86 (x,y,z)= -16.746 -8.07318 0 (m)
+Event: 388
+Secondary 0 neutron ke=246.482 (x,y,z)= -4.11212 40.0424 0 (m)
+Event: 389
+Secondary 0 gamma ke=13.3818 (x,y,z)= -9.87366 -44.9342 0 (m)
+Event: 390
+Secondary 0 gamma ke=5.44664 (x,y,z)= 30.4663 -47.0185 0 (m)
+Event: 391
+Secondary 0 gamma ke=3.55813 (x,y,z)= 48.0591 8.81779 0 (m)
+Event: 392
+Secondary 0 gamma ke=143.447 (x,y,z)= 12.5378 -44.0126 0 (m)
+Event: 393
+Secondary 0 gamma ke=38.6715 (x,y,z)= -36.1912 40.8267 0 (m)
+Secondary 1 muon ke=5440.06 (x,y,z)= -0.129696 -46.4631 0 (m)
+Event: 394
+Secondary 0 muon ke=377.431 (x,y,z)= 23.4932 10.8563 0 (m)
+Event: 395
+Secondary 0 muon ke=2607.38 (x,y,z)= -15.0737 0.135799 0 (m)
+Event: 396
+Secondary 0 muon ke=1805.85 (x,y,z)= -18.7174 32.8649 0 (m)
+Event: 397
+Secondary 0 gamma ke=9.44288 (x,y,z)= -8.72318 12.2631 0 (m)
+Event: 398
+Secondary 0 muon ke=7613.16 (x,y,z)= 24.0212 10.487 0 (m)
+Event: 399
+Secondary 0 gamma ke=22.4456 (x,y,z)= -13.084 11.0241 0 (m)
+Event: 400
+Secondary 0 muon ke=4025.35 (x,y,z)= 10.3436 32.1295 0 (m)
+Secondary 1 gamma ke=2.39018 (x,y,z)= -28.0707 32.282 0 (m)
+Secondary 2 neutron ke=1.70805 (x,y,z)= 42.7584 11.6833 0 (m)
+Secondary 3 electron ke=4.35029 (x,y,z)= -21.351 -40.0546 0 (m)
+Event: 401
+Secondary 0 gamma ke=20.3301 (x,y,z)= -43.03 -5.74781 0 (m)
+Event: 402
+Secondary 0 neutron ke=268.604 (x,y,z)= -11.7443 42.7004 0 (m)
+Event: 403
+Secondary 0 muon ke=2384.38 (x,y,z)= 15.8915 -13.3526 0 (m)
+Event: 404
+Secondary 0 gamma ke=6.79261 (x,y,z)= 29.6393 25.7606 0 (m)
+Event: 405
+Secondary 0 gamma ke=4.0704 (x,y,z)= -19.8679 20.0357 0 (m)
+Event: 406
+Secondary 0 muon ke=18381.9 (x,y,z)= 47.107 20.4355 0 (m)
+Event: 407
+Secondary 0 gamma ke=18.0933 (x,y,z)= 40.491 -43.4694 0 (m)
+Secondary 1 electron ke=29.0418 (x,y,z)= -15.6749 -21.7446 0 (m)
+Secondary 2 gamma ke=5.83796 (x,y,z)= 40.7077 19.9869 0 (m)
+Secondary 3 neutron ke=47.7652 (x,y,z)= 40.1981 33.3898 0 (m)
+Secondary 4 gamma ke=6.91736 (x,y,z)= -26.2947 -4.24029 0 (m)
+Secondary 5 neutron ke=44.0096 (x,y,z)= -0.715615 -9.22366 0 (m)
+Event: 408
+Secondary 0 gamma ke=2.44663 (x,y,z)= -44.8763 6.0011 0 (m)
+Event: 409
+Secondary 0 muon ke=7646.51 (x,y,z)= -7.19125 38.8218 0 (m)
+Event: 410
+Secondary 0 gamma ke=1.80938 (x,y,z)= -1.82642 -40.0699 0 (m)
+Event: 411
+Secondary 0 pion ke=1470.62 (x,y,z)= -7.22176 -47.0368 0 (m)
+Event: 412
+Secondary 0 proton ke=119.548 (x,y,z)= -30.0116 -25.785 0 (m)
+Secondary 1 gamma ke=3.64908 (x,y,z)= 36.8199 -40.5246 0 (m)
+Event: 413
+Secondary 0 neutron ke=21.0976 (x,y,z)= 25.7118 30.0391 0 (m)
+Event: 414
+Secondary 0 gamma ke=110.72 (x,y,z)= 36.1515 -43.9272 0 (m)
+Event: 415
+Secondary 0 electron ke=107.798 (x,y,z)= 44.0676 18.6991 0 (m)
+Event: 416
+Secondary 0 neutron ke=96.3525 (x,y,z)= -20.5118 39.2337 0 (m)
+Event: 417
+Secondary 0 gamma ke=12.6141 (x,y,z)= 13.6852 34.5952 0 (m)
+Event: 418
+Secondary 0 muon ke=1301.88 (x,y,z)= 0.846837 27.5642 0 (m)
+Event: 419
+Secondary 0 gamma ke=1.094 (x,y,z)= -42.734 -30.3198 0 (m)
+Event: 420
+Secondary 0 gamma ke=6.43947 (x,y,z)= -19.9075 15.9953 0 (m)
+Secondary 1 muon ke=1351.64 (x,y,z)= -30.3656 26.4961 0 (m)
+Secondary 2 gamma ke=11.3741 (x,y,z)= -46.8415 26.725 0 (m)
+Event: 421
+Secondary 0 muon ke=1508.4 (x,y,z)= -27.3414 -43.0849 0 (m)
+Event: 422
+Secondary 0 gamma ke=12.8233 (x,y,z)= -14.1033 -3.2546 0 (m)
+Event: 423
+Secondary 0 gamma ke=6.89862 (x,y,z)= 33.5668 -15.3728 0 (m)
+Event: 424
+Secondary 0 muon ke=4666.77 (x,y,z)= -5.1863 23.9266 0 (m)
+Event: 425
+Secondary 0 muon ke=664.344 (x,y,z)= 49.4538 28.0097 0 (m)
+Event: 426
+Secondary 0 proton ke=127.937 (x,y,z)= 35.8281 37.833 0 (m)
+Event: 427
+Secondary 0 gamma ke=133.477 (x,y,z)= -41.5011 2.87009 0 (m)
+Event: 428
+Secondary 0 gamma ke=28.9957 (x,y,z)= -0.160212 -48.5962 0 (m)
+Event: 429
+Secondary 0 gamma ke=5.90388 (x,y,z)= -12.5957 -5.03372 0 (m)
+Event: 430
+Secondary 0 neutron ke=491.64 (x,y,z)= 0.0411975 2.55272 0 (m)
+Event: 431
+Secondary 0 neutron ke=0.12779 (x,y,z)= 47.0704 -3.80695 0 (m)
+Event: 432
+Secondary 0 gamma ke=18.7255 (x,y,z)= -37.5095 -6.35204 0 (m)
+Secondary 1 gamma ke=6.75833 (x,y,z)= 6.7335 -47.5343 0 (m)
+Secondary 2 gamma ke=13.154 (x,y,z)= -35.9745 47.4336 0 (m)
+Secondary 3 muon ke=10388.9 (x,y,z)= -23.9785 43.5183 0 (m)
+Secondary 4 muon ke=5174.3 (x,y,z)= -9.79127 39.072 0 (m)
+Secondary 5 muon ke=748.416 (x,y,z)= 23.6062 -8.1098 0 (m)
+Secondary 6 electron ke=8.89265 (x,y,z)= -36.8046 49.7498 0 (m)
+Secondary 7 electron ke=104.604 (x,y,z)= -30.7623 41.5408 0 (m)
+Secondary 8 muon ke=3719.08 (x,y,z)= 35.1018 -14.5915 0 (m)
+Event: 433
+Secondary 0 gamma ke=1.12394 (x,y,z)= 22.0895 11.0394 0 (m)
+Event: 434
+Secondary 0 gamma ke=7.86392 (x,y,z)= 49.8444 17.1336 0 (m)
+Secondary 1 electron ke=322.45 (x,y,z)= -45.7277 49.9756 0 (m)
+Secondary 2 gamma ke=1.15694 (x,y,z)= -20.6735 33.8292 0 (m)
+Secondary 3 muon ke=1865.04 (x,y,z)= 34.3938 9.04361 0 (m)
+Secondary 4 muon ke=903.398 (x,y,z)= -17.7256 28.6078 0 (m)
+Secondary 5 electron ke=19.7891 (x,y,z)= -19.8007 -46.6493 0 (m)
+Secondary 6 gamma ke=1.04943 (x,y,z)= 9.44338 8.2868 0 (m)
+Event: 435
+Secondary 0 gamma ke=1.14916 (x,y,z)= 32.0898 -5.12527 0 (m)
+Event: 436
+Secondary 0 gamma ke=21.334 (x,y,z)= 37.6041 10.7647 0 (m)
+Event: 437
+Secondary 0 gamma ke=3.43442 (x,y,z)= 43.1978 -7.95111 0 (m)
+Event: 438
+Secondary 0 gamma ke=1.83262 (x,y,z)= 23.6885 47.7174 0 (m)
+Secondary 1 gamma ke=39.3872 (x,y,z)= -42.2488 25.4341 0 (m)
+Event: 439
+Secondary 0 neutron ke=5.52815 (x,y,z)= 46.8873 47.2688 0 (m)
+Event: 440
+Secondary 0 muon ke=1887.61 (x,y,z)= -48.7671 -19.1934 0 (m)
+Event: 441
+Secondary 0 gamma ke=2.98335 (x,y,z)= -43.8967 25.8186 0 (m)
+Event: 442
+Secondary 0 gamma ke=9.53248 (x,y,z)= -3.12643 -25.1411 0 (m)
+Event: 443
+Secondary 0 muon ke=24732.5 (x,y,z)= -18.0247 0.294486 0 (m)
+Event: 444
+Secondary 0 muon ke=260.262 (x,y,z)= 44.5131 -33.7926 0 (m)
+Event: 445
+Secondary 0 muon ke=370.052 (x,y,z)= -16.8406 43.9058 0 (m)
+Event: 446
+Secondary 0 muon ke=4771.02 (x,y,z)= 22.8402 43.6953 0 (m)
+Event: 447
+Secondary 0 electron ke=213.592 (x,y,z)= 9.72108 -39.3405 0 (m)
+Event: 448
+Secondary 0 electron ke=28.8319 (x,y,z)= 25.6019 6.80063 0 (m)
+Event: 449
+Secondary 0 gamma ke=5.83484 (x,y,z)= 20.1456 47.281 0 (m)
+Secondary 1 gamma ke=4.88486 (x,y,z)= -8.13421 -22.6174 0 (m)
+Secondary 2 gamma ke=13.8459 (x,y,z)= 46.4692 43.0147 0 (m)
+Secondary 3 electron ke=23.6628 (x,y,z)= 42.0229 -21.7202 0 (m)
+Event: 450
+Secondary 0 gamma ke=1.38119 (x,y,z)= 32.2515 46.8568 0 (m)
+Event: 451
+Secondary 0 gamma ke=9.13047 (x,y,z)= 48.4101 -35.7518 0 (m)
+Event: 452
+Secondary 0 gamma ke=1.68798 (x,y,z)= 9.73023 41.019 0 (m)
+Event: 453
+Secondary 0 gamma ke=15.7125 (x,y,z)= -37.4302 15.977 0 (m)
+Secondary 1 electron ke=895.926 (x,y,z)= -35.4588 -20.9909 0 (m)
+Event: 454
+Secondary 0 electron ke=1.78102 (x,y,z)= 36.8626 22.7914 0 (m)
+Secondary 1 electron ke=41.3399 (x,y,z)= -7.14242 6.28185 0 (m)
+Secondary 2 muon ke=5671.05 (x,y,z)= -1.86609 47.6868 0 (m)
+Secondary 3 gamma ke=3.95447 (x,y,z)= -11.8481 35.3306 0 (m)
+Event: 455
+Secondary 0 gamma ke=236.001 (x,y,z)= 37.9276 -9.16873 0 (m)
+Event: 456
+Secondary 0 muon ke=5692.93 (x,y,z)= 28.0616 -47.6777 0 (m)
+Event: 457
+Secondary 0 electron ke=2.88863 (x,y,z)= -23.362 -27.4726 0 (m)
+Secondary 1 gamma ke=6.06313 (x,y,z)= -41.9955 -35.9318 0 (m)
+Event: 458
+Secondary 0 gamma ke=8.45608 (x,y,z)= 42.4349 20.2768 0 (m)
+Event: 459
+Secondary 0 gamma ke=2.18923 (x,y,z)= -15.0706 -29.2426 0 (m)
+Event: 460
+Secondary 0 muon ke=7831.72 (x,y,z)= 45.8406 -1.34121 0 (m)
+Event: 461
+Secondary 0 neutron ke=14.3944 (x,y,z)= -45.7399 -32.694 0 (m)
+Event: 462
+Secondary 0 gamma ke=2.36382 (x,y,z)= 27.8174 10.2917 0 (m)
+Event: 463
+Secondary 0 muon ke=2246.89 (x,y,z)= -48.2026 -26.6548 0 (m)
+Secondary 1 electron ke=49.1862 (x,y,z)= 36.0203 4.78959 0 (m)
+Event: 464
+Secondary 0 muon ke=8934.24 (x,y,z)= 4.08465 45.3798 0 (m)
+Event: 465
+Secondary 0 gamma ke=98.0393 (x,y,z)= -49.6552 20.6705 0 (m)
+Secondary 1 muon ke=1107.99 (x,y,z)= 39.0781 -20.2646 0 (m)
+Secondary 2 proton ke=740.934 (x,y,z)= 39.7922 46.6493 0 (m)
+Secondary 3 gamma ke=10.7441 (x,y,z)= 26.5052 -12.0281 0 (m)
+Secondary 4 neutron ke=69.7583 (x,y,z)= 2.16516 33.2952 0 (m)
+Event: 466
+Secondary 0 gamma ke=24.6143 (x,y,z)= -47.9127 35.8311 0 (m)
+Event: 467
+Secondary 0 muon ke=3160.08 (x,y,z)= -38.0924 35.5443 0 (m)
+Event: 468
+Secondary 0 gamma ke=1.4995 (x,y,z)= -34.6044 3.72151 0 (m)
+Event: 469
+Secondary 0 gamma ke=39.3546 (x,y,z)= 0.941439 -26.548 0 (m)
+Event: 470
+Secondary 0 muon ke=669.377 (x,y,z)= -1.46327 0.144954 0 (m)
+Event: 471
+Secondary 0 gamma ke=6.12824 (x,y,z)= -28.5437 30.683 0 (m)
+Event: 472
+Secondary 0 electron ke=29.2836 (x,y,z)= 2.55577 4.45696 0 (m)
+Event: 473
+Secondary 0 muon ke=1292.71 (x,y,z)= 11.5094 29.2792 0 (m)
+Event: 474
+Secondary 0 gamma ke=25.0973 (x,y,z)= -26.8989 8.05487 0 (m)
+Event: 475
+Secondary 0 electron ke=101.232 (x,y,z)= -38.0558 -46.454 0 (m)
+Event: 476
+Secondary 0 muon ke=11360.2 (x,y,z)= 39.5297 32.578 0 (m)
+Event: 477
+Secondary 0 neutron ke=104.882 (x,y,z)= 20.7193 13.1115 0 (m)
+Event: 478
+Secondary 0 muon ke=18253.4 (x,y,z)= 8.28069 33.4478 0 (m)
+Event: 479
+Secondary 0 gamma ke=190.85 (x,y,z)= -31.1865 -31.0431 0 (m)
+Event: 480
+Secondary 0 gamma ke=13.0656 (x,y,z)= 0.495896 -11.9641 0 (m)
+Event: 481
+Secondary 0 muon ke=2782.25 (x,y,z)= 13.3465 -43.9089 0 (m)
+Event: 482
+Secondary 0 neutron ke=58.9749 (x,y,z)= -32.2607 41.0434 0 (m)
+Event: 483
+Secondary 0 gamma ke=13.0338 (x,y,z)= -21.3601 -42.322 0 (m)
+Secondary 1 gamma ke=12.8236 (x,y,z)= 25.0496 -23.9846 0 (m)
+Event: 484
+Secondary 0 muon ke=21874.4 (x,y,z)= -1.53346 23.1515 0 (m)
+Event: 485
+Secondary 0 gamma ke=2.86546 (x,y,z)= -8.8422 6.24523 0 (m)
+Secondary 1 gamma ke=3.1544 (x,y,z)= 36.7649 17.4632 0 (m)
+Secondary 2 electron ke=69.1337 (x,y,z)= -41.4065 37.3997 0 (m)
+Secondary 3 gamma ke=9.17227 (x,y,z)= 32.7672 37.0213 0 (m)
+Secondary 4 gamma ke=95.4186 (x,y,z)= 41.0312 30.0635 0 (m)
+Secondary 5 muon ke=2686.46 (x,y,z)= 24.363 44.922 0 (m)
+Event: 486
+Secondary 0 neutron ke=16.6801 (x,y,z)= -16.1937 -47.6197 0 (m)
+Event: 487
+Secondary 0 neutron ke=110.525 (x,y,z)= -7.6612 41.1746 0 (m)
+Event: 488
+Secondary 0 electron ke=176.6 (x,y,z)= -9.66615 -27.3292 0 (m)
+Event: 489
+Secondary 0 muon ke=1032.91 (x,y,z)= 43.9363 35.5229 0 (m)
+Event: 490
+Secondary 0 gamma ke=12.7709 (x,y,z)= 12.4126 -48.8587 0 (m)
+Event: 491
+Secondary 0 muon ke=2391.49 (x,y,z)= -40.8755 2.08886 0 (m)
+Event: 492
+Secondary 0 gamma ke=8.7156 (x,y,z)= 32.8039 46.3044 0 (m)
+Secondary 1 gamma ke=39.1428 (x,y,z)= 9.6692 22.0468 0 (m)
+Secondary 2 muon ke=5772.45 (x,y,z)= -3.76728 -19.6207 0 (m)
+Secondary 3 gamma ke=3.86785 (x,y,z)= 2.01257 4.56682 0 (m)
+Secondary 4 gamma ke=25.0206 (x,y,z)= 18.4549 -12.7544 0 (m)
+Secondary 5 muon ke=11562.4 (x,y,z)= 9.62953 0.413501 0 (m)
+Event: 493
+Secondary 0 gamma ke=6.70667 (x,y,z)= -14.2223 22.0925 0 (m)
+Event: 494
+Secondary 0 neutron ke=115.845 (x,y,z)= -8.67741 47.5739 0 (m)
+Event: 495
+Secondary 0 gamma ke=8.03315 (x,y,z)= -27.1522 31.6931 0 (m)
+Event: 496
+Secondary 0 gamma ke=2.05279 (x,y,z)= -30.5212 11.9518 0 (m)
+Event: 497
+Secondary 0 gamma ke=17.8626 (x,y,z)= -47.4763 49.4293 0 (m)
+Event: 498
+Secondary 0 muon ke=405.544 (x,y,z)= -35.7548 -46.573 0 (m)
+Event: 499
+Secondary 0 gamma ke=5.30865 (x,y,z)= 32.221 -29.0564 0 (m)
+Event: 500
+Secondary 0 proton ke=819.495 (x,y,z)= 48.0866 26.9904 0 (m)
+Event: 501
+Secondary 0 electron ke=31.5373 (x,y,z)= -12.7209 -46.1732 0 (m)
+Event: 502
+Secondary 0 gamma ke=1.22418 (x,y,z)= -48.404 -17.8355 0 (m)
+Event: 503
+Secondary 0 gamma ke=12.8094 (x,y,z)= 44.1805 17.4235 0 (m)
+Event: 504
+Secondary 0 gamma ke=5.6149 (x,y,z)= 39.783 -37.479 0 (m)
+Event: 505
+Secondary 0 muon ke=1094.79 (x,y,z)= 47.3115 39.0781 0 (m)
+Event: 506
+Secondary 0 neutron ke=37.138 (x,y,z)= 5.34194 21.2014 0 (m)
+Event: 507
+Secondary 0 neutron ke=4.37986e-07 (x,y,z)= 28.0005 10.78 0 (m)
+Event: 508
+Secondary 0 electron ke=34.3414 (x,y,z)= -8.48515 20.3226 0 (m)
+Event: 509
+Secondary 0 neutron ke=0.138481 (x,y,z)= -0.791907 -8.17999 0 (m)
+Event: 510
+Secondary 0 gamma ke=157.267 (x,y,z)= -15.5833 32.7825 0 (m)
+Event: 511
+Secondary 0 neutron ke=5.62043 (x,y,z)= 45.8345 -5.51588 0 (m)
+Secondary 1 gamma ke=26.9254 (x,y,z)= 34.464 11.1584 0 (m)
+Secondary 2 muon ke=2021.41 (x,y,z)= 40.1889 -44.4032 0 (m)
+Secondary 3 gamma ke=1.08627 (x,y,z)= 46.6706 -47.8516 0 (m)
+Secondary 4 muon ke=29205.1 (x,y,z)= -27.8205 -20.585 0 (m)
+Secondary 5 gamma ke=45.0237 (x,y,z)= -36.1668 35.5534 0 (m)
+Secondary 6 gamma ke=2.59058 (x,y,z)= -13.8012 -42.145 0 (m)
+Event: 512
+Secondary 0 neutron ke=25.0984 (x,y,z)= 4.31048 0.456224 0 (m)
+Event: 513
+Secondary 0 muon ke=1425.77 (x,y,z)= -10.2887 20.4477 0 (m)
+Event: 514
+Secondary 0 muon ke=171.917 (x,y,z)= -48.8861 -16.9444 0 (m)
+Event: 515
+Secondary 0 muon ke=1219.97 (x,y,z)= -38.3091 10.0568 0 (m)
+Event: 516
+Secondary 0 gamma ke=4.31783 (x,y,z)= -42.6058 18.0277 0 (m)
+Event: 517
+Secondary 0 gamma ke=4.45848 (x,y,z)= 1.25881 21.3754 0 (m)
+Event: 518
+Secondary 0 muon ke=3513.17 (x,y,z)= 37.4516 17.2709 0 (m)
+Event: 519
+Secondary 0 gamma ke=12.8177 (x,y,z)= 1.93933 4.92691 0 (m)
+Event: 520
+Secondary 0 neutron ke=168.14 (x,y,z)= -9.89502 20.8169 0 (m)
+Event: 521
+Secondary 0 muon ke=5901.47 (x,y,z)= 42.911 7.6612 0 (m)
+Event: 522
+Secondary 0 gamma ke=2.25274 (x,y,z)= 10.3406 8.2929 0 (m)
+Event: 523
+Secondary 0 gamma ke=11.2661 (x,y,z)= 21.5615 -19.6329 0 (m)
+Event: 524
+Secondary 0 neutron ke=109.004 (x,y,z)= 19.4742 -9.59596 0 (m)
+Event: 525
+Secondary 0 gamma ke=5.67903 (x,y,z)= -41.3211 28.2416 0 (m)
+Event: 526
+Secondary 0 gamma ke=6.43901 (x,y,z)= -10.9814 10.8624 0 (m)
+Event: 527
+Secondary 0 proton ke=413.887 (x,y,z)= 12.0709 -47.1772 0 (m)
+Event: 528
+Secondary 0 gamma ke=130.038 (x,y,z)= -39.484 39.8288 0 (m)
+Event: 529
+Secondary 0 gamma ke=5.04916 (x,y,z)= -18.8486 34.7203 0 (m)
+Event: 530
+Secondary 0 gamma ke=48.0587 (x,y,z)= -10.6671 26.371 0 (m)
+Event: 531
+Secondary 0 gamma ke=11.8594 (x,y,z)= -38.7027 25.2418 0 (m)
+Event: 532
+Secondary 0 muon ke=7898.48 (x,y,z)= 1.74708 37.4851 0 (m)
+Event: 533
+Secondary 0 gamma ke=2.99806 (x,y,z)= 0.440966 38.1016 0 (m)
+Event: 534
+Secondary 0 gamma ke=4.12152 (x,y,z)= -10.2063 -17.8995 0 (m)
+Event: 535
+Secondary 0 electron ke=33.5962 (x,y,z)= 8.54619 48.0408 0 (m)
+Event: 536
+Secondary 0 muon ke=699.557 (x,y,z)= 14.1155 37.7872 0 (m)
+Event: 537
+Secondary 0 muon ke=3947.64 (x,y,z)= -38.9591 -1.88135 0 (m)
+Event: 538
+Secondary 0 gamma ke=2.54161 (x,y,z)= -20.5392 3.22408 0 (m)
+Event: 539
+Secondary 0 muon ke=5945.09 (x,y,z)= 7.40486 -20.1944 0 (m)
+Secondary 1 gamma ke=1.09001 (x,y,z)= 14.2772 28.9923 0 (m)
+Secondary 2 gamma ke=24.807 (x,y,z)= -18.8486 3.60554 0 (m)
+Event: 540
+Secondary 0 gamma ke=6.74059 (x,y,z)= -49.0937 -49.4599 0 (m)
+Event: 541
+Secondary 0 gamma ke=1.46624 (x,y,z)= -16.569 24.2836 0 (m)
+Event: 542
+Secondary 0 electron ke=7.95865 (x,y,z)= 46.9544 33.9513 0 (m)
+Event: 543
+Secondary 0 neutron ke=0.417761 (x,y,z)= 25.6325 -45.331 0 (m)
+Event: 544
+Secondary 0 proton ke=140.295 (x,y,z)= -46.0145 11.7443 0 (m)
+Event: 545
+Secondary 0 gamma ke=17.4101 (x,y,z)= -12.5164 -3.28512 0 (m)
+Event: 546
+Secondary 0 muon ke=13247.9 (x,y,z)= 13.8469 47.9188 0 (m)
+Event: 547
+Secondary 0 muon ke=1895.08 (x,y,z)= -21.0214 34.0734 0 (m)
+Event: 548
+Secondary 0 muon ke=6286.56 (x,y,z)= 44.269 48.1751 0 (m)
+Event: 549
+Secondary 0 neutron ke=91.5874 (x,y,z)= -25.9742 -39.014 0 (m)
+Event: 550
+Secondary 0 gamma ke=1.54478 (x,y,z)= -25.8705 8.38445 0 (m)
+Secondary 1 muon ke=33746.7 (x,y,z)= -38.6905 -48.9807 0 (m)
+Secondary 2 gamma ke=5.86996 (x,y,z)= 8.9368 1.25576 0 (m)
+Secondary 3 gamma ke=3.2572 (x,y,z)= -21.3632 32.3278 0 (m)
+Secondary 4 gamma ke=4.1118 (x,y,z)= -3.99005 -1.81116 0 (m)
+Secondary 5 muon ke=6406.79 (x,y,z)= 48.0042 -22.0681 0 (m)
+Secondary 6 muon ke=3601.04 (x,y,z)= -46.0206 -11.2744 0 (m)
+Secondary 7 electron ke=40.3016 (x,y,z)= 15.2354 36.356 0 (m)
+Secondary 8 electron ke=14.0751 (x,y,z)= 26.1177 -37.1678 0 (m)
+Secondary 9 electron ke=12.855 (x,y,z)= -32.6513 13.2488 0 (m)
+Secondary 10 muon ke=16085 (x,y,z)= -7.2889 -30.4724 0 (m)
+Secondary 11 gamma ke=5.84058 (x,y,z)= 0.813269 -38.126 0 (m)
+Event: 551
+Secondary 0 muon ke=1543.94 (x,y,z)= -10.5694 14.1948 0 (m)
+Event: 552
+Secondary 0 gamma ke=15.5218 (x,y,z)= -16.7002 46.7805 0 (m)
+Event: 553
+Secondary 0 electron ke=50.4881 (x,y,z)= 44.1927 -37.4516 0 (m)
+Event: 554
+Secondary 0 gamma ke=19.1366 (x,y,z)= -32.1508 -35.3795 0 (m)
+Event: 555
+Secondary 0 gamma ke=1.13913 (x,y,z)= -3.12338 23.1728 0 (m)
+Event: 556
+Secondary 0 neutron ke=0.375463 (x,y,z)= -23.8289 33.4752 0 (m)
+Event: 557
+Secondary 0 gamma ke=8.14615 (x,y,z)= -14.0514 1.76844 0 (m)
+Event: 558
+Secondary 0 gamma ke=6.23334 (x,y,z)= 24.9855 36.3926 0 (m)
+Event: 559
+Secondary 0 gamma ke=203.83 (x,y,z)= 20.2341 12.8033 0 (m)
+Secondary 1 gamma ke=31.2941 (x,y,z)= -4.45085 -26.4686 0 (m)
+Event: 560
+Secondary 0 gamma ke=314.634 (x,y,z)= 13.4777 15.7359 0 (m)
+Event: 561
+Secondary 0 gamma ke=58.8764 (x,y,z)= 11.1126 38.8614 0 (m)
+Event: 562
+Secondary 0 muon ke=5154.99 (x,y,z)= 6.70603 -2.16516 0 (m)
+Event: 563
+Secondary 0 gamma ke=15.2485 (x,y,z)= -43.3962 39.6488 0 (m)
+Secondary 1 muon ke=1935.62 (x,y,z)= 35.5412 45.9565 0 (m)
+Secondary 2 muon ke=784.317 (x,y,z)= 3.28512 28.8214 0 (m)
+Secondary 3 muon ke=1727.51 (x,y,z)= -29.0717 2.57713 0 (m)
+Event: 564
+Secondary 0 gamma ke=9.07725 (x,y,z)= -32.2057 -34.8424 0 (m)
+Event: 565
+Secondary 0 muon ke=2315.79 (x,y,z)= 29.09 -10.4108 0 (m)
+Event: 566
+Secondary 0 electron ke=2.03272 (x,y,z)= -19.697 -19.7244 0 (m)
+Event: 567
+Secondary 0 gamma ke=10.5606 (x,y,z)= 26.3771 -34.763 0 (m)
+Event: 568
+Secondary 0 muon ke=4275.56 (x,y,z)= -20.0174 -13.8958 0 (m)
+Event: 569
+Secondary 0 gamma ke=5.97088 (x,y,z)= -40.6375 45.0136 0 (m)
+Event: 570
+Secondary 0 neutron ke=302.97 (x,y,z)= -44.9312 -4.66142 0 (m)
+Event: 571
+Secondary 0 gamma ke=246.513 (x,y,z)= 20.8932 -49.3775 0 (m)
+Event: 572
+Secondary 0 muon ke=6298.41 (x,y,z)= 41.2387 -24.6956 0 (m)
+Event: 573
+Secondary 0 muon ke=1168.26 (x,y,z)= -42.264 0.99942 0 (m)
+Event: 574
+Secondary 0 gamma ke=7.0684 (x,y,z)= 36.533 49.3805 0 (m)
+Event: 575
+Secondary 0 muon ke=3217.71 (x,y,z)= -32.1691 -1.74403 0 (m)
+Event: 576
+Secondary 0 muon ke=1404.51 (x,y,z)= 38.0405 9.61427 0 (m)
+Event: 577
+Secondary 0 gamma ke=2.6223 (x,y,z)= 6.08044 -17.3685 0 (m)
+Event: 578
+Secondary 0 muon ke=2199.41 (x,y,z)= -44.9251 -42.6363 0 (m)
+Secondary 1 gamma ke=2.5259 (x,y,z)= 13.8835 24.4728 0 (m)
+Event: 579
+Secondary 0 muon ke=1774.7 (x,y,z)= -9.70887 -10.2124 0 (m)
+Event: 580
+Secondary 0 gamma ke=4.05863 (x,y,z)= 27.5245 3.337 0 (m)
+Event: 581
+Secondary 0 electron ke=233.241 (x,y,z)= 38.7272 -38.956 0 (m)
+Event: 582
+Secondary 0 gamma ke=1.57552 (x,y,z)= -39.5511 -1.5182 0 (m)
+Event: 583
+Secondary 0 muon ke=7897.59 (x,y,z)= -2.5283 48.6756 0 (m)
+Event: 584
+Secondary 0 gamma ke=1.60311 (x,y,z)= 6.26659 -7.19125 0 (m)
+Event: 585
+Secondary 0 muon ke=21175.4 (x,y,z)= 8.71098 -7.42623 0 (m)
+Event: 586
+Secondary 0 neutron ke=1602.59 (x,y,z)= -9.67225 -39.7281 0 (m)
+Event: 587
+Secondary 0 gamma ke=6.62535 (x,y,z)= -5.48842 1.06351 0 (m)
+Event: 588
+Secondary 0 gamma ke=19.0231 (x,y,z)= 11.2286 -8.7598 0 (m)
+Event: 589
+Secondary 0 muon ke=657.231 (x,y,z)= -8.13116 36.0539 0 (m)
+Event: 590
+Secondary 0 electron ke=56.391 (x,y,z)= 20.0479 37.772 0 (m)
+Event: 591
+Secondary 0 electron ke=20.3329 (x,y,z)= 17.6707 -19.7153 0 (m)
+Event: 592
+Secondary 0 gamma ke=2.17619 (x,y,z)= -10.6335 -10.6854 0 (m)
+Event: 593
+Secondary 0 gamma ke=11.7855 (x,y,z)= 12.2631 -11.6741 0 (m)
+Event: 594
+Secondary 0 gamma ke=3.33595 (x,y,z)= 4.56682 18.046 0 (m)
+Event: 595
+Secondary 0 gamma ke=2.23336 (x,y,z)= 47.6319 39.9875 0 (m)
+Secondary 1 gamma ke=7.1876 (x,y,z)= 10.2429 -19.5719 0 (m)
+Event: 596
+Secondary 0 electron ke=1.13147 (x,y,z)= 15.7329 7.08749 0 (m)
+Event: 597
+Secondary 0 neutron ke=50.2058 (x,y,z)= -8.81779 -16.2608 0 (m)
+Event: 598
+Secondary 0 gamma ke=2.05781 (x,y,z)= -24.54 -47.2779 0 (m)
+Event: 599
+Secondary 0 gamma ke=30.9738 (x,y,z)= -23.5146 -20.8627 0 (m)
+Event: 600
+Secondary 0 muon ke=1039.36 (x,y,z)= -6.85556 -40.3598 0 (m)
+Event: 601
+Secondary 0 muon ke=1250.72 (x,y,z)= -31.4062 20.9543 0 (m)
+Event: 602
+Secondary 0 gamma ke=5.0357 (x,y,z)= 12.141 16.3737 0 (m)
+Event: 603
+Secondary 0 muon ke=6326.27 (x,y,z)= 38.0558 22.9806 0 (m)
+Event: 604
+Secondary 0 proton ke=251.122 (x,y,z)= 12.2509 19.2728 0 (m)
+Secondary 1 muon ke=6466.76 (x,y,z)= 6.78843 9.22976 0 (m)
+Secondary 2 muon ke=392.574 (x,y,z)= 3.99615 -15.2782 0 (m)
+Secondary 3 gamma ke=6.98928 (x,y,z)= 8.75065 -25.1381 0 (m)
+Secondary 4 gamma ke=29.9465 (x,y,z)= -23.4017 -43.1551 0 (m)
+Secondary 5 neutron ke=54.3716 (x,y,z)= 43.503 39.7739 0 (m)
+Event: 605
+Secondary 0 electron ke=137.652 (x,y,z)= -18.4244 -44.3605 0 (m)
+Secondary 1 gamma ke=1.28514 (x,y,z)= -41.2021 45.0899 0 (m)
+Event: 606
+Secondary 0 muon ke=160.525 (x,y,z)= -3.52315 45.6849 0 (m)
+Secondary 1 gamma ke=3.22622 (x,y,z)= -36.5696 -11.0974 0 (m)
+Secondary 2 neutron ke=116.3 (x,y,z)= 39.9814 -16.5721 0 (m)
+Secondary 3 muon ke=1614.89 (x,y,z)= 6.04382 41.0983 0 (m)
+Event: 607
+Secondary 0 muon ke=845.323 (x,y,z)= -30.6494 -12.9833 0 (m)
+Event: 608
+Secondary 0 gamma ke=26.1127 (x,y,z)= 48.2453 48.1141 0 (m)
+Event: 609
+Secondary 0 gamma ke=1.62623 (x,y,z)= -4.6309 -44.7939 0 (m)
+Event: 610
+Secondary 0 gamma ke=5.35797 (x,y,z)= 42.2183 11.8023 0 (m)
+Event: 611
+Secondary 0 gamma ke=19.1422 (x,y,z)= 21.0916 -47.8425 0 (m)
+Event: 612
+Secondary 0 muon ke=1928.8 (x,y,z)= 2.27196 32.7459 0 (m)
+Event: 613
+Secondary 0 gamma ke=9.07062 (x,y,z)= 13.0932 -10.6213 0 (m)
+Event: 614
+Secondary 0 gamma ke=17.7366 (x,y,z)= -10.0323 27.3963 0 (m)
+Event: 615
+Secondary 0 gamma ke=1.09915 (x,y,z)= 7.79853 31.1377 0 (m)
+Event: 616
+Secondary 0 gamma ke=37.0968 (x,y,z)= -43.9852 -32.5018 0 (m)
+Event: 617
+Secondary 0 gamma ke=60.5428 (x,y,z)= 32.5201 -46.2159 0 (m)
+Event: 618
+Secondary 0 gamma ke=46.0553 (x,y,z)= -14.5397 -4.91165 0 (m)
+Event: 619
+Secondary 0 electron ke=77.0844 (x,y,z)= 32.5048 -9.95911 0 (m)
+Event: 620
+Secondary 0 electron ke=50.5591 (x,y,z)= 41.6018 -44.1347 0 (m)
+Event: 621
+Secondary 0 muon ke=3512.18 (x,y,z)= -29.9323 -14.8509 0 (m)
+Event: 622
+Secondary 0 muon ke=4503.25 (x,y,z)= -1.91797 -1.10623 0 (m)
+Event: 623
+Secondary 0 muon ke=1193.08 (x,y,z)= 32.0349 -46.0939 0 (m)
+Event: 624
+Secondary 0 electron ke=5.17474 (x,y,z)= 29.206 19.4467 0 (m)
+Event: 625
+Secondary 0 electron ke=12.1049 (x,y,z)= 18.9829 44.8183 0 (m)
+Event: 626
+Secondary 0 gamma ke=236.821 (x,y,z)= 32.0135 11.2866 0 (m)
+Event: 627
+Secondary 0 gamma ke=17.0414 (x,y,z)= -18.2108 -23.359 0 (m)
+Event: 628
+Secondary 0 gamma ke=10.0658 (x,y,z)= 18.3664 -17.0542 0 (m)
+Event: 629
+Secondary 0 electron ke=128.547 (x,y,z)= 5.18936 1.44191 0 (m)
+Event: 630
+Secondary 0 muon ke=9917.15 (x,y,z)= -21.5676 16.3859 0 (m)
+Event: 631
+Secondary 0 gamma ke=1.04904 (x,y,z)= 1.86609 -45.5079 0 (m)
+Event: 632
+Secondary 0 gamma ke=3.89622 (x,y,z)= 15.8763 44.1194 0 (m)
+Event: 633
+Secondary 0 gamma ke=4.76351 (x,y,z)= -38.3091 -38.0955 0 (m)
+Event: 634
+Secondary 0 muon ke=9344.14 (x,y,z)= 27.6496 29.0229 0 (m)
+Event: 635
+Secondary 0 gamma ke=42.9042 (x,y,z)= -13.5387 -20.0754 0 (m)
+Event: 636
+Secondary 0 gamma ke=4.19473 (x,y,z)= -15.4582 -11.903 0 (m)
+Event: 637
+Secondary 0 muon ke=1731.78 (x,y,z)= 18.4031 22.413 0 (m)
+Event: 638
+Secondary 0 gamma ke=96.7405 (x,y,z)= 0.5966 44.1164 0 (m)
+Event: 639
+Secondary 0 muon ke=6680.14 (x,y,z)= 28.3515 -17.1641 0 (m)
+Event: 640
+Secondary 0 muon ke=2932.1 (x,y,z)= -2.78159 -44.6474 0 (m)
+Event: 641
+Secondary 0 neutron ke=0.676707 (x,y,z)= -45.7094 -38.4494 0 (m)
+Event: 642
+Secondary 0 muon ke=3057.72 (x,y,z)= 9.00699 0.65153 0 (m)
+Event: 643
+Secondary 0 gamma ke=112.758 (x,y,z)= -39.5877 -44.0706 0 (m)
+Event: 644
+Secondary 0 gamma ke=1.65863 (x,y,z)= -19.4864 22.8188 0 (m)
+Event: 645
+Secondary 0 muon ke=7309.74 (x,y,z)= 8.67131 47.162 0 (m)
+Event: 646
+Secondary 0 gamma ke=2.06793 (x,y,z)= 3.7093 -5.28701 0 (m)
+Event: 647
+Secondary 0 neutron ke=0.456994 (x,y,z)= -14.0666 11.1371 0 (m)
+Event: 648
+Secondary 0 muon ke=136314 (x,y,z)= -17.5181 7.43233 0 (m)
+Event: 649
+Secondary 0 muon ke=1688.19 (x,y,z)= -1.39003 -20.9298 0 (m)
+Event: 650
+Secondary 0 muon ke=9295.28 (x,y,z)= 20.3653 25.9132 0 (m)
+Event: 651
+Secondary 0 muon ke=2759.85 (x,y,z)= 19.7641 -35.999 0 (m)
+Event: 652
+Secondary 0 muon ke=1000.04 (x,y,z)= 48.7519 -48.4711 0 (m)
+Secondary 1 gamma ke=27.4153 (x,y,z)= -29.447 33.3257 0 (m)
+Secondary 2 gamma ke=2.62263 (x,y,z)= -46.4601 13.7462 0 (m)
+Event: 653
+Secondary 0 muon ke=10109.9 (x,y,z)= 17.5486 39.7403 0 (m)
+Event: 654
+Secondary 0 neutron ke=61.4359 (x,y,z)= 44.9831 37.067 0 (m)
+Event: 655
+Secondary 0 gamma ke=393.004 (x,y,z)= 15.6779 35.1964 0 (m)
+Event: 656
+Secondary 0 muon ke=984.646 (x,y,z)= 31.7419 9.26028 0 (m)
+Event: 657
+Secondary 0 gamma ke=9.24305 (x,y,z)= -18.7296 -44.7023 0 (m)
+Event: 658
+Secondary 0 muon ke=5435.93 (x,y,z)= 28.8214 -46.5394 0 (m)
+Event: 659
+Secondary 0 muon ke=21452.2 (x,y,z)= 35.9349 13.0352 0 (m)
+Event: 660
+Secondary 0 gamma ke=2.34483 (x,y,z)= 43.8662 18.8425 0 (m)
+Event: 661
+Secondary 0 electron ke=4.87416 (x,y,z)= 41.1959 4.75907 0 (m)
+Event: 662
+Secondary 0 gamma ke=1.4299 (x,y,z)= -24.2073 -24.8634 0 (m)
+Event: 663
+Secondary 0 muon ke=597.155 (x,y,z)= 44.6993 32.4682 0 (m)
+Event: 664
+Secondary 0 gamma ke=56.7057 (x,y,z)= -42.676 -11.8847 0 (m)
+Event: 665
+Secondary 0 gamma ke=183.352 (x,y,z)= -31.3116 -34.7051 0 (m)
+Secondary 1 gamma ke=38.9398 (x,y,z)= 5.58302 -49.1761 0 (m)
+Secondary 2 muon ke=297.895 (x,y,z)= 8.16168 42.3922 0 (m)
+Secondary 3 neutron ke=39.0598 (x,y,z)= 40.8908 17.2068 0 (m)
+Secondary 4 muon ke=8727.37 (x,y,z)= -40.6863 44.2598 0 (m)
+Event: 666
+Secondary 0 muon ke=5257.27 (x,y,z)= 17.5486 -39.3711 0 (m)
+Event: 667
+Secondary 0 gamma ke=3.51213 (x,y,z)= -44.6718 -10.0995 0 (m)
+Event: 668
+Secondary 0 muon ke=1397.91 (x,y,z)= -12.077 -31.5191 0 (m)
+Event: 669
+Secondary 0 gamma ke=4.39651 (x,y,z)= 8.05487 -39.1666 0 (m)
+Event: 670
+Secondary 0 electron ke=32.4286 (x,y,z)= -8.73844 -6.07129 0 (m)
+Event: 671
+Secondary 0 gamma ke=3.09964 (x,y,z)= 41.8124 -49.1699 0 (m)
+Event: 672
+Secondary 0 gamma ke=1.11261 (x,y,z)= -20.469 0.148006 0 (m)
+Event: 673
+Secondary 0 muon ke=4696.97 (x,y,z)= 32.4895 37.357 0 (m)
+Event: 674
+Secondary 0 gamma ke=38.3548 (x,y,z)= -22.6235 -7.49336 0 (m)
+Event: 675
+Secondary 0 neutron ke=2.63964 (x,y,z)= 36.2065 -41.8154 0 (m)
+Event: 676
+Secondary 0 electron ke=4.58177 (x,y,z)= -16.3646 -12.5896 0 (m)
+Event: 677
+Secondary 0 gamma ke=1.20048 (x,y,z)= -17.9392 24.0029 0 (m)
+Event: 678
+Secondary 0 muon ke=12814.4 (x,y,z)= 48.7244 -39.6457 0 (m)
+Event: 679
+Secondary 0 gamma ke=219.471 (x,y,z)= 25.5409 -6.77622 0 (m)
+Event: 680
+Secondary 0 muon ke=1273.47 (x,y,z)= -11.3263 -13.9934 0 (m)
+Event: 681
+Secondary 0 muon ke=612.247 (x,y,z)= -1.92713 15.9068 0 (m)
+Event: 682
+Secondary 0 electron ke=21.5277 (x,y,z)= -29.5538 -44.3209 0 (m)
+Event: 683
+Secondary 0 gamma ke=2.31468 (x,y,z)= 44.0554 39.8135 0 (m)
+Event: 684
+Secondary 0 gamma ke=5.24134 (x,y,z)= -49.1303 40.8908 0 (m)
+Secondary 1 gamma ke=1.04147 (x,y,z)= 21.8942 44.8335 0 (m)
+Secondary 2 electron ke=51.1329 (x,y,z)= -36.2461 49.8535 0 (m)
+Event: 685
+Secondary 0 muon ke=5797.89 (x,y,z)= -11.369 15.0371 0 (m)
+Event: 686
+Secondary 0 muon ke=1285.01 (x,y,z)= 18.4244 -43.796 0 (m)
+Event: 687
+Secondary 0 neutron ke=199.133 (x,y,z)= -18.4275 -19.4101 0 (m)
+Event: 688
+Secondary 0 gamma ke=33.5075 (x,y,z)= 26.0505 -49.881 0 (m)
+Event: 689
+Secondary 0 gamma ke=2.12103 (x,y,z)= -34.0947 21.4059 0 (m)
+Event: 690
+Secondary 0 gamma ke=71.1314 (x,y,z)= -25.1442 -45.8711 0 (m)
+Event: 691
+Secondary 0 muon ke=561.12 (x,y,z)= -32.8741 -39.1452 0 (m)
+Event: 692
+Secondary 0 electron ke=34.7907 (x,y,z)= 32.6726 23.658 0 (m)
+Secondary 1 gamma ke=39.562 (x,y,z)= 23.8259 -44.5741 0 (m)
+Secondary 2 gamma ke=26.3282 (x,y,z)= 44.9098 -30.2069 0 (m)
+Event: 693
+Secondary 0 gamma ke=89.2081 (x,y,z)= 45.2211 28.028 0 (m)
+Event: 694
+Secondary 0 neutron ke=2.94685 (x,y,z)= -48.7763 -27.6954 0 (m)
+Event: 695
+Secondary 0 muon ke=1930.29 (x,y,z)= -1.75623 -40.3384 0 (m)
+Event: 696
+Secondary 0 muon ke=4744.07 (x,y,z)= 24.6285 36.2919 0 (m)
+Event: 697
+Secondary 0 gamma ke=30.5424 (x,y,z)= -44.7603 -14.3718 0 (m)
+Event: 698
+Secondary 0 gamma ke=120.981 (x,y,z)= -30.4785 -3.42244 0 (m)
+Event: 699
+Secondary 0 neutron ke=63.8773 (x,y,z)= -40.1858 -25.547 0 (m)
+Event: 700
+Secondary 0 gamma ke=2.62274 (x,y,z)= 28.9893 -49.3164 0 (m)
+Event: 701
+Secondary 0 muon ke=965.219 (x,y,z)= 5.32973 43.0269 0 (m)
+Event: 702
+Secondary 0 neutron ke=70.4262 (x,y,z)= -34.11 42.5967 0 (m)
+Event: 703
+Secondary 0 neutron ke=6.57009 (x,y,z)= 17.161 47.5312 0 (m)
+Event: 704
+Secondary 0 neutron ke=1900.82 (x,y,z)= -8.54008 17.1732 0 (m)
+Event: 705
+Secondary 0 gamma ke=37.9063 (x,y,z)= -30.8539 -27.2681 0 (m)
+Secondary 1 gamma ke=47.7692 (x,y,z)= -27.7259 0.984162 0 (m)
+Secondary 2 muon ke=2282.86 (x,y,z)= 0.0381458 -18.2169 0 (m)
+Event: 706
+Secondary 0 gamma ke=34.5699 (x,y,z)= 28.1287 49.53 0 (m)
+Event: 707
+Secondary 0 muon ke=833.655 (x,y,z)= -19.819 41.1136 0 (m)
+Event: 708
+Secondary 0 gamma ke=33.8217 (x,y,z)= 40.845 7.78022 0 (m)
+Event: 709
+Secondary 0 muon ke=6572.77 (x,y,z)= 19.4589 42.6394 0 (m)
+Event: 710
+Secondary 0 gamma ke=6.31543 (x,y,z)= -43.622 -43.0544 0 (m)
+Secondary 1 gamma ke=34.4303 (x,y,z)= 36.9785 43.4237 0 (m)
+Secondary 2 muon ke=1398.79 (x,y,z)= 3.52315 -30.1642 0 (m)
+Secondary 3 neutron ke=40.6554 (x,y,z)= 40.5368 33.5607 0 (m)
+Secondary 4 gamma ke=2.47864 (x,y,z)= -23.3193 17.7927 0 (m)
+Secondary 5 neutron ke=0.484187 (x,y,z)= -32.9137 -21.3479 0 (m)
+Event: 711
+Secondary 0 gamma ke=5.24038 (x,y,z)= -34.9156 29.0869 0 (m)
+Event: 712
+Secondary 0 muon ke=4169.81 (x,y,z)= -25.013 -43.1582 0 (m)
+Event: 713
+Secondary 0 gamma ke=16.4124 (x,y,z)= 16.3249 45.5018 0 (m)
+Event: 714
+Secondary 0 muon ke=2239.3 (x,y,z)= 34.4182 34.9736 0 (m)
+Event: 715
+Secondary 0 gamma ke=2.54364 (x,y,z)= -26.432 -31.8579 0 (m)
+Event: 716
+Secondary 0 neutron ke=43.5898 (x,y,z)= -4.2586 14.0789 0 (m)
+Event: 717
+Secondary 0 neutron ke=4.01484 (x,y,z)= 14.1521 23.4322 0 (m)
+Event: 718
+Secondary 0 gamma ke=26.8103 (x,y,z)= 23.2735 -33.1396 0 (m)
+Event: 719
+Secondary 0 electron ke=11.6001 (x,y,z)= 1.81421 -24.1768 0 (m)
+Event: 720
+Secondary 0 neutron ke=991.032 (x,y,z)= 35.9501 -33.2189 0 (m)
+Event: 721
+Secondary 0 muon ke=24888.7 (x,y,z)= -3.02878 -4.31048 0 (m)
+Event: 722
+Secondary 0 gamma ke=1.48103 (x,y,z)= -46.631 10.487 0 (m)
+Event: 723
+Secondary 0 electron ke=105.149 (x,y,z)= -31.6625 2.57713 0 (m)
+Event: 724
+Secondary 0 muon ke=7790.77 (x,y,z)= 41.0067 -27.494 0 (m)
+Secondary 1 electron ke=14.2504 (x,y,z)= 18.6686 39.4412 0 (m)
+Event: 725
+Secondary 0 muon ke=8991.8 (x,y,z)= 31.9097 -7.70393 0 (m)
+Event: 726
+Secondary 0 muon ke=2298.18 (x,y,z)= 41.1105 -39.3894 0 (m)
+Event: 727
+Secondary 0 muon ke=3490.97 (x,y,z)= -25.3212 29.8438 0 (m)
+Secondary 1 gamma ke=27.559 (x,y,z)= -33.2281 -10.1788 0 (m)
+Event: 728
+Secondary 0 gamma ke=53.7086 (x,y,z)= 46.0908 -4.64311 0 (m)
+Event: 729
+Secondary 0 neutron ke=20.5195 (x,y,z)= -13.5723 -46.0267 0 (m)
+Secondary 1 gamma ke=4.95316 (x,y,z)= -14.2864 9.26028 0 (m)
+Event: 730
+Secondary 0 muon ke=2372.54 (x,y,z)= 37.18 16.1601 0 (m)
+Event: 731
+Secondary 0 gamma ke=88.2368 (x,y,z)= 36.3407 -35.2147 0 (m)
+Event: 732
+Secondary 0 muon ke=6545.85 (x,y,z)= 48.6206 37.9368 0 (m)
+Event: 733
+Secondary 0 electron ke=11.1984 (x,y,z)= 12.315 -45.6636 0 (m)
+Event: 734
+Secondary 0 gamma ke=1.49828 (x,y,z)= 40.9335 39.5114 0 (m)
+Event: 735
+Secondary 0 gamma ke=310.03 (x,y,z)= -43.2406 -7.82294 0 (m)
+Event: 736
+Secondary 0 muon ke=13663.5 (x,y,z)= 4.84757 -48.9014 0 (m)
+Secondary 1 gamma ke=1.8438 (x,y,z)= 6.51683 -3.91071 0 (m)
+Event: 737
+Secondary 0 gamma ke=88.7417 (x,y,z)= 42.5661 11.2042 0 (m)
+Event: 738
+Secondary 0 gamma ke=1.46703 (x,y,z)= -2.69309 -23.7069 0 (m)
+Event: 739
+Secondary 0 neutron ke=249.77 (x,y,z)= -39.3894 4.92386 0 (m)
+Event: 740
+Secondary 0 gamma ke=41.1648 (x,y,z)= -41.2021 -21.9857 0 (m)
+Secondary 1 gamma ke=7.73752 (x,y,z)= 29.2365 -10.5389 0 (m)
+Secondary 2 gamma ke=39.2386 (x,y,z)= 17.7836 -27.5397 0 (m)
+Secondary 3 electron ke=4.9419 (x,y,z)= 9.06497 31.6809 0 (m)
+Event: 741
+Secondary 0 muon ke=1712.59 (x,y,z)= 36.5391 40.018 0 (m)
+Secondary 1 gamma ke=1.27736 (x,y,z)= 6.44359 -0.617962 0 (m)
+Event: 742
+Secondary 0 neutron ke=0.00315413 (x,y,z)= -33.9177 -34.113 0 (m)
+Event: 743
+Secondary 0 muon ke=5273.63 (x,y,z)= -25.3761 -1.4236 0 (m)
+Event: 744
+Secondary 0 electron ke=8.63064 (x,y,z)= 29.9933 -30.2344 0 (m)
+Event: 745
+Secondary 0 muon ke=9444.61 (x,y,z)= -19.7641 14.0209 0 (m)
+Event: 746
+Secondary 0 electron ke=17.4444 (x,y,z)= 43.6281 -13.4319 0 (m)
+Event: 747
+Secondary 0 muon ke=6207.81 (x,y,z)= -35.4619 -48.6176 0 (m)
+Secondary 1 gamma ke=64.5269 (x,y,z)= -22.7669 4.18841 0 (m)
+Event: 748
+Secondary 0 muon ke=208.77 (x,y,z)= -1.66468 -47.8181 0 (m)
+Secondary 1 electron ke=46.5406 (x,y,z)= 6.91355 -15.0767 0 (m)
+Secondary 2 neutron ke=1.91554 (x,y,z)= -18.3878 31.3696 0 (m)
+Secondary 3 gamma ke=47.1039 (x,y,z)= -38.422 -41.3272 0 (m)
+Secondary 4 muon ke=378.005 (x,y,z)= -7.33773 -26.3008 0 (m)
+Secondary 5 electron ke=91.1432 (x,y,z)= -1.08792 35.4863 0 (m)
+Event: 749
+Secondary 0 neutron ke=7.37775 (x,y,z)= -21.3784 -40.903 0 (m)
+Event: 750
+Secondary 0 gamma ke=13.8211 (x,y,z)= -26.2367 -15.8732 0 (m)
+Event: 751
+Secondary 0 gamma ke=9.42432 (x,y,z)= -31.8395 7.63679 0 (m)
+Event: 752
+Secondary 0 gamma ke=3.4756 (x,y,z)= 29.8346 11.8481 0 (m)
+Event: 753
+Secondary 0 electron ke=74.5226 (x,y,z)= -18.4824 -31.0858 0 (m)
+Secondary 1 muon ke=2816.59 (x,y,z)= -24.8695 14.0758 0 (m)
+Secondary 2 gamma ke=13.3398 (x,y,z)= 31.8731 4.09076 0 (m)
+Secondary 3 gamma ke=1.23387 (x,y,z)= 44.8122 -2.32384 0 (m)
+Secondary 4 gamma ke=2.79935 (x,y,z)= -13.8378 24.3965 0 (m)
+Secondary 5 gamma ke=10.5244 (x,y,z)= 3.53841 40.9274 0 (m)
+Event: 754
+Secondary 0 electron ke=1.37708 (x,y,z)= 18.0613 19.6481 0 (m)
+Event: 755
+Secondary 0 gamma ke=10.498 (x,y,z)= 39.78 5.80579 0 (m)
+Secondary 1 gamma ke=26.292 (x,y,z)= 32.755 -22.9012 0 (m)
+Secondary 2 electron ke=27.1714 (x,y,z)= -14.8509 0.715615 0 (m)
+Secondary 3 muon ke=14647.2 (x,y,z)= 32.3156 2.7999 0 (m)
+Secondary 4 gamma ke=1.1209 (x,y,z)= -26.7311 8.64689 0 (m)
+Secondary 5 muon ke=9135.99 (x,y,z)= -20.1913 39.9539 0 (m)
+Event: 756
+Secondary 0 gamma ke=427.165 (x,y,z)= -9.12905 16.511 0 (m)
+Event: 757
+Secondary 0 muon ke=7096.47 (x,y,z)= 7.14852 -20.292 0 (m)
+Secondary 1 gamma ke=1.40947 (x,y,z)= 2.66258 5.83326 0 (m)
+Event: 758
+Secondary 0 muon ke=268.612 (x,y,z)= 23.7709 48.88 0 (m)
+Event: 759
+Secondary 0 muon ke=1212.49 (x,y,z)= 33.9025 -3.26986 0 (m)
+Event: 760
+Secondary 0 muon ke=2959.05 (x,y,z)= -41.2234 6.5626 0 (m)
+Event: 761
+Secondary 0 gamma ke=1.18134 (x,y,z)= -30.4083 -33.8231 0 (m)
+Event: 762
+Secondary 0 muon ke=3017.72 (x,y,z)= 5.06424 15.9861 0 (m)
+Event: 763
+Secondary 0 gamma ke=8.24161 (x,y,z)= -7.74055 27.201 0 (m)
+Event: 764
+Secondary 0 gamma ke=49.7514 (x,y,z)= -46.7225 -34.0398 0 (m)
+Event: 765
+Secondary 0 gamma ke=28.8936 (x,y,z)= -0.352467 -47.4122 0 (m)
+Event: 766
+Secondary 0 muon ke=2728.92 (x,y,z)= -11.1096 3.20883 0 (m)
+Event: 767
+Secondary 0 neutron ke=142.895 (x,y,z)= -28.8459 34.7722 0 (m)
+Event: 768
+Secondary 0 muon ke=21850.2 (x,y,z)= -20.115 10.2521 0 (m)
+Event: 769
+Secondary 0 neutron ke=200.709 (x,y,z)= 34.5525 -24.1951 0 (m)
+Event: 770
+Secondary 0 gamma ke=43.983 (x,y,z)= 41.2783 -35.0072 0 (m)
+Event: 771
+Secondary 0 neutron ke=70.3757 (x,y,z)= 12.3211 28.5895 0 (m)
+Event: 772
+Secondary 0 gamma ke=14.7004 (x,y,z)= -36.1821 -16.0563 0 (m)
+Event: 773
+Secondary 0 neutron ke=130.795 (x,y,z)= -21.7233 4.48747 0 (m)
+Event: 774
+Secondary 0 muon ke=12538.3 (x,y,z)= 30.5792 -13.9751 0 (m)
+Event: 775
+Secondary 0 muon ke=3996.82 (x,y,z)= 23.9113 -39.7037 0 (m)
+Event: 776
+Secondary 0 muon ke=1140.26 (x,y,z)= -44.6443 -40.3323 0 (m)
+Secondary 1 electron ke=8.52121 (x,y,z)= 11.5368 23.304 0 (m)
+Event: 777
+Secondary 0 neutron ke=0.953262 (x,y,z)= -9.71803 6.13842 0 (m)
+Event: 778
+Secondary 0 muon ke=3933.74 (x,y,z)= -15.916 -47.6228 0 (m)
+Event: 779
+Secondary 0 gamma ke=8.42808 (x,y,z)= -44.5497 46.2465 0 (m)
+Event: 780
+Secondary 0 gamma ke=1.85816 (x,y,z)= -44.6047 5.55861 0 (m)
+Event: 781
+Secondary 0 gamma ke=7.23513 (x,y,z)= 20.2035 -30.6738 0 (m)
+Event: 782
+Secondary 0 gamma ke=15.5856 (x,y,z)= -39.4626 26.7738 0 (m)
+Event: 783
+Secondary 0 muon ke=1716.35 (x,y,z)= 29.9628 -0.0473008 0 (m)
+Event: 784
+Secondary 0 muon ke=6776.21 (x,y,z)= -13.7096 -48.5077 0 (m)
+Event: 785
+Secondary 0 gamma ke=3.27441 (x,y,z)= 29.1785 -9.07718 0 (m)
+Event: 786
+Secondary 0 electron ke=82.044 (x,y,z)= -0.300589 23.0507 0 (m)
+Event: 787
+Secondary 0 neutron ke=139.669 (x,y,z)= -29.0503 -6.8281 0 (m)
+Event: 788
+Secondary 0 gamma ke=18.1328 (x,y,z)= -31.9372 16.1876 0 (m)
+Event: 789
+Secondary 0 muon ke=10627.6 (x,y,z)= 32.9961 4.10907 0 (m)
+Event: 790
+Secondary 0 muon ke=2831.63 (x,y,z)= 10.7037 -12.5591 0 (m)
+Event: 791
+Secondary 0 muon ke=339.188 (x,y,z)= -30.5334 25.9712 0 (m)
+Event: 792
+Secondary 0 muon ke=8939.51 (x,y,z)= 11.6802 3.41634 0 (m)
+Event: 793
+Secondary 0 gamma ke=24.8828 (x,y,z)= -47.9493 -11.726 0 (m)
+Secondary 1 muon ke=14709.3 (x,y,z)= 25.6691 -15.4643 0 (m)
+Event: 794
+Secondary 0 muon ke=12918.2 (x,y,z)= -49.234 -17.869 0 (m)
+Event: 795
+Secondary 0 muon ke=879.978 (x,y,z)= -49.0998 -4.65837 0 (m)
+Secondary 1 muon ke=2611.74 (x,y,z)= -0.941439 -1.506 0 (m)
+Secondary 2 proton ke=25.8483 (x,y,z)= -8.93985 21.1953 0 (m)
+Secondary 3 gamma ke=12.326 (x,y,z)= -48.4986 -28.5956 0 (m)
+Event: 796
+Secondary 0 muon ke=3117.12 (x,y,z)= 34.467 -38.6417 0 (m)
+Secondary 1 gamma ke=135.202 (x,y,z)= 38.0802 -28.6322 0 (m)
+Secondary 2 gamma ke=1.26331 (x,y,z)= -26.8989 -18.1315 0 (m)
+Secondary 3 muon ke=6236.67 (x,y,z)= 1.15506 -12.2814 0 (m)
+Event: 797
+Secondary 0 muon ke=1128.29 (x,y,z)= -8.08233 19.3186 0 (m)
+Event: 798
+Secondary 0 electron ke=579.781 (x,y,z)= 13.6882 -10.6183 0 (m)
+Event: 799
+Secondary 0 muon ke=2809.71 (x,y,z)= 38.6936 -10.5359 0 (m)
+Event: 800
+Secondary 0 muon ke=4307.46 (x,y,z)= -40.1096 -24.7322 0 (m)
+Event: 801
+Secondary 0 gamma ke=1.70428 (x,y,z)= -2.6168 2.94638 0 (m)
+Event: 802
+Secondary 0 gamma ke=2.08837 (x,y,z)= -7.21566 -27.6496 0 (m)
+Event: 803
+Secondary 0 muon ke=1708.86 (x,y,z)= -40.4544 -20.3836 0 (m)
+Event: 804
+Secondary 0 muon ke=2710.27 (x,y,z)= 39.4718 -14.6068 0 (m)
+Event: 805
+Secondary 0 muon ke=3506.21 (x,y,z)= -3.32479 26.786 0 (m)
+Event: 806
+Secondary 0 gamma ke=31.733 (x,y,z)= -4.91776 -0.712564 0 (m)
+Event: 807
+Secondary 0 gamma ke=3.42893 (x,y,z)= -4.48137 13.084 0 (m)
+Event: 808
+Secondary 0 electron ke=11.5281 (x,y,z)= -26.8684 -25.1503 0 (m)
+Event: 809
+Secondary 0 muon ke=6387.28 (x,y,z)= -1.93323 43.9913 0 (m)
+Event: 810
+Secondary 0 gamma ke=43.9682 (x,y,z)= -40.134 -23.0355 0 (m)
+Event: 811
+Secondary 0 gamma ke=1.74304 (x,y,z)= -32.1203 -9.87366 0 (m)
+Event: 812
+Secondary 0 gamma ke=48.0054 (x,y,z)= -41.6598 -27.14 0 (m)
+Event: 813
+Secondary 0 gamma ke=1.16178 (x,y,z)= 43.1124 0.334157 0 (m)
+Event: 814
+Secondary 0 neutron ke=0.669424 (x,y,z)= -18.0033 10.9082 0 (m)
+Event: 815
+Secondary 0 muon ke=1689.71 (x,y,z)= -7.24923 17.5028 0 (m)
+Event: 816
+Secondary 0 muon ke=101.119 (x,y,z)= 4.88114 -26.3496 0 (m)
+Secondary 1 muon ke=13469.8 (x,y,z)= 3.64521 22.831 0 (m)
+Event: 817
+Secondary 0 neutron ke=21.9255 (x,y,z)= 13.8744 -21.5066 0 (m)
+Event: 818
+Secondary 0 muon ke=589.816 (x,y,z)= -4.55766 -23.6458 0 (m)
+Event: 819
+Secondary 0 gamma ke=4.58171 (x,y,z)= 3.49568 -49.1211 0 (m)
+Event: 820
+Secondary 0 gamma ke=5.30425 (x,y,z)= 6.39171 -0.749184 0 (m)
+Event: 821
+Secondary 0 neutron ke=132.445 (x,y,z)= -20.2188 45.392 0 (m)
+Event: 822
+Secondary 0 gamma ke=93.2053 (x,y,z)= -3.81611 17.8324 0 (m)
+Event: 823
+Secondary 0 gamma ke=5.27615 (x,y,z)= 4.75297 5.97669 0 (m)
+Event: 824
+Secondary 0 muon ke=6192.13 (x,y,z)= 47.8089 -4.57292 0 (m)
+Event: 825
+Secondary 0 gamma ke=14.7592 (x,y,z)= 45.2943 -48.2239 0 (m)
+Event: 826
+Secondary 0 gamma ke=2.39634 (x,y,z)= -49.1486 -13.8866 0 (m)
+Secondary 1 muon ke=5356.76 (x,y,z)= 23.2827 -27.5703 0 (m)
+Secondary 2 gamma ke=24.851 (x,y,z)= 1.40834 -43.9577 0 (m)
+Secondary 3 gamma ke=7.77327 (x,y,z)= -7.62458 -32.9992 0 (m)
+Secondary 4 electron ke=57.8902 (x,y,z)= 13.4655 2.55882 0 (m)
+Event: 827
+Secondary 0 neutron ke=2.46558e-05 (x,y,z)= 43.5549 11.9305 0 (m)
+Event: 828
+Secondary 0 muon ke=3444.29 (x,y,z)= -39.7922 46.2892 0 (m)
+Event: 829
+Secondary 0 muon ke=4195.38 (x,y,z)= -1.8844 13.499 0 (m)
+Event: 830
+Secondary 0 muon ke=1156.14 (x,y,z)= -40.9854 42.4715 0 (m)
+Event: 831
+Secondary 0 gamma ke=38.0301 (x,y,z)= -42.2518 39.9265 0 (m)
+Event: 832
+Secondary 0 muon ke=5428.99 (x,y,z)= -44.9586 9.60511 0 (m)
+Event: 833
+Secondary 0 muon ke=17461.3 (x,y,z)= 4.75907 7.06613 0 (m)
+Event: 834
+Secondary 0 gamma ke=18.5743 (x,y,z)= -8.45464 45.0075 0 (m)
+Event: 835
+Secondary 0 muon ke=58083.3 (x,y,z)= 34.1771 -16.5934 0 (m)
+Event: 836
+Secondary 0 gamma ke=1.58147 (x,y,z)= 6.12317 17.7439 0 (m)
+Event: 837
+Secondary 0 muon ke=507.249 (x,y,z)= -0.843785 -18.8425 0 (m)
+Event: 838
+Secondary 0 gamma ke=15.4635 (x,y,z)= -28.5651 -48.3613 0 (m)
+Event: 839
+Secondary 0 gamma ke=22.0857 (x,y,z)= -15.5742 -32.8252 0 (m)
+Event: 840
+Secondary 0 gamma ke=35.3998 (x,y,z)= -8.7476 21.4791 0 (m)
+Event: 841
+Secondary 0 gamma ke=3.78329 (x,y,z)= -14.857 49.7467 0 (m)
+Event: 842
+Secondary 0 proton ke=487.958 (x,y,z)= 9.33962 -13.0382 0 (m)
+Event: 843
+Secondary 0 gamma ke=2.01002 (x,y,z)= -5.98584 -16.2089 0 (m)
+Event: 844
+Secondary 0 muon ke=7927.17 (x,y,z)= -35.0011 7.30721 0 (m)
+Event: 845
+Secondary 0 muon ke=6009.86 (x,y,z)= -38.8523 -3.00742 0 (m)
+Event: 846
+Secondary 0 gamma ke=22.19 (x,y,z)= 22.6754 2.94638 0 (m)
+Event: 847
+Secondary 0 neutron ke=21.9845 (x,y,z)= 25.9773 10.2887 0 (m)
+Event: 848
+Secondary 0 gamma ke=7.84273 (x,y,z)= 1.39308 45.9016 0 (m)
+Event: 849
+Secondary 0 neutron ke=74.4242 (x,y,z)= -33.3745 45.4317 0 (m)
+Event: 850
+Secondary 0 gamma ke=8.72504 (x,y,z)= 19.9442 -44.2354 0 (m)
+Event: 851
+Secondary 0 electron ke=170.534 (x,y,z)= 6.23608 17.692 0 (m)
+Event: 852
+Secondary 0 muon ke=3557.73 (x,y,z)= 44.1988 40.3323 0 (m)
+Event: 853
+Secondary 0 gamma ke=2.94934 (x,y,z)= -3.74287 40.3934 0 (m)
+Event: 854
+Secondary 0 muon ke=496.431 (x,y,z)= -40.076 37.122 0 (m)
+Event: 855
+Secondary 0 muon ke=282.567 (x,y,z)= 0.212091 -42.319 0 (m)
+Event: 856
+Secondary 0 neutron ke=0.00249248 (x,y,z)= -13.3129 -29.0259 0 (m)
+Event: 857
+Secondary 0 gamma ke=1.49137 (x,y,z)= -33.7163 9.99573 0 (m)
+Event: 858
+Secondary 0 gamma ke=34.4361 (x,y,z)= -17.4998 31.9799 0 (m)
+Event: 859
+Secondary 0 muon ke=756.58 (x,y,z)= 39.9905 -39.249 0 (m)
+Event: 860
+Secondary 0 proton ke=318.491 (x,y,z)= -47.2352 -16.0319 0 (m)
+Event: 861
+Secondary 0 gamma ke=14.4584 (x,y,z)= -32.6208 10.1086 0 (m)
+Event: 862
+Secondary 0 muon ke=502.234 (x,y,z)= -41.9161 24.4698 0 (m)
+Event: 863
+Secondary 0 neutron ke=161.777 (x,y,z)= 11.4941 30.3137 0 (m)
+Event: 864
+Secondary 0 muon ke=3223.55 (x,y,z)= 1.36562 20.1242 0 (m)
+Event: 865
+Secondary 0 muon ke=693.342 (x,y,z)= -11.5734 13.6425 0 (m)
+Event: 866
+Secondary 0 electron ke=13.8343 (x,y,z)= -47.577 23.9846 0 (m)
+Event: 867
+Secondary 0 neutron ke=4.54119e-05 (x,y,z)= -39.0567 -32.9534 0 (m)
+Event: 868
+Secondary 0 electron ke=16.4887 (x,y,z)= 25.9651 31.1163 0 (m)
+Event: 869
+Secondary 0 gamma ke=3.23453 (x,y,z)= 45.5476 -46.4357 0 (m)
+Secondary 1 gamma ke=12.4589 (x,y,z)= 36.8504 -13.4105 0 (m)
+Event: 870
+Secondary 0 muon ke=1416.64 (x,y,z)= -31.5405 -35.5229 0 (m)
+Event: 871
+Secondary 0 gamma ke=146.075 (x,y,z)= -21.9064 -11.1523 0 (m)
+Event: 872
+Secondary 0 gamma ke=18.5269 (x,y,z)= 2.80601 48.6756 0 (m)
+Event: 873
+Secondary 0 muon ke=3084.52 (x,y,z)= -43.9211 3.02878 0 (m)
+Event: 874
+Secondary 0 gamma ke=22.274 (x,y,z)= 49.1547 7.89008 0 (m)
+Event: 875
+Secondary 0 neutron ke=44.0616 (x,y,z)= 7.27364 12.8185 0 (m)
+Secondary 1 neutron ke=98.4134 (x,y,z)= -24.5186 30.5853 0 (m)
+Event: 876
+Secondary 0 gamma ke=7.53122 (x,y,z)= -49.8444 33.756 0 (m)
+Event: 877
+Secondary 0 gamma ke=1.90242 (x,y,z)= -48.5596 -30.3625 0 (m)
+Event: 878
+Secondary 0 gamma ke=12.6345 (x,y,z)= 4.32573 30.0024 0 (m)
+Event: 879
+Secondary 0 gamma ke=5.74283 (x,y,z)= 12.7117 -31.098 0 (m)
+Secondary 1 muon ke=2612.59 (x,y,z)= 31.1071 12.7056 0 (m)
+Secondary 2 electron ke=261.854 (x,y,z)= 26.197 -43.9211 0 (m)
+Secondary 3 gamma ke=1.16307 (x,y,z)= 32.5689 -2.82432 0 (m)
+Secondary 4 gamma ke=2.78714 (x,y,z)= 5.21072 -8.33562 0 (m)
+Secondary 5 neutron ke=223.826 (x,y,z)= -25.1564 -26.316 0 (m)
+Secondary 6 gamma ke=102.284 (x,y,z)= 32.9992 -37.1708 0 (m)
+Event: 880
+Secondary 0 muon ke=828.202 (x,y,z)= 0.224297 9.68141 0 (m)
+Event: 881
+Secondary 0 gamma ke=23.7094 (x,y,z)= 9.79432 -13.261 0 (m)
+Event: 882
+Secondary 0 electron ke=2598.49 (x,y,z)= -28.5956 -1.37172 0 (m)
+Event: 883
+Secondary 0 muon ke=3217.03 (x,y,z)= -2.34826 -1.08182 0 (m)
+Event: 884
+Secondary 0 gamma ke=15.8216 (x,y,z)= 12.6446 -10.6579 0 (m)
+Event: 885
+Secondary 0 electron ke=2.21753 (x,y,z)= -11.018 37.6163 0 (m)
+Event: 886
+Secondary 0 gamma ke=24.7659 (x,y,z)= 22.9745 6.74265 0 (m)
+Secondary 1 gamma ke=1.72758 (x,y,z)= 8.17083 10.661 0 (m)
+Event: 887
+Secondary 0 neutron ke=0.249405 (x,y,z)= -6.7457 -18.6869 0 (m)
+Secondary 1 muon ke=690.978 (x,y,z)= 43.8265 8.31426 0 (m)
+Secondary 2 muon ke=349.549 (x,y,z)= 10.5511 25.962 0 (m)
+Event: 888
+Secondary 0 neutron ke=0.386101 (x,y,z)= -1.23745 -25.9895 0 (m)
+Event: 889
+Secondary 0 gamma ke=2.32446 (x,y,z)= 37.3814 -39.3375 0 (m)
+Event: 890
+Secondary 0 gamma ke=30.3303 (x,y,z)= -2.77244 20.0265 0 (m)
+Event: 891
+Secondary 0 electron ke=210.644 (x,y,z)= 6.38866 -49.6735 0 (m)
+Event: 892
+Secondary 0 muon ke=2962.38 (x,y,z)= -11.6162 36.9053 0 (m)
+Event: 893
+Secondary 0 electron ke=303.026 (x,y,z)= 0.0381458 24.4911 0 (m)
+Event: 894
+Secondary 0 electron ke=1.1761 (x,y,z)= -27.5336 -15.211 0 (m)
+Event: 895
+Secondary 0 muon ke=994.38 (x,y,z)= 1.10013 36.118 0 (m)
+Event: 896
+Secondary 0 gamma ke=2.54193 (x,y,z)= -12.4706 12.4889 0 (m)
+Event: 897
+Secondary 0 gamma ke=4.53813 (x,y,z)= 19.6603 40.8175 0 (m)
+Event: 898
+Secondary 0 electron ke=8.34839 (x,y,z)= 30.3473 -33.8628 0 (m)
+Event: 899
+Secondary 0 muon ke=69.6447 (x,y,z)= -25.9224 -19.3094 0 (m)
+Secondary 1 muon ke=1882.82 (x,y,z)= 35.7365 -29.856 0 (m)
+Event: 900
+Secondary 0 muon ke=2388.97 (x,y,z)= 32.8435 -29.8743 0 (m)
+Event: 901
+Secondary 0 muon ke=320.381 (x,y,z)= -27.8205 46.8873 0 (m)
+Event: 902
+Secondary 0 gamma ke=2.15898 (x,y,z)= -41.5744 16.3584 0 (m)
+Event: 903
+Secondary 0 muon ke=5275.7 (x,y,z)= 16.392 31.8029 0 (m)
+Event: 904
+Secondary 0 muon ke=8523.97 (x,y,z)= 39.2948 -20.5636 0 (m)
+Secondary 1 muon ke=221.215 (x,y,z)= -3.91681 20.2554 0 (m)
+Secondary 2 gamma ke=38.2488 (x,y,z)= -22.6479 -33.283 0 (m)
+Secondary 3 muon ke=175728 (x,y,z)= -4.33489 -33.1579 0 (m)
+Secondary 4 muon ke=8986.87 (x,y,z)= -28.0829 29.5935 0 (m)
+Secondary 5 muon ke=2085.41 (x,y,z)= -38.3548 -41.4096 0 (m)
+Secondary 6 gamma ke=3.87487 (x,y,z)= -18.3481 29.8682 0 (m)
+Secondary 7 electron ke=3.21093 (x,y,z)= 45.1753 47.2108 0 (m)
+Secondary 8 muon ke=813.037 (x,y,z)= 6.01331 8.9368 0 (m)
+Secondary 9 gamma ke=89.0065 (x,y,z)= 34.9614 1.83558 0 (m)
+Secondary 10 gamma ke=529.963 (x,y,z)= 28.0463 -44.803 0 (m)
+Secondary 11 electron ke=2.88364 (x,y,z)= -21.5615 38.0955 0 (m)
+Secondary 12 gamma ke=21.0899 (x,y,z)= 1.85694 -17.985 0 (m)
+Secondary 13 gamma ke=25.9546 (x,y,z)= -20.0937 24.0975 0 (m)
+Secondary 14 gamma ke=49.3364 (x,y,z)= -1.96069 45.804 0 (m)
+Secondary 15 electron ke=8.93624 (x,y,z)= -7.14852 -36.7924 0 (m)
+Secondary 16 electron ke=28.9379 (x,y,z)= -40.7901 14.6495 0 (m)
+Event: 905
+Secondary 0 muon ke=1079.28 (x,y,z)= -25.9803 36.2461 0 (m)
+Event: 906
+Secondary 0 gamma ke=12.6642 (x,y,z)= -9.7638 -32.3949 0 (m)
+Event: 907
+Secondary 0 neutron ke=204.137 (x,y,z)= 28.3301 37.476 0 (m)
+Event: 908
+Secondary 0 muon ke=11133.8 (x,y,z)= 8.71403 22.5655 0 (m)
+Event: 909
+Secondary 0 muon ke=833.245 (x,y,z)= -39.8654 13.3342 0 (m)
+Event: 910
+Secondary 0 muon ke=1051.1 (x,y,z)= 13.7493 -19.0042 0 (m)
+Event: 911
+Secondary 0 gamma ke=59.5111 (x,y,z)= -10.0812 26.0536 0 (m)
+Event: 912
+Secondary 0 electron ke=21.9068 (x,y,z)= 20.2341 -32.8039 0 (m)
+Event: 913
+Secondary 0 gamma ke=20.0551 (x,y,z)= 16.5568 3.33394 0 (m)
+Event: 914
+Secondary 0 gamma ke=562.043 (x,y,z)= -33.0572 38.9469 0 (m)
+Event: 915
+Secondary 0 muon ke=5418.09 (x,y,z)= -36.4689 20.9329 0 (m)
+Secondary 1 electron ke=7.40653 (x,y,z)= -10.1575 21.882 0 (m)
+Secondary 2 muon ke=60.855 (x,y,z)= -21.3754 -18.4671 0 (m)
+Secondary 3 gamma ke=9.71847 (x,y,z)= -4.5302 -36.9297 0 (m)
+Secondary 4 gamma ke=3.54386 (x,y,z)= -15.3026 -35.2208 0 (m)
+Secondary 5 electron ke=99.993 (x,y,z)= 15.3178 -27.848 0 (m)
+Secondary 6 gamma ke=5.99569 (x,y,z)= 31.5252 -3.51399 0 (m)
+Secondary 7 gamma ke=4.46437 (x,y,z)= -19.1934 -37.2074 0 (m)
+Secondary 8 gamma ke=18.8586 (x,y,z)= 26.9172 11.3263 0 (m)
+Secondary 9 muon ke=9466.93 (x,y,z)= -36.7405 5.01236 0 (m)
+Secondary 10 neutron ke=64.0616 (x,y,z)= 37.3875 49.2249 0 (m)
+Secondary 11 gamma ke=8.56299 (x,y,z)= 18.9157 30.8355 0 (m)
+Secondary 12 neutron ke=7.46305 (x,y,z)= -21.1068 -32.2607 0 (m)
+Secondary 13 neutron ke=2009.29 (x,y,z)= 1.76234 30.7043 0 (m)
+Secondary 14 gamma ke=226.589 (x,y,z)= 49.4171 0.178522 0 (m)
+Secondary 15 gamma ke=45.0781 (x,y,z)= 36.3591 -44.7237 0 (m)
+Event: 916
+Secondary 0 gamma ke=2.87022 (x,y,z)= 35.2177 9.91944 0 (m)
+Event: 917
+Secondary 0 gamma ke=112.745 (x,y,z)= 15.2019 23.1667 0 (m)
+Event: 918
+Secondary 0 neutron ke=95.5985 (x,y,z)= -49.3225 -7.14852 0 (m)
+Event: 919
+Secondary 0 gamma ke=5.874 (x,y,z)= 4.86893 -47.4061 0 (m)
+Event: 920
+Secondary 0 neutron ke=74.6819 (x,y,z)= -12.7575 13.3159 0 (m)
+Event: 921
+Secondary 0 muon ke=542.96 (x,y,z)= -24.6559 3.82831 0 (m)
+Event: 922
+Secondary 0 muon ke=3333.14 (x,y,z)= -19.2179 16.6056 0 (m)
+Event: 923
+Secondary 0 gamma ke=1.81205 (x,y,z)= 41.5652 -25.6294 0 (m)
+Event: 924
+Secondary 0 muon ke=2731 (x,y,z)= -1.54872 -25.7332 0 (m)
+Event: 925
+Secondary 0 muon ke=2410.15 (x,y,z)= 22.1871 36.8748 0 (m)
+Event: 926
+Secondary 0 muon ke=607.67 (x,y,z)= 8.1037 -49.9512 0 (m)
+Event: 927
+Secondary 0 muon ke=2822.69 (x,y,z)= -48.111 -29.1602 0 (m)
+Event: 928
+Secondary 0 muon ke=3368.18 (x,y,z)= 21.9216 -14.1948 0 (m)
+Event: 929
+Secondary 0 muon ke=6614.75 (x,y,z)= 15.1378 -0.66984 0 (m)
+Secondary 1 gamma ke=10.2291 (x,y,z)= -13.5662 -23.7069 0 (m)
+Event: 930
+Secondary 0 gamma ke=9.39998 (x,y,z)= 19.9594 34.7569 0 (m)
+Event: 931
+Secondary 0 muon ke=1294.62 (x,y,z)= -24.4637 14.5397 0 (m)
+Event: 932
+Secondary 0 gamma ke=2.96301 (x,y,z)= 27.3261 32.456 0 (m)
+Event: 933
+Secondary 0 muon ke=24143.9 (x,y,z)= 26.8989 -24.6742 0 (m)
+Event: 934
+Secondary 0 muon ke=10585.5 (x,y,z)= -9.09549 7.63374 0 (m)
+Event: 935
+Secondary 0 gamma ke=5.03591 (x,y,z)= -14.5702 40.7046 0 (m)
+Event: 936
+Secondary 0 gamma ke=32.3758 (x,y,z)= 40.8938 -34.0917 0 (m)
+Secondary 1 gamma ke=4.10989 (x,y,z)= -22.7364 45.7612 0 (m)
+Secondary 2 gamma ke=17.9114 (x,y,z)= 22.474 -2.81516 0 (m)
+Event: 937
+Secondary 0 muon ke=12704 (x,y,z)= 46.927 30.2557 0 (m)
+Event: 938
+Secondary 0 muon ke=3151.47 (x,y,z)= -4.6248 -34.4701 0 (m)
+Event: 939
+Secondary 0 gamma ke=2.94218 (x,y,z)= -30.924 43.1887 0 (m)
+Secondary 1 electron ke=7.89548 (x,y,z)= 9.65089 32.7978 0 (m)
+Event: 940
+Secondary 0 muon ke=516.819 (x,y,z)= -12.2418 37.1555 0 (m)
+Event: 941
+Secondary 0 gamma ke=4.78122 (x,y,z)= 38.3396 11.9579 0 (m)
+Event: 942
+Secondary 0 gamma ke=37.1871 (x,y,z)= 12.3028 13.5082 0 (m)
+Event: 943
+Secondary 0 gamma ke=5.31507 (x,y,z)= -15.5437 47.0094 0 (m)
+Event: 944
+Secondary 0 gamma ke=12.9836 (x,y,z)= -49.8871 11.9183 0 (m)
+Secondary 1 muon ke=47420.7 (x,y,z)= 28.675 -7.35909 0 (m)
+Secondary 2 muon ke=11932.8 (x,y,z)= 19.5108 -28.9771 0 (m)
+Secondary 3 muon ke=10428.7 (x,y,z)= -45.7216 -19.4071 0 (m)
+Secondary 4 neutron ke=0.213758 (x,y,z)= -15.0371 4.78043 0 (m)
+Secondary 5 gamma ke=2.72233 (x,y,z)= -6.20861 -2.29333 0 (m)
+Secondary 6 gamma ke=23.6137 (x,y,z)= 13.1267 49.8413 0 (m)
+Secondary 7 electron ke=22.3241 (x,y,z)= 1.52431 -0.514205 0 (m)
+Secondary 8 gamma ke=9.15372 (x,y,z)= -6.90744 -44.153 0 (m)
+Event: 945
+Secondary 0 muon ke=4774.17 (x,y,z)= 28.0494 -7.21566 0 (m)
+Event: 946
+Secondary 0 gamma ke=210.653 (x,y,z)= -39.8807 -17.1916 0 (m)
+Event: 947
+Secondary 0 gamma ke=4.98809 (x,y,z)= -0.196832 30.2557 0 (m)
+Event: 948
+Secondary 0 muon ke=1310.77 (x,y,z)= -34.8454 15.3728 0 (m)
+Event: 949
+Secondary 0 muon ke=2346.88 (x,y,z)= 6.54124 32.9534 0 (m)
+Event: 950
+Secondary 0 muon ke=36579.7 (x,y,z)= 27.7412 26.1207 0 (m)
+Event: 951
+Secondary 0 muon ke=186.971 (x,y,z)= -5.29616 -7.04782 0 (m)
+Event: 952
+Secondary 0 gamma ke=5.85949 (x,y,z)= 30.0452 -8.09454 0 (m)
+Event: 953
+Secondary 0 gamma ke=1.07201 (x,y,z)= 21.7843 21.9094 0 (m)
+Event: 954
+Secondary 0 muon ke=650.367 (x,y,z)= -3.56587 8.75675 0 (m)
+Event: 955
+Secondary 0 gamma ke=2.17512 (x,y,z)= 37.1769 33.3989 0 (m)
+Secondary 1 gamma ke=7.23218 (x,y,z)= -38.5471 -33.3562 0 (m)
+Secondary 2 muon ke=2044.87 (x,y,z)= 18.6411 27.8327 0 (m)
+Secondary 3 neutron ke=64.3467 (x,y,z)= -17.3167 -16.8864 0 (m)
+Secondary 4 gamma ke=2.56526 (x,y,z)= 33.4173 -5.21987 0 (m)
+Secondary 5 muon ke=7061.45 (x,y,z)= -35.172 5.23818 0 (m)
+Event: 956
+Secondary 0 gamma ke=2.80234 (x,y,z)= 32.1722 44.9068 0 (m)
+Event: 957
+Secondary 0 muon ke=2051.11 (x,y,z)= -18.9035 38.5013 0 (m)
+Event: 958
+Secondary 0 muon ke=5287.65 (x,y,z)= -12.2631 -18.6594 0 (m)
+Event: 959
+Secondary 0 gamma ke=20.6857 (x,y,z)= -39.7922 -2.03088 0 (m)
+Event: 960
+Secondary 0 muon ke=2337.04 (x,y,z)= -42.3922 31.4245 0 (m)
+Event: 961
+Secondary 0 proton ke=135.227 (x,y,z)= 14.9059 -16.7521 0 (m)
+Event: 962
+Secondary 0 gamma ke=4.3421 (x,y,z)= -22.7212 28.089 0 (m)
+Event: 963
+Secondary 0 neutron ke=128.872 (x,y,z)= -47.1406 4.21587 0 (m)
+Event: 964
+Secondary 0 gamma ke=8.18045 (x,y,z)= -13.7279 -43.0025 0 (m)
+Event: 965
+Secondary 0 muon ke=5137.27 (x,y,z)= -23.536 39.8349 0 (m)
+Event: 966
+Secondary 0 gamma ke=7.9007 (x,y,z)= -17.158 -2.86399 0 (m)
+Event: 967
+Secondary 0 neutron ke=0.92515 (x,y,z)= 2.99216 26.6639 0 (m)
+Event: 968
+Secondary 0 gamma ke=25.0624 (x,y,z)= 28.3912 10.0079 0 (m)
+Event: 969
+Secondary 0 muon ke=1086.43 (x,y,z)= 6.15063 34.9583 0 (m)
+Event: 970
+Secondary 0 muon ke=501.621 (x,y,z)= -18.6655 39.8196 0 (m)
+Event: 971
+Secondary 0 gamma ke=4.81094 (x,y,z)= 33.9482 30.0787 0 (m)
+Event: 972
+Secondary 0 gamma ke=1.13945 (x,y,z)= -17.8141 -3.81306 0 (m)
+Secondary 1 gamma ke=209.796 (x,y,z)= 49.5972 38.2663 0 (m)
+Secondary 2 muon ke=2883.23 (x,y,z)= 39.1605 -42.5173 0 (m)
+Secondary 3 gamma ke=34.568 (x,y,z)= -35.0774 -18.3054 0 (m)
+Event: 973
+Secondary 0 gamma ke=77.7557 (x,y,z)= -41.4126 48.1904 0 (m)
+Event: 974
+Secondary 0 gamma ke=1.97875 (x,y,z)= -30.3656 -23.066 0 (m)
+Event: 975
+Secondary 0 muon ke=2539.93 (x,y,z)= -28.0524 -28.0524 0 (m)
+Event: 976
+Secondary 0 gamma ke=62.0336 (x,y,z)= -18.9859 12.2082 0 (m)
+Event: 977
+Secondary 0 muon ke=5645.13 (x,y,z)= -2.76328 26.6761 0 (m)
+Event: 978
+Secondary 0 gamma ke=88.919 (x,y,z)= 32.6879 25.1411 0 (m)
+Event: 979
+Secondary 0 gamma ke=123.886 (x,y,z)= 2.3391 -38.4708 0 (m)
+Event: 980
+Secondary 0 muon ke=582.157 (x,y,z)= 12.8673 -40.314 0 (m)
+Event: 981
+Secondary 0 gamma ke=5.54379 (x,y,z)= -13.9568 -29.5752 0 (m)
+Event: 982
+Secondary 0 gamma ke=2.44625 (x,y,z)= -39.4412 13.0504 0 (m)
+Event: 983
+Secondary 0 gamma ke=24.0511 (x,y,z)= 21.1435 10.0293 0 (m)
+Event: 984
+Secondary 0 gamma ke=2.11252 (x,y,z)= -15.3117 39.1239 0 (m)
+Event: 985
+Secondary 0 gamma ke=6.48761 (x,y,z)= 28.4339 37.3234 0 (m)
+Secondary 1 gamma ke=29.8558 (x,y,z)= 28.1745 -46.3929 0 (m)
+Secondary 2 gamma ke=23.7314 (x,y,z)= 16.0106 30.1855 0 (m)
+Event: 986
+Secondary 0 neutron ke=179.356 (x,y,z)= -27.4177 -44.7725 0 (m)
+Event: 987
+Secondary 0 muon ke=1718.45 (x,y,z)= 40.2286 21.2472 0 (m)
+Event: 988
+Secondary 0 gamma ke=62.4289 (x,y,z)= -24.7414 24.9855 0 (m)
+Event: 989
+Secondary 0 gamma ke=5.75932 (x,y,z)= -9.82178 -45.041 0 (m)
+Event: 990
+Secondary 0 gamma ke=5.11372 (x,y,z)= -28.263 22.828 0 (m)
+Event: 991
+Secondary 0 muon ke=13837.8 (x,y,z)= 41.3974 22.5137 0 (m)
+Event: 992
+Secondary 0 gamma ke=2.03555 (x,y,z)= 11.2988 2.36046 0 (m)
+Event: 993
+Secondary 0 gamma ke=13.4834 (x,y,z)= 9.98962 10.7281 0 (m)
+Event: 994
+Secondary 0 muon ke=472.604 (x,y,z)= -23.9327 -49.6033 0 (m)
+Event: 995
+Secondary 0 muon ke=469.552 (x,y,z)= 41.2692 1.49684 0 (m)
+Event: 996
+Secondary 0 gamma ke=15.5343 (x,y,z)= -12.6751 17.7347 0 (m)
+Event: 997
+Secondary 0 gamma ke=3.7442 (x,y,z)= -1.57313 15.6749 0 (m)
+Event: 998
+Secondary 0 gamma ke=28.2913 (x,y,z)= -18.0155 9.10769 0 (m)
+Event: 999
+Secondary 0 neutron ke=6.25545 (x,y,z)= -32.8985 -42.2793 0 (m)
+Run completed.
+Total time simulated: 0.000384146 seconds

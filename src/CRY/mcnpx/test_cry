@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# run mcnpx test job
+#
+# mcnpx input file = inp_cry
+# cry   input file = setup.file
+#
+# reference files created with mcnpx 2.6.0
+
+#....location of mcnpx executable
+mcnpx=../../bin/mcnpx
+
+#....location of data files
+export DATAPATH=/usr/gapps/dmc/mcnpx/data 
+
+#....CRY setup
+source ../setup
+
+#....delete previous mcnpx output files
+/bin/rm outp runtpe ptrac 2> /dev/null
+
+#....run mcnpx with the specified input
+$mcnpx inp=inp_cry
+
+diff -sq ptrac ptrac.ref

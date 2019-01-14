@@ -1,4 +1,4 @@
-subroutine gen_parma_cr(nb,energies,cosangles,altitudes,types)
+subroutine gen_parma_cr(nb,energies,cosangles,altitude_list,types)
 !  Generate cosmic-ray based on PARMA model
 parameter(npart=33) ! number of applicable particle
 parameter(nebin=1024) ! number of energy mesh (divided by log)
@@ -20,7 +20,7 @@ real :: spec_val = 0.0
 integer,intent(in) :: nb
 real,intent(out) :: energies(nb)
 real,intent(out) :: cosangles(nb)
-real,intent(out) :: altitudes(nb)
+real,intent(out) :: altitude_list(nb)
 real,intent(out) :: types(nb)
 
 call srand(10)

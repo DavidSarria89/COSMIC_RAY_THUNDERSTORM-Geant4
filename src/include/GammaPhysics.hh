@@ -2,25 +2,25 @@
 
 #pragma once
 
-#include "globals.hh"
 #include "G4VPhysicsConstructor.hh"
+#include "globals.hh"
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class GammaPhysics: public G4VPhysicsConstructor
 {
-    public:
+public:
 
-        GammaPhysics(const G4String &name = "gamma");
-        ~GammaPhysics();
+  explicit GammaPhysics(const G4String& name = "gamma");
 
-    public:
+  ~GammaPhysics() override;
 
-        virtual void
-        ConstructParticle() {}
+public:
 
-        virtual void
-        ConstructProcess();
+  void ConstructParticle() override
+  {}
+
+  void ConstructProcess() override;
 };
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

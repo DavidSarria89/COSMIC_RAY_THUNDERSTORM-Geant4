@@ -1,0 +1,47 @@
+Measures rates of cosmic-rays
+c
+c Current tallies count the number of particles emitted by
+c the CRY library in the first 10s, 20s, and 30s.
+c
+c cosmic-rays are emitted at z=100cm (from setup.file)
+c
+c cells where we track particles
+ 1 0  +1 -10     $ above cosmic-ray emitting plane
+ 2 0  -1 -10     $ below cosmic-ray emitting plane
+10 0 +10         $ outside world
+
+ 1 PZ 99.99      $ plane where we count cosmic-rays
+10 So 10000
+
+IMP:N 1 1 0
+IMP:H 1 1 0
+IMP:P 1 1 0
+IMP:/ 1 1 0
+IMP:E 1 1 0
+IMP:| 1 1 0
+c
+MODE N H P / E | $ transport neutrons, protons, photons, 
+c                  pions, electrons, muons
+NPS 1000000      $ number of cosmic-rays
+c 
+c tallies
+T0 0 10e8 20e8 30e8
+F1:N 1
+FC1 Neutron current per source particle
+F11:H 1
+FC11 Proton current per source particle
+F21:P 1
+FC21 Photon current per source particle
+F31:/ 1
+FC31 Pion current per source particle
+F41:E 1
+FC41 Electron current per source particle
+F51:| 1
+FC51 Muon current per source particle
+c
+c Beware, the settings below might depend on the version of 
+c MCNPX/CRY in use
+c
+IDUM 1
+RDUM 100
+

@@ -1,0 +1,12 @@
+/CRY/input returnNeutrons 1
+/CRY/input returnProtons 1
+/CRY/input returnGammas 1
+/CRY/input returnPions 1
+/CRY/input returnKaons 1
+/CRY/input date 7-1-2012
+/CRY/input latitude 90.0
+/CRY/input altitude 0
+/CRY/input subboxLength 100
+/CRY/update
+
+/run/beamOn 100

@@ -1,43 +1,36 @@
-
 #pragma once
 
-#include "G4UserEventAction.hh"
-#include "globals.hh"
-#include "Settings.hh"
 #include "AnalysisManager.hh"
+#include "G4UserEventAction.hh"
+#include "Settings.hh"
+#include "globals.hh"
 
-#include <time.h>
 #include <sys/time.h>
+#include <time.h>
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class EventAction: public G4UserEventAction
-{
-    public:
+class EventAction : public G4UserEventAction {
+public:
 
-        EventAction();
-        ~EventAction();
+    EventAction();
 
-    public:
+    ~EventAction() override;
 
-        virtual void
-        BeginOfEventAction(const G4Event *);
-        virtual void
-        EndOfEventAction(const G4Event *);
+public:
 
-    private:
+    void BeginOfEventAction(const G4Event *) override;
 
-        G4int nb_detectors = 3;
+    void EndOfEventAction(const G4Event *) override;
 
-        G4int print_nb = 1; // just initialisation
+private:
 
-        AnalysisManager *analysis = AnalysisManager::getInstance();
-        double get_wall_time() const;
+    Settings *settings = Settings::getInstance();
 
-        double time_begin_event = -5.;
-        double time_end_event = -5.;
+    ulong print_nb = 1; // initialisation
 
-        double max_event_duration = -10.;
+    AnalysisManager *analysis = AnalysisManager::getInstance();
+
 };
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

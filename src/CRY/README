@@ -1,0 +1,35 @@
+The Cosmic-ray Shower (CRY) library generates correlated cosmic-ray
+particle shower distributions at one of three elevations (sea level,
+2100m, and 11300m) for use as input to transport and detector
+simulation codes.
+
+The most recent version of the software library and examples can be
+downloaded from http://nuclear.llnl.gov/CNP/simulation.
+
+Documentation (pdf format) for the user options and physics
+behind  CRY libary can be found in the 'doc' directory.
+
+An example using CRY as the input source for Geant4 can
+be found in the 'geant' directory.
+
+An example using CRY as the input source for COG can
+be found in the 'cog' directory.
+
+Lawrence Livermore National Laboratory
+
+===============================================================
+
+Platforms: Known to work on Red Hat Enterprise Linux 4. Should
+work on other unix-like systems
+
+Compilers: g++ Known to work with g++ version 3.4.4. 
+(To change compilers edit Makefile.common)
+
+===============================================================
+
+Creating the library
+
+Type 'make' from the top level directory. This will generate the
+software library lib/libCRY.a and test executables in directory test.
+
+===============================================================

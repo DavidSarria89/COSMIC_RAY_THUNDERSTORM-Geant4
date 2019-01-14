@@ -1,0 +1,60 @@
+Starting test for altitude: 0m and year: 2008
+Box size: 300m X 300m
+Total time simulated: 0.0436345 seconds (1000000 events)
+neutrons per second per m2: 39.8879
+protons per second per m2: 2.38904
+pions per second per m2: 0.0216445
+muons per second per m2: 124.672
+electrons per second per m2: 32.0995
+gammas per second per m2: 180.236
+========================================================
+Starting test for altitude: 2100m and year: 2008
+Box size: 300m X 300m
+Total time simulated: 0.0122845 seconds (1000000 events)
+neutrons per second per m2: 595.52
+protons per second per m2: 17.6718
+pions per second per m2: 0.185419
+muons per second per m2: 186.995
+electrons per second per m2: 97.2737
+gammas per second per m2: 619.29
+========================================================
+Starting test for altitude: 11300m and year: 2008
+Box size: 300m X 300m
+Total time simulated: 0.000243969 seconds (1000000 events)
+neutrons per second per m2: 26594.4
+protons per second per m2: 1953.75
+pions per second per m2: 12.9342
+muons per second per m2: 994.433
+electrons per second per m2: 5544.5
+gammas per second per m2: 31150.5
+========================================================
+Starting test for altitude: 0m and year: 2013.5
+Box size: 300m X 300m
+Total time simulated: 0.0496323 seconds (1000000 events)
+neutrons per second per m2: 28.9903
+protons per second per m2: 1.904
+pions per second per m2: 0.0179095
+muons per second per m2: 115.156
+electrons per second per m2: 29.2728
+gammas per second per m2: 163.783
+========================================================
+Starting test for altitude: 2100m and year: 2013.5
+Box size: 300m X 300m
+Total time simulated: 0.0152277 seconds (1000000 events)
+neutrons per second per m2: 422.469
+protons per second per m2: 13.2397
+pions per second per m2: 0.152499
+muons per second per m2: 169.404
+electrons per second per m2: 87.0684
+gammas per second per m2: 542.695
+========================================================
+Starting test for altitude: 11300m and year: 2013.5
+Box size: 300m X 300m
+Total time simulated: 0.000352603 seconds (1000000 events)
+neutrons per second per m2: 16504.1
+protons per second per m2: 1215.15
+pions per second per m2: 10.7455
+muons per second per m2: 787.351
+electrons per second per m2: 4412.02
+gammas per second per m2: 24169.1
+========================================================

@@ -1,87 +1,119 @@
-#!/usr/bin/env python2.7
 import platform
+import subprocess as sp
 from subprocess import call
+import time
+from os import system
+from os import walk
+from os import listdir
+from mpi4py import MPI
 from functools import partial
 from multiprocessing.dummy import Pool
-import numpy as np
-import random
-import time
 import sys
-from datetime import datetime
-import subprocess as sp
 
 computer_name = platform.node()
 
-#### functions definitions
-
-############################
-
-random.seed(datetime.now())
-seedd = random.randint(1,1000000000)
+IS_CLUSTER = False  # use of MPI
 
 ################################################################################
-### Defining commands to run
+# functions definitions for MPI usage (if Cluster)
 
-#efield_altitudes =  [9.,10.,11.,12.,13.,14.]# kilometers, record altitude
 
-efield_altitudes = [12.0]# kilometers, record altitude
+def enum(*sequential, **named):
+    enums = dict(zip(sequential, range(len(sequential))), **named)
+    return type('Enum', (), enums)
 
-scales = [1.5436, 1.9256, 2.4605, 3.2461, 4.4152, 6.0826, 8.3489, 11.4043]
+################################################################################
+# Defining commands to run
 
-efield_sizes = [2.0] # does not matter if efield_altitudes > 20
 
-#potential_list = [40., 60., 80. ,100., 120., 140., 160.]
-record_altitudes = [13.0]
-
-efield_list = [0, 0.25, 0.5, 0.75, 1., 1.25, 1.5] # fraction of RREA threshold
-
-# converting fraction of RREA threshold to potential
-
-tilt_list = np.array([0.]) # does not matter if efield_altitudes > 20
-#tilt_list = np.array([0.,25.,45.])
-
-if ("iftrom" in computer_name) or ("7370" in computer_name) or ("sarria-pc" in computer_name):
-    nb_run = 1
-else :
-    nb_run = 1000
-#potential_list = [200.]
-
-nb_record_per_run = 100
+nb_run = 10
+POTENTIAL_LIST = [    0,    25,    50,  100,  150,  200]
+STATS_LIST =     [10000,  2500,  2500,   20,   20,   20]
 
 # defining the commands to be run in parallel
-
-commands=[]
+commands = []
 excecutable = './mos_test'
 
-#seedd += 1
-
 for _ in range(nb_run):
-    for size in efield_sizes:
-        for alti_e in efield_altitudes:
-        
-            potential_list_0 = np.array([200.0, 225.])
-            
-            for pot in potential_list_0:
-                for tilt in tilt_list:
-                    commands.append(excecutable + ' ' + str(seedd) + ' ' + str(nb_record_per_run) 
-                                    + ' ' + str(alti_e) + ' ' + str(size) + ' ' + str(pot) + ' ' + str(tilt)
-                                    + ' ' + str(record_altitudes[0]))
-                    seedd+=1
+    for ii, POT in enumerate(POTENTIAL_LIST):
+        commands.append(excecutable + ' ' + str(POT) + ' ' + str(STATS_LIST[ii]))
 
 ################################################################################
-print(len(commands))
-print(commands[0])
-#############
+# LOCAL RUN (uses python multiprocessing library)
 
-nb_thread = int(4) # number of threads (cpu) to run
+if not IS_CLUSTER:
+    nb_thread = 4  # number of threads (cpu) to use
 
-commands2 = commands
+    # Making an array where each element is the list of command for a given thread
 
-command_number = len(commands2)
+    command_number = len(commands)
 
-#print('Number of commands required '+ str(command_number))
+    print('Number of commands required ' + str(command_number))
 
-pool = Pool(nb_thread) #
-for i, returncode in enumerate(pool.imap(partial(call, shell=True), commands2)):
-    if returncode != 0:
-        print("%d command failed: %d" % (i, returncode))
+    pool = Pool(nb_thread)  # to be always set to 1 for this MPI case
+    for i, returncode in enumerate(pool.imap(partial(call, shell=True), commands)):
+        if returncode != 0:
+            print("%d command failed: %d" % (i, returncode))
+
+# MPI run (uses mpi4py)
+else:
+    # MPI initializations and preliminaries
+    comm = MPI.COMM_WORLD   # get MPI communicator object
+    size = comm.Get_size()       # total number of processes
+    rank = comm.Get_rank()       # rank of this process
+    status = MPI.Status()   # get MPI status object
+    # automatically uses all CPU threads available
+
+    # Define MPI message tags
+    tags = enum('READY', 'DONE', 'EXIT', 'START')
+
+    if rank == 0:
+        # Master process executes code below
+        tasks = commands
+        task_index = 0
+        num_workers = size - 1
+        closed_workers = 0
+        print("Master starting with %d workers" % num_workers)
+        while closed_workers < num_workers:
+            data = comm.recv(source=MPI.ANY_SOURCE,
+                             tag=MPI.ANY_TAG, status=status)
+            source = status.Get_source()
+            tag = status.Get_tag()
+            if tag == tags.READY:
+                # Worker is ready, so send it a task
+                if task_index < len(tasks):
+                    comm.send(tasks[task_index], dest=source, tag=tags.START)
+                    print("Sending task %d to worker %d" %
+                          (task_index, source))
+                    task_index += 1
+                else:
+                    comm.send(None, dest=source, tag=tags.EXIT)
+            elif tag == tags.DONE:
+                results = data
+                print("Got data from worker %d" % source)
+            elif tag == tags.EXIT:
+                print("Worker %d exited." % source)
+                closed_workers += 1
+
+        print("Master finishing")
+    else:
+        # Worker processes execute code below
+        name = MPI.Get_processor_name()
+        print("I am a worker with rank %d on %s." % (rank, name))
+        while True:
+            comm.send(None, dest=0, tag=tags.READY)
+            task = comm.recv(source=0, tag=MPI.ANY_TAG, status=status)
+            tag = status.Get_tag()
+
+            if tag == tags.START:
+                # Do the work here
+                task2 = [task]
+                pool = Pool(1)  # to be always set to 1 for this MPI case
+                for i, returncode in enumerate(pool.imap(partial(call, shell=True), task2)):
+                    if returncode != 0:
+                        print("%d command failed: %d" % (i, returncode))
+                comm.send(returncode, dest=0, tag=tags.DONE)
+            elif tag == tags.EXIT:
+                break
+
+    comm.send(None, dest=0, tag=tags.EXIT)

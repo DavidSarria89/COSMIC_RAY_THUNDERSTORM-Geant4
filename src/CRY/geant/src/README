@@ -1,0 +1,18 @@
+#....This works for both csh or sh shells
+
+# Compile the cosmic physics library (CRY)
+	make -C ..
+
+# setup CRY library
+        source ../setup
+
+# setup normal GEANT4 environment variables
+# For example, at LLNL:
+#	source /usr/gapps/cern/geant4.8.2/setup
+
+# Compile and link to geant4 example
+        make
+
+# run the example problem
+ 	bin/$G4SYSTEM/cosmic cmd.file
+

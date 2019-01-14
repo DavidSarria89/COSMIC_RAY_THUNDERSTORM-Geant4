@@ -1,4 +1,5 @@
 //
+
 // ********************************************************************
 // * License and Disclaimer                                           *
 // *                                                                  *
@@ -28,239 +29,191 @@
 //
 // $Id: PhysicsList.cc 70268 2013-05-28 14:17:50Z maire $
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "PhysicsList.hh"
 
-#include "G4SystemOfUnits.hh"
-#include "G4UnitsTable.hh"
-
 #include "G4EmStandardPhysics_option1_dr.hh"
-//#include "G4EmStandardPhysics_option1.hh"
-#include "G4EmStandardPhysics_option3.hh"
-#include "G4EmStandardPhysics_option4.hh"
 #include "G4DecayPhysics.hh"
-
-#include "G4EmStandardPhysicsSS.hh"
-
 #include "G4RadioactiveDecayPhysics.hh"
-
 #include "G4HadronElasticPhysics.hh"
 #include "G4HadronElasticPhysicsHP.hh"
-#include "G4HadronPhysicsFTFP_BERT_HP.hh"
-#include "G4HadronPhysicsFTFP_BERT.hh"
-#include "G4HadronPhysicsQGSP_BIC_HP.hh"
 #include "G4HadronInelasticQBBC.hh"
-#include "G4HadronPhysicsINCLXX.hh"
+#include "G4HadronPhysicsFTFP_BERT_HP.hh"
+#include "G4HadronPhysicsQGSP_BIC_HP.hh"
 #include "G4IonElasticPhysics.hh"
 #include "G4IonPhysics.hh"
-#include "G4IonINCLXXPhysics.hh"
 #include "GammaPhysics.hh"
 
 // particles
 
+#include "G4BaryonConstructor.hh"
 #include "G4BosonConstructor.hh"
+#include "G4IonConstructor.hh"
 #include "G4LeptonConstructor.hh"
 #include "G4MesonConstructor.hh"
-#include "G4BosonConstructor.hh"
-#include "G4BaryonConstructor.hh"
-#include "G4IonConstructor.hh"
 #include "G4ShortLivedConstructor.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-PhysicsList::PhysicsList(const bool em_only)
-    : G4VModularPhysicsList()
-{
+PhysicsList::PhysicsList(const bool em_only) : G4VModularPhysicsList() {
     G4int verb = 0;
+
     SetVerboseLevel(verb);
 
     // EM physics
     //    RegisterPhysics(new G4EmStandardPhysics_option1());
     RegisterPhysics(new G4EmStandardPhysics_option1_dr());
+
     //    RegisterPhysics(new G4EmStandardPhysics_option3());
     //    RegisterPhysics(new G4EmStandardPhysicsSS());
 
-    if (!em_only)
-        {
-            // Decay
-            RegisterPhysics(new G4DecayPhysics());
+    if (!em_only) {
+        // Decay
+        RegisterPhysics(new G4DecayPhysics());
 
-            // Radioactive decay
-            RegisterPhysics(new G4RadioactiveDecayPhysics());
+        // Radioactive decay
+        RegisterPhysics(new G4RadioactiveDecayPhysics());
 
-            // Hadron Elastic scattering
-            RegisterPhysics(new G4HadronElasticPhysics(verb));
-            //            RegisterPhysics(new G4HadronElasticPhysicsHP(verb));
+        // Hadron Elastic scattering
+        RegisterPhysics(new G4HadronElasticPhysics(verb));
 
-            // Hadron Inelastic physics
-            RegisterPhysics(new G4HadronPhysicsFTFP_BERT(verb));
-            //            RegisterPhysics(new G4HadronPhysicsFTFP_BERT_HP(verb));
-            //            RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
-            //            RegisterPhysics(new G4HadronInelasticQBBC(verb));
-            //            RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
+        //            RegisterPhysics(new G4HadronElasticPhysicsHP(verb));
 
-            // Ion Elastic scattering
-            RegisterPhysics(new G4IonElasticPhysics(verb));
+        // Hadron Inelastic physics
+        RegisterPhysics(new G4HadronPhysicsFTFP_BERT(verb));
 
-            // Ion Inelastic physics
-            RegisterPhysics(new G4IonPhysics(verb));
-            //            RegisterPhysics(new G4IonINCLXXPhysics(verb));
+        //            RegisterPhysics(new G4HadronPhysicsFTFP_BERT_HP(verb));
+        //            RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
+        //            RegisterPhysics(new G4HadronInelasticQBBC(verb));
+        //            RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
 
-            // Gamma-Nuclear Physics
-            RegisterPhysics(new GammaPhysics("gamma"));
-        }
+        // Ion Elastic scattering
+        RegisterPhysics(new G4IonElasticPhysics(verb));
+
+        // Ion Inelastic physics
+        RegisterPhysics(new G4IonPhysics(verb));
+
+        //            RegisterPhysics(new G4IonINCLXXPhysics(verb));
+
+        // Gamma-Nuclear Physics
+        RegisterPhysics(new GammaPhysics("gamma"));
+    }
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-PhysicsList::~PhysicsList()
-{ }
+PhysicsList::~PhysicsList() = default;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void PhysicsList::ConstructParticle()
-{
-    G4BosonConstructor  pBosonConstructor;
-    pBosonConstructor.ConstructParticle();
+void PhysicsList::ConstructParticle() {
+    G4BosonConstructor pBosonConstructor;
+
+    G4BosonConstructor::ConstructParticle();
 
     G4LeptonConstructor pLeptonConstructor;
-    pLeptonConstructor.ConstructParticle();
+    G4LeptonConstructor::ConstructParticle();
 
     G4MesonConstructor pMesonConstructor;
-    pMesonConstructor.ConstructParticle();
+    G4MesonConstructor::ConstructParticle();
 
     G4BaryonConstructor pBaryonConstructor;
-    pBaryonConstructor.ConstructParticle();
+    G4BaryonConstructor::ConstructParticle();
 
     G4IonConstructor pIonConstructor;
-    pIonConstructor.ConstructParticle();
+    G4IonConstructor::ConstructParticle();
 
     G4ShortLivedConstructor pShortLivedConstructor;
-    pShortLivedConstructor.ConstructParticle();
+    G4ShortLivedConstructor::ConstructParticle();
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void PhysicsList::SetCuts()
-{
+void PhysicsList::SetCuts() {
     //// Production thresholds for world (default) ; !!!! : That is actually for the zone inside the plane with STP air
-    G4double cutvalp = 0.0 ;
-    G4double cutvalr =  1.0 / 10. * mm ;
+    G4double cutvalp = 0.0;
+    G4double cutvalr = 1.0 * mm;
+
     //    G4double cutval=1. * cm ;
     SetCutValue(cutvalp, G4ProductionCuts::GetIndex("proton"));
     SetCutValue(cutvalr, G4ProductionCuts::GetIndex("e-"));
     SetCutValue(cutvalr, G4ProductionCuts::GetIndex("e+"));
     SetCutValue(cutvalr, G4ProductionCuts::GetIndex("gamma"));
+    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("mu+"));
+    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("mu-"));
 
     G4EmParameters *EM_params = G4EmParameters::Instance();
-
-    EM_params->SetNumberOfBinsPerDecade(20);
+    EM_params->SetNumberOfBinsPerDecade(16);
 
     //// Production thresholds for E-field region
-    G4Region *EFIELD_region       = G4RegionStore::GetInstance()->GetRegion("EFIELD");
-    G4ProductionCuts *cuts_EFIELD = new G4ProductionCuts;
+    G4Region *EFIELD_region = G4RegionStore::GetInstance()->GetRegion("EFIELD");
+    auto *cuts_EFIELD = new G4ProductionCuts;
 
-    G4double cut_value = 1.0 / 10. * mm ;
+    G4double cut_value = 1.0 / 100. * mm;
     cuts_EFIELD->SetProductionCut(cutvalp, G4ProductionCuts::GetIndex("neutron"));
     cuts_EFIELD->SetProductionCut(cutvalp, G4ProductionCuts::GetIndex("proton"));
     cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("e-"));
     cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("e+"));
     cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("gamma"));
+    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("mu-"));
+    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("mu+"));
     EFIELD_region->SetProductionCuts(cuts_EFIELD);
 
-    //// Production thresholds for detector crystals regions
+//    G4double lowlimit = 8 * CLHEP::keV;
+//    G4ProductionCutsTable *aPCTable = G4ProductionCutsTable::GetProductionCutsTable();
+//    aPCTable->SetEnergyRange(lowlimit, 100 * CLHEP::GeV);
 
-    //    G4double lowlimit = 8 * CLHEP::keV;
-    //    G4ProductionCutsTable *aPCTable = G4ProductionCutsTable::GetProductionCutsTable();
-    //    aPCTable->SetEnergyRange(lowlimit, 100 * CLHEP::GeV);
-
-    //    Add_global_StepMax(Settings::SIZE_RECORD_LAYER / 3.0, Settings::SIZE_RECORD_LAYER / 3.0);
-//    Add_global_StepMax(2.0 * meter, 2.0 * meter);
-
+    if (settings->USE_GLOBAL_MAX_STEP) {
+        Add_global_StepMax();
+    }
+    if (settings->USE_RECORD_REGION_STEP_MAX) {
+        Add_StepMax_for_record_regions();
+    }
 } // PhysicsList::SetCuts
 
-// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-//#include "G4ProcessManager.hh"
-//#include "StepMax.hh"
 
-//void PhysicsList::AddStepMax()
-//{
-//    // Step limitation seen as a process
-//    StepMax *stepMaxProcess = new StepMax();
+#include "StepMax.hh"
+#include "G4ProcessManager.hh"
+#include "G4StepLimiter.hh"
 
-//    stepMaxProcess->SetMaxStep(1. * cm);
+void PhysicsList::Add_global_StepMax() {
+    // Step limitation seen as a process
+    StepMax *stepMaxProcess = new StepMax();
 
-//    auto particleIterator = GetParticleIterator();
-//    particleIterator->reset();
+    stepMaxProcess->SetMaxStep(GLOBAL_stepMaxVal);
 
-//    while ((*particleIterator)())
-//        {
-//            G4ParticleDefinition *particle = particleIterator->value();
-//            G4ProcessManager *pmanager = particle->GetProcessManager();
+    auto particleIterator = GetParticleIterator();
+    particleIterator->reset();
 
-//            if (stepMaxProcess->IsApplicable(*particle))
-//                {
-//                    pmanager ->AddDiscreteProcess(stepMaxProcess);
-//                }
-//        }
-//}
+    while ((*particleIterator)()) {
+        G4ParticleDefinition *particle = particleIterator->value();
+        G4ProcessManager *pmanager = particle->GetProcessManager();
+
+        if (stepMaxProcess->IsApplicable(*particle)) {
+            pmanager->AddDiscreteProcess(stepMaxProcess);
+        }
+    }
+}
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 #include "G4StepLimiter.hh"
-#include "G4UserSpecialCuts.hh"
 #include "G4ProcessManager.hh"
 
-void PhysicsList::Add_Step_Maxs()
-{
+void PhysicsList::Add_StepMax_for_record_regions() {
     // Step limitation seen as a process
     G4StepLimiter *stepLimiter = new G4StepLimiter();
-    ////G4UserSpecialCuts* userCuts = new G4UserSpecialCuts();
 
     auto particleIterator = GetParticleIterator();
     particleIterator->reset();
 
-    while ((*particleIterator)())
-        {
-            G4ParticleDefinition *particle = particleIterator->value();
-            G4ProcessManager *pmanager = particle->GetProcessManager();
-            pmanager ->AddDiscreteProcess(stepLimiter);
-            ////pmanager ->AddDiscreteProcess(userCuts);
-        }
-}
-
-
-#include "StepMax.hh"
-
-void PhysicsList::Add_global_StepMax(G4double stepMaxVal_elec, G4double stepMaxVal_gamma)
-{
-    // Step limitation seen as a process
-    StepMax *stepMaxProcess_elec = new StepMax();
-    stepMaxProcess_elec->SetMaxStep(stepMaxVal_elec);
-
-    StepMax *stepMaxProcess_gamma = new StepMax();
-    stepMaxProcess_gamma->SetMaxStep(stepMaxVal_gamma);
-
-    auto particleIterator = GetParticleIterator();
-    particleIterator->reset();
-
-    while ((*particleIterator)())
-        {
-            G4ParticleDefinition *particle = particleIterator->value();
-            G4ProcessManager *pmanager = particle->GetProcessManager();
-
-            if (stepMaxProcess_elec->IsApplicable(*particle))
-                {
-                    if (particle->GetPDGEncoding() == 22)
-                        {
-                            pmanager ->AddDiscreteProcess(stepMaxProcess_gamma);
-                        }
-                    else
-                        {
-                            pmanager ->AddDiscreteProcess(stepMaxProcess_elec);
-                        }
-                }
-        }
+    while ((*particleIterator)())  // for all particles
+    {
+        G4ParticleDefinition *particle = particleIterator->value();
+        G4ProcessManager *pmanager = particle->GetProcessManager();
+        pmanager->AddDiscreteProcess(stepLimiter);
+    }
 }

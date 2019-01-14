@@ -12,7 +12,7 @@ and Doug Drob based on the MSISE90 model. The main differences to MSISE90 are no
 in the comments at the top of the computer code. They involve (1) the extensive use
 of drag and accelerometer data on total mass density,  (2) the addition of a
 component to the total mass density that accounts for possibly significant 
-contributions of O+ and hot oxygen at altitudes above 500 km, and (3) the inclusion
+contributions of O+ and hot oxygen at altitude_list above 500 km, and (3) the inclusion
 of the SMM UV occultation data on [O2]. 
 The MSISE90 model describes the neutral temperature and densities in Earth's 
 atmosphere from ground to thermospheric heights. Below 72.5 km the model is
