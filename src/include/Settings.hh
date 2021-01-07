@@ -147,6 +147,6 @@ public:
     bool CPU_TIME_LIMIT_PER_EVENT_HAS_BEEN_REACHED_ONCE = false;
     uint NB_LONG_CPU_TIME = 0;
 
-    const uint MAX_CPU_TICKS = 200;
+    const uint MAX_CPU_TICKS = 100;
     uint EVENT_DURATION_in_CPU_TICKS = 0;
 };

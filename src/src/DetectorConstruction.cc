@@ -79,23 +79,23 @@ using namespace std;
 // C        T(2) - TEMPERATURE AT ALT
 
 // IYD,SEC,ALT,GLAT,GLONG,STL,F107A,F107,AP,MASS,D,T
-#include <fortran.hh>
+//#include <fortran.hh>
 
 // extrernal fortran subroutine to get MSIS atmospheric densities
-extern "C" {
-void gtd7_(INTEGER &IYD,   // YEAR AND DAY AS YYDDD (day of year from 1 to 365 (or 366))
-           REAL &SEC,   // UT(SEC)
-           REAL &ALT,   // ALTITUDE(KM)
-           REAL &GLAT,  // GEODETIC LATITUDE(DEG)
-           REAL &GLONG, // GEODETIC LONGITUDE(DEG)
-           REAL &STL,   // LOCAL APPARENT SOLAR TIME
-           REAL &F107A, // 81 day AVERAGE OF F10.7 FLUX (centered on day DDD
-           REAL &F107,  // DAILY F10.7 FLUX FOR PREVIOUS DAY
-           REAL &AP,    // MAGNETIC INDEX(DAILY)
-           INTEGER &MASS,  // MASS NUMBER
-           REAL *D,
-           REAL *T);    // OUTPUT VARIABLES temperatures
-}
+//extern "C" {
+//void gtd7_(INTEGER &IYD,   // YEAR AND DAY AS YYDDD (day of year from 1 to 365 (or 366))
+//           REAL &SEC,   // UT(SEC)
+//           REAL &ALT,   // ALTITUDE(KM)
+//           REAL &GLAT,  // GEODETIC LATITUDE(DEG)
+//           REAL &GLONG, // GEODETIC LONGITUDE(DEG)
+//           REAL &STL,   // LOCAL APPARENT SOLAR TIME
+//           REAL &F107A, // 81 day AVERAGE OF F10.7 FLUX (centered on day DDD
+//           REAL &F107,  // DAILY F10.7 FLUX FOR PREVIOUS DAY
+//           REAL &AP,    // MAGNETIC INDEX(DAILY)
+//           INTEGER &MASS,  // MASS NUMBER
+//           REAL *D,
+//           REAL *T);    // OUTPUT VARIABLES temperatures
+//}
 
 DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {
     sWorld = nullptr;
@@ -423,37 +423,54 @@ std::vector<G4Material *> DetectorConstruction::Construct_Atmos_layers_Materials
         if (mid_altitude_in_km > World_Y_size / km) {
             Airs.push_back(vaccum);
         } else {
-            INTEGER input_iyd = 172; // IYD - YEAR AND DAY AS YYDDD
-            REAL input_sec = 29000.0;
-            REAL input_alt = (REAL) mid_altitude_in_km;
-            REAL input_g_lat = (REAL) settings->latitude;
-            REAL input_g_long = (REAL) settings->longitude;
-            REAL input_lst = 16.0;
-            REAL input_f107A = 150.0;
-            REAL input_f107 = 150.0;
-            REAL input_ap = 4.0;
-            INTEGER input_mass = 48;
-            REAL output_D[9];
-            REAL output_T[2];
 
-            gtd7_(input_iyd, input_sec, input_alt, input_g_lat, input_g_long, input_lst, input_f107A, input_f107, input_ap, input_mass, output_D, output_T); //
+            struct nrlmsise_output output{};
+            struct nrlmsise_input input{};
+            struct nrlmsise_flags flags{};
+            struct ap_array aph{};
+
+            /* input values */
+            for (int i = 0; i < 7; i++) {
+                aph.a[i] = 100;
+            }
+
+            flags.switches[0] = 0;
+            for (int i = 1; i < 24; i++) {
+                flags.switches[i] = 1;
+            }
+
+            input.doy = int(datetools::day_of_year(settings->year, settings->month, settings->day));
+            input.year = settings->year; /* without effect */
+            input.sec = 29000.0;
+            input.alt = mid_altitude_in_km;
+            input.g_lat = settings->latitude;
+            input.g_long = settings->longitude;
+            input.lst = 16;
+            input.f107A = 150;
+            input.f107 = 150;
+            input.ap = 4;
+            input.ap_a = &aph;
+
+            gtd7(&input, &flags, &output);
+
             // MSIS,// call
-            if (std::isnan(output_D[5]) || std::isinf(isnan(output_D[5]))) {
-                G4cout << "ERROR : density from gtd7_ is NaN. Aborting" << G4endl;
+            if (std::isnan(output.d[5]) || std::isinf(output.d[5])) {
+                G4cout << "ERROR : density from gtd7 is NaN of inf. Aborting" << G4endl;
                 std::abort();
             }
 
-            double density_air = output_D[5] * g / cm3; // getting density and converting it to the GEANT4 system of unit
+            // getting density and converting it to the GEANT4 system of unit
+            double density_air = output.d[5] * g / cm3;
 
             if (MAKE_EVERYTHING_VACCUM) {
-                density_air = 1e-24 * (g / cm3);
+                density_air = 1e-24 * g / cm3;
             }
 
             G4String name;
             G4int ncomponents;
-            double fractionmass;
+            G4double fractionmass, density;
 
-            Airs.push_back(new G4Material(name = "Air_" + std::to_string(idx_alt), density_air, ncomponents = 2));
+            Airs.push_back(new G4Material(name = "Air_" + std::to_string(idx_alt), density = density_air, ncomponents = 2));
 
             Airs.back()->AddElement(elN, fractionmass = 0.7615);
             Airs.back()->AddElement(elO, fractionmass = 0.2385);

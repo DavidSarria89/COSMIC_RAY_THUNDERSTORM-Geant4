@@ -38,13 +38,15 @@ include_directories(${PROJECT_SOURCE_DIR}/src/CRY/src/)
 include_directories(${PROJECT_SOURCE_DIR}/build/)
 include_directories(${PROJECT_SOURCE_DIR}/src/include
         ${Geant4_INCLUDE_DIR})
-include_directories(${PROJECT_SOURCE_DIR}/src/src/C_functions/uuid/)
+include_directories(${PROJECT_SOURCE_DIR}/src/src/C_functions/uuid/ ${PROJECT_SOURCE_DIR}/src/src/msis/C/)
 
 
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/src/include/*.hh)
 file(GLOB sourcesf ${PROJECT_SOURCE_DIR}/src/src/*.f)
-file(GLOB sourcesf2 ${PROJECT_SOURCE_DIR}/src/src/msis/*.for)
+#file(GLOB sourcesf2 ${PROJECT_SOURCE_DIR}/src/src/msis/*.for)
+file(GLOB sourcesMSISC ${PROJECT_SOURCE_DIR}/src/src/msis/C/*.c)
+file(GLOB sourcesMSISH ${PROJECT_SOURCE_DIR}/src/src/msis/C/*.h)
 file(GLOB sourcesf90 ${PROJECT_SOURCE_DIR}/src/src/parma/*.f90)
 file(GLOB sourcesf902 ${PROJECT_SOURCE_DIR}/src/src/unique_id/*.f90)
 file(GLOB sourcesc ${PROJECT_SOURCE_DIR}/src/src/*.c)
@@ -57,7 +59,7 @@ file(GLOB CRY ${PROJECT_SOURCE_DIR}/src/CRY/src/*.h)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(mos_test ${main} ${sourcesf} ${sourcesf2} ${sourcesf90} ${sourcesf902} ${sourcesc} ${sourcesc2} ${sourcesh} ${sources} ${headers} ${CRY})
+add_executable(mos_test ${main} ${sourcesf} ${sourcesMSISH} ${sourcesMSISC} ${sourcesf90} ${sourcesf902} ${sourcesc} ${sourcesc2} ${sourcesh} ${sources} ${headers} ${CRY})
 target_link_libraries(mos_test ${Geant4_LIBRARIES})
 target_link_libraries(mos_test ${PROJECT_SOURCE_DIR}/src/CRY/lib/libCRY.a)
 

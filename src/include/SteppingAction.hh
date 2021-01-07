@@ -44,7 +44,7 @@ private:
 
     index_found find_particle_index(const int PDG_in);
 
-
+    uint ALL_TICKS_COUNTER = 0;
 
     uint CHECK_COUNTER = 0;
     const uint RAM_CHECK_COUNTER_MAX = 3 * 500000;

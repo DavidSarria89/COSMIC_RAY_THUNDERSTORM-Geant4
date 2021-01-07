@@ -43,6 +43,9 @@
 extern "C" {
 #include <coordinates_conversions.h>
 }
+extern "C" {
+#include <nrlmsise-00.h>
+}
 
 class G4LogicalVolume;
 
@@ -115,7 +118,7 @@ private:
                        const bool extrapolate);
 
     //        std::vector < G4Material * > Construct_Atmos_layers_Materials(const std::vector < double > altitudes_);
-    std::vector<double> calculate_altitudes_list(const double alt_min,const double alt_max_construction,const uint nb_altis);
+    std::vector<double> calculate_altitudes_list(const double alt_min, const double alt_max_construction, const uint nb_altis);
 
     void build_air_layers();
 
@@ -156,3 +159,23 @@ private:
 };
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+namespace datetools {
+    namespace details {
+        constexpr unsigned int days_to_month[2][12] =
+                {
+                        // non-leap year
+                        {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334},
+                        // leap year
+                        {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335},
+                };
+    }
+
+    constexpr bool is_leap(int const year) noexcept {
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    }
+
+    constexpr unsigned int day_of_year(int const year, unsigned int const month, unsigned int const day) {
+        return details::days_to_month[is_leap(year)][month - 1] + day;
+    }
+}

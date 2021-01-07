@@ -42,6 +42,8 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
 
         settings->EVENT_DURATION_in_CPU_TICKS++;
 
+        ALL_TICKS_COUNTER++;
+
         // check event CPU time duration
         if (!settings->CPU_TIME_LIMIT_PER_EVENT_HAS_BEEN_REACHED) {
 
@@ -85,19 +87,30 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
 //                    settings->CHECK_RAM = false;
             }
 
-            const double dt = (myUtils::get_wall_time() / 1.0e6 - INITIAL_TIME);
+            const double dt_since_run_start = (myUtils::get_wall_time() / 1.0e6 - INITIAL_TIME);
+
+            const double dt_since_event_start = (myUtils::get_wall_time() / 1.0e6 - settings->T0);
 
             G4cout << G4endl << G4endl << "Run ID (rng seed): " << settings->RANDOM_SEED << G4endl;
             G4cout << "Currently used RAM: " << std::round(USED_RAM * 1000) / 1000 << " GB" << G4endl;
-            G4cout << "Average CPU time per 10 event: " << dt / double(settings->NB_EVENT) * 10.0 << " seconds" << G4endl;
+            G4cout << "Average CPU time to compute 10 events: " << std::round(dt_since_run_start / double(settings->NB_EVENT) * 10.0 * 1000.0) / 1000.0
+                   << " seconds" << G4endl;
+            G4cout << "Average CPU time to get 10 records: " << std::round(dt_since_run_start / double(analysis->NB_OUTPUT) * 10.0 * 1000.0) / 1000.0
+                   << " seconds" << G4endl;
             G4cout << "Potential: " << settings->POTENTIAL_VALUE << G4endl;
             G4cout << "Number of events: " << settings->NB_EVENT << G4endl;
             G4cout << "Number of outputs: " << analysis->NB_OUTPUT << G4endl;
             G4cout << "Ratio: " << double(analysis->NB_OUTPUT) / double(settings->NB_EVENT) << G4endl;
-            G4cout << "Current event duration: " << dt << " seconds" << G4endl;
+            G4cout << "Current event duration: " << std::round(dt_since_event_start * 1000.0) / 1000.0 << " seconds" << G4endl;
             G4cout << "Current event duration: " << settings->EVENT_DURATION_in_CPU_TICKS << " tick(s)" << G4endl;
-            G4cout << "Real duration of a CPU tick (seconds): " << dt / settings->EVENT_DURATION_in_CPU_TICKS << G4endl;
-            G4cout << "E-field status: " << settings->current_efield_status << G4endl;
+            G4cout << "Real duration of a CPU tick (seconds), whole run: " << std::round(dt_since_run_start / double(ALL_TICKS_COUNTER) * 1000.0) / 1000.0
+                   << G4endl;
+
+            G4cout << "Real duration of a CPU tick (seconds), this event only: "
+                   << std::round(dt_since_event_start / double(settings->EVENT_DURATION_in_CPU_TICKS) * 1000.0) / 1000.0
+                   << G4endl;
+
+            G4cout << "E-field status: " << !settings->current_efield_status << G4endl;
 
         }
     }
