@@ -24,6 +24,7 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
 
     theTrack = aStep->GetTrack();
     thePrePoint = aStep->GetPreStepPoint();
+    thePostPoint = aStep->GetPostStepPoint();
 
 //    if (settings->CPU_TIME_LIMIT_PER_EVENT_HAS_BEEN_REACHED) {
 //        theTrack->SetTrackStatus(fStopAndKill);
@@ -93,6 +94,7 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
 
             G4cout << G4endl << G4endl << "Run ID (rng seed): " << settings->RANDOM_SEED << G4endl;
             G4cout << "Currently used RAM: " << std::round(USED_RAM * 1000) / 1000 << " GB" << G4endl;
+            G4cout << "Available RAM: " << std::round(total_ram * 1000) / 1000 << " GB" << G4endl;
             G4cout << "Average CPU time to compute 10 events: " << std::round(dt_since_run_start / double(settings->NB_EVENT) * 10.0 * 1000.0) / 1000.0
                    << " seconds" << G4endl;
             G4cout << "Average CPU time to get 10 records: " << std::round(dt_since_run_start / double(analysis->NB_OUTPUT) * 10.0 * 1000.0) / 1000.0
@@ -191,68 +193,69 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
     }
 
     // check if particle should be recorded
-    const double pre_y = thePrePoint->GetPosition().y() / km;
-    const double post_y = aStep->GetPostStepPoint()->GetPosition().y() / km;
 
-    const double rec_alt = settings->RECORD_ALTITUDE;
+    if (thePrePoint->GetStepStatus() == fGeomBoundary || thePostPoint->GetStepStatus() == fGeomBoundary) {
 
-    if (((pre_y >= rec_alt) && (post_y < rec_alt)) || ((pre_y <= rec_alt) && (post_y > rec_alt))) // particle is crossing rec_alt layer
-    {
-        const double ener = thePrePoint->GetKineticEnergy() * MeV;
+        const G4String &vol_name = aStep->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName();
 
-        const double momy = thePrePoint->GetMomentumDirection().y();
+        if (vol_name.find("record_phys") != std::string::npos && thePrePoint->GetPosition().y() == settings->RECORD_ALTITUDE * km) {
 
-        // WARNING : PARTICLES ARE ALLOWED TO BE RECORED 2 TIMES if they cross the detection altitude with upwards and downwards momentum
+            const double ener = thePrePoint->GetKineticEnergy() * MeV;
 
-        if ((ener >= settings->ENERGY_MIN_RECORD) && (ener <= settings->ENERGY_MAX_RECORD)) {
+            const double momy = thePrePoint->GetMomentumDirection().y();
 
-            if (analysis->check_record(theTrack->GetTrackID(), momy)) {
+            // WARNING : PARTICLES ARE ALLOWED TO BE RECORED 2 TIMES if they cross the detection altitude with upwards and downwards momentum
 
-                analysis->add_NB_OUTPUT();
+            if ((ener >= settings->ENERGY_MIN_RECORD) && (ener <= settings->ENERGY_MAX_RECORD)) {
 
-                uint i_part = indexFound.index;
+                if (analysis->check_record(theTrack->GetTrackID(), momy)) {
 
-                analysis->fill_histogram_E(i_part, ener);
-                analysis->fill_histogram_mX(i_part, thePrePoint->GetMomentumDirection().x());
-                analysis->fill_histogram_mY(i_part, thePrePoint->GetMomentumDirection().y());
-                analysis->fill_histogram_mZ(i_part, thePrePoint->GetMomentumDirection().z());
+                    analysis->add_NB_OUTPUT();
 
-                analysis->counter_total[i_part]++;
+                    uint i_part = indexFound.index;
 
-                settings->event_lead_to_detection[i_part] = true;
+                    analysis->fill_histogram_E(i_part, ener);
+                    analysis->fill_histogram_mX(i_part, thePrePoint->GetMomentumDirection().x());
+                    analysis->fill_histogram_mY(i_part, thePrePoint->GetMomentumDirection().y());
+                    analysis->fill_histogram_mZ(i_part, thePrePoint->GetMomentumDirection().z());
 
-                if (momy > 0.0) {
-                    analysis->counter_up[i_part]++;
-                } else {
-                    analysis->counter_down[i_part]++;
+                    analysis->counter_total[i_part]++;
+
+                    settings->event_lead_to_detection[i_part] = true;
+
+                    if (momy > 0.0) {
+                        analysis->counter_up[i_part]++;
+                    } else {
+                        analysis->counter_down[i_part]++;
+                    }
                 }
-            }
-        } else if (ener >= settings->ENERGY_MAX_RECORD) {
+            } else if (ener >= settings->ENERGY_MAX_RECORD) {
 
-            if (analysis->check_record(theTrack->GetTrackID(), momy)) {
+                if (analysis->check_record(theTrack->GetTrackID(), momy)) {
 
-                analysis->add_NB_OUTPUT();
+                    analysis->add_NB_OUTPUT();
 
-                uint i_part = indexFound.index;
+                    uint i_part = indexFound.index;
 
-                analysis->fill_histogram_E(i_part, ener);
-                analysis->fill_histogram_mX(i_part, thePrePoint->GetMomentumDirection().x());
-                analysis->fill_histogram_mY(i_part, thePrePoint->GetMomentumDirection().y());
-                analysis->fill_histogram_mZ(i_part, thePrePoint->GetMomentumDirection().z());
+                    analysis->fill_histogram_E(i_part, ener);
+                    analysis->fill_histogram_mX(i_part, thePrePoint->GetMomentumDirection().x());
+                    analysis->fill_histogram_mY(i_part, thePrePoint->GetMomentumDirection().y());
+                    analysis->fill_histogram_mZ(i_part, thePrePoint->GetMomentumDirection().z());
 
-                analysis->counter_total[i_part]++;
+                    analysis->counter_total[i_part]++;
 
-                settings->event_lead_to_detection[i_part] = true;
+                    settings->event_lead_to_detection[i_part] = true;
 
-                if (momy > 0.0) {
-                    analysis->counter_up[i_part]++;
-                } else {
-                    analysis->counter_down[i_part]++;
+                    if (momy > 0.0) {
+                        analysis->counter_up[i_part]++;
+                    } else {
+                        analysis->counter_down[i_part]++;
+                    }
                 }
             }
         }
-    }
 
+    }
 }
 
 // ------------------------------------------------------------------------

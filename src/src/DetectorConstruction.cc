@@ -273,9 +273,16 @@ void DetectorConstruction::build_air_layers() {
         }
 
         G4ThreeVector position_box{0, position_Y, 0};
+        G4String volname;
+
+        if (ymin == alt_record || ymax == alt_record) {
+            volname = "record_phys";
+        } else {
+            volname = "atmosLayer_" + std::to_string(idx_alt) + "_" + std::to_string(mean_alt / km);
+        }
 
         phys_boxes.push_back(new G4PVPlacement(rotation_null, position_box, logic_boxes.back(),
-                                               "atmosLayer_" + std::to_string(idx_alt) + "_" + std::to_string(mean_alt / km),
+                                               volname,
                                                lWorld, false, 0, false));
 
 

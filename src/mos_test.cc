@@ -56,10 +56,9 @@ int main(int argc, char **argv) {
         settings->USE_STACKING_ACTION = false;
     }
 
-    long start = myUtils::generate_a_unique_ID();
-    G4cout << "First random seed for GEANT4: " << start << G4endl;
+    settings->RANDOM_SEED = myUtils::generate_a_unique_ID();
 
-    settings->RANDOM_SEED = start;
+    G4cout << "First random seed for GEANT4: " << settings->RANDOM_SEED << G4endl;
 
     if (settings->EFIELD_REGION_Y_CENTER > 20.0) {
         G4cout << "ERROR. Efield should be set with a center below 20 km" << G4endl;
@@ -68,8 +67,10 @@ int main(int argc, char **argv) {
 
     // choose the Random engine
     CLHEP::HepRandom::setTheEngine(new CLHEP::MixMaxRng);
-
-    CLHEP::HepRandom::setTheSeed(start);
+    long seeds[2];
+    seeds[0] = settings->RANDOM_SEED;
+    seeds[1] = myUtils::generate_a_unique_ID();
+    CLHEP::HepRandom::setTheSeeds(seeds, 2);
 
     AnalysisManager *analysis = AnalysisManager::getInstance();
 

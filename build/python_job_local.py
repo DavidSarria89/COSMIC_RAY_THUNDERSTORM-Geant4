@@ -25,7 +25,6 @@ def enum(*sequential, **named):
 ################################################################################
 # Defining commands to run
 
-
 nb_run = 100
 POTENTIAL_LIST = [    0,    25,    50,  100,  150,  200]
 STATS_LIST =     [10000,  2500,  2500,   20,   20,   20]

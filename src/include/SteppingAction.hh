@@ -48,7 +48,7 @@ private:
 
     uint CHECK_COUNTER = 0;
     const uint RAM_CHECK_COUNTER_MAX = 3 * 500000;
-    const double TIME_PRINT_SEC = 3.0 * 60.0;
+    const double TIME_PRINT_SEC = 0.5 * 60.0;
 
     double WT1 = 0;
     double WT2 = 0;
@@ -66,6 +66,7 @@ private:
     EventAction *fEventAction = nullptr;
 
     G4StepPoint *thePrePoint = nullptr;
+    G4StepPoint *thePostPoint = nullptr;
     G4Track *theTrack = nullptr;
 
 

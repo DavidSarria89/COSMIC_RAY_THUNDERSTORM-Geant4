@@ -35,9 +35,9 @@ public:
     G4String MODE = "run";
 //    G4String MODE="visu";
 
-    double POTENTIAL_VALUE = 100.0;   // MV, can be overwritten by input argument
+    double POTENTIAL_VALUE = 0.0;   // MV, can be overwritten by input argument
 
-    uint NB_PARTICLES_TO_GET = 50;
+    uint NB_PARTICLES_TO_GET = 25000;
 
     const double MAX_POSSIBLE_TIME = 10.0 * second;
 
@@ -90,8 +90,8 @@ public:
 
     const double WORLD_MAX_ALT = 10;     // km
 
-    const double GLOBAL_MAX_STEP = 5.0 * meter;
-    const bool USE_GLOBAL_MAX_STEP = true;
+    const double GLOBAL_MAX_STEP = 10.0 * meter;
+    const bool USE_GLOBAL_MAX_STEP = false;
     const double STEP_MAX_VAL_RECORD_REGION = 5.0 * meter;
     const bool USE_RECORD_REGION_STEP_MAX = false;
 
