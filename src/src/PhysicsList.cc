@@ -33,6 +33,7 @@
 
 #include "PhysicsList.hh"
 
+#include "G4EmStandardPhysics_option1.hh"
 #include "G4EmStandardPhysics_option1_dr.hh"
 #include "G4DecayPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
@@ -62,8 +63,8 @@ PhysicsList::PhysicsList(const bool em_only) : G4VModularPhysicsList() {
     SetVerboseLevel(verb);
 
     // EM physics
-    //    RegisterPhysics(new G4EmStandardPhysics_option1());
-    RegisterPhysics(new G4EmStandardPhysics_option1_dr());
+    RegisterPhysics(new G4EmStandardPhysics_option1());
+//    RegisterPhysics(new G4EmStandardPhysics_option1_dr());
 
     //    RegisterPhysics(new G4EmStandardPhysics_option3());
     //    RegisterPhysics(new G4EmStandardPhysicsSS());
@@ -76,7 +77,7 @@ PhysicsList::PhysicsList(const bool em_only) : G4VModularPhysicsList() {
         RegisterPhysics(new G4RadioactiveDecayPhysics());
 
         // Hadron Elastic scattering
-        RegisterPhysics(new G4HadronElasticPhysics(verb));
+//        RegisterPhysics(new G4HadronElasticPhysics(verb));
 
         //            RegisterPhysics(new G4HadronElasticPhysicsHP(verb));
 
@@ -85,11 +86,11 @@ PhysicsList::PhysicsList(const bool em_only) : G4VModularPhysicsList() {
 
         //            RegisterPhysics(new G4HadronPhysicsFTFP_BERT_HP(verb));
         //            RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
-        //            RegisterPhysics(new G4HadronInelasticQBBC(verb));
+//        RegisterPhysics(new G4HadronInelasticQBBC(verb));
         //            RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
 
         // Ion Elastic scattering
-        RegisterPhysics(new G4IonElasticPhysics(verb));
+//        RegisterPhysics(new G4IonElasticPhysics(verb));
 
         // Ion Inelastic physics
         RegisterPhysics(new G4IonPhysics(verb));
@@ -132,32 +133,32 @@ void PhysicsList::ConstructParticle() {
 
 void PhysicsList::SetCuts() {
     //// Production thresholds for world (default) ; !!!! : That is actually for the zone inside the plane with STP air
-    G4double cutvalp = 0.0;
-    G4double cutvalr = 1.0 * mm;
+    double cutval_large = 1.0 * mm * 1000.0;
+    double cutval_small = 1.0 * mm;
 
-    //    G4double cutval=1. * cm ;
-    SetCutValue(cutvalp, G4ProductionCuts::GetIndex("proton"));
-    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("e-"));
-    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("e+"));
-    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("gamma"));
-    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("mu+"));
-    SetCutValue(cutvalr, G4ProductionCuts::GetIndex("mu-"));
+    SetCutValue(cutval_small, G4ProductionCuts::GetIndex("gamma"));
+    SetCutValue(cutval_small, G4ProductionCuts::GetIndex("e-"));
+    SetCutValue(cutval_small, G4ProductionCuts::GetIndex("e+"));
+    SetCutValue(cutval_large, G4ProductionCuts::GetIndex("mu-"));
+    SetCutValue(cutval_large, G4ProductionCuts::GetIndex("mu+"));
+    SetCutValue(cutval_large, G4ProductionCuts::GetIndex("neutron"));
+    SetCutValue(cutval_large, G4ProductionCuts::GetIndex("proton"));
 
     G4EmParameters *EM_params = G4EmParameters::Instance();
-    EM_params->SetNumberOfBinsPerDecade(16);
+//    EM_params->SetNumberOfBinsPerDecade(16);
 
     //// Production thresholds for E-field region
     G4Region *EFIELD_region = G4RegionStore::GetInstance()->GetRegion("EFIELD");
     auto *cuts_EFIELD = new G4ProductionCuts;
 
-    G4double cut_value = 1.0 / 100. * mm;
-    cuts_EFIELD->SetProductionCut(cutvalp, G4ProductionCuts::GetIndex("neutron"));
-    cuts_EFIELD->SetProductionCut(cutvalp, G4ProductionCuts::GetIndex("proton"));
-    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("e-"));
-    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("e+"));
-    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("gamma"));
-    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("mu-"));
-    cuts_EFIELD->SetProductionCut(cut_value, G4ProductionCuts::GetIndex("mu+"));
+    double cutval_verySmall = 1.0 * mm / 100.;
+    cuts_EFIELD->SetProductionCut(cutval_verySmall, G4ProductionCuts::GetIndex("gamma"));
+    cuts_EFIELD->SetProductionCut(cutval_verySmall, G4ProductionCuts::GetIndex("e-"));
+    cuts_EFIELD->SetProductionCut(cutval_verySmall, G4ProductionCuts::GetIndex("e+"));
+    cuts_EFIELD->SetProductionCut(cutval_large, G4ProductionCuts::GetIndex("mu-"));
+    cuts_EFIELD->SetProductionCut(cutval_large, G4ProductionCuts::GetIndex("mu+"));
+    cuts_EFIELD->SetProductionCut(cutval_large, G4ProductionCuts::GetIndex("neutron"));
+    cuts_EFIELD->SetProductionCut(cutval_large, G4ProductionCuts::GetIndex("proton"));
     EFIELD_region->SetProductionCuts(cuts_EFIELD);
 
 //    G4double lowlimit = 8 * CLHEP::keV;

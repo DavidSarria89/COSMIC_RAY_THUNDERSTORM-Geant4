@@ -23,58 +23,107 @@ void gen_parma_cr_(const int *,
                    const int *);   // number of wanted Particle ID list
 
 // See custom_subroutines.f90 for more info
+
+void get_parma_particles_weights_(double[],
+                                  int[],
+                                  const int *,
+                                  const double *,
+                                  const double *,
+                                  const double *,
+                                  const double *,
+                                  const int *,    // iyear
+                                  const int *,    // imonth
+                                  const int *,    // iday
+                                  const double *, // glat deg -90 =< glat =< 90
+                                  const double *);   // number of wanted Particle ID list
 }
 
 Cosmic_Ray_Generator_PARMA::Cosmic_Ray_Generator_PARMA() {
     setlocale(LC_ALL, "C"); // just in case
 
+    // set up the list of indexes of particles we want
+
+    int parmaID = find_parma_ID_from_PDG(settings->INITIAL_SAMPLE_TYPE);
+    parmaID_wanted = parmaID;
+    particles_type_wanted = G4ParticleTable::GetParticleTable()->FindParticle(settings->INITIAL_SAMPLE_TYPE);
+
+    // first call to PARMA to generate the list of cosmic rays
+    Generate_CR_samples_list_from_PARMA();
+
+    settings->WEIGHTS.clear();
+    settings->WEIGHTS = Calculate_Weights_from_PARMA();
+
+    G4cout << "\nWeights: " << G4endl;
+
+    int ii = 0;
+    for (const double &val : settings->WEIGHTS) {
+        G4cout << "  " << settings->NAMES[ii] << ": " << val << G4endl;
+        ii++;
+    }
+    G4cout << G4endl;
+
+    if (settings->INITIAL_SAMPLE_TYPE == 22) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_phot];
+    else if (settings->INITIAL_SAMPLE_TYPE == 11) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_elec];
+    else if (settings->INITIAL_SAMPLE_TYPE == -11) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_posi];
+    else if (settings->INITIAL_SAMPLE_TYPE == 13) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_muN];
+    else if (settings->INITIAL_SAMPLE_TYPE == -13) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_muP];
+    else if (settings->INITIAL_SAMPLE_TYPE == 2112) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_neut];
+    else if (settings->INITIAL_SAMPLE_TYPE == 2212) settings->CURRENT_WEIGHT = settings->WEIGHTS[i_prot];
+    else std::abort();
+
+#ifndef NDEBUG
     if (settings->WRITE_MOM_OUTPUT_FOR_TEST) {
         std::ofstream asciiFile7;
         asciiFile7.open(name_outFile_mom, std::ios::trunc);
         asciiFile7.close();
     }
 
-    nb_part_type_wanted = PDG_LIST.size();
-
-    // set up the list of indexes of particles we want
-
-    for (int ii = 0; ii < nb_part_type_wanted; ++ii) {
-        Parma_ID parmaID = find_parma_ID_from_PDG(PDG_LIST[ii]);
-        parmaID_list_wanted.push_back(static_cast<int>(parmaID));
-        particles_type_wanted.push_back(G4ParticleTable::GetParticleTable()->FindParticle(PDG_LIST[ii]));
-    }
-
-    // first call to PARMA to generate the list of cosmic rays
-    Generate_CR_samples_list_from_PARMA();
-
     if (settings->CR_GENRATOR_write_output_FOR_TEST) {
         generate_output_for_test();
     }
+#endif
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-Cosmic_Ray_Generator_PARMA::Parma_ID Cosmic_Ray_Generator_PARMA::find_parma_ID_from_PDG(const int PDG_in) {
+int Cosmic_Ray_Generator_PARMA::find_parma_ID_from_PDG(const int &PDG_in) {
+
+    const int pdg_phot = 22;
+    const int pdg_elec = 11;
+    const int pdg_posi = -11;
+    const int pdg_muN = 13;
+    const int pdg_muP = -13;
+    const int pdg_neut = 2112;
+    const int pdg_prot = 2212;
+
+    const int parma_phot = 33;
+    const int parma_elec = 31;
+    const int parma_posi = 32;
+    const int parma_muN = 30;
+    const int parma_muP = 29;
+    const int parma_neut = 0;
+    const int parma_prot = 1;
+
     switch (PDG_in) {
-        case Settings::pdg_phot:
+        case pdg_phot:
             return parma_phot;
 
-        case Settings::pdg_elec:
+        case pdg_elec:
             return parma_elec;
 
-        case Settings::pdg_posi:
+        case pdg_posi:
             return parma_posi;
 
-        case Settings::pdg_muP:
-            return parma_muP;
-
-        case Settings::pdg_muN:
+        case pdg_muN:
             return parma_muN;
 
-        case Settings::pdg_neut:
+        case pdg_muP:
+            return parma_muP;
+
+        case pdg_neut:
             return parma_neut;
 
-        case Settings::pdg_prot:
+        case pdg_prot:
             return parma_prot;
 
         default:
@@ -86,48 +135,41 @@ Cosmic_Ray_Generator_PARMA::Parma_ID Cosmic_Ray_Generator_PARMA::find_parma_ID_f
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 geant4_initial_cosmic_ray Cosmic_Ray_Generator_PARMA::generate_Cosmic_ray() {
+
     geant4_initial_cosmic_ray g4_cosmic = {};
 
-    G4ThreeVector position_ini(0., 0., 0.);
-    G4ThreeVector momentum_ini(0., 0., 0.);
-
-    G4ParticleDefinition *particle = nullptr;
-
-    cosmic_ray_parma_output sampled_set{0, 0, 0, 0};
-
     //            sampled_set = read_particles[index_sampling_part];
-    sampled_set = sample_One_CR_from_PARMA();
+    cosmic_ray_parma_output sampled_set = sample_One_CR_from_PARMA();
 
-    position_ini = sample_CR_secondary_position(sampled_set.altitude);
+    G4ThreeVector position_ini = sample_CR_secondary_position(sampled_set.altitude);
 
     // from PARMA OUTPUT:
     //   cos(theta)=1,  indicates  the  vertical  downward  direction,
     //   while  90  degree,  i.e.  cos(theta)=0, indicates the horizontal direction.
-    momentum_ini = CR_direction_rand_sample(-1.0 * sampled_set.cos_zenith_angle);
+    G4ThreeVector momentum_ini = CR_direction_rand_sample(-1.0 * sampled_set.cos_zenith_angle);
     // multiplication by -1 is important, to make sure that when sampled_set.cos_zenith_angle is 1, the particle is sampled vertical downward
-    //            G4cout << momentum_ini[1] << G4endl;
-
-    if (settings->WRITE_MOM_OUTPUT_FOR_TEST) {
-        generate_output_for_test_momentum(momentum_ini);
-    }
 
     const double time = 0.0;
     const double energy = sampled_set.energy * MeV;
-    particle = particles_type_wanted[sampled_set.type - 1];
 
     g4_cosmic.energy = energy;
     g4_cosmic.time = time;
     g4_cosmic.momentum_ini = momentum_ini;
     g4_cosmic.position_ini = position_ini;
-    g4_cosmic.g4_particle = particle;
+    g4_cosmic.g4_particle = particles_type_wanted;
 
+#ifndef NDEBUG
+    if (settings->WRITE_MOM_OUTPUT_FOR_TEST) {
+        generate_output_for_test_momentum(momentum_ini);
+    }
+#endif
     return g4_cosmic;
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // Following angular distributions compuer from PARMA code
 G4ThreeVector Cosmic_Ray_Generator_PARMA::CR_direction_rand_sample(const double &cos_Sampled) {
-    G4ThreeVector momentum_ini;
+    G4ThreeVector momentum_ini{};
 
     // if cos_Sampled == 1 (zenith) then direction should be (0,1,0)
 
@@ -149,7 +191,7 @@ G4ThreeVector Cosmic_Ray_Generator_PARMA::sample_CR_secondary_position(const dou
 
     G4ThreeVector position = {(r1 - 0.5) * settings->CR_SAMPLING_XZ_HALF_SIZE * 2.0 * CLHEP::km,
                               altitude * CLHEP::km,
-                              (r2 - 0.5) * settings->CR_SAMPLING_XZ_HALF_SIZE * 2.0 * CLHEP::km    };
+                              (r2 - 0.5) * settings->CR_SAMPLING_XZ_HALF_SIZE * 2.0 * CLHEP::km};
 
     return position;
 }
@@ -162,19 +204,18 @@ cosmic_ray_parma_output Cosmic_Ray_Generator_PARMA::sample_One_CR_from_PARMA() {
     {
         Generate_CR_samples_list_from_PARMA();
 
+#ifndef NDEBUG
         if (settings->CR_GENRATOR_write_output_FOR_TEST) {
             generate_output_for_test();
         }
-
+#endif
         G4cout << "Generated " << nb_int << " new random cosmic ray particles." << G4endl;
     }
 
     const double eRand = output_energies[counter];
     const double cos_angRand = output_cosangles[counter];
     const double alt_Rand = output_altitudes[counter];
-    const int idx_particle_sampled = output_types[counter];
     counter++;
-
 
 #ifndef NDEBUG // if debug mode, some sanity checks
 
@@ -200,13 +241,7 @@ cosmic_ray_parma_output Cosmic_Ray_Generator_PARMA::sample_One_CR_from_PARMA() {
 
 #endif // ifndef NDEBUG
 
-    cosmic_ray_parma_output spld_set{idx_particle_sampled, cos_angRand, alt_Rand, eRand};
-
-    // equivalently:
-    //    spld_set.energy = eRand;
-    //    spld_set.cos_zenith_angle = cos_angRand;
-    //    spld_set.altitude = alt_Rand;
-    //    spld_set.type = idx_particle_sampled;
+    cosmic_ray_parma_output spld_set{cos_angRand, alt_Rand, eRand};
 
     return spld_set;
 }
@@ -215,10 +250,9 @@ cosmic_ray_parma_output Cosmic_Ray_Generator_PARMA::sample_One_CR_from_PARMA() {
 
 void Cosmic_Ray_Generator_PARMA::Generate_CR_samples_list_from_PARMA() {
 
-
     int nb = nb_int;
 
-    int *parmaID_list_wanted2 = &parmaID_list_wanted[0]; // trick to transform a C++ vector into a C array
+    int *parmaID_list_wanted2 = &parmaID_wanted;
 
     const int the_seed = myUtils::generate_a_unique_ID_int32();
 
@@ -244,6 +278,37 @@ void Cosmic_Ray_Generator_PARMA::Generate_CR_samples_list_from_PARMA() {
                   &nb_part_type_wanted);
 
     counter = 0;
+}
+
+// ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+std::vector<double> Cosmic_Ray_Generator_PARMA::Calculate_Weights_from_PARMA() {
+
+    double output_w[n_types_for_weights];
+
+    int *parmaID_list_wanted2 = &parmaID_list_ALL[0]; // trick to transform a C++ vector into a C array
+
+    get_parma_particles_weights_(output_w,
+                                 parmaID_list_wanted2,
+                                 &n_types_for_weights,
+                                 &min_alt,
+                                 &max_alt,
+                                 &min_cr_ener,
+                                 &max_cr_ener,
+                                 &iyear,
+                                 &imonth,
+                                 &iday,
+                                 &glat,
+                                 &glong);
+
+    std::vector<double> output;
+    output.clear();
+    output.reserve(7);
+    for (int ii = 0; ii < n_types_for_weights; ++ii) {
+        output.push_back(output_w[ii]);
+    }
+
+    return output;
 }
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

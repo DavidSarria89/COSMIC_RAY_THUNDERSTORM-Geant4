@@ -4,6 +4,8 @@
 #include "G4RunManager.hh"
 #include "Run.hh"
 
+extern double INITIAL_ENERGY_MEV;
+
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 SteppingAction::SteppingAction(DetectorConstruction *det, EventAction *event) : G4UserSteppingAction(), fDetector(det), fEventAction(event) {
@@ -93,6 +95,9 @@ void SteppingAction::UserSteppingAction(const G4Step *aStep) {
             const double dt_since_event_start = (myUtils::get_wall_time() / 1.0e6 - settings->T0);
 
             G4cout << G4endl << G4endl << "Run ID (rng seed): " << settings->RANDOM_SEED << G4endl;
+            G4cout << "Use stacking action: " << settings->USE_STACKING_ACTION << G4endl;
+            G4cout << "Initial sampled type (PARMA): " << get_name(settings->INITIAL_SAMPLE_TYPE) << G4endl;
+            G4cout << "Energy of current initial particle: " << std::round(INITIAL_ENERGY_MEV * 100) / 100 << " MeV" << G4endl;
             G4cout << "Currently used RAM: " << std::round(USED_RAM * 1000) / 1000 << " GB" << G4endl;
             G4cout << "Available RAM: " << std::round(total_ram * 1000) / 1000 << " GB" << G4endl;
             G4cout << "Average CPU time to compute 10 events: " << std::round(dt_since_run_start / double(settings->NB_EVENT) * 10.0 * 1000.0) / 1000.0
@@ -281,4 +286,19 @@ index_found SteppingAction::find_particle_index(const int PDG_in) {
     }
 
     return my_index_found;
+}
+
+// ------------------------------------------------------------------------
+G4String SteppingAction::get_name(int PDG) {
+    G4String name;
+    if (PDG == 22) name = "photon";
+    else if (PDG == 11) name = "electron";
+    else if (PDG == -11) name = "positron";
+    else if (PDG == -13) name = "MuonP";
+    else if (PDG == 13) name = "MuonN";
+    else if (PDG == 2212) name = "proton";
+    else if (PDG == 2112) name = "neutron";
+    else std::abort();
+
+    return name;
 }

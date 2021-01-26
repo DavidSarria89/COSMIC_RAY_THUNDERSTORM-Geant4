@@ -4,8 +4,8 @@ Geant4-based code for simulation effect of thunderstorms electric fields on cosm
 =======
 
 ## Generalities
-* Code based on Geant4 (particle propagation in arbitrary materials, with arbitrary electric-fields), NRL-MSISE-00 (atmosphere model) and PARMA or CRY (cosmic-ray model) to simulate the effect of thunderstorms electric fields on cosmic ray fluxes (electrons, positrons, muons, photons, etc.).
-* Integrates the [NRL-MSISE-00 model](https://ccmc.gsfc.nasa.gov/pub/modelweb/atmospheric/msis/nrlmsise00/) for the atmosphere. The cosmic-ray particles can be generated using [PARMA](https://phits.jaea.go.jp/expacs/) or [CRY](https://nuclear.llnl.gov/simulation/main.html) (this last cannot generate particules at an altitude higher than 11.3 km).
+* Code based on Geant4 (particle propagation in arbitrary materials, with arbitrary electric-fields), NRL-MSISE-00 (atmosphere model) and PARMA (cosmic-ray model) to simulate the effect of thunderstorms electric fields on cosmic ray fluxes (electrons, positrons, muons, photons, etc.).
+* Integrates the [NRL-MSISE-00 model](https://ccmc.gsfc.nasa.gov/pub/modelweb/atmospheric/msis/nrlmsise00/) for the atmosphere. The cosmic-ray particles can be generated using [PARMA](https://phits.jaea.go.jp/expacs/).
 * The code itself mostly uses Geant4 features. See [documentation](http://geant4-userdoc.web.cern.ch/geant4-userdoc/UsersGuides/ForApplicationDeveloper/html/index.html "Geant4 documentation").
 * This output is written as an ASCII file in the folder `build/output` as histograms of energies and momentums, for photons, electrons and positrons. The file `build/OUTPUT_FILE_DESCRIPTION.md` explains the output files' content.
 * Feel free to clone, fork and suggest improvements for the code.
@@ -16,9 +16,7 @@ Geant4-based code for simulation effect of thunderstorms electric fields on cosm
 * Requires a Geant4 installation (library and headers), see [the website](http://geant4.web.cern.ch/) and [installation instructions](http://geant4-userdoc.web.cern.ch/geant4-userdoc/UsersGuides/InstallationGuide/html/index.html). Recommended version is 10.6.3. For Linux and Ubuntu users, easy installation scripts are provided in the [following repository](https://github.com/DavidSarria89/GEANT4-easy-install-script).
 
 ## Compilation
-* The source code is localted in `src/` and the build should be done in the folder `build/`.
-* First, go to the folder `src/CRY/`, open a terminal and run the command `make` to compile CRY.
-* Then, open a terminal in the `build/` directory and type the commands `cmake ../` and then `make` to compile the code. It produces the executable `build/mos_test`
+* Open a terminal in the `build/` directory and type the commands `cmake ../` and then `make` to compile the code. It produces the executable `build/mos_test`
 
 ## Usage
 * The executable `mos_test` runs with parameters specified inside the code (see **Simulation Settings**).

@@ -53,26 +53,24 @@ file(GLOB sourcesc ${PROJECT_SOURCE_DIR}/src/src/*.c)
 file(GLOB sourcesc2 ${PROJECT_SOURCE_DIR}/src/src/C_functions/*.c)
 file(GLOB sourcesh ${PROJECT_SOURCE_DIR}/src/include/*.h)
 file(GLOB main ${PROJECT_SOURCE_DIR}/src/mos_test.cc)
-file(GLOB CRY ${PROJECT_SOURCE_DIR}/src/CRY/src/*.h)
 
 #${hdf}
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(mos_test ${main} ${sourcesf} ${sourcesMSISH} ${sourcesMSISC} ${sourcesf90} ${sourcesf902} ${sourcesc} ${sourcesc2} ${sourcesh} ${sources} ${headers} ${CRY})
+add_executable(mos_test ${main} ${sourcesf} ${sourcesMSISH} ${sourcesMSISC} ${sourcesf90} ${sourcesf902} ${sourcesc} ${sourcesc2} ${sourcesh} ${sources} ${headers})
 target_link_libraries(mos_test ${Geant4_LIBRARIES})
-target_link_libraries(mos_test ${PROJECT_SOURCE_DIR}/src/CRY/lib/libCRY.a)
 
 target_include_directories(mos_test PUBLIC ${UUID_INCLUDE_DIRS})
 target_link_libraries(mos_test ${UUID_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
-#if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     # using GCC
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -mfpmath=sse -msse2 -ffp-contract=off")
     set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -ffree-line-length-512")
-#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-#    # using Intel C++
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fp-model=extended")
-#endif ()
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
+    # using Intel C++
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fp-model=extended")
+endif ()
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

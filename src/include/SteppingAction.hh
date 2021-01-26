@@ -42,6 +42,8 @@ public:
 
 private:
 
+    G4String get_name(int PDG);
+
     index_found find_particle_index(const int PDG_in);
 
     uint ALL_TICKS_COUNTER = 0;

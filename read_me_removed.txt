@@ -1,0 +1,2 @@
+* The electric field can be automatically shut down if the simulation is using too much RAM (to avoid computer crash). Now done if more than 50 % of the total available RAM is used. Can be changed with the simulation setting `RAM_FRACTION_LIMIT`.
+* The current event can be shut down if it takes too much time to run. This can be changed with the setting `EVENT_CPU_TIME_DURATION_MAX` (in seconds of CPU time).

@@ -71,7 +71,7 @@ private:
 
     bool check_RAM_USAGE_LIMIT();
 
-    static const int buffer_size = 10000;
+    static const int buffer_size = 1000;
 
 protected:
 
@@ -82,7 +82,7 @@ protected:
 
     //        std::vector<double> LIST_ENERGIES;
     double VARIABLE_TIME_LIMIT;
-    const double TIME_STEP = 0.5 * microsecond; //
+    const double TIME_STEP = 1.0 * microsecond; //
 
     const double ENER_THRES = 100.0 * keV;
     const uint ENERGETIC_PART_NB_LIMIT = 10000;

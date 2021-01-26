@@ -71,31 +71,84 @@ AnalysisManager::AnalysisManager() // constructor
 
     RECORDED_OUTPUT_STRINGS.clear();
 
-    G4String first_part = "./output/photon_ener_mom_dists_";
+    G4String second_part;
+    G4String first_part;
+
+    G4String pot = std::to_string(int(settings->POTENTIAL_VALUE)) + "MV";
+
+    G4String dir_pot = "mkdir -p ./output/" + pot;
+    G4String dir_seed = "/" + std::to_string(settings->RANDOM_SEED) + "/";
+    system(dir_pot);
+
+    if (settings->INITIAL_SAMPLE_TYPE == 22) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_photon";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_photon" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_photon/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == 11) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_electron";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_electron" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_electron/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == -11) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_positron";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_positron" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_positron/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == 13) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_muonN";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_muonN" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_muonN/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == -13) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_muonP";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_muonP" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_muonP/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == 2112) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_neutron";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_neutron" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_neutron/" + dir_seed;
+    } else if (settings->INITIAL_SAMPLE_TYPE == 2212) {
+        G4String mkdir_str = "mkdir -p ./output/" + pot + "/initial_proton";
+        system(mkdir_str);
+        G4String mkdir_str2 = "mkdir -p ./output/" + pot + "/initial_proton" + dir_seed;
+        system(mkdir_str2);
+        first_part = "./output/" + pot + "/initial_proton/" + dir_seed;
+    }
+
+    second_part = first_part + "photon_ener_mom_dists_";
+
     G4String potential_str = "_" + std::to_string(int(settings->POTENTIAL_VALUE));
     G4String efield_alt_str = "_" + std::to_string(int(settings->EFIELD_REGION_Y_CENTER * 10.));
     G4String efield_length_str = "_" + std::to_string(int(settings->EFIELD_REGION_Y_LEN * 100.));
     G4String rec_alt_part = "_" + std::to_string(int(settings->RECORD_ALTITUDE * 10.));
-    asciiFileName_phot = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    asciiFileName_phot = second_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    first_part = "./output/electron_ener_mom_dists_";
-    asciiFileName_elec = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    second_part = first_part + "electron_ener_mom_dists_";
+    asciiFileName_elec = second_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    first_part = "./output/positron_ener_mom_dists_";
-    asciiFileName_posi = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    second_part = first_part + "positron_ener_mom_dists_";
+    asciiFileName_posi = second_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    first_part = "./output/muonp_ener_mom_dists_";
-    asciiFileName_mup = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    second_part = first_part + "muonn_ener_mom_dists_";
+    asciiFileName_mn = second_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
-    first_part = "./output/muonn_ener_mom_dists_";
-    asciiFileName_mun = first_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
+    second_part = first_part + "muonp_ener_mom_dists_";
+    asciiFileName_mp = second_part + std::to_string(settings->RANDOM_SEED) + rec_alt_part + potential_str + efield_alt_str + efield_length_str + ".out";
 
     G4cout << "Reserving output file : " << asciiFileName_phot << G4endl;
     G4cout << "Reserving output file : " << asciiFileName_elec << G4endl;
     G4cout << "Reserving output file : " << asciiFileName_posi << G4endl;
-    G4cout << "Reserving output file : " << asciiFileName_mup << G4endl;
-    G4cout << "Reserving output file : " << asciiFileName_mun << G4endl;
-
+    G4cout << "Reserving output file : " << asciiFileName_mp << G4endl;
+    G4cout << "Reserving output file : " << asciiFileName_mn << G4endl;
 
 }
 
@@ -125,47 +178,46 @@ void AnalysisManager::write_output_files() {
     // Photons
     asciiFile_analysis_phot.open(asciiFileName_phot, std::ios::out | std::ios::app);
 
-    uint i_p = 0;
-
     if (asciiFile_analysis_phot.is_open()) {
         asciiFile_analysis_phot << std::scientific << std::setprecision(5)
                                 << settings->RANDOM_SEED
-                                << " " << settings->PDG_LIST[i_p]
+                                << " " << settings->PDG_LIST[settings->i_p]
                                 << " " << settings->NB_EVENT
                                 << " " << settings->EFIELD_REGION_Y_CENTER
                                 << " " << settings->EFIELD_REGION_Y_LEN
                                 << " " << settings->POTENTIAL_VALUE
                                 << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
-                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_p]
-                                << " " << settings->NB_LONG_CPU_TIME;
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[settings->i_p]
+                                << " " << settings->NB_LONG_CPU_TIME
+                                << " " << settings->INITIAL_SAMPLE_TYPE
+                                << " " << settings->CURRENT_WEIGHT;
 
         asciiFile_analysis_phot << G4endl << G4endl;
 
-
-        asciiFile_analysis_phot << counter_total[i_p] << " ";
+        asciiFile_analysis_phot << counter_total[settings->i_p] << " ";
 
         asciiFile_analysis_phot << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngride; ++ii) {
-            asciiFile_analysis_phot << PART_SPEC[i_p][ii] << " ";
+            asciiFile_analysis_phot << PART_SPEC[settings->i_p][ii] << " ";
         }
 
         asciiFile_analysis_phot << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_phot << PART_MOM_X[i_p][ii] << " ";
+            asciiFile_analysis_phot << PART_MOM_X[settings->i_p][ii] << " ";
         }
 
         asciiFile_analysis_phot << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_phot << PART_MOM_Y[i_p][ii] << " ";
+            asciiFile_analysis_phot << PART_MOM_Y[settings->i_p][ii] << " ";
         }
 
         asciiFile_analysis_phot << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_phot << PART_MOM_Z[i_p][ii] << " ";
+            asciiFile_analysis_phot << PART_MOM_Z[settings->i_p][ii] << " ";
         }
 
         asciiFile_analysis_phot << G4endl;
@@ -179,46 +231,46 @@ void AnalysisManager::write_output_files() {
     // Electrons
     asciiFile_analysis_elec.open(asciiFileName_elec, std::ios::out | std::ios::app);
 
-    uint i_e = 1;
-
     if (asciiFile_analysis_elec.is_open()) {
         asciiFile_analysis_elec << std::scientific << std::setprecision(5)
                                 << settings->RANDOM_SEED
-                                << " " << settings->PDG_LIST[i_e]
+                                << " " << settings->PDG_LIST[settings->i_e]
                                 << " " << settings->NB_EVENT
                                 << " " << settings->EFIELD_REGION_Y_CENTER
                                 << " " << settings->EFIELD_REGION_Y_LEN
                                 << " " << settings->POTENTIAL_VALUE
                                 << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
-                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_e]
-                                << " " << settings->NB_LONG_CPU_TIME;
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[settings->i_e]
+                                << " " << settings->NB_LONG_CPU_TIME
+                                << " " << settings->INITIAL_SAMPLE_TYPE
+                                << " " << settings->CURRENT_WEIGHT;
 
         asciiFile_analysis_elec << G4endl << G4endl;
 
-        asciiFile_analysis_elec << counter_total[i_e] << " ";
+        asciiFile_analysis_elec << counter_total[settings->i_e] << " ";
 
         asciiFile_analysis_elec << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngride; ++ii) {
-            asciiFile_analysis_elec << PART_SPEC[i_e][ii] << " ";
+            asciiFile_analysis_elec << PART_SPEC[settings->i_e][ii] << " ";
         }
 
         asciiFile_analysis_elec << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_elec << PART_MOM_X[i_e][ii] << " ";
+            asciiFile_analysis_elec << PART_MOM_X[settings->i_e][ii] << " ";
         }
 
         asciiFile_analysis_elec << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_elec << PART_MOM_Y[i_e][ii] << " ";
+            asciiFile_analysis_elec << PART_MOM_Y[settings->i_e][ii] << " ";
         }
 
         asciiFile_analysis_elec << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_elec << PART_MOM_Z[i_e][ii] << " ";
+            asciiFile_analysis_elec << PART_MOM_Z[settings->i_e][ii] << " ";
         }
 
         asciiFile_analysis_elec << G4endl;
@@ -231,46 +283,47 @@ void AnalysisManager::write_output_files() {
 
     // Positrons
     asciiFile_analysis_posi.open(asciiFileName_posi, std::ios::out | std::ios::app);
-    uint i_ep = 2;
 
     if (asciiFile_analysis_posi.is_open()) {
         asciiFile_analysis_posi << std::scientific << std::setprecision(5)
                                 << settings->RANDOM_SEED
-                                << " " << settings->PDG_LIST[i_ep]
+                                << " " << settings->PDG_LIST[settings->i_ep]
                                 << " " << settings->NB_EVENT
                                 << " " << settings->EFIELD_REGION_Y_CENTER
                                 << " " << settings->EFIELD_REGION_Y_LEN
                                 << " " << settings->POTENTIAL_VALUE
                                 << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
-                                << " " << settings->NB_EVENTS_WITH_DETECTION[i_ep]
-                                << " " << settings->NB_LONG_CPU_TIME;
+                                << " " << settings->NB_EVENTS_WITH_DETECTION[settings->i_ep]
+                                << " " << settings->NB_LONG_CPU_TIME
+                                << " " << settings->INITIAL_SAMPLE_TYPE
+                                << " " << settings->CURRENT_WEIGHT;
 
         asciiFile_analysis_posi << G4endl << G4endl;
 
-        asciiFile_analysis_posi << counter_total[i_ep] << " ";
+        asciiFile_analysis_posi << counter_total[settings->i_ep] << " ";
 
         asciiFile_analysis_posi << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngride; ++ii) {
-            asciiFile_analysis_posi << PART_SPEC[i_ep][ii] << " ";
+            asciiFile_analysis_posi << PART_SPEC[settings->i_ep][ii] << " ";
         }
 
         asciiFile_analysis_posi << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_posi << PART_MOM_X[i_ep][ii] << " ";
+            asciiFile_analysis_posi << PART_MOM_X[settings->i_ep][ii] << " ";
         }
 
         asciiFile_analysis_posi << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_posi << PART_MOM_Y[i_ep][ii] << " ";
+            asciiFile_analysis_posi << PART_MOM_Y[settings->i_ep][ii] << " ";
         }
 
         asciiFile_analysis_posi << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_posi << PART_MOM_Z[i_ep][ii] << " ";
+            asciiFile_analysis_posi << PART_MOM_Z[settings->i_ep][ii] << " ";
         }
 
         asciiFile_analysis_posi << G4endl;
@@ -281,117 +334,117 @@ void AnalysisManager::write_output_files() {
 
     asciiFile_analysis_posi.close();
 
-    // muons +
-    asciiFile_analysis_mup.open(asciiFileName_mup, std::ios::out | std::ios::app);
-    uint i_mp = 3;
-
-    if (asciiFile_analysis_mup.is_open()) {
-        asciiFile_analysis_mup << std::scientific << std::setprecision(5)
-                               << settings->RANDOM_SEED
-                               << " " << settings->PDG_LIST[i_mp]
-                               << " " << settings->NB_EVENT
-                               << " " << settings->EFIELD_REGION_Y_CENTER
-                               << " " << settings->EFIELD_REGION_Y_LEN
-                               << " " << settings->POTENTIAL_VALUE
-                               << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
-                               << " " << settings->NB_EVENTS_WITH_DETECTION[i_mp]
-                               << " " << settings->NB_LONG_CPU_TIME;
-
-        asciiFile_analysis_mup << G4endl << G4endl;
-
-        asciiFile_analysis_mup << counter_total[i_mp] << " ";
-
-        asciiFile_analysis_mup << G4endl << G4endl;
-
-        for (uint ii = 0; ii < ngride; ++ii) {
-            asciiFile_analysis_mup << PART_SPEC[i_mp][ii] << " ";
-        }
-
-        asciiFile_analysis_mup << G4endl << G4endl;
-
-        for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mup << PART_MOM_X[i_mp][ii] << " ";
-        }
-
-        asciiFile_analysis_mup << G4endl << G4endl;
-
-        for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mup << PART_MOM_Y[i_mp][ii] << " ";
-        }
-
-        asciiFile_analysis_mup << G4endl << G4endl;
-
-        for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mup << PART_MOM_Z[i_mp][ii] << " ";
-        }
-
-
-        asciiFile_analysis_mup << G4endl;
-    } else {
-        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
-        std::abort();
-    }
-
-    asciiFile_analysis_mup.close();
-
-
     // muons -
-    asciiFile_analysis_mun.open(asciiFileName_mun, std::ios::out | std::ios::app);
-    uint i_mn = 4;
+    asciiFile_analysis_mn.open(asciiFileName_mn, std::ios::out | std::ios::app);
 
-    if (asciiFile_analysis_mun.is_open()) {
-        asciiFile_analysis_mun << std::scientific << std::setprecision(5)
-                               << settings->RANDOM_SEED
-                               << " " << settings->PDG_LIST[i_mn]
-                               << " " << settings->NB_EVENT
-                               << " " << settings->EFIELD_REGION_Y_CENTER
-                               << " " << settings->EFIELD_REGION_Y_LEN
-                               << " " << settings->POTENTIAL_VALUE
-                               << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
-                               << " " << settings->NB_EVENTS_WITH_DETECTION[i_mn]
-                               << " " << settings->NB_LONG_CPU_TIME;
+    if (asciiFile_analysis_mn.is_open()) {
+        asciiFile_analysis_mn << std::scientific << std::setprecision(5)
+                              << settings->RANDOM_SEED
+                              << " " << settings->PDG_LIST[settings->i_mn]
+                              << " " << settings->NB_EVENT
+                              << " " << settings->EFIELD_REGION_Y_CENTER
+                              << " " << settings->EFIELD_REGION_Y_LEN
+                              << " " << settings->POTENTIAL_VALUE
+                              << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                              << " " << settings->NB_EVENTS_WITH_DETECTION[settings->i_mn]
+                              << " " << settings->NB_LONG_CPU_TIME
+                              << " " << settings->INITIAL_SAMPLE_TYPE
+                              << " " << settings->CURRENT_WEIGHT;
 
-        asciiFile_analysis_mun << G4endl << G4endl;
+        asciiFile_analysis_mn << G4endl << G4endl;
 
-        asciiFile_analysis_mun << counter_total[i_mn] << " ";
+        asciiFile_analysis_mn << counter_total[settings->i_mn] << " ";
 
-        asciiFile_analysis_mun << G4endl << G4endl;
+        asciiFile_analysis_mn << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngride; ++ii) {
-            asciiFile_analysis_mun << PART_SPEC[i_mn][ii] << " ";
+            asciiFile_analysis_mn << PART_SPEC[settings->i_mn][ii] << " ";
         }
 
-        asciiFile_analysis_mun << G4endl << G4endl;
+        asciiFile_analysis_mn << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mun << PART_MOM_X[i_mn][ii] << " ";
+            asciiFile_analysis_mn << PART_MOM_X[settings->i_mn][ii] << " ";
         }
 
-        asciiFile_analysis_mun << G4endl << G4endl;
+        asciiFile_analysis_mn << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mun << PART_MOM_Y[i_mn][ii] << " ";
+            asciiFile_analysis_mn << PART_MOM_Y[settings->i_mn][ii] << " ";
         }
 
-        asciiFile_analysis_mun << G4endl << G4endl;
+        asciiFile_analysis_mn << G4endl << G4endl;
 
         for (uint ii = 0; ii < ngridm; ++ii) {
-            asciiFile_analysis_mun << PART_MOM_Z[i_mn][ii] << " ";
+            asciiFile_analysis_mn << PART_MOM_Z[settings->i_mn][ii] << " ";
         }
 
 
-        asciiFile_analysis_mun << G4endl;
+        asciiFile_analysis_mn << G4endl;
     } else {
         G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
         std::abort();
     }
 
-    asciiFile_analysis_mun.close();
+    asciiFile_analysis_mn.close();
 
     if (settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED) {
         G4cout << G4endl << "Aborting run since the limit ram usage has been exceeded." << G4endl;
         std::abort();
     }
+
+    // muons +
+    asciiFile_analysis_mp.open(asciiFileName_mp, std::ios::out | std::ios::app);
+
+    if (asciiFile_analysis_mp.is_open()) {
+        asciiFile_analysis_mp << std::scientific << std::setprecision(5)
+                              << settings->RANDOM_SEED
+                              << " " << settings->PDG_LIST[settings->i_mp]
+                              << " " << settings->NB_EVENT
+                              << " " << settings->EFIELD_REGION_Y_CENTER
+                              << " " << settings->EFIELD_REGION_Y_LEN
+                              << " " << settings->POTENTIAL_VALUE
+                              << " " << settings->RAM_USAGE_LIMIT_HAS_BEEN_REACHED
+                              << " " << settings->NB_EVENTS_WITH_DETECTION[settings->i_mp]
+                              << " " << settings->NB_LONG_CPU_TIME
+                              << " " << settings->INITIAL_SAMPLE_TYPE
+                              << " " << settings->CURRENT_WEIGHT;
+
+        asciiFile_analysis_mp << G4endl << G4endl;
+
+        asciiFile_analysis_mp << counter_total[settings->i_mp] << " ";
+
+        asciiFile_analysis_mp << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngride; ++ii) {
+            asciiFile_analysis_mp << PART_SPEC[settings->i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mp << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mp << PART_MOM_X[settings->i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mp << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mp << PART_MOM_Y[settings->i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mp << G4endl << G4endl;
+
+        for (uint ii = 0; ii < ngridm; ++ii) {
+            asciiFile_analysis_mp << PART_MOM_Z[settings->i_mp][ii] << " ";
+        }
+
+        asciiFile_analysis_mp << G4endl;
+    } else {
+        G4cout << G4endl << "ERROR : cannot open output file. Aborting." << G4endl;
+        std::abort();
+    }
+
+    asciiFile_analysis_mp.close();
 
 }
 
@@ -431,7 +484,7 @@ G4double AnalysisManager::interpolate(std::vector<G4double> &xData, std::vector<
 
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4double AnalysisManager::get_scale(const G4double alt) {
+G4double AnalysisManager::get_scale(const G4double &alt) {
     // returns the atmospheric relative scale compared to sea level (>1)
     // input is altitude in km
     std::vector<G4double> alt_list =
@@ -599,17 +652,17 @@ void AnalysisManager::clean_output_files() {
         std::abort();
     }
 
-    asciiFile_analysis_mup.open(asciiFileName_mup, std::ios::trunc);
-    if (asciiFile_analysis_mup.is_open()) {
-        asciiFile_analysis_mup.close();
+    asciiFile_analysis_mp.open(asciiFileName_mp, std::ios::trunc);
+    if (asciiFile_analysis_mp.is_open()) {
+        asciiFile_analysis_mp.close();
     } else {
         G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
         std::abort();
     }
 
-    asciiFile_analysis_mun.open(asciiFileName_mun, std::ios::trunc);
-    if (asciiFile_analysis_mun.is_open()) {
-        asciiFile_analysis_mun.close();
+    asciiFile_analysis_mn.open(asciiFileName_mn, std::ios::trunc);
+    if (asciiFile_analysis_mn.is_open()) {
+        asciiFile_analysis_mn.close();
     } else {
         G4cout << G4endl << "ERROR : cannot open output file. Aborting" << G4endl;
         std::abort();

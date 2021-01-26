@@ -116,19 +116,19 @@ private:
     G4String asciiFileName_phot;
     G4String asciiFileName_elec;
     G4String asciiFileName_posi;
-    G4String asciiFileName_mup;
-    G4String asciiFileName_mun;
+    G4String asciiFileName_mp;
+    G4String asciiFileName_mn;
 
     std::vector<G4String> RECORDED_OUTPUT_STRINGS;
 
     std::ofstream asciiFile_analysis_phot;
     std::ofstream asciiFile_analysis_elec;
     std::ofstream asciiFile_analysis_posi;
-    std::ofstream asciiFile_analysis_mup;
-    std::ofstream asciiFile_analysis_mun;
+    std::ofstream asciiFile_analysis_mp;
+    std::ofstream asciiFile_analysis_mn;
 
 
-    G4double get_scale(const G4double alt);
+    G4double get_scale(const G4double &alt);
 
     G4double interpolate(std::vector<G4double> &xData,
                          std::vector<G4double> &yData,

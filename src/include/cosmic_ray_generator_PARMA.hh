@@ -18,7 +18,6 @@
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 struct cosmic_ray_parma_output {
-    int type;
     double cos_zenith_angle;
     double altitude;
     double energy;
@@ -31,13 +30,23 @@ public:
 
     Cosmic_Ray_Generator_PARMA();
 
-    ~Cosmic_Ray_Generator_PARMA();
+    ~Cosmic_Ray_Generator_PARMA() = default;
 
     geant4_initial_cosmic_ray generate_Cosmic_ray();
+
+    std::vector<double> Calculate_Weights_from_PARMA();
 
 private:
 
     double rand_double();
+
+    const int i_phot = 0;
+    const int i_elec = 1;
+    const int i_posi = 2;
+    const int i_muN = 3;
+    const int i_muP = 4;
+    const int i_neut = 5;
+    const int i_prot = 6;
 
     Settings *settings = Settings::getInstance();
 
@@ -45,20 +54,26 @@ private:
         parma_phot = 33,
         parma_elec = 31,
         parma_posi = 32,
-        parma_muP = 29,
         parma_muN = 30,
+        parma_muP = 29,
         parma_neut = 0,
         parma_prot = 1
     };
 
+    std::vector<int> parmaID_list_ALL{parma_phot,
+                                      parma_elec,
+                                      parma_posi,
+                                      parma_muN,
+                                      parma_muP,
+                                      parma_neut,
+                                      parma_prot};
+
     ////////////////////////////////////////////////
 
-    const std::vector<int> PDG_LIST = settings->PDG_LIST_ALL;      // the list of particles types we want
+    const int nb_part_type_wanted = 1;
 
-    int nb_part_type_wanted = 0;                                  // initialization, will have the size of ID_list_wanted and particles_wanted,
-    // determined at runtime
-    std::vector<int> parmaID_list_wanted;                                     // the particles (parma ID) we want
-    std::vector<G4ParticleDefinition *> particles_type_wanted; // the particles types we want
+    int parmaID_wanted;                  // the particles (parma ID) we want to generate
+    G4ParticleDefinition *particles_type_wanted = nullptr; // the particles types we want to generate
 
     double min_cr_ener = settings->CR_GENERATION_ENER_MIN;      // MeV
     double max_cr_ener = settings->CR_GENERATION_ENER_MAX;      // MeV
@@ -81,11 +96,13 @@ private:
     int counter = 0;      // indexing of the sampled cosmic rays
     int seed_cr_smpl = 123456; // dummy value, random seed of CR generator
 
-    const static int nb_int = 1000000; // number of cosmic to generate. If all are used, it will generate again
-    double output_energies[nb_int];
-    double output_cosangles[nb_int];
-    double output_altitudes[nb_int];
-    int output_types[nb_int];
+    const static int nb_int = 10000; // number of cosmic to generate. If all are used, it will generate again
+    double output_energies[nb_int]{};
+    double output_cosangles[nb_int]{};
+    double output_altitudes[nb_int]{};
+    int output_types[nb_int]{};
+
+    const int n_types_for_weights = 7;
 
     // Functions
 
@@ -101,7 +118,7 @@ private:
 
     void Generate_CR_samples_list_from_PARMA();
 
-    Parma_ID find_parma_ID_from_PDG(const int PDG_in);
+    int find_parma_ID_from_PDG(const int &PDG_in);
 
     ///
     G4String name_outFile_mom = "./tests/cr_sampl_test_mom.txt";

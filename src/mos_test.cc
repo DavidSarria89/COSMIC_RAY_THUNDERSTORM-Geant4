@@ -21,9 +21,22 @@
 #include "G4PhysListFactory.hh"
 #include "myUtils.hh"
 
+double INITIAL_ENERGY_MEV = 0;
+
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc, char **argv) {
+
+    const char *env_var[2] = {"CC", "CXX"};
+    char *env_val[2];
+    for (int i = 0; i < 2; ++i) {
+        env_val[i] = getenv(env_var[i]);
+        if (env_val[i] != NULL)
+            G4cout << "Variable = " << env_var[i] << ", Value= " << env_val[i] << G4endl;
+        else {
+            G4cout << env_var[i] << " doesn't exist" << G4endl;
+        }
+    }
 
     const double WT1 = myUtils::get_wall_time();
 
@@ -33,24 +46,24 @@ int main(int argc, char **argv) {
 
     setlocale(LC_ALL, "C");  // just in case, to avoid potential bug for PARMA ("," <-> ".")
 
-    G4String NB_PARTICLES_TO_SHOOT{};
+    G4String NB_PARTICLES_TO_SHOOT = "10000";
 
-    if (argc == 2) {
+    if (argc == 4) {
         settings->POTENTIAL_VALUE = std::stod(argv[1]);
-    } else if (argc == 3) {
-        settings->POTENTIAL_VALUE = std::stod(argv[1]);
-        settings->NB_PARTICLES_TO_GET = std::stoi(argv[2]);
-    } else if (argc > 3) {
-        G4cout << "ERROR. Executable should not have more than 2 input arguments (potential in MV and Number of records to get)." << G4endl;
+        NB_PARTICLES_TO_SHOOT = argv[2];
+        settings->INITIAL_SAMPLE_TYPE = std::stoi(argv[3]);
+    } else if (argc > 4) {
+        G4cout << "ERROR. Executable should have 0 or 3 input arguments." << G4endl;
+        std::abort();
+    } else if (argc > 1 && argc < 4) {
+        G4cout << "ERROR. Executable should have 0 or 3 input arguments." << G4endl;
         std::abort();
     }
 
     if (settings->POTENTIAL_VALUE != 0.) {
-        NB_PARTICLES_TO_SHOOT = "1";
         settings->initial_efield_status = settings->efield_ON;
         settings->current_efield_status = settings->efield_ON;
     } else if (settings->POTENTIAL_VALUE == 0.) {
-        NB_PARTICLES_TO_SHOOT = "500";
         settings->initial_efield_status = settings->efield_OFF;
         settings->current_efield_status = settings->efield_OFF;
         settings->USE_STACKING_ACTION = false;
@@ -76,7 +89,7 @@ int main(int argc, char **argv) {
 
     const double f_rrea_t = analysis->get_fraction_RREA_thres(settings->POTENTIAL_VALUE, settings->EFIELD_REGION_Y_CENTER, settings->EFIELD_REGION_Y_LEN);
 
-    if (f_rrea_t < 0.3) settings->USE_STACKING_ACTION = false;
+//    if (f_rrea_t < 0.3) settings->USE_STACKING_ACTION = false;
 
     auto *runManager = new G4RunManager;
 
@@ -93,26 +106,6 @@ int main(int argc, char **argv) {
     phys->SetVerboseLevel(0);
     runManager->SetUserInitialization(phys);
 
-    // G4PhysListFactory *physListFactory = new G4PhysListFactory();
-    // G4VUserPhysicsList *physicsList = physListFactory->GetReferencePhysList("Shielding");
-    // runManager->SetUserInitialization(physicsList);
-    // auto phyli = physListFactory->AvailablePhysLists();
-    // auto phyliEM = physListFactory->AvailablePhysListsEM();
-
-    // for (int ii = 0; ii < phyli.size(); ++ii) {
-    //     G4cout << phyli[ii] << G4endl;
-    // }
-
-    // for (int ii = 0; ii < phyliEM.size(); ++ii) {
-    //     G4cout << phyliEM[ii] << G4endl;
-    // }
-
-    // physicsList->DumpList();
-
-    //    G4PhysListFactory *physListFactory = new G4PhysListFactory();
-    //    G4VUserPhysicsList *physicsList =   physListFactory->GetReferencePhysList("QGSP_BERT");
-    //    runManager ->SetUserInitialization(physicsList);
-
     runManager->SetUserInitialization(new ActionInitialization(det));
 
     // get the pointer to the User Interface manager
@@ -126,9 +119,7 @@ int main(int argc, char **argv) {
         //     UI->ApplyCommand("/run/printProgress 1000000");
         //            AnalysisManager *analysis = AnalysisManager::getInstance();
 
-        while (analysis->NB_OUTPUT < settings->NB_PARTICLES_TO_GET) {
-            UI->ApplyCommand("/run/beamOn " + NB_PARTICLES_TO_SHOOT);
-        }
+        UI->ApplyCommand("/run/beamOn " + NB_PARTICLES_TO_SHOOT);
 
         analysis->write_output_files();
 
@@ -165,7 +156,6 @@ int main(int argc, char **argv) {
 
     G4cout << "GEANT4 run finished" << G4endl;
     G4cout << "Potential: " << settings->POTENTIAL_VALUE << G4endl;
-    G4cout << "Target number of detected particles: " << settings->NB_PARTICLES_TO_GET << G4endl;
     G4cout << "Time taken: " << (WT2 - WT1) / 1.0e6 << " seconds" << G4endl;
 
     ///

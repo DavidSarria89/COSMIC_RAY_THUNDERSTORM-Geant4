@@ -16,7 +16,6 @@
 #include <numeric>
 #include <stdlib.h>
 #include "cosmic_ray_generator_PARMA.hh"
-#include "cosmic_ray_generator_CRY.hh"
 #include "Settings.hh"
 
 class G4Event;
@@ -45,7 +44,6 @@ private:
     Settings *settings = Settings::getInstance();
 
     Cosmic_Ray_Generator_PARMA *cosmic_ray_gene_p = nullptr;
-    Cosmic_Ray_Generator_CRY *cosmic_ray_gene_c = nullptr;
 
     G4ParticleGun *fParticleGun; // pointer a to G4 service class
 

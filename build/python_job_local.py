@@ -26,8 +26,12 @@ def enum(*sequential, **named):
 # Defining commands to run
 
 nb_run = 100
-POTENTIAL_LIST = [    0,    25,    50,  100,  150,  200]
-STATS_LIST =     [10000,  2500,  2500,   20,   20,   20]
+POTENTIAL_LIST = [    0,     25,     50]
+STATS_LIST =     [50000,  50000,  50000]
+#POTENTIAL_LIST = [100]
+#STATS_LIST =     [1000]
+INITIAL_PDG_LIST = [22, 11, -11, 13, -13, 2112, 2212] # photon, electron, positron, muonN, muonP, neutron, proton
+#INITIAL_PDG_LIST = [22, 11, -11, 13, -13, 2212] # photon, electron, positron, muonN, muonP, proton
 
 # defining the commands to be run in parallel
 commands = []
@@ -35,13 +39,14 @@ excecutable = './mos_test'
 
 for _ in range(nb_run):
     for ii, POT in enumerate(POTENTIAL_LIST):
-        commands.append(excecutable + ' ' + str(POT) + ' ' + str(STATS_LIST[ii]))
+        for PDG in INITIAL_PDG_LIST:
+            commands.append(excecutable + ' ' + str(POT) + ' ' + str(STATS_LIST[ii])+ ' ' + str(PDG))
 
 ################################################################################
 # LOCAL RUN (uses python multiprocessing library)
 
 if not IS_CLUSTER:
-    nb_thread = 4  # number of threads (cpu) to use
+    nb_thread = len(INITIAL_PDG_LIST)  # number of threads (cpu) to use
 
     # Making an array where each element is the list of command for a given thread
 

@@ -163,7 +163,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
 
     //    VisAtt_vac->SetVisibility(false);
 
-//    build_soil();
+    build_soil();
     build_air_layers();
 
     if (settings->USE_RECORD_REGION_STEP_MAX && nb_layers_with_maxStep == 0) {

@@ -5,6 +5,9 @@
 #include <vector>
 #include "G4ParticleDefinition.hh"
 
+// INITIAL PARTICLES CAN BE: PHOTON, ELECTRON, POSITRON, MUONN, MUONP, NEUTRON, PROTON
+// RECORD PARTICLES ARE: PHOTON, ELECTRON, POSITRON, MUONN, MUONP
+
 // ....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 struct geant4_initial_cosmic_ray {
     G4ThreeVector momentum_ini;
@@ -32,14 +35,36 @@ public:
 
 public:
 
+    const uint i_p = 0;
+    const uint i_e = 1;
+    const uint i_ep = 2;
+    const uint i_mn = 3;
+    const uint i_mp = 4;
+    const uint i_ne = 5;
+    const uint i_pr = 6;
+
+    const G4String NAMES[7]{"photon", "electron", "positron", "muonN", "muonP", "neutron", "proton"};
+
+    enum PDG_nb : int {
+        pdg_phot = 22,
+        pdg_elec = 11,
+        pdg_posi = -11,
+        pdg_muN = 13,
+        pdg_muP = -13,
+        pdg_neut = 2112,
+        pdg_prot = 2212
+    };
+
+    int INITIAL_SAMPLE_TYPE = pdg_neut; // can be changed by input variable
+
+    double CURRENT_WEIGHT = 0.0;
+
     G4String MODE = "run";
 //    G4String MODE="visu";
 
-    double POTENTIAL_VALUE = 0.0;   // MV, can be overwritten by input argument
+    double POTENTIAL_VALUE = 100.0;   // MV, can be overwritten by input argument
 
-    uint NB_PARTICLES_TO_GET = 25000;
-
-    const double MAX_POSSIBLE_TIME = 10.0 * second;
+    const double MAX_POSSIBLE_TIME = 0.05 * second;
 
     const double RECORD_ALTITUDE = 4.3; // km
 //    const double RECORD_ALTITUDE = 0.141; // km
@@ -59,23 +84,7 @@ public:
 
     const double RAM_FRACTION_LIMIT = 0.5; // between 0.0 and 1.0
 
-    const double drOverR = 0.1;
-
-    enum CR_GEN_ENGINE : int {
-        PARMA, CRY
-    };
-
-    const CR_GEN_ENGINE chosen_CR_GEN_ENGINE = PARMA;
-
-    enum PDG_nb : int {
-        pdg_phot = 22,
-        pdg_elec = 11,
-        pdg_posi = -11,
-        pdg_muP = -13,
-        pdg_muN = 13,
-        pdg_neut = 2112,
-        pdg_prot = 2212
-    };
+    const double drOverR = 0.2;
 
     const double LOW_ENERGY_THRES = 8.0 * keV; // electrons with lower energies do not contribute to RREA
 
@@ -83,10 +92,12 @@ public:
         efield_ON, efield_OFF
     };
 
-    // list of PDG number of particles that we want to generate from parma and be recorded
-    const std::vector<int> PDG_LIST = {pdg_phot, pdg_elec, pdg_posi, pdg_muP, pdg_muN};
+    std::vector<double> WEIGHTS;
 
-    const std::vector<int> PDG_LIST_ALL = {pdg_phot, pdg_elec, pdg_posi, pdg_muP, pdg_muN, pdg_neut, pdg_prot};
+    // list of PDG number of particles that we want to generate from parma and be recorded
+    const std::vector<int> PDG_LIST = {pdg_phot, pdg_elec, pdg_posi, pdg_muN, pdg_muP};
+
+    const std::vector<int> PDG_LIST_ALL = {pdg_phot, pdg_elec, pdg_posi, pdg_muN, pdg_muP, pdg_neut, pdg_prot};
 
     const double WORLD_MAX_ALT = 10;     // km
 
@@ -125,11 +136,10 @@ public:
     //   const double latitude = 36.55;   // Kanazawa
 
     const double CR_GENERATION_ENER_MIN = 0.04;   // MeV
-    const double CR_GENERATION_ENER_MAX = 0.90e6; // MeV
+    const double CR_GENERATION_ENER_MAX = 8.95e5 * 0.9; // MeV
     const int year = 2016;
     const int month = 1;
     const int day = 20;
-
 
     uint RAM_USAGE_LIMIT_HAS_BEEN_REACHED = 0; // a flag indication if the limit of particles for RREA has been reached
     // meaning that real multiplciation factor is higher than the one obtained
@@ -147,6 +157,6 @@ public:
     bool CPU_TIME_LIMIT_PER_EVENT_HAS_BEEN_REACHED_ONCE = false;
     uint NB_LONG_CPU_TIME = 0;
 
-    const uint MAX_CPU_TICKS = 100;
+    const uint MAX_CPU_TICKS = 10;
     uint EVENT_DURATION_in_CPU_TICKS = 0;
 };
